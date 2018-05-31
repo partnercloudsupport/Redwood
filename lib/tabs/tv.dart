@@ -7,12 +7,21 @@ class Tv extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        new Icon(
-          Icons.tv,
-          size: 150.0,
-          color: Colors.black12
-        ),
-        new Text('Redwood Tv Coming Soon!')
+        new Card(
+          child: new Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const ListTile(
+                leading: const Icon(Icons.tv),
+                title: const Text('Redwood TV'),
+                subtitle: const Text('Season 7 Episode 25'),
+              ),
+              new Image.network(
+                'https://img.youtube.com/vi/u-x4LtVkTyQ/maxresdefault.jpg',
+              )
+            ],
+          ),
+        )
       ],
     ),
   );

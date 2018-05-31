@@ -122,7 +122,7 @@ class TabsState extends State<Tabs> {
       onPageChanged: onTabChanged,
       children: <Widget>[
         new _firstTab.Home(),
-        new _secondTab.Dashboard(),
+        new _secondTab.Feed(),
         new _thirdTab.Tv()
       ],
     ),
