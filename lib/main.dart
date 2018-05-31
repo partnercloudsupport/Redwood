@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:url_launcher/url_launcher.dart';
 import './tabs/home.dart' as _firstTab;
 import './tabs/dashboard.dart' as _secondTab;
 import './tabs/settings.dart' as _thirdTab;
@@ -166,12 +165,15 @@ class TabsState extends State<Tabs> {
               ),
             ),
           new ListTile(
-              leading: new Icon(Icons.info),
+              leading: new Icon(Icons.school),
               title: new Text('Redwood Website'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/about');
-              }
+              //onTap:
+          ),
+
+          new ListTile(
+            leading: new Icon(Icons.launch),
+            title: new Text('ESchool'),
+            //onTap:
           ),
 //          new ListTile(
 //            leading: new Icon(Icons.chat),
@@ -226,7 +228,8 @@ class TabItem {
 }
 
 const List<TabItem> TabItems = const <TabItem>[
-  const TabItem(title: 'Feed', icon: Icons.menu),
   const TabItem(title: 'Bells', icon: Icons.notifications),
+  const TabItem(title: 'Feed', icon: Icons.menu),
   const TabItem(title: 'Settings', icon: Icons.settings)
 ];
+

@@ -12,7 +12,7 @@ class Settings extends StatelessWidget {
           size: 150.0,
           color: Colors.black12
         ),
-        new Text('Settings Coming Soon')
+        new Text('Settings Coming Soon!')
       ],
     ),
   );
