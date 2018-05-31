@@ -18,12 +18,16 @@ class Tv extends StatelessWidget {
               ),
               new Image.network(
                 'https://img.youtube.com/vi/u-x4LtVkTyQ/maxresdefault.jpg',
-              )
-
+              ),
+              new Text('\n*This is currently not working*\n')
             ],
           ),
+
         )
+
       ],
+
     ),
+
   );
 }
