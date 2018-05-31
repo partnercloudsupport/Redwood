@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import './tabs/home.dart' as _firstTab;
 import './tabs/dashboard.dart' as _secondTab;
-import './tabs/settings.dart' as _thirdTab;
+import './tabs/tv.dart' as _thirdTab;
 import './screens/about.dart' as _aboutPage;
 import './screens/support.dart' as _supportPage;
+import './screens/settings.dart' as _settingsPage;
 
 void main() => runApp(new MaterialApp(
   title: 'Redwood',
@@ -22,6 +23,10 @@ void main() => runApp(new MaterialApp(
       );
       case '/support': return new FromRightToLeft(
         builder: (_) => new _supportPage.Support(),
+        settings: settings,
+      );
+      case '/settings': return new FromRightToLeft(
+        builder: (_) => new _settingsPage.Settings(),
         settings: settings,
       );
     }
@@ -118,7 +123,7 @@ class TabsState extends State<Tabs> {
       children: <Widget>[
         new _firstTab.Home(),
         new _secondTab.Dashboard(),
-        new _thirdTab.Settings()
+        new _thirdTab.Tv()
       ],
     ),
 
@@ -184,6 +189,15 @@ class TabsState extends State<Tabs> {
 //            }
 //          ),
           new ListTile(
+              leading: new Icon(Icons.settings),
+              title: new Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/settings');
+              }
+          ),
+
+          new ListTile(
             leading: new Icon(Icons.info),
             title: new Text('About'),
             onTap: () {
@@ -230,6 +244,6 @@ class TabItem {
 const List<TabItem> TabItems = const <TabItem>[
   const TabItem(title: 'Bells', icon: Icons.notifications),
   const TabItem(title: 'Feed', icon: Icons.menu),
-  const TabItem(title: 'Settings', icon: Icons.settings)
+  const TabItem(title: 'Tv', icon: Icons.tv)
 ];
 
