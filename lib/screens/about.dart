@@ -21,9 +21,16 @@ class About extends StatelessWidget {
         new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text('App created by'),
+            new Text('App Created by'),
             new Text(
               'Elias Deuss',
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              style: new TextStyle(fontWeight: FontWeight.bold),
+            ),
+            new Text('\n\nApp Icon Created by:'),
+            new Text(
+              'Lauren Smart',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: new TextStyle(fontWeight: FontWeight.bold),
