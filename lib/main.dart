@@ -31,9 +31,11 @@ void main() => runApp(new MaterialApp(
       );
     }
   },
+
   // routes: <String, WidgetBuilder> {
   //   '/about': (BuildContext context) => new _aboutPage.About(),
   // }
+
 ));
 
 class FromRightToLeft<T> extends MaterialPageRoute<T> {
