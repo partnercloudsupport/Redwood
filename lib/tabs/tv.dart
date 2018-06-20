@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 Future<Post> fetchPost() async {
   final response =
-  await http.get('https://raw.githubusercontent.com/EliasDeuss/data/master/tv.json');
+  await http.get('https://raw.githubusercontent.com/EliasDeuss/data/master/tv3.json');
   final responseJson = json.decode(response.body);
 
   return Post.fromJson(responseJson);
@@ -47,7 +47,18 @@ class MyApp extends StatelessWidget {
             future: fetchPost(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(snapshot.data.title);
+                return new Card(
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ListTile(
+                        leading: const Icon(Icons.menu),
+                        title: new Text(snapshot.data.title)
+                      ),
+                      Image.network(snapshot.data.body)
+                    ],
+                  ),
+                );
               } else if (snapshot.hasError) {
                 return Text("${snapshot.error}");
               }
