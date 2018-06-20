@@ -24,7 +24,7 @@ class HomePageState extends State<HomePage> {
 
   Future<String> getData() async {
     var response = await http.get(
-        Uri.encodeFull("https://raw.githubusercontent.com/EliasDeuss/data/master/tv.json"),
+        Uri.encodeFull("https://raw.githubusercontent.com/isontic/data/master/tv.json"),
         headers: {
           "Accept": "application/json"
         }
@@ -37,6 +37,7 @@ class HomePageState extends State<HomePage> {
     });
     print(data[1]["title"]);
     print(data[1]["body"]);
+    print(data[1]["link"]);
 
     return "Success!";
   }
@@ -58,10 +59,20 @@ class HomePageState extends State<HomePage> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 ListTile(
-                  leading: const Icon(Icons.menu),
+                  leading: const Icon(Icons.tv),
                   title: new Text(data[index]["title"])
                 ),
-                Image.network(data[index]["body"])
+                Image.network(data[index]["body"]),
+          new ButtonTheme.bar( // make buttons use the appropriate styles for cards
+            child: new ButtonBar(
+            children: <Widget>[
+               new FlatButton(
+                 child: const Text('Watch'),
+                  onPressed: () { /* ... */ },
+               ),
+              ],
+              ),
+          ),
               ],
             ),
           );

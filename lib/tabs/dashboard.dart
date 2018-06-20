@@ -24,7 +24,7 @@ class HomePageState extends State<HomePage> {
 
   Future<String> getData() async {
     var response = await http.get(
-        Uri.encodeFull("https://raw.githubusercontent.com/EliasDeuss/data/master/feed.json"),
+        Uri.encodeFull("https://raw.githubusercontent.com/isontic/data/master/feed.json"),
         headers: {
           "Accept": "application/json"
         }
