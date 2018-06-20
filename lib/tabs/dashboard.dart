@@ -54,11 +54,12 @@ class HomePageState extends State<HomePage> {
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
           return new Card(
+
             child: new Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 ListTile(
-                  leading: const Icon(Icons.menu),
+                  leading: const Icon(Icons.label),
                   title: new Text(data[index]["title"]),
                   subtitle: new Text(data[index]["body"]),
                 ),

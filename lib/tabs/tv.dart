@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
+import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
 
 class Tv extends StatelessWidget {
@@ -62,7 +62,18 @@ class HomePageState extends State<HomePage> {
                   leading: const Icon(Icons.tv),
                   title: new Text(data[index]["title"])
                 ),
-                Image.network(data[index]["body"]),
+                Stack(
+                  children: <Widget>[
+                    Center(child: CircularProgressIndicator()),
+                    Center(
+                      child: FadeInImage.memoryNetwork(
+                        placeholder: kTransparentImage,
+                        image: data[index]["body"],
+                      ),
+                    ),
+                  ],
+                ),
+
           new ButtonTheme.bar( // make buttons use the appropriate styles for cards
             child: new ButtonBar(
             children: <Widget>[
