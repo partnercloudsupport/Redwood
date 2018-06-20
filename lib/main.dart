@@ -6,6 +6,10 @@ import './tabs/tv.dart' as _thirdTab;
 import './screens/about.dart' as _aboutPage;
 import './screens/support.dart' as _supportPage;
 import './screens/settings.dart' as _settingsPage;
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 
 void main() => runApp(new MaterialApp(
   title: 'Redwood',
@@ -31,7 +35,6 @@ void main() => runApp(new MaterialApp(
       );
     }
   },
-
   // routes: <String, WidgetBuilder> {
   //   '/about': (BuildContext context) => new _aboutPage.About(),
   // }
@@ -41,6 +44,7 @@ void main() => runApp(new MaterialApp(
 class FromRightToLeft<T> extends MaterialPageRoute<T> {
   FromRightToLeft({ WidgetBuilder builder, RouteSettings settings })
     : super(builder: builder, settings: settings);
+
 
   @override
   Widget buildTransitions(
@@ -85,7 +89,7 @@ class Tabs extends StatefulWidget {
 }
 
 class TabsState extends State<Tabs> {
-  
+
   PageController _tabController;
 
   var _title_app = null;
@@ -110,13 +114,15 @@ class TabsState extends State<Tabs> {
     //App Bar
     appBar: new AppBar(
       title: new Text(
-        _title_app, 
+        _title_app,
         style: new TextStyle(
           fontSize: Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 20.0,
         ),
       ),
       elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
     ),
+
+
 
     //Content of tabs
     body: new PageView(
@@ -248,4 +254,5 @@ const List<TabItem> TabItems = const <TabItem>[
   const TabItem(title: 'Feed', icon: Icons.menu),
   const TabItem(title: 'Tv', icon: Icons.tv)
 ];
+
 
