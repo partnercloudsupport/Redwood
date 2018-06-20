@@ -20,6 +20,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
 
   List data;
+  List data2;
 
   Future<String> getData() async {
     var response = await http.get(
@@ -32,8 +33,10 @@ class HomePageState extends State<HomePage> {
     this.setState(() {
       data = json.decode(response.body);
 
+
     });
     print(data[1]["title"]);
+    print(data[1]["body"]);
 
     return "Success!";
   }
@@ -57,7 +60,7 @@ class HomePageState extends State<HomePage> {
                 ListTile(
                   leading: const Icon(Icons.menu),
                   title: new Text(data[index]["title"]),
-                  subtitle: new Text("Test"),
+                  subtitle: new Text(data[index]["body"]),
                 ),
               ],
             ),

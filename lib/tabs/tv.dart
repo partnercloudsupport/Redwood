@@ -4,70 +4,69 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 
-Future<Post> fetchPost() async {
-  final response =
-  await http.get('https://raw.githubusercontent.com/EliasDeuss/data/master/tv3.json');
-  final responseJson = json.decode(response.body);
-
-  return Post.fromJson(responseJson);
-}
-
-class Post {
-  final int userId;
-  final int id;
-  final String title;
-  final String body;
-
-  Post({this.userId, this.id, this.title, this.body});
-
-  factory Post.fromJson(Map<String, dynamic> json) {
-    return Post(
-      userId: json['userId'],
-      id: json['id'],
-      title: json['title'],
-      body: json['body'],
-    );
-  }
-}
-
 class Tv extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => new Container(
-    child: new MyApp(),
+    child: new HomePage(),
   );
 }
 
-class MyApp extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  HomePageState createState() => new HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+
+  List data;
+  List data2;
+
+  Future<String> getData() async {
+    var response = await http.get(
+        Uri.encodeFull("https://raw.githubusercontent.com/EliasDeuss/data/master/tv.json"),
+        headers: {
+          "Accept": "application/json"
+        }
+    );
+
+    this.setState(() {
+      data = json.decode(response.body);
+
+
+    });
+    print(data[1]["title"]);
+    print(data[1]["body"]);
+
+    return "Success!";
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.getData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        body: Center(
-          child: FutureBuilder<Post>(
-            future: fetchPost(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return new Card(
-                  child: new Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      ListTile(
-                        leading: const Icon(Icons.menu),
-                        title: new Text(snapshot.data.title)
-                      ),
-                      Image.network(snapshot.data.body)
-                    ],
-                  ),
-                );
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
-
-              // By default, show a loading spinner
-              return CircularProgressIndicator();
-            },
-          ),
-        ),
-      );
+      body: new ListView.builder(
+        itemCount: data == null ? 0 : data.length,
+        itemBuilder: (BuildContext context, int index) {
+          return new Card(
+            child: new Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ListTile(
+                  leading: const Icon(Icons.menu),
+                  title: new Text(data[index]["title"])
+                ),
+                Image.network(data[index]["body"])
+              ],
+            ),
+          );
+        },
+      ),
+    );
   }
 }
