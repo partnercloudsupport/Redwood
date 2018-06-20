@@ -1,86 +1,62 @@
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
 
+Future<Post> fetchPost() async {
+  final response =
+  await http.get('https://raw.githubusercontent.com/EliasDeuss/data/master/tv.json');
+  final responseJson = json.decode(response.body);
+
+  return Post.fromJson(responseJson);
+}
+
+class Post {
+  final int userId;
+  final int id;
+  final String title;
+  final String body;
+
+  Post({this.userId, this.id, this.title, this.body});
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(
+      userId: json['userId'],
+      id: json['id'],
+      title: json['title'],
+      body: json['body'],
+    );
+  }
+}
 
 class Tv extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => new Container(
-    child:  new ListView.builder(
-      itemBuilder: (BuildContext context, int index) =>
-      new EntryItem(data[index]),
-      itemCount: data.length,
-    ),
+    child: new MyApp(),
   );
 }
 
-// One entry in the multilevel list displayed by this app.
-class Entry {
-  Entry(this.title, [this.children = const <Entry>[]]);
-
-  final String title;
-  final List<Entry> children;
-}
-
-// The entire multilevel list displayed by this app.
-final List<Entry> data = <Entry>[
-  new Entry(
-    'Chapter A',
-    <Entry>[
-      new Entry(
-        'Section A0',
-        <Entry>[
-          new Entry('Item A0.1'),
-          new Entry('Item A0.2'),
-          new Entry('Item A0.3'),
-        ],
-      ),
-      new Entry('Section A1'),
-      new Entry('Section A2'),
-    ],
-  ),
-  new Entry(
-    'Chapter B',
-    <Entry>[
-      new Entry('Section B0'),
-      new Entry('Section B1'),
-    ],
-  ),
-  new Entry(
-    'Chapter C',
-    <Entry>[
-      new Entry('Section C0'),
-      new Entry('Section C1'),
-      new Entry(
-        'Section C2',
-        <Entry>[
-          new Entry('Item C2.0'),
-          new Entry('Item C2.1'),
-          new Entry('Item C2.2'),
-          new Entry('Item C2.3'),
-        ],
-      ),
-    ],
-  ),
-];
-
-// Displays one Entry. If the entry has children then it's displayed
-// with an ExpansionTile.
-class EntryItem extends StatelessWidget {
-  const EntryItem(this.entry);
-
-  final Entry entry;
-
-  Widget _buildTiles(Entry root) {
-    if (root.children.isEmpty) return new ListTile(title: new Text(root.title));
-    return new ExpansionTile(
-      key: new PageStorageKey<Entry>(root),
-      title: new Text(root.title),
-      children: root.children.map(_buildTiles).toList(),
-    );
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _buildTiles(entry);
+    return new Scaffold(
+        body: Center(
+          child: FutureBuilder<Post>(
+            future: fetchPost(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Text(snapshot.data.title);
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
+
+              // By default, show a loading spinner
+              return CircularProgressIndicator();
+            },
+          ),
+        ),
+      );
   }
 }

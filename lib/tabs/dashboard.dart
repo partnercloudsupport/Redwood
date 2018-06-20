@@ -20,7 +20,6 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
 
   List data;
-  List data2;
 
   Future<String> getData() async {
     var response = await http.get(
