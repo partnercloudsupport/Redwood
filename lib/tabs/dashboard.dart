@@ -20,7 +20,6 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
 
   List data;
-  List data2;
 
   Future<String> getData() async {
     var response = await http.get(
@@ -32,11 +31,10 @@ class HomePageState extends State<HomePage> {
 
     this.setState(() {
       data = json.decode(response.body);
-
-
     });
     print(data[1]["title"]);
     print(data[1]["body"]);
+    print(data[1]["img"]);
 
     return "Success!";
   }
@@ -51,6 +49,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new ListView.builder(
+        physics: const AlwaysScrollableScrollPhysics(),
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
           return new Card(
@@ -63,6 +62,7 @@ class HomePageState extends State<HomePage> {
                   title: new Text(data[index]["title"]),
                   subtitle: new Text(data[index]["body"]),
                 ),
+                Image.network(data[index]["img"])
               ],
             ),
           );
