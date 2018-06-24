@@ -62,9 +62,7 @@ class About extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: new TextStyle(fontWeight: FontWeight.bold, color: Colors.white.withOpacity(0.9), fontSize: 22.0),
             ),
-            Image.network(
-              'https://i.imgur.com/jzuk15G.png',
-            )
+            new Image.asset('isontic.png')
           ],
         )
       ],

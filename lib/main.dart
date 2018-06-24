@@ -8,6 +8,10 @@ import './screens/support.dart' as _supportPage;
 import './screens/settings.dart' as _settingsPage;
 import 'package:url_launcher/url_launcher.dart';
 
+import 'dart:async';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 void main() => runApp(
 
     new MaterialApp(
@@ -176,7 +180,7 @@ class TabsState extends State<Tabs> {
             child: new DrawerHeader(
               padding: new EdgeInsets.all(0.0),
               decoration: new BoxDecoration(
-                color: new Color(0xFFECEFF1),
+                color: new Color(0xFFFFEBEE),
               ),
               child: new Center(
                 child: new Image.asset('logo.gif')
@@ -186,13 +190,13 @@ class TabsState extends State<Tabs> {
           new ListTile(
               leading: new Icon(Icons.school),
               title: new Text('Redwood Website'),
-              onTap: launchURL,
+              onTap: RHSURL,
           ),
 
           new ListTile(
             leading: new Icon(Icons.launch),
             title: new Text('ESchool'),
-            //onTap:
+            onTap: ESCHOOLURL,
           ),
 //          new ListTile(
 //            leading: new Icon(Icons.chat),
@@ -261,15 +265,10 @@ const List<TabItem> TabItems = const <TabItem>[
   const TabItem(title: 'Tv', icon: Icons.tv)
 ];
 
-_launchRHS() async {
-  const url = 'http://redwood.com';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
+RHSURL() {
+  launch('http://redwood.org');
 }
 
-launchURL() {
-  launch('https://flutter.io');
+ESCHOOLURL() {
+  launch('https://home.tamdistrict.org/HomeAccess/Classes/Classwork');
 }

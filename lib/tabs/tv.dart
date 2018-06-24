@@ -55,16 +55,9 @@ class HomePageState extends State<HomePage> {
       body: new ListView.builder(
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
-
-          _launchURL() async {
-            String url = data[1]["link"];
-            if (await canLaunch(url)) {
-              await launch(url);
-            } else {
-              throw 'Could not launch $url';
-            }
+          URL() {
+            launch(data[1]["link"]);
           }
-
           return new Card(
             child: new Column(
               mainAxisSize: MainAxisSize.min,
@@ -90,7 +83,7 @@ class HomePageState extends State<HomePage> {
             children: <Widget>[
                new FlatButton(
                  child: const Text('Watch'),
-                  onPressed: _launchURL,
+                  onPressed: URL,
                ),
               ],
               ),
