@@ -8,10 +8,6 @@ import './screens/support.dart' as _supportPage;
 import './screens/settings.dart' as _settingsPage;
 import 'package:url_launcher/url_launcher.dart';
 
-import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-
 void main() => runApp(
 
     new MaterialApp(

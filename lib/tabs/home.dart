@@ -27,30 +27,29 @@ final List<Entry> data = <Entry>[
   new Entry('Monday (All Periods)',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
-          '\n\n1st Period 8:00-8:45'
-          '\n\n2nd Period 8:50-9:35'
-          '\n\nBreak 9:35-9:45'
-          '\n\n3rd Period 9:50-10:35'
-          '\n\nAdvisory 10:40-11:20'
-          '\n\n4th Period 11:25-12:10'
-          '\n\nLunch 12:10-12:45'
-          '\n\n5th Period 12:50-1:35'
-          '\n\n6th Period 1:40-2:25'
-          '\n\n7th Period 2:30-3:15\n'),
+          '\n\n1st Period 8:00-8:48'
+          '\n\n2nd Period 8:55-9:43'
+          '\n\nBreak 9:43-9:53'
+          '\n\n3rd Period 10:00-10:48'
+          '\n\n4th Period 10:55-11:43'
+          '\n\nLunch 11:43-12:18'
+          '\n\n5th Period 12:25-1:13'
+          '\n\n6th Period 1:20-2:08'
+          '\n\n7th Period 2:15-3:03\n'),
     ],
   ),
   new Entry('Tuesday & Friday (All Periods)',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
-          '\n\n1st Period 8:00-8:50'
-          '\n\n2nd Period 8:55-9:45'
-          '\n\nBreak 9:45-9:55'
-          '\n\n3rd Period 10:00-10:50'
-          '\n\n4th Period 10:55-11:45'
-          '\n\nLunch 11:45-12:25'
-          '\n\n5th Period 12:30-1:20'
-          '\n\n6th Period 1:25-2:15'
-          '\n\n7th Period 2:20-3:10\n'),
+          '\n\n1st Period 8:55-9:43 '
+          '\n\n2nd Period 8:55-9:43'
+          '\n\nBreak 9:43-9:53'
+          '\n\n3rd Period 10:00-10:48'
+          '\n\n4th Period 10:55-11:43'
+          '\n\nLunch 11:43-12:18'
+          '\n\n5th Period 12:25-1:13'
+          '\n\n6th Period 1:20-2:08'
+          '\n\n7th Period 2:15-3:03\n'),
     ],
   ),
   new Entry('Wednesday (Block Schedule)',
@@ -58,23 +57,23 @@ final List<Entry> data = <Entry>[
       new Entry('0 Period 7:05-7:55'
           '\n\n4th Period 8:00-9:30'
           '\n\nBreak 9:30-9:40'
-          '\n\n5th Period 9:45-11:15'
-          '\n\nLunch 11:15-11:50'
-          '\n\n6th Period 11:55-1:25'
-          '\n\nBreak 1:25-1:35'
-          '\n\n7th Period 1:40-3:10\n'),
+          '\n\n5th Period 9:47-11:17'
+          '\n\nLunch 11:17-11:53'
+          '\n\n6th Period 12:00-1:30'
+          '\n\n7th Period 1:37-3:07\n'),
     ],
   ),
   new Entry('Thursday (Block Schedule)',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
           '\n\n1st Period 8:00-9:30'
-          '\n\nSMART Period 9:35-10:20'
-          '\n\nBreak 10:20-10:30'
-          '\n\n2nd Period 10:35-12:05'
-          '\n\nLunch 12:05-12:50'
-          '\n\n3rd Period 12:55-2:25'
-          '\n\nFaculty Meeting 2:35-3:30\n'),
+          '\n\nHomeroom 9:37-9:47'
+          '\n\nSmart 9:47-10:30'
+          '\n\nBreak 10:30-10:40'
+          '\n\n2nd Period 10:47-12:17'
+          '\n\nLunch 12:17-12:55'
+          '\n\n3rd Period 1:02-2:32'
+          '\n\nStaff Meeting 2:42-3:37\n'),
     ],
   ),
   new Entry('Rally Thursday',
