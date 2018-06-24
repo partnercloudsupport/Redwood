@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Tv extends StatelessWidget {
 
@@ -54,6 +55,16 @@ class HomePageState extends State<HomePage> {
       body: new ListView.builder(
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
+
+          _launchURL() async {
+            String url = data[1]["link"];
+            if (await canLaunch(url)) {
+              await launch(url);
+            } else {
+              throw 'Could not launch $url';
+            }
+          }
+
           return new Card(
             child: new Column(
               mainAxisSize: MainAxisSize.min,
@@ -79,7 +90,7 @@ class HomePageState extends State<HomePage> {
             children: <Widget>[
                new FlatButton(
                  child: const Text('Watch'),
-                  onPressed: () { /* ... */ },
+                  onPressed: _launchURL,
                ),
               ],
               ),

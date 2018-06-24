@@ -6,12 +6,11 @@ import './tabs/tv.dart' as _thirdTab;
 import './screens/about.dart' as _aboutPage;
 import './screens/support.dart' as _supportPage;
 import './screens/settings.dart' as _settingsPage;
-import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
+void main() => runApp(
 
-void main() => runApp(new MaterialApp(
+    new MaterialApp(
   title: 'Redwood',
   theme: new ThemeData(
     primarySwatch: Colors.red,
@@ -19,6 +18,7 @@ void main() => runApp(new MaterialApp(
     primaryColor: Colors.red, backgroundColor: Colors.white
   ),
   home: new Tabs(),
+
   onGenerateRoute: (RouteSettings settings) {
     switch (settings.name) {
       case '/about': return new FromRightToLeft(
@@ -44,7 +44,6 @@ void main() => runApp(new MaterialApp(
 class FromRightToLeft<T> extends MaterialPageRoute<T> {
   FromRightToLeft({ WidgetBuilder builder, RouteSettings settings })
     : super(builder: builder, settings: settings);
-
 
   @override
   Widget buildTransitions(
@@ -90,6 +89,8 @@ class Tabs extends StatefulWidget {
 
 class TabsState extends State<Tabs> {
 
+
+
   PageController _tabController;
 
   var _title_app = null;
@@ -120,6 +121,13 @@ class TabsState extends State<Tabs> {
         ),
       ),
       elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
+      actions: <Widget>[
+        // action button
+        new IconButton(
+          icon: new Icon(Icons.refresh),
+          onPressed: initState,
+        )
+      ],
     ),
 
 
@@ -180,7 +188,7 @@ class TabsState extends State<Tabs> {
           new ListTile(
               leading: new Icon(Icons.school),
               title: new Text('Redwood Website'),
-              //onTap:
+              onTap: launchURL,
           ),
 
           new ListTile(
@@ -255,4 +263,15 @@ const List<TabItem> TabItems = const <TabItem>[
   const TabItem(title: 'Tv', icon: Icons.tv)
 ];
 
+_launchRHS() async {
+  const url = 'http://redwood.com';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
+launchURL() {
+  launch('https://flutter.io');
+}

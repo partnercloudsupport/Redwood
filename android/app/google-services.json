@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "131667320349",
+    "firebase_url": "https://redwood-bc135.firebaseio.com",
+    "project_id": "redwood-bc135",
+    "storage_bucket": "redwood-bc135.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131667320349:android:4945dfa2ce27c5da",
+        "android_client_info": {
+          "package_name": "com.isontic.rhs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131667320349-omlor58nnciu8i5roaavd1jatnb3kc35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK8Qg8HcyyIyEiPEFn3X3foevY4qXo8i8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

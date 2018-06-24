@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
 import 'package:flutter/material.dart';
 
 class Feed extends StatelessWidget {
@@ -18,7 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   List data;
 
   Future<String> getData() async {
@@ -53,15 +51,16 @@ class HomePageState extends State<HomePage> {
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
           return new Card(
-
             child: new Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+
                 ListTile(
                   leading: const Icon(Icons.label),
                   title: new Text(data[index]["title"]),
                   subtitle: new Text(data[index]["body"]),
                 ),
+
                 Image.network(data[index]["img"])
               ],
             ),
