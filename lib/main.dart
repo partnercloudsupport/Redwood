@@ -5,6 +5,7 @@ import './tabs/dashboard.dart' as _secondTab;
 import './tabs/tv.dart' as _thirdTab;
 import './screens/about.dart' as _aboutPage;
 import './screens/support.dart' as _supportPage;
+import './screens/Map.dart' as _mapPage;
 import './screens/settings.dart' as _settingsPage;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -27,6 +28,10 @@ void main() => runApp(
       );
       case '/support': return new FromRightToLeft(
         builder: (_) => new _supportPage.Support(),
+        settings: settings,
+      );
+      case '/map': return new FromRightToLeft(
+        builder: (_) => new _mapPage.Map(),
         settings: settings,
       );
       case '/settings': return new FromRightToLeft(
@@ -202,6 +207,14 @@ class TabsState extends State<Tabs> {
 //              Navigator.of(context).pushNamed('/support');
 //            }
 //          ),
+          new ListTile(
+              leading: new Icon(Icons.map),
+              title: new Text('School Map'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/map');
+              }
+          ),
           new ListTile(
               leading: new Icon(Icons.settings),
               title: new Text('Settings'),

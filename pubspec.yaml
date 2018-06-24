@@ -9,6 +9,7 @@ dependencies:
   firebase_analytics: "^1.0.1"
   firebase_messaging: "^1.0.3"
   flutter_launcher_icons: "^0.5.2"
+  scalable_image: "^1.1.1"
 
 dev_dependencies:
   flutter_test:
@@ -29,6 +30,9 @@ flutter:
   assets:
     - logo.gif
     - isontic.png
+    - Map1.png
+    - Map2.png
+    - Map3.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/.
