@@ -179,9 +179,7 @@ class TabsState extends State<Tabs> {
                 color: new Color(0xFFECEFF1),
               ),
               child: new Center(
-                child: new Image.network(
-                  'https://schoolassets.s3.amazonaws.com/logos/115707/115707.gif',
-                )
+                child: new Image.asset('logo.gif')
                 ),
               ),
             ),
