@@ -6,6 +6,7 @@ import './tabs/tv.dart' as _thirdTab;
 import './screens/about.dart' as _aboutPage;
 import './screens/support.dart' as _supportPage;
 import './screens/Map.dart' as _mapPage;
+import './screens/changelog.dart' as _changelogPage;
 import './screens/settings.dart' as _settingsPage;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,6 +33,10 @@ void main() => runApp(
       );
       case '/map': return new FromRightToLeft(
         builder: (_) => new _mapPage.Map(),
+        settings: settings,
+      );
+      case '/changelog': return new FromRightToLeft(
+        builder: (_) => new _changelogPage.changelog(),
         settings: settings,
       );
       case '/settings': return new FromRightToLeft(
@@ -93,7 +98,6 @@ class Tabs extends StatefulWidget {
 }
 
 class TabsState extends State<Tabs> {
-
 
 
   PageController _tabController;
@@ -232,6 +236,14 @@ class TabsState extends State<Tabs> {
               Navigator.of(context).pushNamed('/about');
             }
           ),
+          new ListTile(
+              leading: new Icon(Icons.cached),
+              title: new Text('Change Log'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/changelog');
+              }
+          ),
         ],
       )
     )
@@ -281,3 +293,4 @@ RHSURL() {
 ESCHOOLURL() {
   launch('https://home.tamdistrict.org/HomeAccess/Classes/Classwork');
 }
+

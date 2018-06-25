@@ -60,7 +60,6 @@ class HomePageState extends State<HomePage> {
                   title: new Text(data[index]["title"]),
                   subtitle: new Text(data[index]["body"]),
                 ),
-
                 Image.network(data[index]["img"])
               ],
             ),

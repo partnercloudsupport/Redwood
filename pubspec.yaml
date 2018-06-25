@@ -10,6 +10,7 @@ dependencies:
   firebase_messaging: "^1.0.3"
   flutter_launcher_icons: "^0.5.2"
   scalable_image: "^1.1.1"
+  flutter_webview_plugin: "^0.1.6"
 
 dev_dependencies:
   flutter_test:

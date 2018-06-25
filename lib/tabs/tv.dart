@@ -58,39 +58,49 @@ class HomePageState extends State<HomePage> {
           URL() {
             launch(data[1]["link"]);
           }
-          return new Card(
-            child: new Column(
-              mainAxisSize: MainAxisSize.min,
+//          return new Card(
+//            child: new Column(
+//              mainAxisSize: MainAxisSize.min,
+//              children: <Widget>[
+//                ListTile(
+//                  leading: const Icon(Icons.tv),
+//                  title: new Text(data[index]["title"])
+//                ),
+//                Stack(
+//                  children: <Widget>[
+//                    Center(child: CircularProgressIndicator()),
+//                    Center(
+//                      child: FadeInImage.memoryNetwork(
+//                        placeholder: kTransparentImage,
+//                        image: data[index]["body"],
+//                      ),
+//                    ),
+//                  ],
+//                ),
+//                new ButtonTheme.bar( // make buttons use the appropriate styles for cards
+//            child: new ButtonBar(
+//            children: <Widget>[
+//               new FlatButton(
+//                 child: const Text('Watch'),
+//                  onPressed: URL,
+//               ),
+//              ],
+//              ),
+//          ),
+//              ],
+//            ),
+//          );
+        return new Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                ListTile(
-                  leading: const Icon(Icons.tv),
-                  title: new Text(data[index]["title"])
+                new Icon(
+                    Icons.tv,
+                    size: 150.0,
+                    color: Colors.black12
                 ),
-                Stack(
-                  children: <Widget>[
-                    Center(child: CircularProgressIndicator()),
-                    Center(
-                      child: FadeInImage.memoryNetwork(
-                        placeholder: kTransparentImage,
-                        image: data[index]["body"],
-                      ),
-                    ),
-                  ],
-                ),
-
-          new ButtonTheme.bar( // make buttons use the appropriate styles for cards
-            child: new ButtonBar(
-            children: <Widget>[
-               new FlatButton(
-                 child: const Text('Watch'),
-                  onPressed: URL,
-               ),
+                new Text('Redwood TV Coming Soon!')
               ],
-              ),
-          ),
-              ],
-            ),
-          );
+            );
         },
       ),
     );
