@@ -227,7 +227,7 @@ class TabsState extends State<Tabs> {
 //                Navigator.of(context).pushNamed('/settings');
 //              }
 //          ),
-
+          new Divider(height: 10.0,color: Colors.grey,),
           new ListTile(
             leading: new Icon(Icons.info),
             title: new Text('About'),
@@ -236,7 +236,6 @@ class TabsState extends State<Tabs> {
               Navigator.of(context).pushNamed('/about');
             }
           ),
-          new Divider(height: 10.0,color: Colors.grey,),
           new ListTile(
               leading: new Icon(Icons.cached),
               title: new Text('Change Log'),
