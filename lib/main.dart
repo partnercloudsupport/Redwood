@@ -219,14 +219,14 @@ class TabsState extends State<Tabs> {
                 Navigator.of(context).pushNamed('/map');
               }
           ),
-          new ListTile(
-              leading: new Icon(Icons.settings),
-              title: new Text('Settings'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/settings');
-              }
-          ),
+//          new ListTile(
+//              leading: new Icon(Icons.settings),
+//              title: new Text('Settings'),
+//              onTap: () {
+//                Navigator.pop(context);
+//                Navigator.of(context).pushNamed('/settings');
+//              }
+//          ),
 
           new ListTile(
             leading: new Icon(Icons.info),

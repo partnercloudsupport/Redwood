@@ -54,7 +54,6 @@ class HomePageState extends State<HomePage> {
             child: new Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-
                 ListTile(
                   leading: const Icon(Icons.label),
                   title: new Text(data[index]["title"]),
