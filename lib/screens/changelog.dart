@@ -18,7 +18,7 @@ class changelog extends StatelessWidget {
 
     //Content of tabs
     body: new WebviewScaffold(
-      url: 'https://isontic.github.io/changelog/rhs',
+      url: 'https://isontic.github.io/changelog/rhs/index.html',
       appBar: new AppBar(
         title: new Text("Change Log"),
       ),
