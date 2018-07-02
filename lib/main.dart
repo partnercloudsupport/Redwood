@@ -236,6 +236,7 @@ class TabsState extends State<Tabs> {
               Navigator.of(context).pushNamed('/about');
             }
           ),
+          new Divider(height: 10.0,color: Colors.grey,),
           new ListTile(
               leading: new Icon(Icons.cached),
               title: new Text('Change Log'),
@@ -243,6 +244,11 @@ class TabsState extends State<Tabs> {
                 Navigator.pop(context);
                 Navigator.of(context).pushNamed('/changelog');
               }
+          ),
+          new ListTile(
+              leading: new Icon(Icons.feedback),
+              title: new Text('Feedback'),
+              onTap: FBURL,
           ),
         ],
       )
@@ -294,3 +300,6 @@ ESCHOOLURL() {
   launch('https://home.tamdistrict.org/HomeAccess/Classes/Classwork');
 }
 
+FBURL() {
+  launch('https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
+}
