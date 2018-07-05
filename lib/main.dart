@@ -9,6 +9,7 @@ import './screens/Map.dart' as _mapPage;
 import './screens/changelog.dart' as _changelogPage;
 import './screens/settings.dart' as _settingsPage;
 import 'package:url_launcher/url_launcher.dart';
+import 'package:quick_actions/quick_actions.dart';
 
 void main() => runApp(
 
@@ -130,13 +131,6 @@ class TabsState extends State<Tabs> {
         ),
       ),
       elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
-      actions: <Widget>[
-        // action button
-        new IconButton(
-          icon: new Icon(Icons.refresh),
-          onPressed: initState,
-        )
-      ],
     ),
 
 

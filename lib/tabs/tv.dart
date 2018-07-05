@@ -24,18 +24,18 @@ class HomePageState extends State<HomePage> {
   List data2;
 
   Future<String> getData() async {
-//    var response = await http.get(
-//        Uri.encodeFull("https://raw.githubusercontent.com/isontic/data/master/tv.json"),
-//        headers: {
-//          "Accept": "application/json"
-//        }
-//    );
-//
-//    this.setState(() {
-//      data = json.decode(response.body);
-//
-//
-//    });
+    var response = await http.get(
+        Uri.encodeFull("https://raw.githubusercontent.com/isontic/data/master/tv.json"),
+        headers: {
+          "Accept": "application/json"
+        }
+    );
+
+    this.setState(() {
+      data = json.decode(response.body);
+
+
+    });
     print(data[1]["title"]);
     print(data[1]["body"]);
     print(data[1]["link"]);
@@ -51,67 +51,56 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-//    return new Scaffold(
-//      body: new ListView.builder(
-//        itemCount: data == null ? 0 : data.length,
-//        itemBuilder: (BuildContext context, int index) {
-//          URL() {
-//            launch(data[1]["link"]);
-//          }
-//          return new Card(
-//            child: new Column(
-//              mainAxisSize: MainAxisSize.min,
-//              children: <Widget>[
-//                ListTile(
-//                  leading: const Icon(Icons.tv),
-//                  title: new Text(data[index]["title"])
-//                ),
-//                Stack(
-//                  children: <Widget>[
-//                    Center(child: CircularProgressIndicator()),
-//                    Center(
-//                      child: FadeInImage.memoryNetwork(
-//                        placeholder: kTransparentImage,
-//                        image: data[index]["body"],
-//                      ),
-//                    ),
-//                  ],
-//                ),
-//                new ButtonTheme.bar( // make buttons use the appropriate styles for cards
-//            child: new ButtonBar(
-//            children: <Widget>[
-//               new FlatButton(
-//                 child: const Text('Watch'),
-//                  onPressed: URL,
-//               ),
-//              ],
-//              ),
-//          ),
-//              ],
-//            ),
-//          );
-        return new Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Icon(
-                    Icons.tv,
-                    size: 150.0,
-                    color: Colors.black12
+    return new Scaffold(
+        body: new ListView.builder(
+            itemCount: data == null ? 0 : data.length,
+            itemBuilder: (BuildContext context, int index) {
+              URL() {
+                launch(data[1]["link"]);
+              }
+              return new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[ new Card(
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                        leading: const Icon(Icons.tv),
+                        title: new Text(data[index]["title"])
+                    ),
+                    new Container(
+                      width: 370.0,
+                      height: 200.0,
+                      child: Stack(
+                        children: <Widget>[
+                          Center(child: CircularProgressIndicator()),
+                          Center(
+                            child: FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: data[index]["body"],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    new ButtonTheme
+                        .bar( // make buttons use the appropriate styles for cards
+                      child: new ButtonBar(
+                        children: <Widget>[
+                          new FlatButton(
+                            child: const Text('Watch'),
+                            onPressed: URL,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                new Text('Redwood TV Coming Soon!\n'),
-                new Text('If you want to watch the latest episode tap on the button\n'),
-                new RaisedButton(
-                  child: const Text('Latest Episode'),
-                  color: Color.fromARGB(170,255,0,0),
-                  elevation: 4.0,
-                  splashColor: Colors.blueGrey,
-                  onPressed: TVE,
-                ),
-              ],
-            );
-//        },
-//      ),
-//    );
+              ),]
+              );
+            }
+        )
+    );
   }
 }
 
