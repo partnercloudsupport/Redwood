@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_youtube/flutter_youtube.dart';
 
 class Tv extends StatelessWidget {
 
@@ -49,18 +50,25 @@ class HomePageState extends State<HomePage> {
     this.getData();
   }
 
+  void playYoutubeVideo() {
+    FlutterYoutube.playYoutubeVideoByUrl(
+      apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
+      videoUrl: "https://www.youtube.com/watch?v=wlXy6FDEWR8",
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
         body: new ListView.builder(
             itemCount: data == null ? 0 : data.length,
             itemBuilder: (BuildContext context, int index) {
-              URL() {
-                launch(data[1]["link"]);
-              }
               return new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[ new Card(
+                children: <Widget>[ new Container(
+                  alignment: FractionalOffset.center,
+                  padding: const EdgeInsets.symmetric(vertical: 157.0),
+                  child: new Card(
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
@@ -89,14 +97,15 @@ class HomePageState extends State<HomePage> {
                         children: <Widget>[
                           new FlatButton(
                             child: const Text('Watch'),
-                            onPressed: URL,
+                            onPressed: playYoutubeVideo,
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-              ),]
+              ),
+                ),]
               );
             }
         )
