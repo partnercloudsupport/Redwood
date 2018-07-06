@@ -39,6 +39,7 @@ class HomePageState extends State<HomePage> {
     });
     print(data[1]["title"]);
     print(data[1]["body"]);
+    print(data[1]["description"]);
     print(data[1]["link"]);
 
     return "Success!";
@@ -67,14 +68,15 @@ class HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[ new Container(
                   alignment: FractionalOffset.center,
-                  padding: const EdgeInsets.symmetric(vertical: 157.0),
+                  padding: const EdgeInsets.symmetric(vertical: 155.0),
                   child: new Card(
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     ListTile(
                         leading: const Icon(Icons.tv),
-                        title: new Text(data[index]["title"])
+                        title: new Text(data[index]["title"]),
+                        subtitle: new Text(data[index]["description"])
                     ),
                     new Container(
                       width: 370.0,
