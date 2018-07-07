@@ -1,4 +1,4 @@
-name: flutter_starter
+name: redwood
 description: A new Flutter project.
 
 dependencies:
@@ -8,11 +8,13 @@ dependencies:
   url_launcher: "^3.0.2"
   firebase_analytics: "^1.0.1"
   firebase_messaging: "^1.0.3"
+  firebase_database: "^1.0.1"
   flutter_launcher_icons: "^0.5.2"
   scalable_image: "^1.1.1"
   flutter_webview_plugin: "^0.1.6"
   quick_actions: "^0.2.1"
   flutter_youtube: "^0.1.2"
+  firebase_core:
 
 dev_dependencies:
   flutter_test:

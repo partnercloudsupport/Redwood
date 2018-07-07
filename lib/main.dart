@@ -10,6 +10,8 @@ import './screens/changelog.dart' as _changelogPage;
 import './screens/settings.dart' as _settingsPage;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:quick_actions/quick_actions.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 void main() => runApp(
 
@@ -101,6 +103,20 @@ class Tabs extends StatefulWidget {
 class TabsState extends State<Tabs> {
 
 
+  String textValue = 'Hello World !';
+  FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
+
+
+
+  update(String token) {
+    print(token);
+    DatabaseReference databaseReference = new FirebaseDatabase().reference();
+    databaseReference.child('fcm-token/${token}').set({"token":token});
+    textValue = token;
+    setState(() {});
+  }
+
+
   PageController _tabController;
 
   var _title_app = null;
@@ -111,6 +127,22 @@ class TabsState extends State<Tabs> {
     super.initState();
     _tabController = new PageController();
     this._title_app = TabItems[0].title;
+    firebaseMessaging.configure(onLaunch: (Map<String, dynamic> msg) {
+      print(" onLaunch called");
+    }, onResume: (Map<String, dynamic> msg) {
+      print(" onResume called");
+    }, onMessage: (Map<String, dynamic> msg) {
+      print(" onMessage called");
+    });
+    firebaseMessaging.requestNotificationPermissions(
+        const IosNotificationSettings(sound: true, alert: true, badge: true));
+    firebaseMessaging.onIosSettingsRegistered
+        .listen((IosNotificationSettings setting) {
+      print('IOS Setting Registed');
+    });
+    firebaseMessaging.getToken().then((token) {
+      update(token);
+    });
   }
 
   @override

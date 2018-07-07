@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 
 class Tv extends StatelessWidget {
@@ -22,7 +21,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
 
   List data;
-  List data2;
+
 
   Future<String> getData() async {
     var response = await http.get(
@@ -34,8 +33,6 @@ class HomePageState extends State<HomePage> {
 
     this.setState(() {
       data = json.decode(response.body);
-
-
     });
     print(data[1]["title"]);
     print(data[1]["body"]);
@@ -66,9 +63,8 @@ class HomePageState extends State<HomePage> {
             itemBuilder: (BuildContext context, int index) {
               return new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[ new Container(
+                children: <Widget>[  new Container(
                   alignment: FractionalOffset.center,
-                  padding: const EdgeInsets.symmetric(vertical: 155.0),
                   child: new Card(
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
@@ -113,8 +109,4 @@ class HomePageState extends State<HomePage> {
         )
     );
   }
-}
-
-TVE() {
-  launch('https://www.tamdistrict.org/RedwoodTV');
 }
