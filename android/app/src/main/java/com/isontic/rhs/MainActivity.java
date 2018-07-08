@@ -1,4 +1,4 @@
-package com.yourcompany.flutterstarter;
+package com.isontic.rhs;
 
 import android.os.Bundle;
 
