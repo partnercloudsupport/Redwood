@@ -16,6 +16,7 @@ dependencies:
   flutter_youtube: "^0.1.2"
   firebase_core:
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
