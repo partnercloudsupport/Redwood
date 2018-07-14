@@ -102,13 +102,8 @@ class Tabs extends StatefulWidget {
 
 class TabsState extends State<Tabs> {
 
-
-
-
   String textValue = 'Hello World !';
   FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
-
-
 
   update(String token) {
     print(token);
@@ -128,7 +123,7 @@ class TabsState extends State<Tabs> {
   void initState() {
     super.initState();
     _tabController = new PageController();
-    this._title_app = TabItems[0].title;
+    this._title_app = "Redwood - " + TabItems[0].title;
     firebaseMessaging.configure(onLaunch: (Map<String, dynamic> msg) {
       print(" onLaunch called");
     }, onResume: (Map<String, dynamic> msg) {
@@ -308,15 +303,15 @@ class TabsState extends State<Tabs> {
 
     switch (tab) {
       case 0:
-        this._title_app = TabItems[0].title;
+        this._title_app = "Redwood - " + TabItems[0].title;
       break;
 
       case 1:
-        this._title_app = TabItems[1].title;
+        this._title_app = "Redwood - " + TabItems[1].title;
       break;
 
       case 2:
-        this._title_app = TabItems[2].title;
+        this._title_app = "Redwood - " + TabItems[2].title;
       break;
     }
   }
@@ -329,9 +324,9 @@ class TabItem {
 }
 
 const List<TabItem> TabItems = const <TabItem>[
-  const TabItem(title: 'Redwood - Bells', icon: Icons.notifications),
-  const TabItem(title: 'Redwood - Feed', icon: Icons.menu),
-  const TabItem(title: 'Redwood - Tv', icon: Icons.tv)
+  const TabItem(title: 'Bells', icon: Icons.notifications),
+  const TabItem(title: 'Feed', icon: Icons.menu),
+  const TabItem(title: 'Tv', icon: Icons.tv)
 ];
 
 RHSURL() {
