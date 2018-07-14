@@ -145,6 +145,21 @@ class TabsState extends State<Tabs> {
     firebaseMessaging.getToken().then((token) {
       update(token);
     });
+
+    final QuickActions quickActions = const QuickActions();
+    quickActions.initialize((String shortcutType) {
+      if (shortcutType == 'bells') {
+        this._title_app = TabItems[0].title;
+      }
+      if (shortcutType == 'tv') {
+        this._title_app = TabItems[2].title;
+      }
+    });
+
+    quickActions.setShortcutItems(<ShortcutItem>[
+      const ShortcutItem(type: 'bells', localizedTitle: 'Bells', icon: 'notification'),
+      const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
+    ]);
   }
 
   @override
