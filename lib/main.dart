@@ -329,9 +329,9 @@ class TabItem {
 }
 
 const List<TabItem> TabItems = const <TabItem>[
-  const TabItem(title: 'Bells', icon: Icons.notifications),
-  const TabItem(title: 'Feed', icon: Icons.menu),
-  const TabItem(title: 'Tv', icon: Icons.tv)
+  const TabItem(title: 'Redwood - Bells', icon: Icons.notifications),
+  const TabItem(title: 'Redwood - Feed', icon: Icons.menu),
+  const TabItem(title: 'Redwood - Tv', icon: Icons.tv)
 ];
 
 RHSURL() {
