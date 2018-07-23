@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class About extends StatelessWidget {
   @override
@@ -37,11 +39,12 @@ class About extends StatelessWidget {
         ],
       ),
     ),
-    child: new PageView(
+    child: new ListView(
       children: <Widget>[
         new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            new Text('\n\n'),
             new Text(
                 'App Created by',
               style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 25.0),
@@ -51,6 +54,26 @@ class About extends StatelessWidget {
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: new TextStyle(fontWeight: FontWeight.bold, color: Colors.white.withOpacity(0.9), fontSize: 22.0),
+            ),
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                new IconButton(
+                  icon: new Icon(FontAwesomeIcons.twitter, color: Colors.white,),
+                  tooltip: 'Elias on Twitter',
+                  onPressed: EliasTwitter,
+                ),
+                new IconButton(
+                  icon: new Icon(FontAwesomeIcons.instagram, color: Colors.white,),
+                  tooltip: 'Elias on Instagram',
+                  onPressed: EliasInstagram,
+                ),
+                new IconButton(
+                  icon: new Icon(FontAwesomeIcons.github, color: Colors.white,),
+                  tooltip: 'Elias on Github',
+                  onPressed: EliasGithub,
+                ),
+              ],
             ),
             new Text(
                 '\nApp Icon Created by:',
@@ -62,7 +85,43 @@ class About extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: new TextStyle(fontWeight: FontWeight.bold, color: Colors.white.withOpacity(0.9), fontSize: 22.0),
             ),
-            new Image.asset('isontic.png')
+            new Text(
+              '\n\nSupport from',
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 25.0),
+            ),
+            new Image.asset('isontic.png'),
+            new Text(
+              'GRD Energy Inc.',
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 25.0),
+            ),
+            new Text(
+              '\n\n\nThe Redwood High School app is not a official',
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+            ),
+            new Text(
+              'school app but it is made and maintained by',
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+            ),
+            new Text(
+              'RedWood Students. The app is also open source!',
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+            ),
+            new Text(
+              'If you are interested in seeing the code of the',
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+            ),
+            new Text(
+              'app or help out the project you can so here:\n',
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+            ),
+            new RaisedButton(
+              child: new Text('Open Github Project',  style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
+              color: Theme.of(context).accentColor,
+              elevation: 4.0,
+              splashColor: Colors.blueGrey,
+              onPressed: GitHub,
+            ),
+            new Text('\n\n\n'),
           ],
         )
       ],
@@ -75,3 +134,17 @@ class About extends StatelessWidget {
 }
 
 
+GitHub() {
+  launch('https://github.com/isontic/Redwood');
+}
+
+//Elias
+EliasTwitter() {
+  launch('https://twitter.com/EliasDeuss');
+}
+EliasInstagram() {
+  launch('https://instagram.com/EliasDeuss');
+}
+EliasGithub() {
+  launch('https://github.com/EliasDeuss');
+}

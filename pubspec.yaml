@@ -16,6 +16,7 @@ dependencies:
   flutter_youtube: "^0.1.2"
   firebase_core:
   shared_preferences: "^0.4.2"
+  font_awesome_flutter: "^7.1.0"
 
 
 dev_dependencies:
