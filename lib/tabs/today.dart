@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,28 +17,10 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  List data;
-
-  Future<String> getData() async {
-    var response = await http.get(
-        Uri.encodeFull("https://raw.githubusercontent.com/isontic/data/master/today.json"),
-        headers: {
-          "Accept": "application/json"
-        }
-    );
-
-    this.setState(() {
-      data = json.decode(response.body);
-    });
-
-    return "Success!";
-  }
 
   @override
   void initState() {
     super.initState();
-    this.getData();
-
   }
 
   String nextclassstart = '5';

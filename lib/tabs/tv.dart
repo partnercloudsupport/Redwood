@@ -58,49 +58,45 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        body: new ListView.builder(
-            itemCount: data == null ? 0 : data.length,
-            itemBuilder: (BuildContext context, int index) {
-              return new Card(
-                      child: new Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          ListTile(
-                              leading: const Icon(Icons.tv),
-                              title: new Text(data[index]["title"])
-                          ),
-                          new Container(
-                            width: 370.0,
-                            height: 200.0,
-                            child: Stack(
-                              children: <Widget>[
-                                Center(child: CircularProgressIndicator()),
-                                Center(
-                                  child: FadeInImage.memoryNetwork(
-                                    placeholder: kTransparentImage,
-                                    image: data[index]["body"],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          new ButtonTheme
-                              .bar( // make buttons use the appropriate styles for cards
-                            child: new ButtonBar(
-                              children: <Widget>[
-                                new FlatButton(
-                                  child: const Text('Watch'),
-                                  onPressed: playYoutubeVideo,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                  ),
-              );
-            }
-        )
+    return new Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[   new Card(
+          child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+          ListTile(
+            leading: const Icon(Icons.tv),
+            title: new Text(data[0]["title"])
+          ),
+          new Container(
+            width: 370.0,
+            height: 200.0,
+            child: Stack(
+              children: <Widget>[
+              Center(child: CircularProgressIndicator()),
+              Center(
+                child: FadeInImage.memoryNetwork(
+                placeholder: kTransparentImage,
+                image: data[0]["body"],
+                ),
+              ),
+              ],
+            ),
+          ),
+          new ButtonTheme.bar( // make buttons use the appropriate styles for cards
+            child: new ButtonBar(
+                 children: <Widget>[
+                   new FlatButton(
+                      child: const Text('Watch'),
+                      onPressed: playYoutubeVideo,
+                   ),
+                 ],
+            ),
+          ),
+          ],
+          ),
+         ),
+  ],
     );
   }
 }
