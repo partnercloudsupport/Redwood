@@ -33,12 +33,54 @@ class HomePageState extends State<HomePage> {
 
   void _onChanged(bool value) {
     setState(() {
+      //0 Period
       if (_value_0 == true) {
         _value_0 = false;
       } else {
         _value_0 = true;
       }
-
+      //1st Period
+      if (_value_1 == true) {
+        _value_1 = false;
+      } else {
+        _value_1 = true;
+      }
+      //2nd Period
+      if (_value_2 == true) {
+        _value_2 = false;
+      } else {
+        _value_2 = true;
+      }
+      //3rd Period
+      if (_value_3 == true) {
+        _value_3 = false;
+      } else {
+        _value_3 = true;
+      }
+      //4th Period
+      if (_value_4 == true) {
+        _value_4 = false;
+      } else {
+        _value_4 = true;
+      }
+      //5th Period
+      if (_value_5 == true) {
+        _value_5 = false;
+      } else {
+        _value_5 = true;
+      }
+      //6th Period
+      if (_value_6 == true) {
+        _value_6 = false;
+      } else {
+        _value_6 = true;
+      }
+      //7th Period
+      if (_value_7 == true) {
+        _value_7 = false;
+      } else {
+        _value_7 = true;
+      }
     });
   }
 
