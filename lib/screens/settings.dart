@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatelessWidget {
 
@@ -193,9 +194,35 @@ class HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('Feedback'),
+                    subtitle: new Text(
+                      'Feedback help us better develop the app',
+                      style: new TextStyle(color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
+                    ),
+                  ),
+                  new RaisedButton(
+                    child: new Text('Send Feedback',  style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
+                    color: Theme.of(context).accentColor,
+                    elevation: 4.0,
+                    splashColor: Colors.blueGrey,
+                    onPressed: FBURL,
+                  ),
+                  new Text('\n')
+                ],
+              ),
+            ),
           ],
         )
       ],
     ),
   );
+}
+
+FBURL() {
+  launch('https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
 }

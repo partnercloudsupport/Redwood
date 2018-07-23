@@ -23,7 +23,7 @@ class HomePageState extends State<HomePage> {
 
   Future<String> getData() async {
     var response = await http.get(
-        Uri.encodeFull("https://raw.githubusercontent.com/isontic/data/master/feed.json"),
+        Uri.encodeFull("https://raw.githubusercontent.com/isontic/data/master/today.json"),
         headers: {
           "Accept": "application/json"
         }
@@ -32,9 +32,6 @@ class HomePageState extends State<HomePage> {
     this.setState(() {
       data = json.decode(response.body);
     });
-    print(data[1]["title"]);
-    print(data[1]["body"]);
-    print(data[1]["img"]);
 
     return "Success!";
   }
@@ -43,6 +40,7 @@ class HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     this.getData();
+
   }
 
   String nextclassstart = '5';

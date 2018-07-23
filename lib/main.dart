@@ -12,6 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(
 
@@ -237,7 +238,7 @@ class TabsState extends State<Tabs> {
           ),
 
           new ListTile(
-            leading: new Icon(Icons.launch),
+            leading: new Icon(FontAwesomeIcons.link),
             title: new Text('ESchool'),
             onTap: ESCHOOLURL,
           ),
@@ -257,6 +258,7 @@ class TabsState extends State<Tabs> {
                 Navigator.of(context).pushNamed('/map');
               }
           ),
+          new Divider(height: 10.0,color: Colors.grey,),
           new ListTile(
               leading: new Icon(Icons.settings),
               title: new Text('Settings'),
@@ -265,7 +267,6 @@ class TabsState extends State<Tabs> {
                 Navigator.of(context).pushNamed('/settings');
               }
           ),
-          new Divider(height: 10.0,color: Colors.grey,),
           new ListTile(
             leading: new Icon(Icons.info),
             title: new Text('About'),
@@ -274,19 +275,14 @@ class TabsState extends State<Tabs> {
               Navigator.of(context).pushNamed('/about');
             }
           ),
-          new ListTile(
-              leading: new Icon(Icons.cached),
-              title: new Text('Change Log'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/changelog');
-              }
-          ),
-          new ListTile(
-              leading: new Icon(Icons.feedback),
-              title: new Text('Feedback'),
-              onTap: FBURL,
-          ),
+//          new ListTile(
+//              leading: new Icon(Icons.cached),
+//              title: new Text('Change Log'),
+//              onTap: () {
+//                Navigator.pop(context);
+//                Navigator.of(context).pushNamed('/changelog');
+//              }
+//          ),
         ],
       )
     )
@@ -325,7 +321,7 @@ class TabItem {
 
 const List<TabItem> TabItems = const <TabItem>[
   const TabItem(title: 'Bells', icon: Icons.notifications),
-  const TabItem(title: 'Today', icon: Icons.menu),
+  const TabItem(title: 'Today', icon: FontAwesomeIcons.bolt),
   const TabItem(title: 'Tv', icon: Icons.tv)
 ];
 

@@ -103,7 +103,7 @@ class About extends StatelessWidget {
               style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
             ),
             new Text(
-              'RedWood Students. The app is also open source!',
+              'Redwood Students. The app is also open source!',
               style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
             ),
             new Text(
@@ -121,7 +121,30 @@ class About extends StatelessWidget {
               splashColor: Colors.blueGrey,
               onPressed: GitHub,
             ),
-            new Text('\n\n\n'),
+            new Text('\n'),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('Feedback'),
+                    subtitle: new Text(
+                      'Feedback help us better develop the app',
+                      style: new TextStyle(color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
+                    ),
+                  ),
+                  new RaisedButton(
+                    child: new Text('Send Feedback',  style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
+                    color: Theme.of(context).accentColor,
+                    elevation: 4.0,
+                    splashColor: Colors.blueGrey,
+                    onPressed: FBURL,
+                  ),
+                  new Text('\n')
+                ],
+              ),
+            ),
+            new Text('\n\n'),
           ],
         )
       ],
@@ -133,7 +156,9 @@ class About extends StatelessWidget {
 
 }
 
-
+FBURL() {
+  launch('https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
+}
 GitHub() {
   launch('https://github.com/isontic/Redwood');
 }
