@@ -1,7 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:async';
 
 class Settings extends StatelessWidget {
+
+
   @override
+  Widget build(BuildContext context) => new Container(
+    child: new HomePage(),
+  );
+}
+
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
+
+
+  @override
+  HomePageState createState() => new HomePageState();
+}
+
+class HomePageState extends State<HomePage> {
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+  bool _value_0 = false;
+  bool _value_1 = true;
+  bool _value_2 = true;
+  bool _value_3 = true;
+  bool _value_4 = true;
+  bool _value_5 = true;
+  bool _value_6 = true;
+  bool _value_7 = true;
+
+  void _onChanged(bool value) {
+    setState(() {
+      if (_value_0 == true) {
+        _value_0 = false;
+      } else {
+        _value_0 = true;
+      }
+
+    });
+  }
+
   Widget build (BuildContext context) => new Scaffold(
 
     //App Bar
@@ -16,7 +56,7 @@ class Settings extends StatelessWidget {
     ),
 
     //Content of tabs
-    body: new PageView(
+    body: new ListView(
       children: <Widget>[
         new Column(
           children: <Widget>[
@@ -31,7 +71,54 @@ class Settings extends StatelessWidget {
                       style: new TextStyle(color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
                     ),
                   ),
-
+                  new SwitchListTile(
+                    title: new Text('0 Period'),
+                    activeColor: Colors.red,
+                    value: _value_0,
+                    onChanged: (bool value){_onChanged(value);},
+                  ),
+                  new SwitchListTile(
+                    title: new Text('1st Period'),
+                    activeColor: Colors.red,
+                    value: _value_1,
+                    onChanged: (bool value){_onChanged(value);},
+                  ),
+                  new SwitchListTile(
+                    title: new Text('2nd Period'),
+                    activeColor: Colors.red,
+                    value: _value_2,
+                    onChanged: (bool value){_onChanged(value);},
+                  ),
+                  new SwitchListTile(
+                    title: new Text('3rd Period'),
+                    activeColor: Colors.red,
+                    value: _value_3,
+                    onChanged: (bool value){_onChanged(value);},
+                  ),
+                  new SwitchListTile(
+                    title: new Text('4th Period'),
+                    activeColor: Colors.red,
+                    value: _value_4,
+                    onChanged: (bool value){_onChanged(value);},
+                  ),
+                  new SwitchListTile(
+                    title: new Text('5th Period'),
+                    activeColor: Colors.red,
+                    value: _value_5,
+                    onChanged: (bool value){_onChanged(value);},
+                  ),
+                  new SwitchListTile(
+                    title: new Text('6th Period'),
+                    activeColor: Colors.red,
+                    value: _value_6,
+                    onChanged: (bool value){_onChanged(value);},
+                  ),
+                  new SwitchListTile(
+                    title: new Text('7th Period'),
+                    activeColor: Colors.red,
+                    value: _value_7,
+                    onChanged: (bool value){_onChanged(value);},
+                  ),
 
                 ],
               ),
