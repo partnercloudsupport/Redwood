@@ -31,7 +31,7 @@ class HomePageState extends State<HomePage> {
   bool _value_6 = true;
   bool _value_7 = true;
 
-  void _onChanged(bool value) {
+  void _onChanged_0(bool value0) {
     setState(() {
       //0 Period
       if (_value_0 == true) {
@@ -39,42 +39,70 @@ class HomePageState extends State<HomePage> {
       } else {
         _value_0 = true;
       }
+    });
+  }
+  void _onChanged_1(bool value1) {
+    setState(() {
       //1st Period
       if (_value_1 == true) {
         _value_1 = false;
       } else {
         _value_1 = true;
       }
+    });
+  }
+  void _onChanged_2(bool value2) {
+    setState(() {
       //2nd Period
       if (_value_2 == true) {
         _value_2 = false;
       } else {
         _value_2 = true;
       }
+    });
+  }
+  void _onChanged_3(bool value3) {
+    setState(() {
       //3rd Period
       if (_value_3 == true) {
         _value_3 = false;
       } else {
         _value_3 = true;
       }
+    });
+  }
+  void _onChanged_4(bool value4) {
+    setState(() {
       //4th Period
       if (_value_4 == true) {
         _value_4 = false;
       } else {
         _value_4 = true;
       }
+    });
+  }
+  void _onChanged_5(bool value5) {
+    setState(() {
       //5th Period
       if (_value_5 == true) {
         _value_5 = false;
       } else {
         _value_5 = true;
       }
+    });
+  }
+  void _onChanged_6(bool value6) {
+    setState(() {
       //6th Period
       if (_value_6 == true) {
         _value_6 = false;
       } else {
         _value_6 = true;
       }
+    });
+  }
+  void _onChanged_7(bool value7) {
+    setState(() {
       //7th Period
       if (_value_7 == true) {
         _value_7 = false;
@@ -117,49 +145,49 @@ class HomePageState extends State<HomePage> {
                     title: new Text('0 Period'),
                     activeColor: Colors.red,
                     value: _value_0,
-                    onChanged: (bool value){_onChanged(value);},
+                    onChanged: (bool value0){_onChanged_0(value0);},
                   ),
                   new SwitchListTile(
                     title: new Text('1st Period'),
                     activeColor: Colors.red,
                     value: _value_1,
-                    onChanged: (bool value){_onChanged(value);},
+                    onChanged: (bool value1){_onChanged_1(value1);},
                   ),
                   new SwitchListTile(
                     title: new Text('2nd Period'),
                     activeColor: Colors.red,
                     value: _value_2,
-                    onChanged: (bool value){_onChanged(value);},
+                    onChanged: (bool value2){_onChanged_2(value2);},
                   ),
                   new SwitchListTile(
                     title: new Text('3rd Period'),
                     activeColor: Colors.red,
                     value: _value_3,
-                    onChanged: (bool value){_onChanged(value);},
+                    onChanged: (bool value3){_onChanged_3(value3);},
                   ),
                   new SwitchListTile(
                     title: new Text('4th Period'),
                     activeColor: Colors.red,
                     value: _value_4,
-                    onChanged: (bool value){_onChanged(value);},
+                    onChanged: (bool value4){_onChanged_4(value4);},
                   ),
                   new SwitchListTile(
                     title: new Text('5th Period'),
                     activeColor: Colors.red,
                     value: _value_5,
-                    onChanged: (bool value){_onChanged(value);},
+                    onChanged: (bool value5){_onChanged_5(value5);},
                   ),
                   new SwitchListTile(
                     title: new Text('6th Period'),
                     activeColor: Colors.red,
                     value: _value_6,
-                    onChanged: (bool value){_onChanged(value);},
+                    onChanged: (bool value6){_onChanged_6(value6);},
                   ),
                   new SwitchListTile(
                     title: new Text('7th Period'),
                     activeColor: Colors.red,
                     value: _value_7,
-                    onChanged: (bool value){_onChanged(value);},
+                    onChanged: (bool value6){_onChanged_6(value6);},
                   ),
 
                 ],
