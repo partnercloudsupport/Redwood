@@ -152,8 +152,8 @@ class TabsState extends State<Tabs> {
     });
 
     quickActions.setShortcutItems(<ShortcutItem>[
-      const ShortcutItem(type: 'bells', localizedTitle: 'Bells', icon: 'notification'),
-      const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
+      const ShortcutItem(type: 'bells', localizedTitle: 'Bells', icon: 'Icons.notifications'),
+      const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'Icons.tv'),
     ]);
   }
 
