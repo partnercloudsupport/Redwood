@@ -19,14 +19,23 @@ class Settings extends StatelessWidget {
     body: new PageView(
       children: <Widget>[
         new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Icon(
-                Icons.settings,
-                size: 150.0,
-                color: Colors.black12
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('Your Classes'),
+                    subtitle: new Text(
+                      'Select the periods you have classes in.',
+                      style: new TextStyle(color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
+                    ),
+                  ),
+
+
+                ],
+              ),
             ),
-            new Text('Settings Coming Soon!')
           ],
         )
       ],

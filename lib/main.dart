@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import './tabs/home.dart' as _firstTab;
-import './tabs/dashboard.dart' as _secondTab;
+import './tabs/today.dart' as _secondTab;
 import './tabs/tv.dart' as _thirdTab;
 import './screens/about.dart' as _aboutPage;
 import './screens/support.dart' as _supportPage;
@@ -185,7 +185,7 @@ class TabsState extends State<Tabs> {
       onPageChanged: onTabChanged,
       children: <Widget>[
         new _firstTab.Home(),
-        new _secondTab.Feed(),
+        new _secondTab.Today(),
         new _thirdTab.Tv()
       ],
     ),
@@ -257,14 +257,14 @@ class TabsState extends State<Tabs> {
                 Navigator.of(context).pushNamed('/map');
               }
           ),
-//          new ListTile(
-//              leading: new Icon(Icons.settings),
-//              title: new Text('Settings'),
-//              onTap: () {
-//                Navigator.pop(context);
-//                Navigator.of(context).pushNamed('/settings');
-//              }
-//          ),
+          new ListTile(
+              leading: new Icon(Icons.settings),
+              title: new Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/settings');
+              }
+          ),
           new Divider(height: 10.0,color: Colors.grey,),
           new ListTile(
             leading: new Icon(Icons.info),
@@ -325,7 +325,7 @@ class TabItem {
 
 const List<TabItem> TabItems = const <TabItem>[
   const TabItem(title: 'Bells', icon: Icons.notifications),
-  const TabItem(title: 'Feed', icon: Icons.menu),
+  const TabItem(title: 'Today', icon: Icons.menu),
   const TabItem(title: 'Tv', icon: Icons.tv)
 ];
 

@@ -64,7 +64,7 @@ class HomePageState extends State<HomePage> {
             itemBuilder: (BuildContext context, int index) {
               return new Card(
                       child: new Column(
-                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           ListTile(
                               leading: const Icon(Icons.tv),

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
-class Feed extends StatelessWidget {
+class Today extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => new Container(
@@ -43,28 +43,28 @@ class HomePageState extends State<HomePage> {
     this.getData();
   }
 
+  String nextclassstart = '5';
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new ListView.builder(
-        physics: const AlwaysScrollableScrollPhysics(),
-        itemCount: data == null ? 0 : data.length,
-        itemBuilder: (BuildContext context, int index) {
-          return new Card(
-            child: new Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                ListTile(
-                  leading: const Icon(Icons.label),
-                  title: new Text(data[index]["title"]),
-                  subtitle: new Text(data[index]["body"]),
-                ),
-                Image.network(data[index]["img"])
-              ],
-            ),
-          );
-        },
-      ),
+    return new Column(
+      children: <Widget>[
+        new Text('\n'),
+        new Card(
+          child: new Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              new ListTile(
+                title: new Text('Your Next Class Starts in ' + nextclassstart +  ' minutes'),
+              ),
+
+            ],
+          ),
+        ),
+        new Divider(height: 10.0,color: Colors.grey,),
+      ],
     );
   }
+
+
 }
