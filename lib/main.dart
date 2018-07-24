@@ -299,15 +299,15 @@ class TabsState extends State<Tabs> {
 
     switch (tab) {
       case 0:
-        this._title_app = "Redwood - " + TabItems[0].title;
+        this._title_app = "Redwood - " + TabItems[0].title + " 🔔";
       break;
 
       case 1:
-        this._title_app = "Redwood - " + TabItems[1].title;
+        this._title_app = "Redwood - " + TabItems[1].title + " ⚡";
       break;
 
       case 2:
-        this._title_app = "Redwood - " + TabItems[2].title;
+        this._title_app = "Redwood - " + TabItems[2].title + " 📺";
       break;
     }
   }
