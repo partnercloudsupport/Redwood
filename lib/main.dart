@@ -275,14 +275,14 @@ class TabsState extends State<Tabs> {
               Navigator.of(context).pushNamed('/about');
             }
           ),
-//          new ListTile(
-//              leading: new Icon(Icons.cached),
-//              title: new Text('Change Log'),
-//              onTap: () {
-//                Navigator.pop(context);
-//                Navigator.of(context).pushNamed('/changelog');
-//              }
-//          ),
+          new ListTile(
+              leading: new Icon(Icons.cached),
+              title: new Text('Change Log'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/changelog');
+              }
+          ),
         ],
       )
     )

@@ -144,7 +144,6 @@ class About extends StatelessWidget {
                 ],
               ),
             ),
-            new Text('\n\n'),
           ],
         )
       ],
