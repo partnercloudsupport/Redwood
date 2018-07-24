@@ -69,6 +69,11 @@ class About extends StatelessWidget {
                   onPressed: EliasInstagram,
                 ),
                 new IconButton(
+                  icon: new Icon(FontAwesomeIcons.snapchatGhost, color: Colors.white,),
+                  tooltip: 'Elias on Snapchat',
+                  onPressed: EliasSnapchat,
+                ),
+                new IconButton(
                   icon: new Icon(FontAwesomeIcons.github, color: Colors.white,),
                   tooltip: 'Elias on Github',
                   onPressed: EliasGithub,
@@ -85,34 +90,44 @@ class About extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: new TextStyle(fontWeight: FontWeight.bold, color: Colors.white.withOpacity(0.9), fontSize: 22.0),
             ),
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                new IconButton(
+                  icon: new Icon(FontAwesomeIcons.instagram, color: Colors.white,),
+                  tooltip: 'Lauren on Instagram',
+                  onPressed: LaurenInstagram,
+                ),
+              ],
+            ),
             new Text(
               '\n\nSupport from',
               style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 25.0),
             ),
             new Image.asset('isontic.png'),
             new Text(
-              'GRD Energy Inc.',
-              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 25.0),
+              'GRD | Energy Inc.',
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 29.0),
             ),
             new Text(
               '\n\n\nThe Redwood High School app is not a official',
-              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 15.0),
             ),
             new Text(
               'school app but it is made and maintained by',
-              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 15.0),
             ),
             new Text(
               'Redwood Students. The app is also open source!',
-              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 15.0),
             ),
             new Text(
               'If you are interested in seeing the code of the',
-              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 15.0),
             ),
             new Text(
               'app or help out the project you can so here:\n',
-              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0),
+              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 15.0),
             ),
             new RaisedButton(
               child: new Text('Open Github Project',  style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
@@ -169,6 +184,14 @@ EliasTwitter() {
 EliasInstagram() {
   launch('https://instagram.com/EliasDeuss');
 }
+EliasSnapchat() {
+  launch('https://snapchat.com/add/EliasDeuss');
+}
 EliasGithub() {
   launch('https://github.com/EliasDeuss');
+}
+
+//Lauren
+LaurenInstagram() {
+  launch('https://instagram.com/Lauren.smartt');
 }
