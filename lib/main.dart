@@ -17,54 +17,54 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 void main() => runApp(
 
     new MaterialApp(
-  title: 'Redwood',
-  theme: new ThemeData(
-    primarySwatch: Colors.red,
-    scaffoldBackgroundColor: Colors.white,
-    primaryColor: Colors.red, backgroundColor: Colors.white
-  ),
-  home: new Tabs(),
+      title: 'Redwood',
+      theme: new ThemeData(
+          primarySwatch: Colors.red,
+          scaffoldBackgroundColor: Colors.white,
+          primaryColor: Colors.red, backgroundColor: Colors.white
+      ),
+      home: new Tabs(),
 
-  onGenerateRoute: (RouteSettings settings) {
-    switch (settings.name) {
-      case '/about': return new FromRightToLeft(
-        builder: (_) => new _aboutPage.About(),
-        settings: settings,
-      );
-      case '/support': return new FromRightToLeft(
-        builder: (_) => new _supportPage.Support(),
-        settings: settings,
-      );
-      case '/map': return new FromRightToLeft(
-        builder: (_) => new _mapPage.Map(),
-        settings: settings,
-      );
-      case '/changelog': return new FromRightToLeft(
-        builder: (_) => new _changelogPage.changelog(),
-        settings: settings,
-      );
-      case '/settings': return new FromRightToLeft(
-        builder: (_) => new _settingsPage.Settings(),
-        settings: settings,
-      );
-    }
-  },
-  // routes: <String, WidgetBuilder> {
-  //   '/about': (BuildContext context) => new _aboutPage.About(),
-  // }
+      onGenerateRoute: (RouteSettings settings) {
+        switch (settings.name) {
+          case '/about': return new FromRightToLeft(
+            builder: (_) => new _aboutPage.About(),
+            settings: settings,
+          );
+          case '/support': return new FromRightToLeft(
+            builder: (_) => new _supportPage.Support(),
+            settings: settings,
+          );
+          case '/map': return new FromRightToLeft(
+            builder: (_) => new _mapPage.Map(),
+            settings: settings,
+          );
+          case '/changelog': return new FromRightToLeft(
+            builder: (_) => new _changelogPage.changelog(),
+            settings: settings,
+          );
+          case '/settings': return new FromRightToLeft(
+            builder: (_) => new _settingsPage.Settings(),
+            settings: settings,
+          );
+        }
+      },
+      // routes: <String, WidgetBuilder> {
+      //   '/about': (BuildContext context) => new _aboutPage.About(),
+      // }
 
-));
+    ));
 
 class FromRightToLeft<T> extends MaterialPageRoute<T> {
   FromRightToLeft({ WidgetBuilder builder, RouteSettings settings })
-    : super(builder: builder, settings: settings);
+      : super(builder: builder, settings: settings);
 
   @override
   Widget buildTransitions(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget child) {
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child) {
 
     if (settings.isInitialRoute)
       return child;
@@ -72,12 +72,12 @@ class FromRightToLeft<T> extends MaterialPageRoute<T> {
     return new SlideTransition(
       child: new Container(
         decoration: new BoxDecoration(
-          boxShadow: [
-            new BoxShadow(
-              color: Colors.black26,
-              blurRadius: 25.0,
-            )
-          ]
+            boxShadow: [
+              new BoxShadow(
+                color: Colors.black26,
+                blurRadius: 25.0,
+              )
+            ]
         ),
         child: child,
       ),
@@ -85,11 +85,11 @@ class FromRightToLeft<T> extends MaterialPageRoute<T> {
         begin: const Offset(1.0, 0.0),
         end: Offset.zero,
       )
-      .animate(
-        new CurvedAnimation(
-          parent: animation,
-          curve: Curves.fastOutSlowIn,
-        )
+          .animate(
+          new CurvedAnimation(
+            parent: animation,
+            curve: Curves.fastOutSlowIn,
+          )
       ),
     );
   }
@@ -124,7 +124,7 @@ class TabsState extends State<Tabs> {
   void initState() {
     super.initState();
     _tabController = new PageController();
-    this._title_app = "Redwood - " + TabItems[0].title;
+    this._title_app = "Redwood - " + TabItems[0].title + " 🔔";
     firebaseMessaging.configure(onLaunch: (Map<String, dynamic> msg) {
       print(" onLaunch called");
     }, onResume: (Map<String, dynamic> msg) {
@@ -168,31 +168,31 @@ class TabsState extends State<Tabs> {
   Widget build (BuildContext context) => new Scaffold(
 
     //App Bar
-    appBar: new AppBar(
-      title: new Text(
-        _title_app,
-        style: new TextStyle(
-          fontSize: Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 20.0,
+      appBar: new AppBar(
+        title: new Text(
+          _title_app,
+          style: new TextStyle(
+            fontSize: Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 20.0,
+          ),
         ),
+        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
       ),
-      elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
-    ),
 
 
 
-    //Content of tabs
-    body: new PageView(
-      controller: _tabController,
-      onPageChanged: onTabChanged,
-      children: <Widget>[
-        new _firstTab.Home(),
-        new _secondTab.Today(),
-        new _thirdTab.Tv()
-      ],
-    ),
+      //Content of tabs
+      body: new PageView(
+        controller: _tabController,
+        onPageChanged: onTabChanged,
+        children: <Widget>[
+          new _firstTab.Home(),
+          new _secondTab.Today(),
+          new _thirdTab.Tv()
+        ],
+      ),
 
-    //Tabs
-    bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS ?
+      //Tabs
+      bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS ?
       new CupertinoTabBar(
         activeColor: Colors.red,
         currentIndex: _tab,
@@ -213,35 +213,35 @@ class TabsState extends State<Tabs> {
             icon: new Icon(TabItem.icon),
           );
         }).toList(),
-    ),
+      ),
 
-    //Drawer
-    drawer: new Drawer(
-      child: new ListView(
-        children: <Widget>[
-          new Container(
-            height: 120.0,
-            child: new DrawerHeader(
-              padding: new EdgeInsets.all(0.0),
-              decoration: new BoxDecoration(
-                color: new Color(0xFFFFEBEE),
-              ),
-              child: new Center(
-                child: new Image.asset('logo.gif')
+      //Drawer
+      drawer: new Drawer(
+          child: new ListView(
+            children: <Widget>[
+              new Container(
+                height: 120.0,
+                child: new DrawerHeader(
+                  padding: new EdgeInsets.all(0.0),
+                  decoration: new BoxDecoration(
+                    color: new Color(0xFFFFEBEE),
+                  ),
+                  child: new Center(
+                      child: new Image.asset('logo.gif')
+                  ),
                 ),
               ),
-            ),
-          new ListTile(
-              leading: new Icon(Icons.school),
-              title: new Text('Redwood Website'),
-              onTap: RHSURL,
-          ),
+              new ListTile(
+                leading: new Icon(Icons.school),
+                title: new Text('Redwood Website'),
+                onTap: RHSURL,
+              ),
 
-          new ListTile(
-            leading: new Icon(FontAwesomeIcons.link),
-            title: new Text('ESchool'),
-            onTap: ESCHOOLURL,
-          ),
+              new ListTile(
+                leading: new Icon(FontAwesomeIcons.link),
+                title: new Text('ESchool'),
+                onTap: ESCHOOLURL,
+              ),
 //          new ListTile(
 //            leading: new Icon(Icons.chat),
 //            title: new Text('Support'),
@@ -250,31 +250,31 @@ class TabsState extends State<Tabs> {
 //              Navigator.of(context).pushNamed('/support');
 //            }
 //          ),
-          new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('School Map'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/map');
-              }
-          ),
-          new Divider(height: 10.0,color: Colors.grey,),
-          new ListTile(
-              leading: new Icon(Icons.settings),
-              title: new Text('Settings'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/settings');
-              }
-          ),
-          new ListTile(
-            leading: new Icon(Icons.info),
-            title: new Text('About'),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.of(context).pushNamed('/about');
-            }
-          ),
+              new ListTile(
+                  leading: new Icon(Icons.map),
+                  title: new Text('School Map'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).pushNamed('/map');
+                  }
+              ),
+              new Divider(height: 10.0,color: Colors.grey,),
+              new ListTile(
+                  leading: new Icon(Icons.settings),
+                  title: new Text('Settings'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).pushNamed('/settings');
+                  }
+              ),
+              new ListTile(
+                  leading: new Icon(Icons.info),
+                  title: new Text('About'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).pushNamed('/about');
+                  }
+              ),
           new ListTile(
               leading: new Icon(Icons.cached),
               title: new Text('Change Log'),
@@ -283,9 +283,9 @@ class TabsState extends State<Tabs> {
                 Navigator.of(context).pushNamed('/changelog');
               }
           ),
-        ],
+            ],
+          )
       )
-    )
   );
 
   void onTap(int tab){
@@ -300,15 +300,15 @@ class TabsState extends State<Tabs> {
     switch (tab) {
       case 0:
         this._title_app = "Redwood - " + TabItems[0].title + " 🔔";
-      break;
+        break;
 
       case 1:
         this._title_app = "Redwood - " + TabItems[1].title + " ⚡";
-      break;
+        break;
 
       case 2:
         this._title_app = "Redwood - " + TabItems[2].title + " 📺";
-      break;
+        break;
     }
   }
 }
@@ -336,4 +336,3 @@ ESCHOOLURL() {
 FBURL() {
   launch('https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
 }
-

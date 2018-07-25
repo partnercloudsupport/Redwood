@@ -40,6 +40,7 @@ class HomePageState extends State<HomePage> {
       } else {
         _value_0 = true;
       }
+      _0_Period();
     });
   }
   void _onChanged_1(bool value1) {
@@ -131,6 +132,7 @@ class HomePageState extends State<HomePage> {
       children: <Widget>[
         new Column(
           children: <Widget>[
+            new Text('\nThis page is not working yet!\n', style: new TextStyle(color: Colors.red.withOpacity(0.9)) ),
             new Card(
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
@@ -225,4 +227,17 @@ class HomePageState extends State<HomePage> {
 
 FBURL() {
   launch('https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
+}
+
+_0_Period() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  int period;
+
+  if (prefs.getInt('0_period') == 0){
+    period = 1;
+  } else {
+    period = 0;
+  }
+  print('Pressed $period .');
+  await prefs.setInt('0_period', period);
 }

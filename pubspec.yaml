@@ -17,6 +17,7 @@ dependencies:
   firebase_core:
   shared_preferences: "^0.4.2"
   font_awesome_flutter: "^7.1.0"
+  firebase_remote_config: "^0.0.5"
 
 
 dev_dependencies:
@@ -29,10 +30,14 @@ dev_dependencies:
 # The following section is specific to Flutter.
 
 flutter:
-    
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the Icons class.
+  fonts:
+       - family: Pacifico
+         fonts:
+           - asset: fonts/Pacifico.ttf
+
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:

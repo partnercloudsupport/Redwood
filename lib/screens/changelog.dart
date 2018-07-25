@@ -146,7 +146,11 @@ class changelog extends StatelessWidget {
                   ],
                 ),
               ),
-              new Text('\n\n'),
+              new Text('\n\nPowered by', style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
+              new Text(
+                'isontic',
+                style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 65.0, fontFamily: 'Pacifico'),
+              ),
             ],
           )
         ],
