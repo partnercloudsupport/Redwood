@@ -29,7 +29,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return new Column(
       children: <Widget>[
-        new Text('\nThis page is not working yet!', style: new TextStyle(color: Colors.red.withOpacity(0.9)) ),
+        new Text('\nThis page is not working yet! 😢', style: new TextStyle(color: Colors.red.withOpacity(0.9)) ),
         new Card(
           child: new Column(
             mainAxisSize: MainAxisSize.min,

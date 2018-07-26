@@ -11,7 +11,6 @@ dependencies:
   firebase_database: "^1.0.1"
   flutter_launcher_icons: "^0.5.2"
   scalable_image: "^1.1.1"
-  flutter_webview_plugin: "^0.1.6"
   quick_actions: "^0.2.1"
   flutter_youtube: "^0.1.2"
   firebase_core:
