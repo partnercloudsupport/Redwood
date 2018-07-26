@@ -35,6 +35,19 @@ class HomePageState extends State<HomePage> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               new ListTile(
+                title: new Text('Announcements 📢'),
+                subtitle: new Text('None today 😎'),
+              ),
+
+            ],
+          ),
+        ),
+        new Divider(height: 10.0,color: Colors.grey,),
+        new Card(
+          child: new Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              new ListTile(
                 title: new Text('Your Next Class Starts in ' + nextclassstart +  ' minutes'),
               ),
 
