@@ -8,6 +8,7 @@ import './screens/support.dart' as _supportPage;
 import './screens/Map.dart' as _mapPage;
 import './screens/changelog.dart' as _changelogPage;
 import './screens/settings.dart' as _settingsPage;
+import './screens/discord.dart' as discordPage;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -45,6 +46,10 @@ void main() => runApp(
           );
           case '/settings': return new FromRightToLeft(
             builder: (_) => new _settingsPage.Settings(),
+            settings: settings,
+          );
+          case '/discord': return new FromRightToLeft(
+            builder: (_) => new discordPage.discord(),
             settings: settings,
           );
         }
@@ -275,6 +280,7 @@ class TabsState extends State<Tabs> {
                     Navigator.of(context).pushNamed('/about');
                   }
               ),
+
           new ListTile(
               leading: new Icon(Icons.cached),
               title: new Text('Change Log'),
@@ -283,6 +289,15 @@ class TabsState extends State<Tabs> {
                 Navigator.of(context).pushNamed('/changelog');
               }
           ),
+              new Divider(height: 10.0,color: Colors.grey,),
+              new ListTile(
+                  leading: new Icon(FontAwesomeIcons.discord),
+                  title: new Text('Team RHS Discord'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.of(context).pushNamed('/discord');
+                  }
+              ),
             ],
           )
       )
