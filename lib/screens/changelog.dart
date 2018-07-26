@@ -50,6 +50,30 @@ class changelog extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     new ListTile(
+                      title: new Text('0.1.1'),
+                    ),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        new Text(
+                          '   Bug',
+                          style: new TextStyle(color: Colors.red.withOpacity(0.9), fontSize: 12.0),
+                        ),
+                        const Expanded(child: const Text(
+                          '   Bug Fixes',
+                          style: const TextStyle( fontSize: 12.0),
+                        )),
+                      ],
+                    ),
+                    new Text('\n'),
+                  ],
+                ),
+              ),
+              new Card(
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
                       title: new Text('0.1.0'),
                     ),
                     new Row(
@@ -74,6 +98,19 @@ class changelog extends StatelessWidget {
                         ),
                         const Expanded(child: const Text(
                           '   Added Team RHS Discord Page 😎',
+                          style: const TextStyle( fontSize: 12.0),
+                        )),
+                      ],
+                    ),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        new Text(
+                          '   Bug',
+                          style: new TextStyle(color: Colors.red.withOpacity(0.9), fontSize: 12.0),
+                        ),
+                        const Expanded(child: const Text(
+                          '   Other small fixes :D',
                           style: const TextStyle( fontSize: 12.0),
                         )),
                       ],
