@@ -50,6 +50,43 @@ class changelog extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     new ListTile(
+                      title: new Text('0.1.0'),
+                    ),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        new Text(
+                          '   New',
+                          style: new TextStyle(color: Colors.green.withOpacity(0.9), fontSize: 12.0),
+                        ),
+                        const Expanded(child: const Text(
+                          '   Added the Announcements card on the today page',
+                          style: const TextStyle( fontSize: 12.0),
+                        )),
+                      ],
+                    ),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        new Text(
+                          '   New',
+                          style: new TextStyle(color: Colors.green.withOpacity(0.9), fontSize: 12.0),
+                        ),
+                        const Expanded(child: const Text(
+                          '   Added Team RHS Discord Page 😎',
+                          style: const TextStyle( fontSize: 12.0),
+                        )),
+                      ],
+                    ),
+                    new Text('\n'),
+                  ],
+                ),
+              ),
+              new Card(
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
                       title: new Text('0.0.9'),
                     ),
                     new Row(
