@@ -133,6 +133,8 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - package_info (0.0.1):
+    - Flutter
   - Protobuf (3.6.0)
   - quick_actions (0.0.1):
     - Flutter
@@ -153,6 +155,7 @@ DEPENDENCIES:
   - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
   - Flutter (from `.symlinks/flutter/ios-release`)
   - flutter_youtube (from `.symlinks/plugins/flutter_youtube/ios`)
+  - package_info (from `.symlinks/plugins/package_info/ios`)
   - quick_actions (from `.symlinks/plugins/quick_actions/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
@@ -202,6 +205,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/flutter/ios-release"
   flutter_youtube:
     :path: ".symlinks/plugins/flutter_youtube/ios"
+  package_info:
+    :path: ".symlinks/plugins/package_info/ios"
   quick_actions:
     :path: ".symlinks/plugins/quick_actions/ios"
   shared_preferences:
@@ -239,6 +244,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  package_info: d7c98b64f60add4c2908b9d94d82a45d3c8827ad
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   quick_actions: 4e3b24b7ebc5895b015bf8fc104f436047f7ca8a
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
