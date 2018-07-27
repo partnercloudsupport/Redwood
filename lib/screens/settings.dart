@@ -230,13 +230,12 @@ FBURL() {
 
 _0_Period() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  int period;
+  int period = prefs.getInt('0_period');
 
   if (prefs.getInt('0_period') == 0){
     period = 1;
   } else {
     period = 0;
   }
-  print('Pressed $period .');
   await prefs.setInt('0_period', period);
 }

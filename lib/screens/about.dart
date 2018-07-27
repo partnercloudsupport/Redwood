@@ -107,7 +107,7 @@ class About extends StatelessWidget {
             ),
             new Text(
               'isontic',
-              style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 65.0, fontFamily: 'Pacifico'),
+              style: new TextStyle(color: Colors.white.withOpacity(1.0), fontSize: 65.0, fontFamily: 'Pacifico'),
             ),
             new Text(
               'GRD | Energy Inc.',

@@ -51,6 +51,30 @@ class changelog extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     new ListTile(
+                      title: new Text('V1.0 - Android Build 4 - IOS Build 3'),
+                    ),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        new Text(
+                          '   Fix\'s',
+                          style: new TextStyle(color: Colors.yellow.withOpacity(0.9), fontSize: 12.0),
+                        ),
+                        const Expanded(child: const Text(
+                          '   Fixed TV page where it wouldn\'t load on mobile data',
+                          style: const TextStyle( fontSize: 12.0),
+                        )),
+                      ],
+                    ),
+                    new Text('\n'),
+                  ],
+                ),
+              ),
+              new Card(
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
                       title: new Text('0.1.3'),
                     ),
                     new Row(
@@ -272,7 +296,7 @@ class changelog extends StatelessWidget {
               new Text('\n\nPowered by', style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
               new Text(
                 'isontic',
-                style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 65.0, fontFamily: 'Pacifico'),
+                style: new TextStyle(color: Colors.white.withOpacity(1.0), fontSize: 65.0, fontFamily: 'Pacifico'),
               ),
             ],
           )

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import './tabs/home.dart' as _firstTab;
 import './tabs/today.dart' as _secondTab;
-import './tabs/tv.dart' as _thirdTab;
 import './screens/about.dart' as _aboutPage;
 import './screens/support.dart' as _supportPage;
 import './screens/Map.dart' as _mapPage;
@@ -23,7 +22,6 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 
@@ -449,7 +447,6 @@ class HomePageState extends State<HomePage> {
     });
   }
 
-
   void playYoutubeVideo() {
     FlutterYoutube.playYoutubeVideoByUrl(
       apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
@@ -457,11 +454,9 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-    if (_connectionStatus == 'ConnectivityResult.wifi' || _connectionStatus == 'Unknown' || _connectionStatus == 'ConnectivityResult.cellular') {
+    if (_connectionStatus == 'ConnectivityResult.wifi' || _connectionStatus == 'Unknown' || _connectionStatus == 'ConnectivityResult.mobile') {
       return new Scaffold(
           body: new ListView.builder(
               itemCount: data == null ? 0 : data.length,

@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:native_widgets/native_widgets.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:connectivity/connectivity.dart';
@@ -28,6 +29,20 @@ class HomePageState extends State<HomePage> {
   final Connectivity _connectivity = new Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  Future<int> _counter;
+
+  Future<Null> _incrementCounter() async {
+    final SharedPreferences prefs = await _prefs;
+    final int counter = (prefs.getInt('counter') ?? 0) + 1;
+
+    setState(() {
+      _counter = prefs.setInt("counter", counter).then((bool success) {
+        return counter;
+      });
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -44,6 +59,7 @@ class HomePageState extends State<HomePage> {
     _connectivitySubscription.cancel();
     super.dispose();
   }
+
 
   Future<Null> initConnectivity() async {
     String connectionStatus;
@@ -62,10 +78,13 @@ class HomePageState extends State<HomePage> {
       return;
     }
 
+
     setState(() {
       _connectionStatus = connectionStatus;
     });
   }
+
+
 
   @override
   Widget build (BuildContext context) => new Scaffold(
@@ -115,7 +134,31 @@ class HomePageState extends State<HomePage> {
               ),
               new Text('\n'),
               new Text('$_connectionStatus', style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 12.0)),
-
+        new FutureBuilder<int>(
+            future: _counter,
+            builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.waiting:
+                  return const CircularProgressIndicator();
+                default:
+                  if (snapshot.hasError)
+                    return new Text('Error: ${snapshot.error}');
+                  else
+                    return new Text(
+                      '${snapshot.data} \n\n'
+                    );
+              }
+            }),
+      
+      new GestureDetector(
+          onTap: (){
+            _incrementCounter;
+          },
+          child: new Text(
+            'isontic',
+            style: new TextStyle(color: Colors.white.withOpacity(1.0), fontSize: 55.0, fontFamily: 'Pacifico'),
+          ),
+      ),
             ],
           )
 
