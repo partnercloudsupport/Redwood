@@ -8,4 +8,4 @@
 This app lets you see what time the bells will ring and watch the latest Episode of Redwood TV!
 
 [Android Beta](https://play.google.com/store/apps/details?id=com.isontic.rhs "Android Beta")     
-Ios Beta coming soon!
+[IOS Beta](https://goo.gl/forms/MWQfLjrLjFAsY5Pp1 "IOS Beta")     
