@@ -10,6 +10,7 @@ dependencies:
   firebase_messaging: "^1.0.3"
   cloud_firestore: "^0.7.4"
   firebase_database: "^1.0.3"
+  firebase_auth: "^0.5.15"
   flutter_launcher_icons: "^0.5.2"
   scalable_image: "^1.1.1"
   quick_actions: "^0.2.1"

@@ -4005,6 +4005,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 --------------------------------------------------------------------------------
 firebase_analytics
+firebase_auth
 firebase_core
 firebase_database
 firebase_messaging
