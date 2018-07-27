@@ -79,6 +79,19 @@ class changelog extends StatelessWidget {
                         )),
                       ],
                     ),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        new Text(
+                          '   Fix\'s',
+                          style: new TextStyle(color: Colors.yellow.withOpacity(0.9), fontSize: 12.0),
+                        ),
+                        const Expanded(child: const Text(
+                          '   Fixed Quick Actions',
+                          style: const TextStyle( fontSize: 12.0),
+                        )),
+                      ],
+                    ),
                     new Text('\n'),
                   ],
                 ),
