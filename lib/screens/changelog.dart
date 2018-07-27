@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:native_widgets/native_widgets.dart';
 
 class changelog extends StatelessWidget {
   @override
@@ -50,14 +51,51 @@ class changelog extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     new ListTile(
+                      title: new Text('0.1.3'),
+                    ),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        new Text(
+                          '   New',
+                          style: new TextStyle(color: Colors.green.withOpacity(0.9), fontSize: 12.0),
+                        ),
+                        const Expanded(child: const Text(
+                          '   IOS Beta is out!',
+                          style: const TextStyle( fontSize: 12.0),
+                        )),
+                      ],
+                    ),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        new Text(
+                          '   New',
+                          style: new TextStyle(color: Colors.green.withOpacity(0.9), fontSize: 12.0),
+                        ),
+                        const Expanded(child: const Text(
+                          '   Added Native Buttons for Android and IOS',
+                          style: const TextStyle( fontSize: 12.0),
+                        )),
+                      ],
+                    ),
+                    new Text('\n'),
+                  ],
+                ),
+              ),
+              new Card(
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
                       title: new Text('0.1.1'),
                     ),
                     new Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         new Text(
-                          '   Bug',
-                          style: new TextStyle(color: Colors.red.withOpacity(0.9), fontSize: 12.0),
+                          '   Fix\'s',
+                          style: new TextStyle(color: Colors.yellow.withOpacity(0.9), fontSize: 12.0),
                         ),
                         const Expanded(child: const Text(
                           '   Bug Fixes',
@@ -209,11 +247,9 @@ class changelog extends StatelessWidget {
                         style: new TextStyle(color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
                       ),
                     ),
-                    new RaisedButton(
+                    new NativeButton(
                       child: new Text('Send Feedback',  style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
-                      color: Theme.of(context).accentColor,
-                      elevation: 4.0,
-                      splashColor: Colors.blueGrey,
+                      buttonColor: Colors.red,
                       onPressed: FBURL,
                     ),
                     new Text('\n')
