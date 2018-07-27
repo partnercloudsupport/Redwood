@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:native_widgets/native_widgets.dart';
 
 class About extends StatelessWidget {
   @override
@@ -132,11 +133,9 @@ class About extends StatelessWidget {
               'app or help out the project you can so here:\n',
               style: new TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 15.0),
             ),
-            new RaisedButton(
+            new NativeButton(
               child: new Text('Open Github Project',  style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
-              color: Theme.of(context).accentColor,
-              elevation: 4.0,
-              splashColor: Colors.blueGrey,
+              buttonColor: Colors.red,
               onPressed: GitHub,
             ),
             new Text('\n'),
@@ -151,17 +150,25 @@ class About extends StatelessWidget {
                       style: new TextStyle(color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
                     ),
                   ),
-                  new RaisedButton(
+                  new NativeButton(
                     child: new Text('Send Feedback',  style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
-                    color: Theme.of(context).accentColor,
-                    elevation: 4.0,
-                    splashColor: Colors.blueGrey,
+                    buttonColor: Colors.red,
                     onPressed: FBURL,
                   ),
                   new Text('\n')
                 ],
               ),
             ),
+            new Text('\n'),
+            new NativeButton(
+              child: new Text('Dev Page',  style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
+              buttonColor: Colors.blue,
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/dev');
+              }
+            ),
+            new Text('\n'),
           ],
         )
       ],

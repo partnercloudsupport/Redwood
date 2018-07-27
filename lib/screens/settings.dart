@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:native_widgets/native_widgets.dart';
 
 class Settings extends StatelessWidget {
 
@@ -132,7 +133,7 @@ class HomePageState extends State<HomePage> {
       children: <Widget>[
         new Column(
           children: <Widget>[
-            new Text('\nThis page is not working yet!\n 😢', style: new TextStyle(color: Colors.red.withOpacity(0.9)) ),
+            new Text('\nThis page is not working yet! 😢', style: new TextStyle(color: Colors.red.withOpacity(0.9)) ),
             new Card(
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
@@ -207,11 +208,9 @@ class HomePageState extends State<HomePage> {
                       style: new TextStyle(color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
                     ),
                   ),
-                  new RaisedButton(
+                  new NativeButton(
                     child: new Text('Send Feedback',  style: new TextStyle(color: Colors.white.withOpacity(0.9)),),
-                    color: Theme.of(context).accentColor,
-                    elevation: 4.0,
-                    splashColor: Colors.blueGrey,
+                    buttonColor: Colors.red,
                     onPressed: FBURL,
                   ),
                   new Text('\n')

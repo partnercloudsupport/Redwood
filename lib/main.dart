@@ -8,6 +8,7 @@ import './screens/support.dart' as _supportPage;
 import './screens/Map.dart' as _mapPage;
 import './screens/changelog.dart' as _changelogPage;
 import './screens/settings.dart' as _settingsPage;
+import './screens/dev.dart' as _devPage;
 import './screens/discord.dart' as discordPage;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:quick_actions/quick_actions.dart';
@@ -61,6 +62,10 @@ void main() => runApp(
           );
           case '/discord': return new FromRightToLeft(
             builder: (_) => new discordPage.discord(),
+            settings: settings,
+          );
+          case '/dev': return new FromRightToLeft(
+            builder: (_) => new _devPage.Dev(),
             settings: settings,
           );
         }
@@ -161,16 +166,16 @@ class TabsState extends State<Tabs> {
     final QuickActions quickActions = const QuickActions();
     quickActions.initialize((String shortcutType) {
       if (shortcutType == 'bells') {
-        this._title_app = TabItems[0].title;
+        _tabController.jumpToPage(0);
       }
       if (shortcutType == 'tv') {
-        this._title_app = TabItems[2].title;
+        _tabController.jumpToPage(2);
       }
     });
 
     quickActions.setShortcutItems(<ShortcutItem>[
-      const ShortcutItem(type: 'bells', localizedTitle: 'Bells', icon: 'Icons.notifications'),
-      const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'Icons.tv'),
+      const ShortcutItem(type: 'bells', localizedTitle: 'Bells', icon: 'notifications'),
+      const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
     ]);
   }
 
