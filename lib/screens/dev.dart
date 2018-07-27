@@ -149,7 +149,7 @@ class HomePageState extends State<HomePage> {
                     );
               }
             }),
-      
+
       new GestureDetector(
           onTap: (){
             _incrementCounter;
