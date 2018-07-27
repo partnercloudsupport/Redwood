@@ -161,16 +161,16 @@ class TabsState extends State<Tabs> {
     final QuickActions quickActions = const QuickActions();
     quickActions.initialize((String shortcutType) {
       if (shortcutType == 'bells') {
-        this._title_app = TabItems[0].title;
+        _tabController.jumpToPage(0);
       }
       if (shortcutType == 'tv') {
-        this._title_app = TabItems[2].title;
+        _tabController.jumpToPage(2);
       }
     });
 
     quickActions.setShortcutItems(<ShortcutItem>[
-      const ShortcutItem(type: 'bells', localizedTitle: 'Bells', icon: 'Icons.notifications'),
-      const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'Icons.tv'),
+      const ShortcutItem(type: 'bells', localizedTitle: 'Bells', icon: 'notifications'),
+      const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
     ]);
   }
 
