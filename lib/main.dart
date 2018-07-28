@@ -14,7 +14,7 @@ import 'package:quick_actions/quick_actions.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:native_widgets/native_widgets.dart';
 
 import 'dart:async';
 import 'dart:convert';
@@ -187,17 +187,11 @@ class TabsState extends State<Tabs> {
   Widget build (BuildContext context) => new Scaffold(
 
     //App Bar
-      appBar: new AppBar(
-        title: new Text(
-          _title_app,
-          style: new TextStyle(
-            fontSize: Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 20.0,
-          ),
-        ),
-        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
+      appBar: NativeAppBar(
+        title: new Text(_title_app),
+        backgroundColor:
+             Colors.red,
       ),
-
-
 
       //Content of tabs
       body: new PageView(
@@ -474,7 +468,7 @@ class HomePageState extends State<HomePage> {
                         height: 200.0,
                         child: Stack(
                           children: <Widget>[
-                            Center(child: CircularProgressIndicator()),
+                            Center(child: NativeLoadingIndicator()),
                             Center(
                               child: FadeInImage.memoryNetwork(
                                 placeholder: kTransparentImage,
