@@ -55,7 +55,7 @@ class changelog extends StatelessWidget {
                       children: <Widget>[
                         new ListTile(
                           title:
-                              new Text('V1.0 - Android Build 4 - IOS Build 3'),
+                              new Text('V1.0 - Android Build 4 - IOS Build 5'),
                         ),
                         new Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

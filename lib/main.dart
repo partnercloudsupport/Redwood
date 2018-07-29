@@ -184,6 +184,33 @@ class TabsState extends State<Tabs> {
     _tabController.dispose();
   }
 
+  Future<Null> _GMComingSoon() async {
+    return showDialog<Null>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return new AlertDialog(
+          title: new Text('Coming Soon!'),
+          content: new SingleChildScrollView(
+            child: new ListBody(
+              children: <Widget>[
+                new Text('This is something we are looking on adding this to the app sometime soon.'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text('Done'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) => new Scaffold(
 
@@ -273,6 +300,18 @@ class TabsState extends State<Tabs> {
                 Navigator.pop(context);
                 Navigator.of(context).pushNamed('/map');
               }),
+          new ListTile(
+            leading: new Icon(FontAwesomeIcons.gamepad),
+            title: new Text('Student Written Games'),
+            onTap: _GMComingSoon,
+          ),
+          new ListTile(
+              leading: new Icon(FontAwesomeIcons.discord),
+              title: new Text('Team RHS Discord'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/discord');
+              }),
           new Divider(
             height: 10.0,
             color: Colors.grey,
@@ -298,17 +337,6 @@ class TabsState extends State<Tabs> {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).pushNamed('/changelog');
-              }),
-          new Divider(
-            height: 10.0,
-            color: Colors.grey,
-          ),
-          new ListTile(
-              leading: new Icon(FontAwesomeIcons.discord),
-              title: new Text('Team RHS Discord'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/discord');
               }),
         ],
       )));
