@@ -3,23 +3,25 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) => new Container(
-      child: new ListView.builder(
-        itemBuilder: (BuildContext context, int index) => new EntryItem(data[index]),
-        itemCount: data.length,)
-  );
+          child: new ListView.builder(
+        itemBuilder: (BuildContext context, int index) =>
+            new EntryItem(data[index]),
+        itemCount: data.length,
+      ));
 }
-
 
 // One entry in the multilevel list displayed by this app.
 class Entry {
   Entry(this.title, [this.children = const <Entry>[]]);
+
   final String title;
   final List<Entry> children;
 }
 
 // The entire multilevel list displayed by this app.
 final List<Entry> data = <Entry>[
-  new Entry('Monday (All Periods)',
+  new Entry(
+    'Monday (All Periods)',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
           '\n\n1st Period 8:00-8:48'
@@ -33,7 +35,8 @@ final List<Entry> data = <Entry>[
           '\n\n7th Period 2:15-3:03\n'),
     ],
   ),
-  new Entry('Tuesday & Friday (All Periods)',
+  new Entry(
+    'Tuesday & Friday (All Periods)',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
           '\n\n1st Period 8:55-9:43 '
@@ -47,7 +50,8 @@ final List<Entry> data = <Entry>[
           '\n\n7th Period 2:15-3:03\n'),
     ],
   ),
-  new Entry('Wednesday (Block Schedule)',
+  new Entry(
+    'Wednesday (Block Schedule)',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
           '\n\n4th Period 8:00-9:30'
@@ -58,7 +62,8 @@ final List<Entry> data = <Entry>[
           '\n\n7th Period 1:37-3:07\n'),
     ],
   ),
-  new Entry('Thursday (Block Schedule)',
+  new Entry(
+    'Thursday (Block Schedule)',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
           '\n\n1st Period 8:00-9:30'
@@ -71,7 +76,8 @@ final List<Entry> data = <Entry>[
           '\n\nStaff Meeting 2:42-3:37\n'),
     ],
   ),
-  new Entry('Rally Thursday',
+  new Entry(
+    'Rally Thursday',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
           '\n\n1st Period 8:00-9:30'
@@ -82,7 +88,8 @@ final List<Entry> data = <Entry>[
           '\n\n3rd Period 12:55-2:25\n'),
     ],
   ),
-  new Entry('Assembly Thursday',
+  new Entry(
+    'Assembly Thursday',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
           '\n\n1st Period 8:00-9:30'
@@ -93,7 +100,8 @@ final List<Entry> data = <Entry>[
           '\n\n3rd Period 1:00-2:30\n'),
     ],
   ),
-  new Entry('Minimum Day Friday',
+  new Entry(
+    'Minimum Day Friday',
     <Entry>[
       new Entry('0 Period 7:05-7:55'
           '\n\n1st Period 8:00-8:35'
@@ -106,7 +114,6 @@ final List<Entry> data = <Entry>[
           '\n\n7th Period 12:10-12:45\n'),
     ],
   ),
-
 ];
 
 // Displays one Entry. If the entry has children then it's displayed
@@ -117,8 +124,7 @@ class EntryItem extends StatelessWidget {
   final Entry entry;
 
   Widget _buildTiles(Entry root) {
-    if (root.children.isEmpty)
-      return new ListTile(title: new Text(root.title));
+    if (root.children.isEmpty) return new ListTile(title: new Text(root.title));
     return new ExpansionTile(
       key: new PageStorageKey<Entry>(root),
       title: new Text(root.title),

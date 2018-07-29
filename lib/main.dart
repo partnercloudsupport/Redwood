@@ -8,6 +8,7 @@ import './screens/Map.dart' as _mapPage;
 import './screens/changelog.dart' as _changelogPage;
 import './screens/settings.dart' as _settingsPage;
 import './screens/dev.dart' as _devPage;
+import './screens/opl.dart' as _oplPage;
 import './screens/discord.dart' as discordPage;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:quick_actions/quick_actions.dart';
@@ -25,94 +26,95 @@ import 'package:flutter/material.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 
-void main() => runApp(
-
-    new MaterialApp(
+void main() => runApp(new MaterialApp(
       title: 'Redwood',
       theme: new ThemeData(
           primarySwatch: Colors.red,
           scaffoldBackgroundColor: Colors.white,
-          primaryColor: Colors.red, backgroundColor: Colors.white
-      ),
+          primaryColor: Colors.red,
+          backgroundColor: Colors.white),
       home: new Tabs(),
 
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
-          case '/about': return new FromRightToLeft(
-            builder: (_) => new _aboutPage.About(),
-            settings: settings,
-          );
-          case '/support': return new FromRightToLeft(
-            builder: (_) => new _supportPage.Support(),
-            settings: settings,
-          );
-          case '/map': return new FromRightToLeft(
-            builder: (_) => new _mapPage.Map(),
-            settings: settings,
-          );
-          case '/changelog': return new FromRightToLeft(
-            builder: (_) => new _changelogPage.changelog(),
-            settings: settings,
-          );
-          case '/settings': return new FromRightToLeft(
-            builder: (_) => new _settingsPage.Settings(),
-            settings: settings,
-          );
-          case '/discord': return new FromRightToLeft(
-            builder: (_) => new discordPage.discord(),
-            settings: settings,
-          );
-          case '/dev': return new FromRightToLeft(
-            builder: (_) => new _devPage.Dev(),
-            settings: settings,
-          );
+          case '/about':
+            return new FromRightToLeft(
+              builder: (_) => new _aboutPage.About(),
+              settings: settings,
+            );
+          case '/support':
+            return new FromRightToLeft(
+              builder: (_) => new _supportPage.Support(),
+              settings: settings,
+            );
+          case '/map':
+            return new FromRightToLeft(
+              builder: (_) => new _mapPage.Map(),
+              settings: settings,
+            );
+          case '/changelog':
+            return new FromRightToLeft(
+              builder: (_) => new _changelogPage.changelog(),
+              settings: settings,
+            );
+          case '/settings':
+            return new FromRightToLeft(
+              builder: (_) => new _settingsPage.Settings(),
+              settings: settings,
+            );
+          case '/discord':
+            return new FromRightToLeft(
+              builder: (_) => new discordPage.discord(),
+              settings: settings,
+            );
+          case '/dev':
+            return new FromRightToLeft(
+              builder: (_) => new _devPage.Dev(),
+              settings: settings,
+            );
+          case '/opl':
+            return new FromRightToLeft(
+              builder: (_) => new _oplPage.OPL(),
+              settings: settings,
+            );
         }
       },
       // routes: <String, WidgetBuilder> {
       //   '/about': (BuildContext context) => new _aboutPage.About(),
       // }
-
     ));
 
 class FromRightToLeft<T> extends MaterialPageRoute<T> {
-  FromRightToLeft({ WidgetBuilder builder, RouteSettings settings })
+  FromRightToLeft({WidgetBuilder builder, RouteSettings settings})
       : super(builder: builder, settings: settings);
 
   @override
-  Widget buildTransitions(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget child) {
-
-    if (settings.isInitialRoute)
-      return child;
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    if (settings.isInitialRoute) return child;
 
     return new SlideTransition(
       child: new Container(
-        decoration: new BoxDecoration(
-            boxShadow: [
-              new BoxShadow(
-                color: Colors.black26,
-                blurRadius: 25.0,
-              )
-            ]
-        ),
+        decoration: new BoxDecoration(boxShadow: [
+          new BoxShadow(
+            color: Colors.black26,
+            blurRadius: 25.0,
+          )
+        ]),
         child: child,
       ),
       position: new Tween<Offset>(
         begin: const Offset(1.0, 0.0),
         end: Offset.zero,
-      )
-          .animate(
-          new CurvedAnimation(
-            parent: animation,
-            curve: Curves.fastOutSlowIn,
-          )
-      ),
+      ).animate(new CurvedAnimation(
+        parent: animation,
+        curve: Curves.fastOutSlowIn,
+      )),
     );
   }
-  @override Duration get transitionDuration => const Duration(milliseconds: 400);
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 400);
 }
 
 class Tabs extends StatefulWidget {
@@ -121,18 +123,16 @@ class Tabs extends StatefulWidget {
 }
 
 class TabsState extends State<Tabs> {
-
   String textValue = 'Hello World !';
   FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
 
   update(String token) {
     print(token);
     DatabaseReference databaseReference = new FirebaseDatabase().reference();
-    databaseReference.child('fcm-token/${token}').set({"token":token});
+    databaseReference.child('fcm-token/${token}').set({"token": token});
     textValue = token;
     setState(() {});
   }
-
 
   PageController _tabController;
 
@@ -172,25 +172,25 @@ class TabsState extends State<Tabs> {
     });
 
     quickActions.setShortcutItems(<ShortcutItem>[
-      const ShortcutItem(type: 'bells', localizedTitle: 'Bells', icon: 'notifications'),
+      const ShortcutItem(
+          type: 'bells', localizedTitle: 'Bells', icon: 'notifications'),
       const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
     ]);
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
     _tabController.dispose();
   }
 
   @override
-  Widget build (BuildContext context) => new Scaffold(
+  Widget build(BuildContext context) => new Scaffold(
 
-    //App Bar
+      //App Bar
       appBar: NativeAppBar(
         title: new Text(_title_app),
-        backgroundColor:
-             Colors.red,
+        backgroundColor: Colors.red,
       ),
 
       //Content of tabs
@@ -205,56 +205,54 @@ class TabsState extends State<Tabs> {
       ),
 
       //Tabs
-      bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS ?
-      new CupertinoTabBar(
-        activeColor: Colors.red,
-        currentIndex: _tab,
-        onTap: onTap,
-        items: TabItems.map((TabItem) {
-          return new BottomNavigationBarItem(
-            title: new Text(TabItem.title),
-            icon: new Icon(TabItem.icon),
-          );
-        }).toList(),
-      ):
-      new BottomNavigationBar(
-        currentIndex: _tab,
-        onTap: onTap,
-        items: TabItems.map((TabItem) {
-          return new BottomNavigationBarItem(
-            title: new Text(TabItem.title),
-            icon: new Icon(TabItem.icon),
-          );
-        }).toList(),
-      ),
+      bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS
+          ? new CupertinoTabBar(
+              activeColor: Colors.red,
+              currentIndex: _tab,
+              onTap: onTap,
+              items: TabItems.map((TabItem) {
+                return new BottomNavigationBarItem(
+                  title: new Text(TabItem.title),
+                  icon: new Icon(TabItem.icon),
+                );
+              }).toList(),
+            )
+          : new BottomNavigationBar(
+              currentIndex: _tab,
+              onTap: onTap,
+              items: TabItems.map((TabItem) {
+                return new BottomNavigationBarItem(
+                  title: new Text(TabItem.title),
+                  icon: new Icon(TabItem.icon),
+                );
+              }).toList(),
+            ),
 
       //Drawer
       drawer: new Drawer(
           child: new ListView(
-            children: <Widget>[
-              new Container(
-                height: 120.0,
-                child: new DrawerHeader(
-                  padding: new EdgeInsets.all(0.0),
-                  decoration: new BoxDecoration(
-                    color: new Color(0xFFFFEBEE),
-                  ),
-                  child: new Center(
-                      child: new Image.asset('logo.gif')
-                  ),
-                ),
+        children: <Widget>[
+          new Container(
+            height: 120.0,
+            child: new DrawerHeader(
+              padding: new EdgeInsets.all(0.0),
+              decoration: new BoxDecoration(
+                color: new Color(0xFFFFEBEE),
               ),
-              new ListTile(
-                leading: new Icon(Icons.school),
-                title: new Text('Redwood Website'),
-                onTap: RHSURL,
-              ),
+              child: new Center(child: new Image.asset('logo.gif')),
+            ),
+          ),
+          new ListTile(
+            leading: new Icon(Icons.school),
+            title: new Text('Redwood Website'),
+            onTap: RHSURL,
+          ),
 
-              new ListTile(
-                leading: new Icon(FontAwesomeIcons.link),
-                title: new Text('ESchool'),
-                onTap: ESCHOOLURL,
-              ),
+          new ListTile(
+            leading: new Icon(FontAwesomeIcons.link),
+            title: new Text('ESchool'),
+            onTap: ESCHOOLURL,
+          ),
 //          new ListTile(
 //            leading: new Icon(Icons.chat),
 //            title: new Text('Support'),
@@ -263,31 +261,31 @@ class TabsState extends State<Tabs> {
 //              Navigator.of(context).pushNamed('/support');
 //            }
 //          ),
-              new ListTile(
-                  leading: new Icon(Icons.map),
-                  title: new Text('School Map'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.of(context).pushNamed('/map');
-                  }
-              ),
-              new Divider(height: 10.0,color: Colors.grey,),
-              new ListTile(
-                  leading: new Icon(Icons.settings),
-                  title: new Text('Settings'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.of(context).pushNamed('/settings');
-                  }
-              ),
-              new ListTile(
-                  leading: new Icon(Icons.info),
-                  title: new Text('About'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.of(context).pushNamed('/about');
-                  }
-              ),
+          new ListTile(
+              leading: new Icon(Icons.map),
+              title: new Text('School Map'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/map');
+              }),
+          new Divider(
+            height: 10.0,
+            color: Colors.grey,
+          ),
+          new ListTile(
+              leading: new Icon(Icons.settings),
+              title: new Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/settings');
+              }),
+          new ListTile(
+              leading: new Icon(Icons.info),
+              title: new Text('About'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/about');
+              }),
 
           new ListTile(
               leading: new Icon(Icons.cached),
@@ -295,28 +293,27 @@ class TabsState extends State<Tabs> {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).pushNamed('/changelog');
-              }
+              }),
+          new Divider(
+            height: 10.0,
+            color: Colors.grey,
           ),
-              new Divider(height: 10.0,color: Colors.grey,),
-              new ListTile(
-                  leading: new Icon(FontAwesomeIcons.discord),
-                  title: new Text('Team RHS Discord'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.of(context).pushNamed('/discord');
-                  }
-              ),
-            ],
-          )
-      )
-  );
+          new ListTile(
+              leading: new Icon(FontAwesomeIcons.discord),
+              title: new Text('Team RHS Discord'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).pushNamed('/discord');
+              }),
+        ],
+      )));
 
-  void onTap(int tab){
+  void onTap(int tab) {
     _tabController.jumpToPage(tab);
   }
 
   void onTabChanged(int tab) {
-    setState((){
+    setState(() {
       this._tab = tab;
     });
 
@@ -337,7 +334,8 @@ class TabsState extends State<Tabs> {
 }
 
 class TabItem {
-  const TabItem({ this.title, this.icon });
+  const TabItem({this.title, this.icon});
+
   final String title;
   final IconData icon;
 }
@@ -357,15 +355,15 @@ ESCHOOLURL() {
 }
 
 FBURL() {
-  launch('https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
+  launch(
+      'https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
 }
 
 class Tv extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) => new Container(
-    child: new HomePage(),
-  );
+        child: new HomePage(),
+      );
 }
 
 class HomePage extends StatefulWidget {
@@ -374,7 +372,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   String _connectionStatus = 'Unknown';
   final Connectivity _connectivity = new Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
@@ -383,16 +380,12 @@ class HomePageState extends State<HomePage> {
 
   Future<String> getData() async {
     var response = await http.get(
-        Uri.encodeFull("https://raw.githubusercontent.com/isontic/data/master/tv.json"),
-        headers: {
-          "Accept": "application/json"
-        }
-    );
+        Uri.encodeFull(
+            "https://raw.githubusercontent.com/isontic/data/master/tv.json"),
+        headers: {"Accept": "application/json"});
 
     this.setState(() {
       data = json.decode(response.body);
-
-
     });
     print(data[1]["title"]);
     print(data[1]["body"]);
@@ -409,8 +402,8 @@ class HomePageState extends State<HomePage> {
     initConnectivity();
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-          setState(() => _connectionStatus = result.toString());
-        });
+      setState(() => _connectionStatus = result.toString());
+    });
   }
 
   @override
@@ -450,7 +443,9 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    if (_connectionStatus == 'ConnectivityResult.wifi' || _connectionStatus == 'Unknown' || _connectionStatus == 'ConnectivityResult.mobile') {
+    if (_connectionStatus == 'ConnectivityResult.wifi' ||
+        _connectionStatus == 'Unknown' ||
+        _connectionStatus == 'ConnectivityResult.mobile') {
       return new Scaffold(
           body: new ListView.builder(
               itemCount: data == null ? 0 : data.length,
@@ -461,8 +456,7 @@ class HomePageState extends State<HomePage> {
                     children: <Widget>[
                       ListTile(
                           leading: const Icon(Icons.tv),
-                          title: new Text(data[index]["title"])
-                      ),
+                          title: new Text(data[index]["title"])),
                       new Container(
                         width: 370.0,
                         height: 200.0,
@@ -478,8 +472,8 @@ class HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
-                      new ButtonTheme
-                          .bar( // make buttons use the appropriate styles for cards
+                      new ButtonTheme.bar(
+                        // make buttons use the appropriate styles for cards
                         child: new ButtonBar(
                           children: <Widget>[
                             new FlatButton(
@@ -492,10 +486,9 @@ class HomePageState extends State<HomePage> {
                     ],
                   ),
                 );
-              }
-          )
-      );
-    };
+              }));
+    }
+    ;
     if (_connectionStatus == 'ConnectivityResult.none') {
       return new ListView(
         children: <Widget>[
@@ -511,14 +504,15 @@ class HomePageState extends State<HomePage> {
                       title: new Text('No Internet'),
                       subtitle: new Text(
                         'Connect to the internet to watch Redwood TV',
-                        style: new TextStyle(color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
+                        style: new TextStyle(
+                            color: Colors.grey.withOpacity(0.9),
+                            fontSize: 12.0),
                       ),
                     ),
                     new Image.asset(
-                        'ni.jpg',
+                      'ni.jpg',
                       height: 276.0,
                       width: 197.0,
-
                     ),
                     new Text('\n')
                   ],
