@@ -188,9 +188,14 @@ class TabsState extends State<Tabs> {
   Widget build(BuildContext context) => new Scaffold(
 
       //App Bar
-      appBar: NativeAppBar(
-        title: new Text(_title_app),
-        backgroundColor: Colors.red,
+      appBar: new AppBar(
+        title: new Text(
+          _title_app,
+          style: new TextStyle(
+            fontSize: Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 20.0,
+          ),
+        ),
+        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
       ),
 
       //Content of tabs
