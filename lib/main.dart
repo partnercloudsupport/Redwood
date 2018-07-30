@@ -16,7 +16,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:native_widgets/native_widgets.dart';
-
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/services.dart';
@@ -339,7 +338,9 @@ class TabsState extends State<Tabs> {
                 Navigator.of(context).pushNamed('/changelog');
               }),
         ],
-      )));
+      )),
+
+  );
 
   void onTap(int tab) {
     _tabController.jumpToPage(tab);

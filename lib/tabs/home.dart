@@ -1,139 +1,555 @@
 import 'package:flutter/material.dart';
+import 'package:native_widgets/native_widgets.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) => new Container(
-          child: new ListView.builder(
-        itemBuilder: (BuildContext context, int index) =>
-            new EntryItem(data[index]),
-        itemCount: data.length,
-      ));
+        child: new HomePage(),
+      );
 }
 
-// One entry in the multilevel list displayed by this app.
-class Entry {
-  Entry(this.title, [this.children = const <Entry>[]]);
-
-  final String title;
-  final List<Entry> children;
+class HomePage extends StatefulWidget {
+  @override
+  HomePageState createState() => new HomePageState();
 }
 
-// The entire multilevel list displayed by this app.
-final List<Entry> data = <Entry>[
-  new Entry(
-    'Monday (All Periods)',
-    <Entry>[
-      new Entry('0 Period 7:05-7:55'
-          '\n\n1st Period 8:00-8:48'
-          '\n\n2nd Period 8:55-9:43'
-          '\n\nBreak 9:43-9:53'
-          '\n\n3rd Period 10:00-10:48'
-          '\n\n4th Period 10:55-11:43'
-          '\n\nLunch 11:43-12:18'
-          '\n\n5th Period 12:25-1:13'
-          '\n\n6th Period 1:20-2:08'
-          '\n\n7th Period 2:15-3:03\n'),
-    ],
-  ),
-  new Entry(
-    'Tuesday & Friday (All Periods)',
-    <Entry>[
-      new Entry('0 Period 7:05-7:55'
-          '\n\n1st Period 8:55-9:43 '
-          '\n\n2nd Period 8:55-9:43'
-          '\n\nBreak 9:43-9:53'
-          '\n\n3rd Period 10:00-10:48'
-          '\n\n4th Period 10:55-11:43'
-          '\n\nLunch 11:43-12:18'
-          '\n\n5th Period 12:25-1:13'
-          '\n\n6th Period 1:20-2:08'
-          '\n\n7th Period 2:15-3:03\n'),
-    ],
-  ),
-  new Entry(
-    'Wednesday (Block Schedule)',
-    <Entry>[
-      new Entry('0 Period 7:05-7:55'
-          '\n\n4th Period 8:00-9:30'
-          '\n\nBreak 9:30-9:40'
-          '\n\n5th Period 9:47-11:17'
-          '\n\nLunch 11:17-11:53'
-          '\n\n6th Period 12:00-1:30'
-          '\n\n7th Period 1:37-3:07\n'),
-    ],
-  ),
-  new Entry(
-    'Thursday (Block Schedule)',
-    <Entry>[
-      new Entry('0 Period 7:05-7:55'
-          '\n\n1st Period 8:00-9:30'
-          '\n\nHomeroom 9:37-9:47'
-          '\n\nSmart 9:47-10:30'
-          '\n\nBreak 10:30-10:40'
-          '\n\n2nd Period 10:47-12:17'
-          '\n\nLunch 12:17-12:55'
-          '\n\n3rd Period 1:02-2:32'
-          '\n\nStaff Meeting 2:42-3:37\n'),
-    ],
-  ),
-  new Entry(
-    'Rally Thursday',
-    <Entry>[
-      new Entry('0 Period 7:05-7:55'
-          '\n\n1st Period 8:00-9:30'
-          '\n\nBreak 9:30-9:40'
-          '\n\n2nd Period 9:45-11:15'
-          '\n\nRally 11:20-12:05'
-          '\n\nLunch 12:05-12:50'
-          '\n\n3rd Period 12:55-2:25\n'),
-    ],
-  ),
-  new Entry(
-    'Assembly Thursday',
-    <Entry>[
-      new Entry('0 Period 7:05-7:55'
-          '\n\n1st Period 8:00-9:30'
-          '\n\nBreak 9:30-9:40'
-          '\n\n2nd Period 9:45-11:15'
-          '\n\nAssembly 11:20-12:20'
-          '\n\nLunch 12:20-12:55'
-          '\n\n3rd Period 1:00-2:30\n'),
-    ],
-  ),
-  new Entry(
-    'Minimum Day Friday',
-    <Entry>[
-      new Entry('0 Period 7:05-7:55'
-          '\n\n1st Period 8:00-8:35'
-          '\n\n2nd Period 8:40-9:15'
-          '\n\n3rd Period 9:20-9:55'
-          '\n\nBreak 9:55-10:05'
-          '\n\n4th Period 10:10-10:45'
-          '\n\n5th Period 10:50-11:25'
-          '\n\n6th Period 11:30-12:05'
-          '\n\n7th Period 12:10-12:45\n'),
-    ],
-  ),
-];
+class HomePageState extends State<HomePage> {
+  void _showMondayTuesdayFriday() {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder) {
+          return new Container(
+            color: Colors.white,
+            child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '0 Period 7:05-7:55',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '1st Period 8:00-8:48',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 58.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '2nd Period 8:55-9:43',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 68.0, top: 5.0, right: 68.0, bottom: 5.0),
+                          child: const Text(
+                            'Break 9:43-9:53',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 49.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '3rd Period 10:00-10:48',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 49.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '4th Period 10:55-11:43',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            'Lunch 11:43-12:18',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 56.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '5th Period 12:25-1:13',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 59.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '6th Period 1:20-2:08',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 59.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '7th Period 2:15-3:03',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ]),
+          );
+        });
+  }
 
-// Displays one Entry. If the entry has children then it's displayed
-// with an ExpansionTile.
-class EntryItem extends StatelessWidget {
-  const EntryItem(this.entry);
+  void _showWednesday() {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder) {
+          return new Container(
+            color: Colors.white,
+            child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '0 Period 7:05-7:55',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '4th Period 8:00-9:30',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 68.0, top: 5.0, right: 68.0, bottom: 5.0),
+                          child: const Text(
+                            'Break 9:30-9:40',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 53.0, top: 5.0, right: 54.0, bottom: 5.0),
+                          child: const Text(
+                            '5th Period 9:47-11:17',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 63.0, top: 5.0, right: 58.0, bottom: 5.0),
+                          child: const Text(
+                            'Lunch 11:17-11:53',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 58.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '6th Period 12:00-1:30',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 63.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '7th Period 1:37-3:07',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ]),
+          );
+        });
+  }
 
-  final Entry entry;
-
-  Widget _buildTiles(Entry root) {
-    if (root.children.isEmpty) return new ListTile(title: new Text(root.title));
-    return new ExpansionTile(
-      key: new PageStorageKey<Entry>(root),
-      title: new Text(root.title),
-      children: root.children.map(_buildTiles).toList(),
-    );
+  void _showThursday() {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder) {
+          return new Container(
+            color: Colors.white,
+            child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '0 Period 7:05-7:55',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '1st Period 8:00-9:30',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 51.0, top: 5.0, right: 53.0, bottom: 5.0),
+                          child: const Text(
+                            'Homeroom 9:37-9:47',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 62.0, top: 5.0, right: 64.0, bottom: 5.0),
+                          child: const Text(
+                            'Smart 9:47-10:30',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 63.0, top: 5.0, right: 58.0, bottom: 5.0),
+                          child: const Text(
+                            'Break 10:30-10:40',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 46.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '2nd Period 10:47-12:17',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 66.0, top: 5.0, right: 56.0, bottom: 5.0),
+                          child: const Text(
+                            'Lunch 12:17-12:55',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 63.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            '3rd Period 1:02-2:32',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    color: Colors.blue,
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new Padding(
+                          padding: new EdgeInsets.only(
+                              left: 46.0, top: 5.0, right: 50.0, bottom: 5.0),
+                          child: const Text(
+                            'Staff Meeting 2:42-3:37',
+                            style: const TextStyle(fontSize: 12.0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ]),
+          );
+        });
   }
 
   @override
   Widget build(BuildContext context) {
-    return _buildTiles(entry);
+    return new Scaffold(
+      body: new ListView(
+        children: <Widget>[
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Card(
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
+                      title: new Text('Normal School Week'),
+                      subtitle: new Text(
+                        '',
+                        style: new TextStyle(
+                            color: Colors.grey.withOpacity(0.9),
+                            fontSize: 12.0),
+                      ),
+                    ),
+                    new NativeButton(
+                      child: new Text(
+                        'Monday (All Periods)',
+                        style:
+                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                      ),
+                      buttonColor: Colors.red,
+                      onPressed: _showMondayTuesdayFriday,
+                    ),
+                    new Text('\n'),
+                    new NativeButton(
+                      child: new Text(
+                        'Tuesday (All Periods)',
+                        style:
+                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                      ),
+                      buttonColor: Colors.red,
+                      onPressed: _showMondayTuesdayFriday,
+                    ),
+                    new Text('\n'),
+                    new NativeButton(
+                      child: new Text(
+                        'Wednesday (Block Schedule)',
+                        style:
+                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                      ),
+                      buttonColor: Colors.red,
+                      onPressed: _showWednesday,
+                    ),
+                    new Text('\n'),
+                    new NativeButton(
+                      child: new Text(
+                        'Thursday (Block Schedule)',
+                        style:
+                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                      ),
+                      buttonColor: Colors.red,
+                      onPressed: _showThursday,
+                    ),
+                    new Text('\n'),
+                    new NativeButton(
+                      child: new Text(
+                        'Friday (All Periods)',
+                        style:
+                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                      ),
+                      buttonColor: Colors.red,
+                      onPressed: _showMondayTuesdayFriday,
+                    ),
+                    new Text('\n'),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
