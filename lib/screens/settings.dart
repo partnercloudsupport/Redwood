@@ -20,10 +20,13 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  bool _value_0 = false;
-  bool _value_1 = true;
+  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  Future<bool> _value_0;
+  Future<bool> _value_1;
+
+  bool _v_0 = true;
+  bool _v_1 = true;
   bool _value_2 = true;
   bool _value_3 = true;
   bool _value_4 = true;
@@ -31,29 +34,45 @@ class HomePageState extends State<HomePage> {
   bool _value_6 = true;
   bool _value_7 = true;
 
-  void _onChanged_0(bool value0) {
-    setState(() {
-      _0_Period;
-      //0 Period
-      if (_value_0 == true) {
-        _value_0 = false;
-      } else {
-        _value_0 = true;
-      }
-      _0_Period();
-    });
+  Future<Null> _0_period(bool value0) async {
+    final SharedPreferences prefs = await _prefs;
+    if (prefs.getBool('_0_Period') == true){
+      final bool _value0 = prefs.getBool('_0_Period') == false;
+      setState(() {
+        _value_0 = prefs.setBool("_0_Period", _value0).then((bool success) {
+          return _value_0;
+        });
+      });
+    } else {
+      final bool _value0 = prefs.getBool('_0_Period') == true;
+      setState(() {
+        _value_0 = prefs.setBool("_0_Period", _value0).then((bool success) {
+          return _value_0;
+        });
+      });
+    }
   }
 
-  void _onChanged_1(bool value1) {
-    setState(() {
-      //1st Period
-      if (_value_1 == true) {
-        _value_1 = false;
-      } else {
-        _value_1 = true;
-      }
-    });
+  Future<Null> _1_period(bool value1) async {
+    final SharedPreferences prefs = await _prefs;
+    if (prefs.getBool('_1_Period') == true){
+      final bool _value1 = prefs.getBool('_1_Period') == false;
+      setState(() {
+        _value_1 = prefs.setBool("_1_Period", _value1).then((bool success) {
+          return _v_1;
+        });
+      });
+    } else {
+      final bool _value1 = prefs.getBool('_1_Period') == true;
+      setState(() {
+        _value_1 = prefs.setBool("_1_Period", _value1).then((bool success) {
+          return _v_1;
+        });
+      });
+    }
   }
+
+
 
   void _onChanged_2(bool value2) {
     setState(() {
@@ -159,18 +178,14 @@ class HomePageState extends State<HomePage> {
                       new SwitchListTile(
                         title: new Text('0 Period'),
                         activeColor: Colors.red,
-                        value: _value_0,
-                        onChanged: (bool value0) {
-                          _onChanged_0(value0);
-                        },
+                        value: _v_0,
+                        onChanged: (bool value0) {_0_period(value0);},
                       ),
                       new SwitchListTile(
                         title: new Text('1st Period'),
                         activeColor: Colors.red,
-                        value: _value_1,
-                        onChanged: (bool value1) {
-                          _onChanged_1(value1);
-                        },
+                        value: _v_1,
+                        onChanged: (bool value1) {_1_period(value1);},
                       ),
                       new SwitchListTile(
                         title: new Text('2nd Period'),
