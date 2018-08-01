@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:native_widgets/native_widgets.dart';
-
+import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:package_info/package_info.dart';
 
+
 class Dev extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) => new Container(
         child: new HomePage(),
       );
+
 }
 
 class HomePage extends StatefulWidget {
@@ -43,6 +46,10 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+
+    _counter = _prefs.then((SharedPreferences prefs) {
+      return (prefs.getInt('counter') ?? 0);
+    });
 
     initConnectivity();
     _connectivitySubscription =
@@ -160,41 +167,30 @@ class HomePageState extends State<HomePage> {
                           fontFamily: 'Pacifico'),
                     ),
                   ),
+                  new RaisedButton(
+                    onPressed: _incrementCounter,
+                    child: new Text('Increment Counter'),
+                  ),
+                  new FutureBuilder<int>(
+                      future: _counter,
+                      builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+                        switch (snapshot.connectionState) {
+                          case ConnectionState.waiting:
+                            return const CircularProgressIndicator();
+                          default:
+                            if (snapshot.hasError)
+                              return new Text('Error: ${snapshot.error}');
+                            else
+                              return new Text(
+                                'Button tapped ${snapshot.data} time${ snapshot.data == 1 ? '' : 's' }.\n\n'
+                                    'This should persist across restarts.',
+                              );
+                        }
+                      }),
                 ],
               )
             ],
           ),
         ),
       );
-}
-
-FBURL() {
-  launch(
-      'https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
-}
-
-GitHub() {
-  launch('https://github.com/isontic/Redwood');
-}
-
-//Elias
-EliasTwitter() {
-  launch('https://twitter.com/EliasDeuss');
-}
-
-EliasInstagram() {
-  launch('https://instagram.com/EliasDeuss');
-}
-
-EliasSnapchat() {
-  launch('https://snapchat.com/add/EliasDeuss');
-}
-
-EliasGithub() {
-  launch('https://github.com/EliasDeuss');
-}
-
-//Lauren
-LaurenInstagram() {
-  launch('https://instagram.com/Lauren.smartt');
 }

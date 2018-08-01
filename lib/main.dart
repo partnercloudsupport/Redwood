@@ -24,6 +24,7 @@ import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:meta/meta.dart';
 
 void main() => runApp(new MaterialApp(
       title: 'Redwood',

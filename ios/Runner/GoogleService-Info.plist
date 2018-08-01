@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>131667320349-dr1ub2ktpb563m63gncqpl6uu1f6idgi.apps.googleusercontent.com</string>
+	<string>131667320349-gpfl7lvj8f9ajr50p4hdcudpdv0p6q39.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.131667320349-dr1ub2ktpb563m63gncqpl6uu1f6idgi</string>
+	<string>com.googleusercontent.apps.131667320349-gpfl7lvj8f9ajr50p4hdcudpdv0p6q39</string>
 	<key>API_KEY</key>
 	<string>AIzaSyADBG4jG3od90Ko0awqPNTOhDg-NF6tduY</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.isontic.rhs</string>
+	<string>com.isontic.redwood</string>
 	<key>PROJECT_ID</key>
 	<string>redwood-bc135</string>
 	<key>STORAGE_BUCKET</key>
@@ -27,13 +27,13 @@
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
 	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:131667320349:ios:4945dfa2ce27c5da</string>
+	<string>1:131667320349:ios:5958f7f88601fd85</string>
 	<key>DATABASE_URL</key>
 	<string>https://redwood-bc135.firebaseio.com</string>
 </dict>

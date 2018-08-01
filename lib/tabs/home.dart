@@ -33,7 +33,7 @@ class HomePageState extends State<HomePage> {
                               left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '0 Period 7:05-7:55',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -49,7 +49,7 @@ class HomePageState extends State<HomePage> {
                               left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '1st Period 8:00-8:48',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -65,7 +65,7 @@ class HomePageState extends State<HomePage> {
                               left: 58.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '2nd Period 8:55-9:43',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -81,7 +81,7 @@ class HomePageState extends State<HomePage> {
                               left: 68.0, top: 5.0, right: 68.0, bottom: 5.0),
                           child: const Text(
                             'Break 9:43-9:53',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -97,7 +97,7 @@ class HomePageState extends State<HomePage> {
                               left: 49.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '3rd Period 10:00-10:48',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -113,7 +113,7 @@ class HomePageState extends State<HomePage> {
                               left: 49.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '4th Period 10:55-11:43',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -129,7 +129,7 @@ class HomePageState extends State<HomePage> {
                               left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             'Lunch 11:43-12:18',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -145,7 +145,7 @@ class HomePageState extends State<HomePage> {
                               left: 56.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '5th Period 12:25-1:13',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -161,7 +161,7 @@ class HomePageState extends State<HomePage> {
                               left: 59.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '6th Period 1:20-2:08',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -177,7 +177,7 @@ class HomePageState extends State<HomePage> {
                               left: 59.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '7th Period 2:15-3:03',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -207,7 +207,7 @@ class HomePageState extends State<HomePage> {
                               left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '0 Period 7:05-7:55',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -223,7 +223,7 @@ class HomePageState extends State<HomePage> {
                               left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '4th Period 8:00-9:30',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -239,7 +239,7 @@ class HomePageState extends State<HomePage> {
                               left: 68.0, top: 5.0, right: 68.0, bottom: 5.0),
                           child: const Text(
                             'Break 9:30-9:40',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -255,7 +255,7 @@ class HomePageState extends State<HomePage> {
                               left: 53.0, top: 5.0, right: 54.0, bottom: 5.0),
                           child: const Text(
                             '5th Period 9:47-11:17',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -271,7 +271,7 @@ class HomePageState extends State<HomePage> {
                               left: 63.0, top: 5.0, right: 58.0, bottom: 5.0),
                           child: const Text(
                             'Lunch 11:17-11:53',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -287,7 +287,7 @@ class HomePageState extends State<HomePage> {
                               left: 58.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '6th Period 12:00-1:30',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -303,7 +303,7 @@ class HomePageState extends State<HomePage> {
                               left: 63.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '7th Period 1:37-3:07',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -333,7 +333,7 @@ class HomePageState extends State<HomePage> {
                               left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '0 Period 7:05-7:55',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -349,7 +349,7 @@ class HomePageState extends State<HomePage> {
                               left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '1st Period 8:00-9:30',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -365,7 +365,7 @@ class HomePageState extends State<HomePage> {
                               left: 51.0, top: 5.0, right: 53.0, bottom: 5.0),
                           child: const Text(
                             'Homeroom 9:37-9:47',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -381,7 +381,7 @@ class HomePageState extends State<HomePage> {
                               left: 62.0, top: 5.0, right: 64.0, bottom: 5.0),
                           child: const Text(
                             'Smart 9:47-10:30',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -397,7 +397,7 @@ class HomePageState extends State<HomePage> {
                               left: 63.0, top: 5.0, right: 58.0, bottom: 5.0),
                           child: const Text(
                             'Break 10:30-10:40',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -413,7 +413,7 @@ class HomePageState extends State<HomePage> {
                               left: 46.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '2nd Period 10:47-12:17',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -429,7 +429,7 @@ class HomePageState extends State<HomePage> {
                               left: 66.0, top: 5.0, right: 56.0, bottom: 5.0),
                           child: const Text(
                             'Lunch 12:17-12:55',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -445,7 +445,7 @@ class HomePageState extends State<HomePage> {
                               left: 63.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             '3rd Period 1:02-2:32',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],
@@ -461,7 +461,7 @@ class HomePageState extends State<HomePage> {
                               left: 46.0, top: 5.0, right: 50.0, bottom: 5.0),
                           child: const Text(
                             'Staff Meeting 2:42-3:37',
-                            style: const TextStyle(fontSize: 12.0),
+                            style: const TextStyle(fontSize: 12.0, color: Colors.white),
                           ),
                         )
                       ],

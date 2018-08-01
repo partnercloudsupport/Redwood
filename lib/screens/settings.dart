@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:native_widgets/native_widgets.dart';
+import 'package:meta/meta.dart';
 
 class Settings extends StatelessWidget {
   @override
@@ -32,6 +33,7 @@ class HomePageState extends State<HomePage> {
 
   void _onChanged_0(bool value0) {
     setState(() {
+      _0_Period;
       //0 Period
       if (_value_0 == true) {
         _value_0 = false;
@@ -214,8 +216,8 @@ class HomePageState extends State<HomePage> {
                         title: new Text('7th Period'),
                         activeColor: Colors.red,
                         value: _value_7,
-                        onChanged: (bool value6) {
-                          _onChanged_6(value6);
+                        onChanged: (bool value7) {
+                          _onChanged_7(value7);
                         },
                       ),
                     ],
@@ -254,6 +256,7 @@ class HomePageState extends State<HomePage> {
       );
 }
 
+
 FBURL() {
   launch(
       'https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
@@ -261,12 +264,12 @@ FBURL() {
 
 _0_Period() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  int period = prefs.getInt('0_period');
+  bool period = prefs.getBool('0_period');
 
-  if (prefs.getInt('0_period') == 0) {
-    period = 1;
+  if (prefs.getInt('0_period') == true) {
+    period = false;
   } else {
-    period = 0;
+    period = true;
   }
-  await prefs.setInt('0_period', period);
+  await prefs.setBool('0_period', period);
 }
