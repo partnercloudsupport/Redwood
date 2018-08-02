@@ -113,5 +113,5 @@ class discord extends StatelessWidget {
 }
 
 discordl() {
-  launch('https://discord.gg/B46YYn4');
+  launch('https://discord.gg/VxjQGMr');
 }
