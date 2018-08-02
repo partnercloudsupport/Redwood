@@ -188,6 +188,12 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = WM6HBKA3JW;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};

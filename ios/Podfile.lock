@@ -100,6 +100,7 @@ PODS:
   - Flutter (1.0.0)
   - flutter_youtube (0.0.1):
     - Flutter
+    - XCDYouTubeKit
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/Logger (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
@@ -143,6 +144,7 @@ PODS:
     - Flutter
   - url_launcher (0.0.1):
     - Flutter
+  - XCDYouTubeKit (2.5.6)
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
@@ -183,6 +185,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - Reachability
+    - XCDYouTubeKit
 
 EXTERNAL SOURCES:
   cloud_firestore:
@@ -235,7 +238,7 @@ SPEC CHECKSUMS:
   FirebaseMessaging: f43eb0c0e1da096e659de6f713038e74862a62cd
   FirebaseRemoteConfig: 3c57e4644bd6976b671ae0b725cd709f198bd1f5
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  flutter_youtube: 729870920c0074fc2d0280e652aca046ac09ef89
+  flutter_youtube: e237870de392a5ee800e9c36a13796ed887718b2
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   gRPC: 81b990caa01d7c32605d300c2ffd1b5ba0ef9e49
   gRPC-Core: a56b086a8ef5ced6f6ba5be5bc0a63fca185015a
@@ -250,6 +253,7 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   shared_preferences: 5a1d487c427ee18fcd3ea1f2a131569481834b53
   url_launcher: 92b89c1029a0373879933c21642958c874539095
+  XCDYouTubeKit: dccfe0c17dd5c5187969ec27e93069573badb08f
 
 PODFILE CHECKSUM: 1e5af4103afd21ca5ead147d7b81d06f494f51a2
 
