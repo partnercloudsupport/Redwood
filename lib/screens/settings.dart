@@ -75,6 +75,16 @@ class HomePageState extends State<HomePage> {
 
 
 
+  @override
+  void initState() {
+    super.initState();
+
+
+
+  }
+
+
+
   void _onChanged_2(bool value2) {
     setState(() {
       //2nd Period
@@ -141,6 +151,8 @@ class HomePageState extends State<HomePage> {
     });
   }
 
+  bool classes_setup = false;
+
   final SharedPreferences prefs;
   Widget build(BuildContext context) => new Scaffold(
 
@@ -163,8 +175,6 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             new Column(
               children: <Widget>[
-                new Text('\nThis page is not working yet! 😢',
-                    style: new TextStyle(color: Colors.red.withOpacity(0.9))),
                 new Card(
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -181,7 +191,7 @@ class HomePageState extends State<HomePage> {
                       new SwitchListTile(
                         title: new Text('0 Period'),
                         activeColor: Colors.red,
-                        value: prefs.getBool('_0_Period'),
+                        value: _v_0,
                         onChanged: (bool value0) {_0_period;},
                       ),
                       new SwitchListTile(

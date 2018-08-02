@@ -493,54 +493,60 @@ class HomePageState extends State<HomePage> {
                             fontSize: 12.0),
                       ),
                     ),
-                    new NativeButton(
-                      child: new Text(
-                        'Monday (All Periods)',
-                        style:
-                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                    new ListTile(
+                      title: new NativeButton(
+                        child: new Text(
+                          'Monday (All Periods)',
+                          style:
+                          new TextStyle(color: Colors.white.withOpacity(0.9)),
+                        ),
+                        buttonColor: Colors.red,
+                        onPressed: _showMondayTuesdayFriday,
                       ),
-                      buttonColor: Colors.red,
-                      onPressed: _showMondayTuesdayFriday,
                     ),
-                    new Text('\n'),
-                    new NativeButton(
-                      child: new Text(
-                        'Tuesday (All Periods)',
-                        style:
-                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                    new ListTile(
+                      title: new NativeButton(
+                        child: new Text(
+                          'Tuesday (All Periods)',
+                          style:
+                          new TextStyle(color: Colors.white.withOpacity(0.9)),
+                        ),
+                        buttonColor: Colors.red,
+                        onPressed: _showMondayTuesdayFriday,
                       ),
-                      buttonColor: Colors.red,
-                      onPressed: _showMondayTuesdayFriday,
                     ),
-                    new Text('\n'),
-                    new NativeButton(
-                      child: new Text(
-                        'Wednesday (Block Schedule)',
-                        style:
-                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                    new ListTile(
+                      title: new NativeButton(
+                        child: new Text(
+                          'Wednesday (Block Schedule)',
+                          style:
+                          new TextStyle(color: Colors.white.withOpacity(0.9)),
+                        ),
+                        buttonColor: Colors.red,
+                        onPressed: _showWednesday,
                       ),
-                      buttonColor: Colors.red,
-                      onPressed: _showWednesday,
                     ),
-                    new Text('\n'),
-                    new NativeButton(
-                      child: new Text(
-                        'Thursday (Block Schedule)',
-                        style:
-                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                    new ListTile(
+                      title: new NativeButton(
+                        child: new Text(
+                          'Thursday (Block Schedule)',
+                          style:
+                          new TextStyle(color: Colors.white.withOpacity(0.9)),
+                        ),
+                        buttonColor: Colors.red,
+                        onPressed: _showThursday,
                       ),
-                      buttonColor: Colors.red,
-                      onPressed: _showThursday,
                     ),
-                    new Text('\n'),
-                    new NativeButton(
-                      child: new Text(
-                        'Friday (All Periods)',
-                        style:
-                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+                    new ListTile(
+                      title: new NativeButton(
+                        child: new Text(
+                          'Friday (All Periods)',
+                          style:
+                          new TextStyle(color: Colors.white.withOpacity(0.9)),
+                        ),
+                        buttonColor: Colors.red,
+                        onPressed: _showMondayTuesdayFriday,
                       ),
-                      buttonColor: Colors.red,
-                      onPressed: _showMondayTuesdayFriday,
                     ),
                     new Text('\n'),
                   ],

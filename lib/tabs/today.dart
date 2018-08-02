@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:native_widgets/native_widgets.dart';
 
 class Today extends StatelessWidget {
 
@@ -24,17 +24,16 @@ class HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  bool page = false;
-
+  bool page = true;
+  bool classes_setup = false;
   String nextclassstart = '5';
 
   @override
   Widget build(BuildContext context) {
 
-    if (page == true){
+    if (page == true && classes_setup == true){
       return new Column(
         children: <Widget>[
-          new Text('\nThis page is not working yet! 😢', style: new TextStyle(color: Colors.red.withOpacity(0.9)) ),
           new Card(
             child: new Column(
               mainAxisSize: MainAxisSize.min,
@@ -60,6 +59,37 @@ class HomePageState extends State<HomePage> {
             ),
           ),
           new Divider(height: 10.0,color: Colors.grey,),
+        ],
+      );
+    }
+
+    if (page == true && classes_setup == false){
+      return new Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          new Card(
+            child: new Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                new ListTile(
+                  title: new Text('Announcements 📢'),
+                  subtitle: new Text('None today 😎'),
+                ),
+
+              ],
+            ),
+          ),
+          new Text('Select the class\'s you have.'),
+          new NativeButton(
+            child: new Text(
+              'Setup your class\'s',
+              style:
+              new TextStyle(color: Colors.white.withOpacity(0.9)),
+            ),
+            buttonColor: Colors.red,
+            onPressed: () {},
+          ),
         ],
       );
     }

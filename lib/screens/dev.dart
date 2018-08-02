@@ -34,13 +34,10 @@ class HomePageState extends State<HomePage> {
 
   Future<Null> _incrementCounter() async {
     final SharedPreferences prefs = await _prefs;
-    final int counter = (prefs.getInt('counter') ?? 0) + 1;
 
-    setState(() {
-      _counter = prefs.setInt("counter", counter).then((bool success) {
-        return counter;
-      });
-    });
+    final bool _value0 = true;
+    prefs.setBool("_0_Period", _value0);
+
   }
 
   @override
