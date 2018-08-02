@@ -7,13 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:native_ui/native_ui.dart';
 
 class Tv extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) => new Container(
-    child: new HomePage(),
-  );
+        child: new HomePage(),
+      );
 }
 
 class HomePage extends StatefulWidget {
@@ -22,7 +22,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   String _connectionStatus = 'Unknown';
   final Connectivity _connectivity = new Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
@@ -31,16 +30,12 @@ class HomePageState extends State<HomePage> {
 
   Future<String> getData() async {
     var response = await http.get(
-        Uri.encodeFull("https://raw.githubusercontent.com/isontic/data/master/tv.json"),
-        headers: {
-          "Accept": "application/json"
-        }
-    );
+        Uri.encodeFull(
+            "https://raw.githubusercontent.com/isontic/data/master/tv.json"),
+        headers: {"Accept": "application/json"});
 
     this.setState(() {
       data = json.decode(response.body);
-
-
     });
     print(data[1]["title"]);
     print(data[1]["body"]);
@@ -57,8 +52,8 @@ class HomePageState extends State<HomePage> {
     initConnectivity();
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-          setState(() => _connectionStatus = result.toString());
-        });
+      setState(() => _connectionStatus = result.toString());
+    });
   }
 
   @override
@@ -89,7 +84,6 @@ class HomePageState extends State<HomePage> {
     });
   }
 
-
   void playYoutubeVideo() {
     FlutterYoutube.playYoutubeVideoByUrl(
       apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
@@ -97,11 +91,15 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-
+  VidURL() {
+    launch(data[0]["link"]);
+  }
 
   @override
   Widget build(BuildContext context) {
-    if (_connectionStatus == 'ConnectivityResult.wifi' || _connectionStatus == 'Unknown') {
+    if (_connectionStatus == 'ConnectivityResult.wifi' ||
+        _connectionStatus == 'Unknown' ||
+        _connectionStatus == 'ConnectivityResult.mobile') {
       return new Scaffold(
           body: new ListView.builder(
               itemCount: data == null ? 0 : data.length,
@@ -112,8 +110,7 @@ class HomePageState extends State<HomePage> {
                     children: <Widget>[
                       ListTile(
                           leading: const Icon(Icons.tv),
-                          title: new Text(data[index]["title"])
-                      ),
+                          title: new Text(data[index]["title"])),
                       new Text('$_connectionStatus'),
                       new Container(
                         width: 370.0,
@@ -130,13 +127,19 @@ class HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
-                      new ButtonTheme
-                          .bar( // make buttons use the appropriate styles for cards
+                      new ButtonTheme.bar(
+                        // make buttons use the appropriate styles for cards
                         child: new ButtonBar(
                           children: <Widget>[
-                            new FlatButton(
-                              child: const Text('Watch'),
-                              onPressed: playYoutubeVideo,
+                            new PlatformSwitcher(
+                              iOSChild: new FlatButton(
+                                child: const Text('Watch'),
+                                onPressed: VidURL,
+                              ),
+                              androidChild: new FlatButton(
+                                child: const Text('Watch'),
+                                onPressed: playYoutubeVideo,
+                              ),
                             ),
                           ],
                         ),
@@ -144,10 +147,9 @@ class HomePageState extends State<HomePage> {
                     ],
                   ),
                 );
-              }
-          )
-      );
-    };
+              }));
+    }
+    ;
     if (_connectionStatus == 'ConnectivityResult.none') {
       return new ListView(
         children: <Widget>[
@@ -161,7 +163,9 @@ class HomePageState extends State<HomePage> {
                       title: new Text('No Internet'),
                       subtitle: new Text(
                         'Connect to the internet to watch Redwood TV',
-                        style: new TextStyle(color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
+                        style: new TextStyle(
+                            color: Colors.grey.withOpacity(0.9),
+                            fontSize: 12.0),
                       ),
                     ),
                     new Text('\n')

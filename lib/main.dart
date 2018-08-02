@@ -25,6 +25,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:meta/meta.dart';
+import 'package:native_ui/native_ui.dart';
 
 void main() => runApp(new MaterialApp(
       title: 'Redwood',
@@ -194,7 +195,8 @@ class TabsState extends State<Tabs> {
           content: new SingleChildScrollView(
             child: new ListBody(
               children: <Widget>[
-                new Text('This is something we are looking on adding this to the app sometime soon.'),
+                new Text(
+                    'This is something we are looking on adding this to the app sometime soon.'),
               ],
             ),
           ),
@@ -213,78 +215,80 @@ class TabsState extends State<Tabs> {
 
   @override
   Widget build(BuildContext context) => new Scaffold(
-
-      //App Bar
-      appBar: new AppBar(
-        title: new Text(
-          _title_app,
-          style: new TextStyle(
-            fontSize: Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 20.0,
+        //App Bar
+        appBar: new AppBar(
+          title: new Text(
+            _title_app,
+            style: new TextStyle(
+              fontSize: Theme.of(context).platform == TargetPlatform.iOS
+                  ? 17.0
+                  : 20.0,
+            ),
           ),
+          elevation:
+              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
-        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
-      ),
 
-      //Content of tabs
-      body: new PageView(
-        controller: _tabController,
-        onPageChanged: onTabChanged,
-        children: <Widget>[
-          new _firstTab.Home(),
-          new _secondTab.Today(),
-          new Tv()
-        ],
-      ),
+        //Content of tabs
+        body: new PageView(
+          controller: _tabController,
+          onPageChanged: onTabChanged,
+          children: <Widget>[
+            new _firstTab.Home(),
+            new _secondTab.Today(),
+            new Tv()
+          ],
+        ),
 
-      //Tabs
-      bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS
-          ? new CupertinoTabBar(
-              activeColor: Colors.red,
-              currentIndex: _tab,
-              onTap: onTap,
-              items: TabItems.map((TabItem) {
-                return new BottomNavigationBarItem(
-                  title: new Text(TabItem.title),
-                  icon: new Icon(TabItem.icon),
-                );
-              }).toList(),
-            )
-          : new BottomNavigationBar(
-              currentIndex: _tab,
-              onTap: onTap,
-              items: TabItems.map((TabItem) {
-                return new BottomNavigationBarItem(
-                  title: new Text(TabItem.title),
-                  icon: new Icon(TabItem.icon),
-                );
-              }).toList(),
-            ),
-
-      //Drawer
-      drawer: new Drawer(
-          child: new ListView(
-        children: <Widget>[
-          new Container(
-            height: 120.0,
-            child: new DrawerHeader(
-              padding: new EdgeInsets.all(0.0),
-              decoration: new BoxDecoration(
-                color: new Color(0xFFFFEBEE),
+        //Tabs
+        bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS
+            ? new CupertinoTabBar(
+                activeColor: Colors.red,
+                currentIndex: _tab,
+                onTap: onTap,
+                items: TabItems.map((TabItem) {
+                  return new BottomNavigationBarItem(
+                    title: new Text(TabItem.title),
+                    icon: new Icon(TabItem.icon),
+                  );
+                }).toList(),
+              )
+            : new BottomNavigationBar(
+                currentIndex: _tab,
+                onTap: onTap,
+                items: TabItems.map((TabItem) {
+                  return new BottomNavigationBarItem(
+                    title: new Text(TabItem.title),
+                    icon: new Icon(TabItem.icon),
+                  );
+                }).toList(),
               ),
-              child: new Center(child: new Image.asset('logo.gif')),
-            ),
-          ),
-          new ListTile(
-            leading: new Icon(Icons.school),
-            title: new Text('Redwood Website'),
-            onTap: RHSURL,
-          ),
 
-          new ListTile(
-            leading: new Icon(FontAwesomeIcons.link),
-            title: new Text('ESchool'),
-            onTap: ESCHOOLURL,
-          ),
+        //Drawer
+        drawer: new Drawer(
+            child: new ListView(
+          children: <Widget>[
+            new Container(
+              height: 120.0,
+              child: new DrawerHeader(
+                padding: new EdgeInsets.all(0.0),
+                decoration: new BoxDecoration(
+                  color: new Color(0xFFFFEBEE),
+                ),
+                child: new Center(child: new Image.asset('logo.gif')),
+              ),
+            ),
+            new ListTile(
+              leading: new Icon(Icons.school),
+              title: new Text('Redwood Website'),
+              onTap: RHSURL,
+            ),
+
+            new ListTile(
+              leading: new Icon(FontAwesomeIcons.link),
+              title: new Text('ESchool'),
+              onTap: ESCHOOLURL,
+            ),
 //          new ListTile(
 //            leading: new Icon(Icons.chat),
 //            title: new Text('Support'),
@@ -293,55 +297,56 @@ class TabsState extends State<Tabs> {
 //              Navigator.of(context).pushNamed('/support');
 //            }
 //          ),
-          new ListTile(
-              leading: new Icon(Icons.map),
-              title: new Text('School Map'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/map');
-              }),
-          new ListTile(
-            leading: new Icon(FontAwesomeIcons.gamepad),
-            title: new Text('Student Written Games'),
-            onTap: _GMComingSoon,
-          ),
-          new ListTile(
-              leading: new Icon(FontAwesomeIcons.discord),
-              title: new Text('Team RHS Discord'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/discord');
-              }),
-          new Divider(
-            height: 10.0,
-            color: Colors.grey,
-          ),
-          new ListTile(
-              leading: new Icon(Icons.settings),
-              title: new Text('Settings'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/settings');
-              }),
-          new ListTile(
-              leading: new Icon(Icons.info),
-              title: new Text('About'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/about');
-              }),
+            new ListTile(
+                leading: new Icon(Icons.map),
+                title: new Text('School Map'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/map');
+                }),
+            new ListTile(
+              leading: new Icon(FontAwesomeIcons.gamepad),
+              title: new Text('Student Written Games'),
+              onTap: _GMComingSoon,
+            ),
+            new ListTile(
+                leading: new Icon(FontAwesomeIcons.discord),
+                title: new Text('Team RHS Discord'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/discord');
+                }),
+            new Divider(
+              height: 10.0,
+              color: Colors.grey,
+            ),
+            new ListTile(
+                leading: new Icon(Icons.settings),
+                title: new Text('Settings'),
+                onTap:
+                  //() {
+                  //Navigator.pop(context);
+                  //Navigator.of(context).pushNamed('/settings');
+                //})
+                _GMComingSoon,),
+            new ListTile(
+                leading: new Icon(Icons.info),
+                title: new Text('About'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/about');
+                }),
 
-          new ListTile(
-              leading: new Icon(Icons.cached),
-              title: new Text('Change Log'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).pushNamed('/changelog');
-              }),
-        ],
-      )),
-
-  );
+            new ListTile(
+                leading: new Icon(Icons.cached),
+                title: new Text('Change Log'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/changelog');
+                }),
+          ],
+        )),
+      );
 
   void onTap(int tab) {
     _tabController.jumpToPage(tab);
@@ -476,6 +481,10 @@ class HomePageState extends State<HomePage> {
     );
   }
 
+  VidURL() {
+    launch(data[0]["link"]);
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_connectionStatus == 'ConnectivityResult.wifi' ||
@@ -511,9 +520,15 @@ class HomePageState extends State<HomePage> {
                         // make buttons use the appropriate styles for cards
                         child: new ButtonBar(
                           children: <Widget>[
-                            new FlatButton(
-                              child: const Text('Watch'),
-                              onPressed: playYoutubeVideo,
+                            new PlatformSwitcher(
+                              iOSChild: new FlatButton(
+                                child: const Text('Watch'),
+                                onPressed: VidURL,
+                              ),
+                              androidChild: new FlatButton(
+                                child: const Text('Watch'),
+                                onPressed: playYoutubeVideo,
+                              ),
                             ),
                           ],
                         ),

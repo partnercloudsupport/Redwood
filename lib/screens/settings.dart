@@ -22,10 +22,10 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
 
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  Future<bool> _value_0;
+  Future<int> _value_0;
   Future<bool> _value_1;
 
-  bool _v_0 = true;
+  bool _v_0;
   bool _v_1 = true;
   bool _value_2 = true;
   bool _value_3 = true;
@@ -34,7 +34,8 @@ class HomePageState extends State<HomePage> {
   bool _value_6 = true;
   bool _value_7 = true;
 
-  Future<Null> _0_period(bool value0) async {
+
+  Future<Null> _0_period(bool value1) async {
     final SharedPreferences prefs = await _prefs;
     if (prefs.getBool('_0_Period') == true){
       final bool _value0 = prefs.getBool('_0_Period') == false;
@@ -140,7 +141,9 @@ class HomePageState extends State<HomePage> {
     });
   }
 
+  final SharedPreferences prefs;
   Widget build(BuildContext context) => new Scaffold(
+
         //App Bar
         appBar: new AppBar(
           title: new Text(
@@ -178,8 +181,8 @@ class HomePageState extends State<HomePage> {
                       new SwitchListTile(
                         title: new Text('0 Period'),
                         activeColor: Colors.red,
-                        value: _v_0,
-                        onChanged: (bool value0) {_0_period(value0);},
+                        value: prefs.getBool('_0_Period'),
+                        onChanged: (bool value0) {_0_period;},
                       ),
                       new SwitchListTile(
                         title: new Text('1st Period'),
