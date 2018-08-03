@@ -19,6 +19,34 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
+  Future<Null> _GMComingSoon() async {
+    return showDialog<Null>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return new AlertDialog(
+          title: new Text('Coming Soon!'),
+          content: new SingleChildScrollView(
+            child: new ListBody(
+              children: <Widget>[
+                new Text(
+                    'This is something we are working on and will be adding this to the app sometime soon.'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text('Done'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -88,7 +116,7 @@ class HomePageState extends State<HomePage> {
               new TextStyle(color: Colors.white.withOpacity(0.9)),
             ),
             buttonColor: Colors.red,
-            onPressed: () {},
+            onPressed: _GMComingSoon,
           ),
         ],
       );

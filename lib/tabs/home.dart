@@ -494,57 +494,67 @@ class HomePageState extends State<HomePage> {
                       ),
                     ),
                     new ListTile(
-                      title: new NativeButton(
+                      title: new RaisedButton(
                         child: new Text(
                           'Monday (All Periods)',
                           style:
                           new TextStyle(color: Colors.white.withOpacity(0.9)),
                         ),
-                        buttonColor: Colors.red,
+                        color: Theme.of(context).accentColor,
+                        elevation: 4.0,
+                        splashColor: Colors.grey,
                         onPressed: _showMondayTuesdayFriday,
                       ),
                     ),
                     new ListTile(
-                      title: new NativeButton(
+                      title: new RaisedButton(
                         child: new Text(
                           'Tuesday (All Periods)',
                           style:
                           new TextStyle(color: Colors.white.withOpacity(0.9)),
                         ),
-                        buttonColor: Colors.red,
+                        color: Theme.of(context).accentColor,
+                        elevation: 4.0,
+                        splashColor: Colors.grey,
                         onPressed: _showMondayTuesdayFriday,
                       ),
                     ),
                     new ListTile(
-                      title: new NativeButton(
+                      title: new RaisedButton(
                         child: new Text(
                           'Wednesday (Block Schedule)',
                           style:
                           new TextStyle(color: Colors.white.withOpacity(0.9)),
                         ),
-                        buttonColor: Colors.red,
+                        color: Theme.of(context).accentColor,
+                        elevation: 4.0,
+                        splashColor: Colors.grey,
                         onPressed: _showWednesday,
                       ),
                     ),
                     new ListTile(
-                      title: new NativeButton(
+                      title: new RaisedButton(
                         child: new Text(
                           'Thursday (Block Schedule)',
                           style:
                           new TextStyle(color: Colors.white.withOpacity(0.9)),
                         ),
-                        buttonColor: Colors.red,
+                        color: Theme.of(context).accentColor,
+                        elevation: 4.0,
+                        splashColor: Colors.grey,
                         onPressed: _showThursday,
                       ),
                     ),
                     new ListTile(
-                      title: new NativeButton(
+                      title: new RaisedButton(
                         child: new Text(
                           'Friday (All Periods)',
                           style:
                           new TextStyle(color: Colors.white.withOpacity(0.9)),
                         ),
-                        buttonColor: Colors.red,
+                        color: Theme.of(context).accentColor,
+                        elevation: 4.0,
+                        splashColor: Colors.grey,
                         onPressed: _showMondayTuesdayFriday,
                       ),
                     ),
