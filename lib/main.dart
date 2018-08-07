@@ -10,6 +10,7 @@ import './screens/settings.dart' as _settingsPage;
 import './screens/dev.dart' as _devPage;
 import './screens/opl.dart' as _oplPage;
 import './screens/discord.dart' as discordPage;
+import './screens/donate.dart' as donatePage;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -26,6 +27,7 @@ import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:meta/meta.dart';
 import 'package:native_ui/native_ui.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(new MaterialApp(
       title: 'Redwood',
@@ -78,8 +80,23 @@ void main() => runApp(new MaterialApp(
               builder: (_) => new _oplPage.OPL(),
               settings: settings,
             );
+          case '/donate':
+            return new FromRightToLeft(
+              builder: (_) => new donatePage.Donate(),
+              settings: settings,
+            );
         }
       },
+
+      localizationsDelegates: [
+        // ... app-specific localization delegate[s] here
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'), // English
+        // ... other locales the app supports
+      ],
       // routes: <String, WidgetBuilder> {
       //   '/about': (BuildContext context) => new _aboutPage.About(),
       // }
@@ -289,14 +306,6 @@ class TabsState extends State<Tabs> {
               title: new Text('ESchool'),
               onTap: ESCHOOLURL,
             ),
-//          new ListTile(
-//            leading: new Icon(Icons.chat),
-//            title: new Text('Support'),
-//            onTap: () {
-//              Navigator.pop(context);
-//              Navigator.of(context).pushNamed('/support');
-//            }
-//          ),
             new ListTile(
                 leading: new Icon(Icons.map),
                 title: new Text('School Map'),
@@ -328,8 +337,7 @@ class TabsState extends State<Tabs> {
 //                  Navigator.pop(context);
 //                  Navigator.of(context).pushNamed('/settings');
 //                })
-                _GMComingSoon
-            ),
+                    _GMComingSoon),
             new ListTile(
                 leading: new Icon(Icons.info),
                 title: new Text('About'),
@@ -337,7 +345,13 @@ class TabsState extends State<Tabs> {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/about');
                 }),
-
+//            new ListTile(
+//                leading: new Icon(FontAwesomeIcons.donate),
+//                title: new Text('Donate'),
+//                onTap: () {
+//                  Navigator.pop(context);
+//                  Navigator.of(context).pushNamed('/donate');
+//                }),
             new ListTile(
                 leading: new Icon(Icons.cached),
                 title: new Text('Change Log'),
