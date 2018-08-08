@@ -336,15 +336,15 @@ class TabsState extends State<Tabs> {
               height: 10.0,
               color: Colors.grey,
             ),
-            new ListTile(
-                leading: new Icon(Icons.settings),
-                title: new Text('Settings'),
-                onTap:
-//                  () {
-//                  Navigator.pop(context);
-//                  Navigator.of(context).pushNamed('/settings');
-//                })
-                    _GMComingSoon),
+//            new ListTile(
+//                leading: new Icon(Icons.settings),
+//                title: new Text('Settings'),
+//                onTap:
+////                  () {
+////                  Navigator.pop(context);
+////                  Navigator.of(context).pushNamed('/settings');
+////                })
+//                    _GMComingSoon),
             new ListTile(
                 leading: new Icon(Icons.info),
                 title: new Text('About'),
