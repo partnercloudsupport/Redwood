@@ -26,6 +26,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:meta/meta.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:native_ui/native_ui.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -432,8 +433,10 @@ class HomePageState extends State<HomePage> {
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   List data;
+  //final RemoteConfig remoteConfig;
 
   Future<String> getData() async {
+
     var response = await http.get(
         Uri.encodeFull(
             "https://raw.githubusercontent.com/isontic/data/master/tv.json"),
@@ -446,8 +449,11 @@ class HomePageState extends State<HomePage> {
     print(data[1]["body"]);
     print(data[1]["link"]);
 
+
     return "Success!";
+
   }
+
 
   @override
   void initState() {
