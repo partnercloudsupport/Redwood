@@ -11,6 +11,7 @@ import './screens/dev.dart' as _devPage;
 import './screens/opl.dart' as _oplPage;
 import './screens/discord.dart' as discordPage;
 import './screens/donate.dart' as donatePage;
+import './screens/directory.dart' as directoryPage;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -84,6 +85,11 @@ void main() => runApp(new MaterialApp(
           case '/donate':
             return new FromRightToLeft(
               builder: (_) => new donatePage.Donate(),
+              settings: settings,
+            );
+          case '/directory':
+            return new FromRightToLeft(
+              builder: (_) => new directoryPage.Directory(),
               settings: settings,
             );
         }
@@ -315,17 +321,17 @@ class TabsState extends State<Tabs> {
                   Navigator.of(context).pushNamed('/map');
                 }),
             new ListTile(
+                leading: new Icon(FontAwesomeIcons.chalkboardTeacher),
+                title: new Text('Teacher Directory'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/directory');
+                }),
+            new ListTile(
               leading: new Icon(FontAwesomeIcons.gamepad),
               title: new Text('Student Written Games'),
               onTap: _GMComingSoon,
             ),
-            new ListTile(
-                leading: new Icon(FontAwesomeIcons.discord),
-                title: new Text('Team RHS Discord'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.of(context).pushNamed('/discord');
-                }),
             new Divider(
               height: 10.0,
               color: Colors.grey,
@@ -359,6 +365,13 @@ class TabsState extends State<Tabs> {
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/changelog');
+                }),
+            new ListTile(
+                leading: new Icon(FontAwesomeIcons.discord),
+                title: new Text('Team RHS Discord'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/discord');
                 }),
           ],
         )),
