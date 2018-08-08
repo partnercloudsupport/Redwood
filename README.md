@@ -9,10 +9,3 @@ This app lets you see what time the bells will ring and watch the latest Episode
 
 [Android Beta](https://play.google.com/store/apps/details?id=com.isontic.rhs "Android Beta")     
 [IOS Beta](https://goo.gl/forms/MWQfLjrLjFAsY5Pp1 "IOS Beta")     
-
-## Photos
-Android
-![](https://i.imgur.com/JUbzXoA.png) 
-
-IOS
-![](https://i.imgur.com/uW1ejLw.png)
