@@ -9,7 +9,7 @@ class Directory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Teacher Directory"),
+          title: Text("Faculty Directory"),
         ),
         body: Container(
           child: ContactList(kContacts),

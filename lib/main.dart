@@ -242,15 +242,8 @@ class TabsState extends State<Tabs> {
         //App Bar
         appBar: new AppBar(
           title: new Text(
-            _title_app,
-            style: new TextStyle(
-              fontSize: Theme.of(context).platform == TargetPlatform.iOS
-                  ? 17.0
-                  : 20.0,
-            ),
+            _title_app
           ),
-          elevation:
-              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs
@@ -322,7 +315,7 @@ class TabsState extends State<Tabs> {
                 }),
             new ListTile(
                 leading: new Icon(FontAwesomeIcons.chalkboardTeacher),
-                title: new Text('Teacher Directory'),
+                title: new Text('Faculty Directory'),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/directory');
