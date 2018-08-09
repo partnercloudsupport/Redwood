@@ -252,7 +252,7 @@ class TabsState extends State<Tabs> {
           onPageChanged: onTabChanged,
           children: <Widget>[
             new _firstTab.Home(),
-            new _secondTab.Today(),
+            //new _secondTab.Today(),
             new Tv()
           ],
         ),
@@ -384,9 +384,9 @@ class TabsState extends State<Tabs> {
         this._title_app = "Redwood - " + TabItems[0].title + " 🔔";
         break;
 
-      case 1:
-        this._title_app = "Redwood - " + TabItems[1].title + " ⚡";
-        break;
+//      case 1:
+//        this._title_app = "Redwood - " + TabItems[1].title + " ⚡";
+//        break;
 
       case 2:
         this._title_app = "Redwood - " + TabItems[2].title + " 📺";
@@ -404,7 +404,7 @@ class TabItem {
 
 const List<TabItem> TabItems = const <TabItem>[
   const TabItem(title: 'Bells', icon: Icons.notifications),
-  const TabItem(title: 'Today', icon: FontAwesomeIcons.bolt),
+  //const TabItem(title: 'Today', icon: FontAwesomeIcons.bolt),
   const TabItem(title: 'Tv', icon: Icons.tv)
 ];
 
@@ -564,8 +564,8 @@ class HomePageState extends State<HomePage> {
                   ),
                 );
               }));
-    }
-    ;
+    };
+
     if (_connectionStatus == 'ConnectivityResult.none') {
       return new ListView(
         children: <Widget>[
