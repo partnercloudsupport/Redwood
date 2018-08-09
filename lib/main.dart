@@ -384,13 +384,14 @@ class TabsState extends State<Tabs> {
         this._title_app = "Redwood - " + TabItems[0].title + " 🔔";
         break;
 
-//      case 1:
-//        this._title_app = "Redwood - " + TabItems[1].title + " ⚡";
-//        break;
-
-      case 2:
-        this._title_app = "Redwood - " + TabItems[2].title + " 📺";
+      case 1:
+        //this._title_app = "Redwood - " + TabItems[1].title + " ⚡";
+        this._title_app = "Redwood - " + TabItems[1].title + " 📺";
         break;
+
+//      case 2:
+//        this._title_app = "Redwood - " + TabItems[2].title + " 📺";
+//        break;
     }
   }
 }
