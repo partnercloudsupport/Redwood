@@ -8,15 +8,8 @@ class discord extends StatelessWidget {
         //App Bar
         appBar: new AppBar(
           title: new Text(
-            'Team RHS Discord',
-            style: new TextStyle(
-              fontSize: Theme.of(context).platform == TargetPlatform.iOS
-                  ? 17.0
-                  : 20.0,
-            ),
+            'Team RHS Discord'
           ),
-          elevation:
-              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs

@@ -9,15 +9,8 @@ class OPL extends StatelessWidget {
         //App Bar
         appBar: new AppBar(
           title: new Text(
-            'Open Source Licenses',
-            style: new TextStyle(
-              fontSize: Theme.of(context).platform == TargetPlatform.iOS
-                  ? 17.0
-                  : 20.0,
-            ),
+            'Open Source Licenses'
           ),
-          elevation:
-              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs

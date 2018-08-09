@@ -9,15 +9,8 @@ class About extends StatelessWidget {
         //App Bar
         appBar: new AppBar(
           title: new Text(
-            'About',
-            style: new TextStyle(
-              fontSize: Theme.of(context).platform == TargetPlatform.iOS
-                  ? 17.0
-                  : 20.0,
-            ),
+            'About'
           ),
-          elevation:
-              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs
@@ -218,18 +211,18 @@ class About extends StatelessWidget {
                     ),
                   ),
                   new Text('\n'),
-                  new NativeButton(
-                      child: new Text(
-                        'Dev Page',
-                        style:
-                            new TextStyle(color: Colors.white.withOpacity(0.9)),
-                      ),
-                      buttonColor: Colors.blue,
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.of(context).pushNamed('/dev');
-                      }),
-                  new Text('\n'),
+//                  new NativeButton(
+//                      child: new Text(
+//                        'Dev Page',
+//                        style:
+//                            new TextStyle(color: Colors.white.withOpacity(0.9)),
+//                      ),
+//                      buttonColor: Colors.blue,
+//                      onPressed: () {
+//                        Navigator.pop(context);
+//                        Navigator.of(context).pushNamed('/dev');
+//                      }),
+//                  new Text('\n'),
                 ],
               )
             ],

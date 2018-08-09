@@ -88,15 +88,8 @@ class HomePageState extends State<HomePage> {
         //App Bar
         appBar: new AppBar(
           title: new Text(
-            'Dev Page',
-            style: new TextStyle(
-              fontSize: Theme.of(context).platform == TargetPlatform.iOS
-                  ? 17.0
-                  : 20.0,
-            ),
+            'Dev Page'
           ),
-          elevation:
-              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs
@@ -164,10 +157,10 @@ class HomePageState extends State<HomePage> {
                           fontFamily: 'Pacifico'),
                     ),
                   ),
-                  new RaisedButton(
-                    onPressed: _incrementCounter,
-                    child: new Text('Increment Counter'),
-                  ),
+//                  new RaisedButton(
+//                    onPressed: _incrementCounter,
+//                    child: new Text('Increment Counter'),
+//                  ),
                   new FutureBuilder<int>(
                       future: _counter,
                       builder: (BuildContext context, AsyncSnapshot<int> snapshot) {

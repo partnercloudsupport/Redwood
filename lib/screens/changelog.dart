@@ -9,15 +9,8 @@ class changelog extends StatelessWidget {
         //App Bar
         appBar: new AppBar(
           title: new Text(
-            'Changelog - BETA',
-            style: new TextStyle(
-              fontSize: Theme.of(context).platform == TargetPlatform.iOS
-                  ? 17.0
-                  : 20.0,
-            ),
+            'Changelog - BETA'
           ),
-          elevation:
-              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs
@@ -55,8 +48,73 @@ class changelog extends StatelessWidget {
                       children: <Widget>[
                         new ListTile(
                           title:
-                              new Text('V1.0 - Android Build 4 - IOS Build 5'),
+                              new Text('V1.0'),
                         ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   New',
+                              style: new TextStyle(
+                                  color: Colors.green.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   Redwood App is now in the IOS App store!',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   New',
+                              style: new TextStyle(
+                                  color: Colors.green.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   New Faculty page where you can find info about teachers.',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   New',
+                              style: new TextStyle(
+                                  color: Colors.green.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   New and updated bells page',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   New',
+                              style: new TextStyle(
+                                  color: Colors.green.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   Added a Open Source Licenses page',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Text(''),
                         new Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -71,6 +129,22 @@ class changelog extends StatelessWidget {
                               '   Fixed TV page where it wouldn\'t load on mobile data',
                               style: const TextStyle(fontSize: 12.0),
                             )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   Fix\'s',
+                              style: new TextStyle(
+                                  color: Colors.yellow.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   Removed Today page while its being worked on.',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
                           ],
                         ),
                         new Text('\n'),
