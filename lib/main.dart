@@ -502,12 +502,12 @@ class HomePageState extends State<HomePage> {
     });
   }
 
-  void playYoutubeVideo() {
-    FlutterYoutube.playYoutubeVideoByUrl(
-      apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
-      videoUrl: data[0]["link"],
-    );
-  }
+//  void playYoutubeVideo() {
+//    FlutterYoutube.playYoutubeVideoByUrl(
+//      apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
+//      videoUrl: data[0]["link"],
+//    );
+//  }
 
   VidURL() {
     launch(data[0]["link"]);
@@ -555,7 +555,7 @@ class HomePageState extends State<HomePage> {
                               ),
                               androidChild: new FlatButton(
                                 child: const Text('Watch'),
-                                onPressed: playYoutubeVideo,
+                                onPressed: VidURL,
                               ),
                             ),
                           ],

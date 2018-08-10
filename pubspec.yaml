@@ -14,7 +14,7 @@ dependencies:
   flutter_launcher_icons: "^0.5.2"
   scalable_image: "^1.1.1"
   quick_actions: "^0.2.1"
-  flutter_youtube: "^1.0.1"
+  #flutter_youtube: "^1.0.1"
   firebase_core:
   shared_preferences: "^0.4.2"
   font_awesome_flutter: "^7.1.0"
