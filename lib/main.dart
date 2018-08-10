@@ -39,7 +39,7 @@ void main() => runApp(new MaterialApp(
           primaryColor: Colors.red,
           backgroundColor: Colors.white),
       home: new Tabs(),
-
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/about':
