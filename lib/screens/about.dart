@@ -137,17 +137,17 @@ class About extends StatelessWidget {
                         color: Colors.white.withOpacity(0.9), fontSize: 29.0),
                   ),
                   new Text(
-                    '\n\n\nThe Redwood High School app is not a official',
+                    '\n\n\nThe Redwood High School app is not an official',
                     style: new TextStyle(
                         color: Colors.white.withOpacity(0.9), fontSize: 15.0),
                   ),
                   new Text(
-                    'school app but it is made and maintained by',
+                    'school app but was created and is maintained by',
                     style: new TextStyle(
                         color: Colors.white.withOpacity(0.9), fontSize: 15.0),
                   ),
                   new Text(
-                    'Redwood Students. The app is also open source!',
+                    'Redwood students. The app is also open source!',
                     style: new TextStyle(
                         color: Colors.white.withOpacity(0.9), fontSize: 15.0),
                   ),
@@ -157,7 +157,7 @@ class About extends StatelessWidget {
                         color: Colors.white.withOpacity(0.9), fontSize: 15.0),
                   ),
                   new Text(
-                    'app or help out the project you can so here:\n',
+                    'app or helping with the project you can do so here:\n',
                     style: new TextStyle(
                         color: Colors.white.withOpacity(0.9), fontSize: 15.0),
                   ),
@@ -191,7 +191,7 @@ class About extends StatelessWidget {
                         new ListTile(
                           title: new Text('Feedback'),
                           subtitle: new Text(
-                            'Feedback help us better develop the app',
+                            'Feedback helps us improve the app',
                             style: new TextStyle(
                                 color: Colors.grey.withOpacity(0.9),
                                 fontSize: 12.0),

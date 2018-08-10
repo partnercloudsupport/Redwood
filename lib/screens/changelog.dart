@@ -397,7 +397,7 @@ class changelog extends StatelessWidget {
                         new ListTile(
                           title: new Text('Feedback'),
                           subtitle: new Text(
-                            'Feedback help us better develop the app',
+                            'Feedback helps us improve the app',
                             style: new TextStyle(
                                 color: Colors.grey.withOpacity(0.9),
                                 fontSize: 12.0),

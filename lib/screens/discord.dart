@@ -53,11 +53,11 @@ class discord extends StatelessWidget {
                           style: const TextStyle(fontSize: 12.0),
                         ),
                         new Text(
-                          'nor does we or any of are sponsors endorse any of',
+                          'nor do we or any of our sponsors endorse any of',
                           style: const TextStyle(fontSize: 12.0),
                         ),
                         new Text(
-                          'its action but since they are student-run and',
+                          'its actions but since they are student-run and',
                           style: const TextStyle(fontSize: 12.0),
                         ),
                         new Text(

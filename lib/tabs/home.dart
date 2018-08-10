@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:native_widgets/native_widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -1164,6 +1165,19 @@ class HomePageState extends State<HomePage> {
                     new ListTile(
                       title: new RaisedButton(
                         child: new Text(
+                          'First Week of School',
+                          style: new TextStyle(
+                              color: Colors.white.withOpacity(0.9)),
+                        ),
+                        color: Theme.of(context).accentColor,
+                        elevation: 4.0,
+                        splashColor: Colors.grey,
+                        onPressed: FirstWeek,
+                      ),
+                    ),
+                    new ListTile(
+                      title: new RaisedButton(
+                        child: new Text(
                           'RALLY Thursday',
                           style: new TextStyle(
                               color: Colors.white.withOpacity(0.9)),
@@ -1240,4 +1254,8 @@ class HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+FirstWeek() {
+  launch('https://storage.googleapis.com/pt04-2/messages/attachments/0fd4b187cefd59ba4f06e78bc4fbbdf2e6f02e71/2Info_FirstDay%252C8_23_18_and_8_24_18Schedule.pdf');
 }
