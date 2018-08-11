@@ -24,7 +24,7 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_youtube/flutter_youtube.dart';
+//import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:meta/meta.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
@@ -548,15 +548,9 @@ class HomePageState extends State<HomePage> {
                         // make buttons use the appropriate styles for cards
                         child: new ButtonBar(
                           children: <Widget>[
-                            new PlatformSwitcher(
-                              iOSChild: new FlatButton(
-                                child: const Text('Watch'),
-                                onPressed: VidURL,
-                              ),
-                              androidChild: new FlatButton(
-                                child: const Text('Watch'),
-                                onPressed: VidURL,
-                              ),
+                            new FlatButton(
+                              child: const Text('Watch'),
+                              onPressed: VidURL,
                             ),
                           ],
                         ),
