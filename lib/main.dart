@@ -30,6 +30,9 @@ import 'package:meta/meta.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:native_ui/native_ui.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() => runApp(new MaterialApp(
       title: 'Redwood',
@@ -147,7 +150,9 @@ class Tabs extends StatefulWidget {
   TabsState createState() => new TabsState();
 }
 
-class TabsState extends State<Tabs> {
+class TabsState extends State<Tabs> with TickerProviderStateMixin {
+  static const int _kAnimationDuration = 250;
+
   String textValue = 'Hello World !';
   FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
 
@@ -192,7 +197,7 @@ class TabsState extends State<Tabs> {
         _tabController.jumpToPage(0);
       }
       if (shortcutType == 'tv') {
-        _tabController.jumpToPage(2);
+        _tabController.jumpToPage(1);
       }
     });
 
@@ -237,6 +242,20 @@ class TabsState extends State<Tabs> {
     );
   }
 
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<FirebaseUser> _handleSignIn() async {
+    GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+    FirebaseUser user = await _auth.signInWithGoogle(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    print("signed in " + user.displayName);
+    return user;
+  }
+
   @override
   Widget build(BuildContext context) => new Scaffold(
         //App Bar
@@ -244,7 +263,15 @@ class TabsState extends State<Tabs> {
           title: new Text(
             _title_app
           ),
+//          actions: <Widget>[
+//            IconButton(
+//              icon: const Icon(Icons.person),
+//              tooltip: 'Login',
+//              onPressed: _handleSignIn,
+//            ),
+//          ],
         ),
+
 
         //Content of tabs
         body: new PageView(
@@ -439,6 +466,8 @@ class HomePageState extends State<HomePage> {
   final Connectivity _connectivity = new Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
+
+
   List data;
   //final RemoteConfig remoteConfig;
 
@@ -522,40 +551,47 @@ class HomePageState extends State<HomePage> {
           body: new ListView.builder(
               itemCount: data == null ? 0 : data.length,
               itemBuilder: (BuildContext context, int index) {
-                return new Card(
-                  child: new Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      ListTile(
-                          leading: const Icon(Icons.tv),
-                          title: new Text(data[index]["title"])),
-                      new Container(
-                        width: 370.0,
-                        height: 200.0,
-                        child: Stack(
-                          children: <Widget>[
-                            Center(child: NativeLoadingIndicator()),
-                            Center(
-                              child: FadeInImage.memoryNetwork(
-                                placeholder: kTransparentImage,
-                                image: data[index]["body"],
+                return AnimatedOpacity(
+                  // If the Widget should be visible, animate to 1.0 (fully visible). If
+                  // the Widget should be hidden, animate to 0.0 (invisible).
+                  opacity:  1.0,
+                  duration: Duration(milliseconds: 300),
+                  // The green box needs to be the child of the AnimatedOpacity
+                  child: new Card(
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        ListTile(
+                            leading: const Icon(Icons.tv),
+                            title: new Text(data[index]["title"])),
+                        new Container(
+                          width: 370.0,
+                          height: 200.0,
+                          child: Stack(
+                            children: <Widget>[
+                              Center(child: NativeLoadingIndicator()),
+                              Center(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: data[index]["body"],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      new ButtonTheme.bar(
-                        // make buttons use the appropriate styles for cards
-                        child: new ButtonBar(
-                          children: <Widget>[
-                            new FlatButton(
-                              child: const Text('Watch'),
-                              onPressed: VidURL,
-                            ),
-                          ],
+                        new ButtonTheme.bar(
+                          // make buttons use the appropriate styles for cards
+                          child: new ButtonBar(
+                            children: <Widget>[
+                              new FlatButton(
+                                child: const Text('Watch'),
+                                onPressed: VidURL,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               }));

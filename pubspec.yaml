@@ -24,8 +24,11 @@ dependencies:
   package_info: "^0.3.2"
   meta: "1.1.5"
   native_ui: "^0.0.4"
+  material_search: "^0.2.7"
+  google_sign_in: "^3.0.4"
   flutter_localizations:
       sdk: flutter
+
 
 
 dev_dependencies:
