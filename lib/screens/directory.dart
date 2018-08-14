@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'contact_data.dart';
 import 'contact_details.dart';
 //import 'package:material_search/material_search.dart';
+import 'package:flutter_villains/villain.dart';
 
 class Directory extends StatelessWidget {
 
@@ -43,22 +44,29 @@ class ContactItem extends StatelessWidget {
   final Contact contact;
 
   Widget _buildTiles(BuildContext context, Contact contact) {
-    return ListTile(
-      title: Text(contact.fullName),
-      subtitle: Text(contact.department + ' | Tap for more'),
-      leading: CircleAvatar(
-        child: Text(contact.fullName[0]),
+    return  Villain(
+      villainAnimation: VillainAnimation.fromRight(
+        from: Duration(milliseconds: 0),
+        to: Duration(milliseconds: 100),
       ),
-      trailing: Icon(FontAwesomeIcons.infoCircle),
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) {
-              return ContactViewPage(contact: contact);
-            },
-          ),
-        );
-      },
+      animateExit: false,
+      child: ListTile(
+        title: Text(contact.fullName),
+        subtitle: Text(contact.department + ' | Tap for more'),
+        leading: CircleAvatar(
+          child: Text(contact.fullName[0]),
+        ),
+        trailing: Icon(FontAwesomeIcons.infoCircle),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return ContactViewPage(contact: contact);
+              },
+            ),
+          );
+        },
+      )
     );
   }
 

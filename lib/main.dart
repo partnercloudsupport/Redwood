@@ -33,6 +33,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_villains/villain.dart';
 
 void main() => runApp(new MaterialApp(
       title: 'Redwood',
@@ -42,6 +43,7 @@ void main() => runApp(new MaterialApp(
           primaryColor: Colors.red,
           backgroundColor: Colors.white),
       home: new Tabs(),
+      navigatorObservers: [new VillainTransitionObserver()],
       debugShowCheckedModeBanner: false,
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
@@ -551,53 +553,46 @@ class HomePageState extends State<HomePage> {
           body: new ListView.builder(
               itemCount: data == null ? 0 : data.length,
               itemBuilder: (BuildContext context, int index) {
-                return AnimatedOpacity(
-                  // If the Widget should be visible, animate to 1.0 (fully visible). If
-                  // the Widget should be hidden, animate to 0.0 (invisible).
-                  opacity:  1.0,
-                  duration: Duration(milliseconds: 300),
-                  // The green box needs to be the child of the AnimatedOpacity
-                  child: new Card(
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        ListTile(
-                            leading: const Icon(Icons.tv),
-                            title: new Text(data[index]["title"])),
-                        new Container(
-                          width: 370.0,
-                          height: 200.0,
-                          child: Stack(
-                            children: <Widget>[
-                              Center(child: NativeLoadingIndicator()),
-                              Center(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: data[index]["body"],
-                                ),
+                return new Card(
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ListTile(
+                          leading: const Icon(Icons.tv),
+                          title: new Text(data[index]["title"])),
+                      new Container(
+                        width: 370.0,
+                        height: 200.0,
+                        child: Stack(
+                          children: <Widget>[
+                            Center(child: NativeLoadingIndicator()),
+                            Center(
+                              child: FadeInImage.memoryNetwork(
+                                placeholder: kTransparentImage,
+                                image: data[index]["body"],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        new ButtonTheme.bar(
-                          // make buttons use the appropriate styles for cards
-                          child: new ButtonBar(
-                            children: <Widget>[
-                              new PlatformSwitcher(
-                                iOSChild: new FlatButton(
-                                  child: const Text('Watch'),
-                                  onPressed: playYoutubeVideo,
-                                ),
-                                androidChild: new FlatButton(
-                                  child: const Text('Watch'),
-                                  onPressed: VidURL,
-                                ),
+                      ),
+                      new ButtonTheme.bar(
+                        // make buttons use the appropriate styles for cards
+                        child: new ButtonBar(
+                          children: <Widget>[
+                            new PlatformSwitcher(
+                              iOSChild: new FlatButton(
+                                child: const Text('Watch'),
+                                onPressed: VidURL,
                               ),
-                            ],
-                          ),
+                              androidChild: new FlatButton(
+                                child: const Text('Watch'),
+                                onPressed: playYoutubeVideo,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 );
               }));

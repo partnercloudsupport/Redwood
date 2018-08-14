@@ -54,6 +54,22 @@ class changelog extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             new Text(
+                              '   New',
+                              style: new TextStyle(
+                                  color: Colors.green.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   Some new animations on some of the pages (None on the Tv and Bell pages yet)',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
                               '   Fix\'s',
                               style: new TextStyle(
                                   color: Colors.yellow.withOpacity(0.9),
