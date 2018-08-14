@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'contact_data.dart';
 import 'contact_details.dart';
-import 'package:material_search/material_search.dart';
+//import 'package:material_search/material_search.dart';
 
 class Directory extends StatelessWidget {
 
