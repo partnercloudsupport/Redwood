@@ -24,7 +24,7 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_youtube/flutter_youtube.dart';
+import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:meta/meta.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
@@ -531,12 +531,12 @@ class HomePageState extends State<HomePage> {
     });
   }
 
-//  void playYoutubeVideo() {
-//    FlutterYoutube.playYoutubeVideoByUrl(
-//      apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
-//      videoUrl: data[0]["link"],
-//    );
-//  }
+  void playYoutubeVideo() {
+    FlutterYoutube.playYoutubeVideoByUrl(
+      apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
+      videoUrl: data[0]["link"],
+    );
+  }
 
   VidURL() {
     launch(data[0]["link"]);
@@ -583,9 +583,15 @@ class HomePageState extends State<HomePage> {
                           // make buttons use the appropriate styles for cards
                           child: new ButtonBar(
                             children: <Widget>[
-                              new FlatButton(
-                                child: const Text('Watch'),
-                                onPressed: VidURL,
+                              new PlatformSwitcher(
+                                iOSChild: new FlatButton(
+                                  child: const Text('Watch'),
+                                  onPressed: playYoutubeVideo,
+                                ),
+                                androidChild: new FlatButton(
+                                  child: const Text('Watch'),
+                                  onPressed: VidURL,
+                                ),
                               ),
                             ],
                           ),

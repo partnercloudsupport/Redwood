@@ -48,6 +48,35 @@ class changelog extends StatelessWidget {
                       children: <Widget>[
                         new ListTile(
                           title:
+                          new Text('V1.1'),
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   Fix\'s',
+                              style: new TextStyle(
+                                  color: Colors.yellow.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   Native Redwood TV viewer is back! (On some phones you might need to turn off the silencer on the side of the phone or plug in some headphones)',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+
+                        new Text('\n'),
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new ListTile(
+                          title:
                               new Text('V1.0'),
                         ),
                         new Row(
