@@ -44,13 +44,7 @@ class ContactItem extends StatelessWidget {
   final Contact contact;
 
   Widget _buildTiles(BuildContext context, Contact contact) {
-    return  Villain(
-      villainAnimation: VillainAnimation.fromRight(
-        from: Duration(milliseconds: 0),
-        to: Duration(milliseconds: 100),
-      ),
-      animateExit: false,
-      child: ListTile(
+    return  ListTile(
         title: Text(contact.fullName),
         subtitle: Text(contact.department + ' | Tap for more'),
         leading: CircleAvatar(
@@ -66,8 +60,7 @@ class ContactItem extends StatelessWidget {
             ),
           );
         },
-      )
-    );
+      );
   }
 
   @override

@@ -582,7 +582,7 @@ class HomePageState extends State<HomePage> {
                             new PlatformSwitcher(
                               iOSChild: new FlatButton(
                                 child: const Text('Watch'),
-                                onPressed: VidURL,
+                                onPressed: playYoutubeVideo,
                               ),
                               androidChild: new FlatButton(
                                 child: const Text('Watch'),
