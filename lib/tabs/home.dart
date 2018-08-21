@@ -1066,6 +1066,15 @@ class HomePageState extends State<HomePage> {
         });
   }
 
+  void _openMonday() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showMonday();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -1091,7 +1100,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: _showMondayTuesdayFriday,
+                        onPressed: _openMonday,
                       ),
                     ),
                     new ListTile(
@@ -1253,6 +1262,98 @@ class HomePageState extends State<HomePage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+
+
+class showMonday extends StatefulWidget {
+  @override
+  showMondayState createState() => new showMondayState();
+}
+
+class showMondayState extends State<showMonday> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: const Text('Monday'),
+
+      ),
+      body: ListView(
+          children: <Widget>[
+            new ListTile(
+              title: new Card(
+                color: Colors.blue,
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const ListTile(
+                      title: const Text('0 Period 7:05 - 7:55\n\n'
+                          '1st Period 8:00 - 8:48\n\n'
+                          '2nd Period 8:55 - 9:43', style: const TextStyle( color: Colors.white), ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+            new ListTile(
+              title: new Card(
+                color: Colors.red,
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const ListTile(
+                      title: const Text('Break 9:43 - 9:53', style: const TextStyle( color: Colors.white),),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            new ListTile(
+              title: new Card(
+                color: Colors.blue,
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const ListTile(
+                      title: const Text('3rd Period 10:00 - 10:48\n\n'
+                          '4th Period 10:55 - 11:43', style: const TextStyle( color: Colors.white),),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            new ListTile(
+              title: new Card(
+                color: Colors.red,
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const ListTile(
+                      title: const Text('Lunch 11:43 - 12:18', style: const TextStyle( color: Colors.white),),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            new ListTile(
+              title: new Card(
+                color: Colors.blue,
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const ListTile(
+                      title: const Text('5th Period 12:25 - 1:13\n\n'
+                          '6th Period 1:20 - 2:08\n\n'
+                          '7th Period 2:15 - 3:03', style: const TextStyle( color: Colors.white),),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+      ],)
     );
   }
 }
