@@ -16,755 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  void _showMondayTuesdayFriday() {
-    showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return new Container(
-            color: Colors.white,
-            child: new Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '0 Period 7:05-7:55',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '1st Period 8:00-8:48',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 58.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '2nd Period 8:55-9:43',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 68.0, top: 5.0, right: 68.0, bottom: 5.0),
-                          child: const Text(
-                            'Break 9:43-9:53',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 49.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '3rd Period 10:00-10:48',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 49.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '4th Period 10:55-11:43',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            'Lunch 11:43-12:18',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 56.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '5th Period 12:25-1:13',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 59.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '6th Period 1:20-2:08',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 59.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '7th Period 2:15-3:03',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ]),
-          );
-        });
-  }
-
-  void _showWednesday() {
-    showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return new Container(
-            color: Colors.white,
-            child: new Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '0 Period 7:05-7:55',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '4th Period 8:00-9:30',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 68.0, top: 5.0, right: 68.0, bottom: 5.0),
-                          child: const Text(
-                            'Break 9:30-9:40',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 53.0, top: 5.0, right: 54.0, bottom: 5.0),
-                          child: const Text(
-                            '5th Period 9:47-11:17',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 63.0, top: 5.0, right: 58.0, bottom: 5.0),
-                          child: const Text(
-                            'Lunch 11:17-11:53',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 58.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '6th Period 12:00-1:30',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 63.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '7th Period 1:37-3:07',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ]),
-          );
-        });
-  }
-
-  void _showThursday() {
-    showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return new Container(
-            color: Colors.white,
-            child: new Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '0 Period 7:05-7:55',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '1st Period 8:00-9:30',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 51.0, top: 5.0, right: 53.0, bottom: 5.0),
-                          child: const Text(
-                            'Homeroom 9:37-9:47',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 62.0, top: 5.0, right: 64.0, bottom: 5.0),
-                          child: const Text(
-                            'Smart 9:47-10:30',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 63.0, top: 5.0, right: 58.0, bottom: 5.0),
-                          child: const Text(
-                            'Break 10:30-10:40',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 46.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '2nd Period 10:47-12:17',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 66.0, top: 5.0, right: 56.0, bottom: 5.0),
-                          child: const Text(
-                            'Lunch 12:17-12:55',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 63.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '3rd Period 1:02-2:32',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 46.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            'Staff Meeting 2:42-3:37',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ]),
-          );
-        });
-  }
-
-  void _showRALLYThursday() {
-    showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return new Container(
-            color: Colors.white,
-            child: new Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '0 Period 7:05-7:53',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '1st Period 8:00-9:30',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 68.0, top: 5.0, right: 68.0, bottom: 5.0),
-                          child: const Text(
-                            'Break 9:30-9:40',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 52.0, top: 5.0, right: 52.0, bottom: 5.0),
-                          child: const Text(
-                            '2nd Period 9:47-11:17',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 67.0, top: 5.0, right: 62.0, bottom: 5.0),
-                          child: const Text(
-                            'Rally 11:22-12:07',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 62.0, top: 5.0, right: 53.0, bottom: 5.0),
-                          child: const Text(
-                            'Lunch 12:07 - 12:52',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 57.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '3rd Period 12:59-2:29',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ]),
-          );
-        });
-  }
-
-  void _showASSEMBLYThursday() {
-    showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return new Container(
-            color: Colors.white,
-            child: new Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 70.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '0 Period 7:05-7:53',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 61.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '1st Period 8:00-9:30',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 68.0, top: 5.0, right: 68.0, bottom: 5.0),
-                          child: const Text(
-                            'Break 9:30-9:40',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 52.0, top: 5.0, right: 52.0, bottom: 5.0),
-                          child: const Text(
-                            '2nd Period 9:47-11:17',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 51.0, top: 5.0, right: 52.0, bottom: 5.0),
-                          child: const Text(
-                            'Assembly 11:22-12:17',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 62.0, top: 5.0, right: 53.0, bottom: 5.0),
-                          child: const Text(
-                            'Lunch 12:17 - 12:52',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  new Card(
-                    color: Colors.blue,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Padding(
-                          padding: new EdgeInsets.only(
-                              left: 57.0, top: 5.0, right: 50.0, bottom: 5.0),
-                          child: const Text(
-                            '3rd Period 12:59-2:29',
-                            style: const TextStyle(
-                                fontSize: 12.0, color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ]),
-          );
-        });
-  }
 
   void _showDOUBLEASSEMBLYThursday() {
     showModalBottomSheet(
@@ -1075,6 +326,86 @@ class HomePageState extends State<HomePage> {
     ));
   }
 
+  void _openTuesday() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showTuesday();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
+  void _openWednesday() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showWednesday();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
+  void _openThursday() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showThursday();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
+  void _openFriday() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showFriday();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
+  void _openRALLYThursday() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showRALLYThursday();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
+  void _openASSEMBLYThursday() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showASSEMBLYThursday();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
+  void _openMinimumDay() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showMinimumDay();
+        },
+        fullscreenDialog: true
+    ));
+  }
+  void _openFllowingAMin() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showFollowingaMinimumday();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
+  void _openFirstWeek() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new showStart();
+        },
+        fullscreenDialog: true
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -1113,7 +444,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: _showMondayTuesdayFriday,
+                        onPressed: _openTuesday,
                       ),
                     ),
                     new ListTile(
@@ -1126,7 +457,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: _showWednesday,
+                        onPressed: _openWednesday,
                       ),
                     ),
                     new ListTile(
@@ -1139,7 +470,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: _showThursday,
+                        onPressed: _openThursday,
                       ),
                     ),
                     new ListTile(
@@ -1152,7 +483,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: _showMondayTuesdayFriday,
+                        onPressed: _openFriday,
                       ),
                     ),
                     new Text('\n'),
@@ -1182,7 +513,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: FirstWeek,
+                        onPressed: _openFirstWeek,
                       ),
                     ),
                     new ListTile(
@@ -1195,7 +526,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: _showRALLYThursday,
+                        onPressed: _openRALLYThursday,
                       ),
                     ),
                     new ListTile(
@@ -1208,7 +539,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: _showASSEMBLYThursday,
+                        onPressed: _openASSEMBLYThursday,
                       ),
                     ),
                     new ListTile(
@@ -1221,7 +552,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: _showDOUBLEASSEMBLYThursday,
+                        onPressed: _openMinimumDay,
                       ),
                     ),
                     new ListTile(
@@ -1234,7 +565,7 @@ class HomePageState extends State<HomePage> {
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
                         splashColor: Colors.grey,
-                        onPressed: _showDOUBLEASSEMBLYThursdaywithSMART,
+                        onPressed: _openFllowingAMin,
                       ),
                     ),
                     new Text('\n'),
@@ -1267,7 +598,6 @@ class HomePageState extends State<HomePage> {
 }
 
 
-
 class showMonday extends StatefulWidget {
   @override
   showMondayState createState() => new showMondayState();
@@ -1277,87 +607,1313 @@ class showMondayState extends State<showMonday> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: const Text('Monday'),
+        appBar: new AppBar(
+          title: const Text('Monday'),
 
-      ),
-      body: ListView(
+        ),
+        body: ListView(
           children: <Widget>[
-            new ListTile(
-              title: new Card(
-                color: Colors.blue,
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const ListTile(
-                      title: const Text('0 Period 7:05 - 7:55\n\n'
-                          '1st Period 8:00 - 8:48\n\n'
-                          '2nd Period 8:55 - 9:43', style: const TextStyle( color: Colors.white), ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('0 Period 7:05 - 7:55\n\n'
+                            '1st Period 8:00 - 8:48\n\n'
+                            '2nd Period 8:55 - 9:43', style: const TextStyle( color: Colors.white), ),
                       ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-            new ListTile(
-              title: new Card(
-                color: Colors.red,
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const ListTile(
-                      title: const Text('Break 9:43 - 9:53', style: const TextStyle( color: Colors.white),),
-                    ),
-                  ],
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 9:43 - 9:53', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            new ListTile(
-              title: new Card(
-                color: Colors.blue,
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const ListTile(
-                      title: const Text('3rd Period 10:00 - 10:48\n\n'
-                          '4th Period 10:55 - 11:43', style: const TextStyle( color: Colors.white),),
-                    ),
-                  ],
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('3rd Period 10:00 - 10:48\n\n'
+                            '4th Period 10:55 - 11:43', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            new ListTile(
-              title: new Card(
-                color: Colors.red,
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const ListTile(
-                      title: const Text('Lunch 11:43 - 12:18', style: const TextStyle( color: Colors.white),),
-                    ),
-                  ],
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Lunch 11:43 - 12:18', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            new ListTile(
-              title: new Card(
-                color: Colors.blue,
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const ListTile(
-                      title: const Text('5th Period 12:25 - 1:13\n\n'
-                          '6th Period 1:20 - 2:08\n\n'
-                          '7th Period 2:15 - 3:03', style: const TextStyle( color: Colors.white),),
-                    ),
-                  ],
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('5th Period 12:25 - 1:13\n\n'
+                            '6th Period 1:20 - 2:08\n\n'
+                            '7th Period 2:15 - 3:03', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-      ],)
+          ],)
     );
   }
 }
 
-FirstWeek() {
-  launch('https://storage.googleapis.com/pt04-2/messages/attachments/0fd4b187cefd59ba4f06e78bc4fbbdf2e6f02e71/2Info_FirstDay%252C8_23_18_and_8_24_18Schedule.pdf');
+class showTuesday extends StatefulWidget {
+  @override
+  showTuesdayState createState() => new showTuesdayState();
 }
+
+class showTuesdayState extends State<showTuesday> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('Tuesday'),
+
+        ),
+        body: ListView(
+          children: <Widget>[
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('0 Period 7:05 - 7:55\n\n'
+                            '1st Period 8:00 - 8:48\n\n'
+                            '2nd Period 8:55 - 9:43', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 9:43 - 9:53', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('3rd Period 10:00 - 10:48\n\n'
+                            '4th Period 10:55 - 11:43', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Lunch 11:43 - 12:18', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('5th Period 12:25 - 1:13\n\n'
+                            '6th Period 1:20 - 2:08\n\n'
+                            '7th Period 2:15 - 3:03', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],)
+    );
+  }
+}
+
+class showWednesday extends StatefulWidget {
+  @override
+  showWednesdayState createState() => new showWednesdayState();
+}
+
+class showWednesdayState extends State<showWednesday> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('Wednesday'),
+
+        ),
+        body: ListView(
+          children: <Widget>[
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('0 Period 7:05 - 7:53\n\n'
+                            '4th Period 8:00 - 9:30', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 9:30 - 9:40', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('5th Period 9:47 - 11:17', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Lunch 11:17 - 11:53', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('6th Period 12:00 - 1:30\n\n'
+                            '7th Period 1:37 - 3:07', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],)
+    );
+  }
+}
+
+class showThursday extends StatefulWidget {
+  @override
+  showThursdayState createState() => new showThursdayState();
+}
+
+class showThursdayState extends State<showThursday> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('Thursday'),
+
+        ),
+        body: ListView(
+          children: <Widget>[
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('0 Period 7:05 - 7:53\n\n'
+                            '1st Period 8:00 - 9:30'
+                          , style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.redAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text(
+                            'Homeroom 9:37 - 9:47\n\n'
+                            'SMART 9:47 - 10:30'
+                          , style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 10:30 - 10:40', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('2nd Period 10:47 - 12:17', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Lunch 12:17 - 12:55', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('3rd Period 1:02 - 2:32', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+          ],)
+    );
+  }
+}
+
+class showFriday extends StatefulWidget {
+  @override
+  showFridayState createState() => new showFridayState();
+}
+
+class showFridayState extends State<showFriday> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('Friday'),
+
+        ),
+        body: ListView(
+          children: <Widget>[
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('0 Period 7:05 - 7:55\n\n'
+                            '1st Period 8:00 - 8:48\n\n'
+                            '2nd Period 8:55 - 9:43', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 9:43 - 9:53', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('3rd Period 10:00 - 10:48\n\n'
+                            '4th Period 10:55 - 11:43', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Lunch 11:43 - 12:18', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.2,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('5th Period 12:25 - 1:13\n\n'
+                            '6th Period 1:20 - 2:08\n\n'
+                            '7th Period 2:15 - 3:03', style: const TextStyle( color: Colors.white),),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],)
+    );
+  }
+}
+
+//Special Days
+
+class showRALLYThursday extends StatefulWidget {
+  @override
+  showRALLYThursdayState createState() => new showRALLYThursdayState();
+}
+
+class showRALLYThursdayState extends State<showRALLYThursday> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('RALLY Thursday'),
+
+        ),
+        body: ListView(
+          children: <Widget>[
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('0 Period 7:05 - 7:53\n\n'
+                            '1st Period 8:00 - 9:30', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 9:30 - 9:40', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('2nd Period 9:47 - 11:17', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.redAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Rally 11:22 - 12:07', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Lunch 12:07 - 12:52', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('3rd Period 12:59 - 2:29', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],)
+    );
+  }
+}
+
+class showASSEMBLYThursday extends StatefulWidget {
+  @override
+  showASSEMBLYThursdayState createState() => new showASSEMBLYThursdayState();
+}
+
+class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('ASSEMBLY Thursday'),
+
+        ),
+        body: ListView(
+          children: <Widget>[
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('0 Period 7:05 - 7:53\n\n'
+                            '1st Period 8:00 - 9:30', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 9:30 - 9:40', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('2nd Period 9:47 - 11:17', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.redAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Assembly 11:22 - 12:17', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Lunch 12:17 - 12:52', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('3rd Period 12:59 - 2:29', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],)
+    );
+  }
+}
+
+class showMinimumDay extends StatefulWidget {
+  @override
+  showMinimumDayState createState() => new showMinimumDayState();
+}
+
+class showMinimumDayState extends State<showMinimumDay> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('Minimum Day'),
+
+        ),
+        body: ListView(
+          children: <Widget>[
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('0 Period 7:05 - 7:53\n\n'
+                            '1st Period 8:00 - 9:10', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.redAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('SMART Period 9:17 - 9:57', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 9:57 - 10:07', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('2nd Period 10:14 - 11:24', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 11:24 - 11:34', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('3rd Period 11:41 - 12:51', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],)
+    );
+  }
+}
+
+class showFollowingaMinimumday extends StatefulWidget {
+  @override
+  showFollowingaMinimumdayState createState() => new showFollowingaMinimumdayState();
+}
+
+class showFollowingaMinimumdayState extends State<showFollowingaMinimumday > {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('Following a Minimum Day'),
+
+        ),
+        body: ListView(
+          children: <Widget>[
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('0 Period 7:05 - 7:53\n\n'
+                            '4th Period 8:00 - 9:15', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 9:15 - 9:25', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('5th Period 9:32 - 10:47', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Break 10:47 - 10:57', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('6th Period 11:04 - 12:19', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.lightBlueAccent,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('Lunch 12:19 - 12:59', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new ListTile(
+                title: new Card(
+                  color: Colors.blue,
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        title: const Text('7th Period 1:06 - 2:21', style: const TextStyle( color: Colors.white), ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],)
+    );
+  }
+}
+
+class showStart extends StatefulWidget {
+  @override
+  showStartState createState() => new showStartState();
+}
+
+class showStartState extends State<showStart > {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('First Week'),
+
+        ),
+        body: ListView(
+          children: <Widget>[
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new Center(child: new Image.asset('Day1.png')),
+            ),
+            Villain(
+              villainAnimation: VillainAnimation.fromBottom(
+                relativeOffset: 0.3,
+                from: Duration(milliseconds: 0),
+                to: Duration(milliseconds: 175),
+              ),
+              animateExit: true,
+              child: new Center(child: new Image.asset('Day2.png')),
+            ),
+
+          ],)
+    );
+  }
+}
+

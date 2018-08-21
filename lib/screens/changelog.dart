@@ -48,6 +48,51 @@ class changelog extends StatelessWidget {
                       children: <Widget>[
                         new ListTile(
                           title:
+                          new Text('V1.2'),
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   New',
+                              style: new TextStyle(
+                                  color: Colors.green.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   New Bell page popups!',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   Fix\'s',
+                              style: new TextStyle(
+                                  color: Colors.yellow.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   Small Bug fixes :)',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+
+                        new Text('\n'),
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new ListTile(
+                          title:
                           new Text('V1.1'),
                         ),
                         new Row(

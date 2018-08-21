@@ -59,6 +59,8 @@ flutter:
     - Map2.png
     - Map3.png
     - ni.jpg
+    - Day1.png
+    - Day2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/.
