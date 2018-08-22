@@ -44,7 +44,11 @@ class ContactItem extends StatelessWidget {
   final Contact contact;
 
   Widget _buildTiles(BuildContext context, Contact contact) {
-    return  ListTile(
+    return  Card(
+      elevation: 3.0,
+      shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(10.0)),
+      child: ListTile(
         title: Text(contact.fullName),
         subtitle: Text(contact.department + ' | Tap for more'),
         leading: CircleAvatar(
@@ -60,7 +64,8 @@ class ContactItem extends StatelessWidget {
             ),
           );
         },
-      );
+      ),
+    );
   }
 
   @override
