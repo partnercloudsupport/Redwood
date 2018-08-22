@@ -31,6 +31,7 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:native_ui/native_ui.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 //import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_villains/villain.dart';
@@ -248,10 +249,10 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
   //final FirebaseAuth _auth = FirebaseAuth.instance;
 
   //Future<FirebaseUser> _handleSignIn() async {
-    //GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-    //GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-    //FirebaseUser user = await _auth.signInWithGoogle(
-      //     accessToken: googleAuth.accessToken,
+  //GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+  //GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+  //FirebaseUser user = await _auth.signInWithGoogle(
+  //     accessToken: googleAuth.accessToken,
 //      idToken: googleAuth.idToken,
 //    );
 //    print("signed in " + user.displayName);
@@ -262,9 +263,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
   Widget build(BuildContext context) => new Scaffold(
         //App Bar
         appBar: new AppBar(
-          title: new Text(
-            _title_app
-          ),
+          title: new Text(_title_app),
 //          actions: <Widget>[
 //            IconButton(
 //              icon: const Icon(Icons.person),
@@ -273,7 +272,6 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 //            ),
 //          ],
         ),
-
 
         //Content of tabs
         body: new PageView(
@@ -321,7 +319,15 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                 decoration: new BoxDecoration(
                   color: new Color(0xFFFFEBEE),
                 ),
-                child: new Center(child: new Image.asset('logo.gif')),
+                child: new Center(
+                  child:
+                      new GestureDetector(
+                          onLongPress: () {
+                            Navigator.pop(context);
+                            Navigator.of(context).pushNamed('/dev');
+                          },
+                          child: new Image.asset('logo.gif')),
+                ),
               ),
             ),
             new ListTile(
@@ -468,13 +474,11 @@ class HomePageState extends State<HomePage> {
   final Connectivity _connectivity = new Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
-
-
   List data;
+
   //final RemoteConfig remoteConfig;
 
   Future<String> getData() async {
-
     var response = await http.get(
         Uri.encodeFull(
             "https://raw.githubusercontent.com/isontic/data/master/tv.json"),
@@ -487,11 +491,8 @@ class HomePageState extends State<HomePage> {
     print(data[1]["body"]);
     print(data[1]["link"]);
 
-
     return "Success!";
-
   }
-
 
   @override
   void initState() {
@@ -544,7 +545,6 @@ class HomePageState extends State<HomePage> {
     launch(data[0]["link"]);
   }
 
-
   @override
   Widget build(BuildContext context) {
     if (_connectionStatus == 'ConnectivityResult.wifi' ||
@@ -567,7 +567,6 @@ class HomePageState extends State<HomePage> {
                       new Container(
                         width: 370.0,
                         height: 200.0,
-
                         child: Stack(
                           children: <Widget>[
                             Center(child: NativeLoadingIndicator()),
@@ -601,7 +600,8 @@ class HomePageState extends State<HomePage> {
                   ),
                 );
               }));
-    };
+    }
+    ;
 
     if (_connectionStatus == 'ConnectivityResult.none') {
       return new ListView(

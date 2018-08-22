@@ -41,7 +41,7 @@ class changelog extends StatelessWidget {
               new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new Text('\n\n'),
+                  new Text(''),
                   new Card(
                     child: new Column(
                       mainAxisSize: MainAxisSize.min,
