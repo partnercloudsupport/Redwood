@@ -16,7 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   void _showDOUBLEASSEMBLYThursday() {
     showModalBottomSheet(
         context: context,
@@ -322,8 +321,7 @@ class HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return new showMonday();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
 
   void _openTuesday() {
@@ -331,8 +329,7 @@ class HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return new showTuesday();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
 
   void _openWednesday() {
@@ -340,8 +337,7 @@ class HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return new showWednesday();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
 
   void _openThursday() {
@@ -349,8 +345,7 @@ class HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return new showThursday();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
 
   void _openFriday() {
@@ -358,8 +353,7 @@ class HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return new showFriday();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
 
   void _openRALLYThursday() {
@@ -367,8 +361,7 @@ class HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return new showRALLYThursday();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
 
   void _openASSEMBLYThursday() {
@@ -376,8 +369,7 @@ class HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return new showASSEMBLYThursday();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
 
   void _openMinimumDay() {
@@ -385,16 +377,15 @@ class HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return new showMinimumDay();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
+
   void _openFllowingAMin() {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
         builder: (BuildContext context) {
           return new showFollowingaMinimumday();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
 
   void _openFirstWeek() {
@@ -402,8 +393,7 @@ class HomePageState extends State<HomePage> {
         builder: (BuildContext context) {
           return new showStart();
         },
-        fullscreenDialog: true
-    ));
+        fullscreenDialog: true));
   }
 
   @override
@@ -415,6 +405,9 @@ class HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Card(
+                elevation: 3.0,
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(10.0)),
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
@@ -430,6 +423,8 @@ class HomePageState extends State<HomePage> {
                         ),
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
                         onPressed: _openMonday,
                       ),
@@ -443,6 +438,8 @@ class HomePageState extends State<HomePage> {
                         ),
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
                         onPressed: _openTuesday,
                       ),
@@ -455,6 +452,8 @@ class HomePageState extends State<HomePage> {
                               color: Colors.white.withOpacity(0.9)),
                         ),
                         color: Theme.of(context).accentColor,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         elevation: 4.0,
                         splashColor: Colors.grey,
                         onPressed: _openWednesday,
@@ -469,6 +468,8 @@ class HomePageState extends State<HomePage> {
                         ),
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
                         onPressed: _openThursday,
                       ),
@@ -482,6 +483,8 @@ class HomePageState extends State<HomePage> {
                         ),
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
                         onPressed: _openFriday,
                       ),
@@ -491,6 +494,9 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
               new Card(
+                elevation: 3.0,
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(10.0)),
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
@@ -512,6 +518,8 @@ class HomePageState extends State<HomePage> {
                         ),
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
                         onPressed: _openFirstWeek,
                       ),
@@ -525,6 +533,8 @@ class HomePageState extends State<HomePage> {
                         ),
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
                         onPressed: _openRALLYThursday,
                       ),
@@ -538,6 +548,8 @@ class HomePageState extends State<HomePage> {
                         ),
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
                         onPressed: _openASSEMBLYThursday,
                       ),
@@ -551,6 +563,8 @@ class HomePageState extends State<HomePage> {
                         ),
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
                         onPressed: _openMinimumDay,
                       ),
@@ -564,6 +578,8 @@ class HomePageState extends State<HomePage> {
                         ),
                         color: Theme.of(context).accentColor,
                         elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
                         onPressed: _openFllowingAMin,
                       ),
@@ -574,16 +590,19 @@ class HomePageState extends State<HomePage> {
               ),
               new Text('\n'),
               new Card(
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(10.0)),
+                elevation: 3.0,
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     new ListTile(
-                      title: new Text('For weeks with three or fewer student days, there will be no block periods (only 7-period days).'),
-
+                      title: new Text(
+                          'For weeks with three or fewer student days, there will be no block periods (only 7-period days).'),
                     ),
                     new ListTile(
-                      title: new Text('* Week with a Minimum Wednesday or Minimum Friday day has an altered Wednesday and Thursday or Friday and Thursday schedule as listed.'),
-
+                      title: new Text(
+                          '* Week with a Minimum Wednesday or Minimum Friday day has an altered Wednesday and Thursday or Friday and Thursday schedule as listed.'),
                     ),
                     new Text('\n'),
                   ],
@@ -597,7 +616,6 @@ class HomePageState extends State<HomePage> {
   }
 }
 
-
 class showMonday extends StatefulWidget {
   @override
   showMondayState createState() => new showMondayState();
@@ -609,7 +627,6 @@ class showMondayState extends State<showMonday> {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('Monday'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -627,9 +644,12 @@ class showMondayState extends State<showMonday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('0 Period 7:05 - 7:55\n\n'
-                            '1st Period 8:00 - 8:48\n\n'
-                            '2nd Period 8:55 - 9:43', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '0 Period 7:05 - 7:55\n\n'
+                              '1st Period 8:00 - 8:48\n\n'
+                              '2nd Period 8:55 - 9:43',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -650,7 +670,10 @@ class showMondayState extends State<showMonday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 9:43 - 9:53', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Break 9:43 - 9:53',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -671,8 +694,11 @@ class showMondayState extends State<showMonday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('3rd Period 10:00 - 10:48\n\n'
-                            '4th Period 10:55 - 11:43', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '3rd Period 10:00 - 10:48\n\n'
+                              '4th Period 10:55 - 11:43',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -693,7 +719,10 @@ class showMondayState extends State<showMonday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Lunch 11:43 - 12:18', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Lunch 11:43 - 12:18',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -714,17 +743,20 @@ class showMondayState extends State<showMonday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('5th Period 12:25 - 1:13\n\n'
-                            '6th Period 1:20 - 2:08\n\n'
-                            '7th Period 2:15 - 3:03', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '5th Period 12:25 - 1:13\n\n'
+                              '6th Period 1:20 - 2:08\n\n'
+                              '7th Period 2:15 - 3:03',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-          ],)
-    );
+          ],
+        ));
   }
 }
 
@@ -739,7 +771,6 @@ class showTuesdayState extends State<showTuesday> {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('Tuesday'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -757,9 +788,12 @@ class showTuesdayState extends State<showTuesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('0 Period 7:05 - 7:55\n\n'
-                            '1st Period 8:00 - 8:48\n\n'
-                            '2nd Period 8:55 - 9:43', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '0 Period 7:05 - 7:55\n\n'
+                              '1st Period 8:00 - 8:48\n\n'
+                              '2nd Period 8:55 - 9:43',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -780,7 +814,10 @@ class showTuesdayState extends State<showTuesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 9:43 - 9:53', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Break 9:43 - 9:53',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -801,8 +838,11 @@ class showTuesdayState extends State<showTuesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('3rd Period 10:00 - 10:48\n\n'
-                            '4th Period 10:55 - 11:43', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '3rd Period 10:00 - 10:48\n\n'
+                              '4th Period 10:55 - 11:43',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -823,7 +863,10 @@ class showTuesdayState extends State<showTuesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Lunch 11:43 - 12:18', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Lunch 11:43 - 12:18',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -844,17 +887,20 @@ class showTuesdayState extends State<showTuesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('5th Period 12:25 - 1:13\n\n'
-                            '6th Period 1:20 - 2:08\n\n'
-                            '7th Period 2:15 - 3:03', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '5th Period 12:25 - 1:13\n\n'
+                              '6th Period 1:20 - 2:08\n\n'
+                              '7th Period 2:15 - 3:03',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-          ],)
-    );
+          ],
+        ));
   }
 }
 
@@ -869,7 +915,6 @@ class showWednesdayState extends State<showWednesday> {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('Wednesday'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -887,8 +932,11 @@ class showWednesdayState extends State<showWednesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('0 Period 7:05 - 7:53\n\n'
-                            '4th Period 8:00 - 9:30', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '0 Period 7:05 - 7:53\n\n'
+                              '4th Period 8:00 - 9:30',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -909,7 +957,10 @@ class showWednesdayState extends State<showWednesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 9:30 - 9:40', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Break 9:30 - 9:40',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -930,7 +981,10 @@ class showWednesdayState extends State<showWednesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('5th Period 9:47 - 11:17', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '5th Period 9:47 - 11:17',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -951,7 +1005,10 @@ class showWednesdayState extends State<showWednesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Lunch 11:17 - 11:53', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Lunch 11:17 - 11:53',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -972,16 +1029,19 @@ class showWednesdayState extends State<showWednesday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('6th Period 12:00 - 1:30\n\n'
-                            '7th Period 1:37 - 3:07', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '6th Period 12:00 - 1:30\n\n'
+                              '7th Period 1:37 - 3:07',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-          ],)
-    );
+          ],
+        ));
   }
 }
 
@@ -996,7 +1056,6 @@ class showThursdayState extends State<showThursday> {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('Thursday'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -1014,9 +1073,11 @@ class showThursdayState extends State<showThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('0 Period 7:05 - 7:53\n\n'
-                            '1st Period 8:00 - 9:30'
-                          , style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '0 Period 7:05 - 7:53\n\n'
+                              '1st Period 8:00 - 9:30',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1038,9 +1099,10 @@ class showThursdayState extends State<showThursday> {
                     children: <Widget>[
                       const ListTile(
                         title: const Text(
-                            'Homeroom 9:37 - 9:47\n\n'
-                            'SMART 9:47 - 10:30'
-                          , style: const TextStyle( color: Colors.white),),
+                          'Homeroom 9:37 - 9:47\n\n'
+                              'SMART 9:47 - 10:30',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1061,7 +1123,10 @@ class showThursdayState extends State<showThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 10:30 - 10:40', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Break 10:30 - 10:40',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1082,7 +1147,10 @@ class showThursdayState extends State<showThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('2nd Period 10:47 - 12:17', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '2nd Period 10:47 - 12:17',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1103,7 +1171,10 @@ class showThursdayState extends State<showThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Lunch 12:17 - 12:55', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Lunch 12:17 - 12:55',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1124,16 +1195,18 @@ class showThursdayState extends State<showThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('3rd Period 1:02 - 2:32', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '3rd Period 1:02 - 2:32',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-
-          ],)
-    );
+          ],
+        ));
   }
 }
 
@@ -1148,7 +1221,6 @@ class showFridayState extends State<showFriday> {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('Friday'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -1166,9 +1238,12 @@ class showFridayState extends State<showFriday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('0 Period 7:05 - 7:55\n\n'
-                            '1st Period 8:00 - 8:48\n\n'
-                            '2nd Period 8:55 - 9:43', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '0 Period 7:05 - 7:55\n\n'
+                              '1st Period 8:00 - 8:48\n\n'
+                              '2nd Period 8:55 - 9:43',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1189,7 +1264,10 @@ class showFridayState extends State<showFriday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 9:43 - 9:53', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Break 9:43 - 9:53',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1210,8 +1288,11 @@ class showFridayState extends State<showFriday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('3rd Period 10:00 - 10:48\n\n'
-                            '4th Period 10:55 - 11:43', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '3rd Period 10:00 - 10:48\n\n'
+                              '4th Period 10:55 - 11:43',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1232,7 +1313,10 @@ class showFridayState extends State<showFriday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Lunch 11:43 - 12:18', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          'Lunch 11:43 - 12:18',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1253,17 +1337,20 @@ class showFridayState extends State<showFriday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('5th Period 12:25 - 1:13\n\n'
-                            '6th Period 1:20 - 2:08\n\n'
-                            '7th Period 2:15 - 3:03', style: const TextStyle( color: Colors.white),),
+                        title: const Text(
+                          '5th Period 12:25 - 1:13\n\n'
+                              '6th Period 1:20 - 2:08\n\n'
+                              '7th Period 2:15 - 3:03',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-          ],)
-    );
+          ],
+        ));
   }
 }
 
@@ -1280,7 +1367,6 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('RALLY Thursday'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -1298,8 +1384,11 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('0 Period 7:05 - 7:53\n\n'
-                            '1st Period 8:00 - 9:30', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '0 Period 7:05 - 7:53\n\n'
+                              '1st Period 8:00 - 9:30',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1320,7 +1409,10 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 9:30 - 9:40', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Break 9:30 - 9:40',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1341,7 +1433,10 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('2nd Period 9:47 - 11:17', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '2nd Period 9:47 - 11:17',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1362,7 +1457,10 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Rally 11:22 - 12:07', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Rally 11:22 - 12:07',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1383,7 +1481,10 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Lunch 12:07 - 12:52', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Lunch 12:07 - 12:52',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1404,15 +1505,18 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('3rd Period 12:59 - 2:29', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '3rd Period 12:59 - 2:29',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-          ],)
-    );
+          ],
+        ));
   }
 }
 
@@ -1427,7 +1531,6 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('ASSEMBLY Thursday'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -1445,8 +1548,11 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('0 Period 7:05 - 7:53\n\n'
-                            '1st Period 8:00 - 9:30', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '0 Period 7:05 - 7:53\n\n'
+                              '1st Period 8:00 - 9:30',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1467,7 +1573,10 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 9:30 - 9:40', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Break 9:30 - 9:40',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1488,7 +1597,10 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('2nd Period 9:47 - 11:17', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '2nd Period 9:47 - 11:17',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1509,7 +1621,10 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Assembly 11:22 - 12:17', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Assembly 11:22 - 12:17',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1530,7 +1645,10 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Lunch 12:17 - 12:52', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Lunch 12:17 - 12:52',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1551,15 +1669,18 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('3rd Period 12:59 - 2:29', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '3rd Period 12:59 - 2:29',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-          ],)
-    );
+          ],
+        ));
   }
 }
 
@@ -1574,7 +1695,6 @@ class showMinimumDayState extends State<showMinimumDay> {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('Minimum Day'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -1592,8 +1712,11 @@ class showMinimumDayState extends State<showMinimumDay> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('0 Period 7:05 - 7:53\n\n'
-                            '1st Period 8:00 - 9:10', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '0 Period 7:05 - 7:53\n\n'
+                              '1st Period 8:00 - 9:10',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1614,7 +1737,10 @@ class showMinimumDayState extends State<showMinimumDay> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('SMART Period 9:17 - 9:57', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'SMART Period 9:17 - 9:57',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1635,7 +1761,10 @@ class showMinimumDayState extends State<showMinimumDay> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 9:57 - 10:07', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Break 9:57 - 10:07',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1656,7 +1785,10 @@ class showMinimumDayState extends State<showMinimumDay> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('2nd Period 10:14 - 11:24', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '2nd Period 10:14 - 11:24',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1677,7 +1809,10 @@ class showMinimumDayState extends State<showMinimumDay> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 11:24 - 11:34', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Break 11:24 - 11:34',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1698,30 +1833,33 @@ class showMinimumDayState extends State<showMinimumDay> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('3rd Period 11:41 - 12:51', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '3rd Period 11:41 - 12:51',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-          ],)
-    );
+          ],
+        ));
   }
 }
 
 class showFollowingaMinimumday extends StatefulWidget {
   @override
-  showFollowingaMinimumdayState createState() => new showFollowingaMinimumdayState();
+  showFollowingaMinimumdayState createState() =>
+      new showFollowingaMinimumdayState();
 }
 
-class showFollowingaMinimumdayState extends State<showFollowingaMinimumday > {
+class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('Following a Minimum Day'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -1739,8 +1877,11 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday > {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('0 Period 7:05 - 7:53\n\n'
-                            '4th Period 8:00 - 9:15', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '0 Period 7:05 - 7:53\n\n'
+                              '4th Period 8:00 - 9:15',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1761,7 +1902,10 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday > {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 9:15 - 9:25', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Break 9:15 - 9:25',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1782,7 +1926,10 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday > {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('5th Period 9:32 - 10:47', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '5th Period 9:32 - 10:47',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1803,7 +1950,10 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday > {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Break 10:47 - 10:57', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Break 10:47 - 10:57',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1824,7 +1974,10 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday > {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('6th Period 11:04 - 12:19', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '6th Period 11:04 - 12:19',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1845,7 +1998,10 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday > {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('Lunch 12:19 - 12:59', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          'Lunch 12:19 - 12:59',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -1866,15 +2022,18 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday > {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        title: const Text('7th Period 1:06 - 2:21', style: const TextStyle( color: Colors.white), ),
+                        title: const Text(
+                          '7th Period 1:06 - 2:21',
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
-          ],)
-    );
+          ],
+        ));
   }
 }
 
@@ -1883,13 +2042,12 @@ class showStart extends StatefulWidget {
   showStartState createState() => new showStartState();
 }
 
-class showStartState extends State<showStart > {
+class showStartState extends State<showStart> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('First Week'),
-
         ),
         body: ListView(
           children: <Widget>[
@@ -1911,9 +2069,7 @@ class showStartState extends State<showStart > {
               animateExit: true,
               child: new Center(child: new Image.asset('Day2.png')),
             ),
-
-          ],)
-    );
+          ],
+        ));
   }
 }
-

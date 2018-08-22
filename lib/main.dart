@@ -544,6 +544,7 @@ class HomePageState extends State<HomePage> {
     launch(data[0]["link"]);
   }
 
+
   @override
   Widget build(BuildContext context) {
     if (_connectionStatus == 'ConnectivityResult.wifi' ||
@@ -554,6 +555,9 @@ class HomePageState extends State<HomePage> {
               itemCount: data == null ? 0 : data.length,
               itemBuilder: (BuildContext context, int index) {
                 return new Card(
+                  elevation: 3.0,
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -563,6 +567,7 @@ class HomePageState extends State<HomePage> {
                       new Container(
                         width: 370.0,
                         height: 200.0,
+
                         child: Stack(
                           children: <Widget>[
                             Center(child: NativeLoadingIndicator()),
@@ -606,13 +611,16 @@ class HomePageState extends State<HomePage> {
             children: <Widget>[
               new Text('\n\n'),
               new Card(
+                elevation: 3.0,
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(10.0)),
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     new ListTile(
-                      title: new Text('No Internet'),
+                      title: new Text('No Network Connection'),
                       subtitle: new Text(
-                        'Connect to the internet to watch Redwood TV',
+                        'You\'re not connected to the Internet. Check your connection and try again.',
                         style: new TextStyle(
                             color: Colors.grey.withOpacity(0.9),
                             fontSize: 12.0),
