@@ -10,6 +10,7 @@ import './screens/settings.dart' as _settingsPage;
 import './screens/dev.dart' as _devPage;
 import './screens/opl.dart' as _oplPage;
 import './screens/discord.dart' as discordPage;
+import './screens/tools.dart' as toolsPage;
 import './screens/donate.dart' as donatePage;
 import './screens/directory.dart' as directoryPage;
 import 'package:url_launcher/url_launcher.dart';
@@ -96,6 +97,11 @@ void main() => runApp(new MaterialApp(
           case '/directory':
             return new FromRightToLeft(
               builder: (_) => new directoryPage.Directory(),
+              settings: settings,
+            );
+          case '/tools':
+            return new FromRightToLeft(
+              builder: (_) => new toolsPage.Tools(),
               settings: settings,
             );
         }
@@ -320,13 +326,12 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                   color: new Color(0xFFFFEBEE),
                 ),
                 child: new Center(
-                  child:
-                      new GestureDetector(
-                          onLongPress: () {
-                            Navigator.pop(context);
-                            Navigator.of(context).pushNamed('/dev');
-                          },
-                          child: new Image.asset('logo.gif')),
+                  child: new GestureDetector(
+                      onLongPress: () {
+                        Navigator.pop(context);
+                        Navigator.of(context).pushNamed('/dev');
+                      },
+                      child: new Image.asset('logo.gif')),
                 ),
               ),
             ),
@@ -354,6 +359,13 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/directory');
+                }),
+            new ListTile(
+                leading: new Icon(FontAwesomeIcons.toolbox),
+                title: new Text('Tools'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/tools');
                 }),
 //            new ListTile(
 //              leading: new Icon(FontAwesomeIcons.gamepad),

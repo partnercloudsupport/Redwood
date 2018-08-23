@@ -639,6 +639,8 @@ class showMondayState extends State<showMonday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -665,6 +667,8 @@ class showMondayState extends State<showMonday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -689,6 +693,8 @@ class showMondayState extends State<showMonday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -714,6 +720,8 @@ class showMondayState extends State<showMonday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -738,6 +746,8 @@ class showMondayState extends State<showMonday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -783,6 +793,8 @@ class showTuesdayState extends State<showTuesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -809,6 +821,8 @@ class showTuesdayState extends State<showTuesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -833,6 +847,8 @@ class showTuesdayState extends State<showTuesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -858,6 +874,8 @@ class showTuesdayState extends State<showTuesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -882,6 +900,8 @@ class showTuesdayState extends State<showTuesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -927,6 +947,8 @@ class showWednesdayState extends State<showWednesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -952,6 +974,8 @@ class showWednesdayState extends State<showWednesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -976,6 +1000,8 @@ class showWednesdayState extends State<showWednesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1000,6 +1026,8 @@ class showWednesdayState extends State<showWednesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1024,6 +1052,8 @@ class showWednesdayState extends State<showWednesday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1068,6 +1098,8 @@ class showThursdayState extends State<showThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1093,6 +1125,8 @@ class showThursdayState extends State<showThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.redAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1118,6 +1152,8 @@ class showThursdayState extends State<showThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1142,6 +1178,8 @@ class showThursdayState extends State<showThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1166,6 +1204,8 @@ class showThursdayState extends State<showThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1190,6 +1230,8 @@ class showThursdayState extends State<showThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1233,6 +1275,8 @@ class showFridayState extends State<showFriday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1259,6 +1303,8 @@ class showFridayState extends State<showFriday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1283,6 +1329,8 @@ class showFridayState extends State<showFriday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1308,6 +1356,8 @@ class showFridayState extends State<showFriday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1332,6 +1382,8 @@ class showFridayState extends State<showFriday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1379,6 +1431,8 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1404,6 +1458,8 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1428,6 +1484,8 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1452,6 +1510,8 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.redAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1476,6 +1536,8 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1500,6 +1562,8 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1543,6 +1607,8 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1568,6 +1634,8 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1592,6 +1660,8 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1616,6 +1686,8 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.redAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1640,6 +1712,8 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1664,6 +1738,8 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1707,6 +1783,8 @@ class showMinimumDayState extends State<showMinimumDay> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1732,6 +1810,8 @@ class showMinimumDayState extends State<showMinimumDay> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.redAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1756,6 +1836,8 @@ class showMinimumDayState extends State<showMinimumDay> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1780,6 +1862,8 @@ class showMinimumDayState extends State<showMinimumDay> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1804,6 +1888,8 @@ class showMinimumDayState extends State<showMinimumDay> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1828,6 +1914,8 @@ class showMinimumDayState extends State<showMinimumDay> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1872,6 +1960,8 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1897,6 +1987,8 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1921,6 +2013,8 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1945,6 +2039,8 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1969,6 +2065,8 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1993,6 +2091,8 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.lightBlueAccent,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
@@ -2017,6 +2117,8 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
               animateExit: true,
               child: new ListTile(
                 title: new Card(
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10.0)),
                   color: Colors.blue,
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
