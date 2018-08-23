@@ -7,9 +7,7 @@ class Tools extends StatelessWidget {
   Widget build(BuildContext context) => new Scaffold(
         //App Bar
         appBar: new AppBar(
-          title: new Text(
-            'Tools'
-          ),
+          title: new Text('Tools'),
         ),
 
         //Content of tabs
@@ -22,6 +20,7 @@ class Tools extends StatelessWidget {
                 children: <Widget>[
                   new Text(''),
                   new Card(
+                    elevation: 4.0,
                     child: new Container(
                       // Add box decoration
                       decoration: new BoxDecoration(
@@ -45,38 +44,104 @@ class Tools extends StatelessWidget {
                         ),
                       ),
                       child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        new Text('\nTools powered by', style: new TextStyle(
-                      color: Colors.white.withOpacity(1.0)),),
-                        new Text(
-                          'isontic',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(1.0),
-                              fontSize: 50.0,
-                              fontFamily: 'Pacifico'),
-                        ),
-                        new Card(
-                          child: new Column(
-                            children: <Widget>[
-                              new ListTile(
-                                  leading: new Icon(FontAwesomeIcons.chalkboardTeacher),
-                                  title: new Text('Faculty Directory'),
-                                  subtitle: new Text('View Info about your Teachers'),
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                    Navigator.of(context).pushNamed('/directory');
-                                  }),
-                            ],
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          new Text(
+                            '\nTools powered by',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(1.0)),
                           ),
-                        ),
-                        new Text('\nMore Coming soon', style: new TextStyle(
-                            color: Colors.white.withOpacity(1.0)),),
-                        new Text('\n'),
-                      ],
-                    ),),
+                          new Text(
+                            'isontic',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(1.0),
+                                fontSize: 50.0,
+                                fontFamily: 'Pacifico'),
+                          ),
+                          new Card(
+                            child: new Column(
+                              children: <Widget>[
+                                new ListTile(
+                                    leading: new Icon(
+                                        FontAwesomeIcons.chalkboardTeacher),
+                                    title: new Text('Faculty Directory'),
+                                    subtitle: new Text(
+                                        'View Info about your Teachers'),
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                      Navigator
+                                          .of(context)
+                                          .pushNamed('/directory');
+                                    }),
+                              ],
+                            ),
+                          ),
+                          new Text(
+                            '\nMore Coming soon',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(1.0)),
+                          ),
+                          new Text('\n'),
+                        ],
+                      ),
+                    ),
                   ),
-
+                  new Card(
+                    elevation: 4.0,
+                    child: new Container(
+                      // Add box decoration
+                      child: new Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          new Text(
+                            '\nTools powered by\n',
+                            style: new TextStyle(
+                                color: Colors.black.withOpacity(1.0)),
+                          ),
+                          new Container(
+                            height: 100.0,
+                            width: 100.0,
+                            child: new Image.asset('ethanent.png'),
+                          ),
+                          new Text(
+                            '\nethanent',
+                            style: new TextStyle(
+                              color: Colors.black.withOpacity(1.0),
+                              fontSize: 20.0,
+                            ),
+                          ),
+                          new Card(
+                            elevation: 3.0,
+                            child: new Column(
+                              children: <Widget>[
+                                new ListTile(
+                                  leading: new Icon(FontAwesomeIcons.comments),
+                                  title: new Text('RHS Chat'),
+                                  subtitle: new Text(
+                                      'Chat with the classes or the school'),
+                                  onTap: RHSChat,
+                                ),
+                              ],
+                            ),
+                          ),
+                          new Card(
+                            elevation: 3.0,
+                            child: new Column(
+                              children: <Widget>[
+                                new ListTile(
+                                    leading: new Icon(FontAwesomeIcons.book),
+                                    title: new Text('Common Class'),
+                                    subtitle: new Text(
+                                        'View who you share your classes with'),
+                                    onTap: CommonClass),
+                              ],
+                            ),
+                          ),
+                          new Text('\n'),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               )
             ],
@@ -87,4 +152,12 @@ class Tools extends StatelessWidget {
 
 discordl() {
   launch('https://discord.gg/VxjQGMr');
+}
+
+RHSChat() {
+  launch('https://chat.teamrhs.com/');
+}
+
+CommonClass() {
+  launch('https://teamrhs.com/commonclasses.html');
 }
