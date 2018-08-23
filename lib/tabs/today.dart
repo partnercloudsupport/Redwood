@@ -11,6 +11,7 @@ import 'package:native_ui/native_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:native_widgets/native_widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_villains/villain.dart';
 
 class Today extends StatelessWidget {
   @override
@@ -26,13 +27,21 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
+  void _Setup() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new setUp();
+        },
+        fullscreenDialog: true));
+  }
+
   @override
   void initState() {
     super.initState();
 
   }
 
-  bool page = false;
+  bool page = true;
   bool classes_setup = false;
   String nextclassstart = '5';
 
@@ -92,14 +101,14 @@ class HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          new Text('Select the class\'s you have.'),
+          new Text('Select the classes you have.'),
           new NativeButton(
             child: new Text(
               'Setup your class\'s',
               style: new TextStyle(color: Colors.white.withOpacity(0.9)),
             ),
             buttonColor: Colors.red,
-            onPressed: () {},
+            onPressed: _Setup,
           ),
         ],
       );
@@ -117,3 +126,28 @@ class HomePageState extends State<HomePage> {
     }
   }
 }
+
+class setUp extends StatefulWidget {
+  @override
+  setUpState createState() => new setUpState();
+}
+
+class setUpState extends State<setUp> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('Classes Setup'),
+          actions: <Widget>[
+
+          ],
+        ),
+        body: ListView(
+          children: <Widget>[
+
+
+          ],
+        ));
+  }
+}
+

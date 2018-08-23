@@ -213,7 +213,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
     quickActions.setShortcutItems(<ShortcutItem>[
       const ShortcutItem(
           type: 'bells', localizedTitle: 'Bells', icon: 'notifications'),
-      const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
+      //const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
     ]);
   }
 
@@ -285,7 +285,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
           onPageChanged: onTabChanged,
           children: <Widget>[
             new _firstTab.Home(),
-            //new _secondTab.Today(),
+            new _secondTab.Today(),
             new Tv()
           ],
         ),
@@ -432,13 +432,13 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
         break;
 
       case 1:
-        //this._title_app = "Redwood - " + TabItems[1].title + " ⚡";
-        this._title_app = "Redwood - " + TabItems[1].title + " 📺";
+        this._title_app = "Redwood - " + TabItems[1].title + " ⚡";
+        //this._title_app = "Redwood - " + TabItems[1].title + " 📺";
         break;
 
-//      case 2:
-//        this._title_app = "Redwood - " + TabItems[2].title + " 📺";
-//        break;
+      case 2:
+        this._title_app = "Redwood - " + TabItems[2].title + " 📺";
+        break;
     }
   }
 }
@@ -452,7 +452,7 @@ class TabItem {
 
 const List<TabItem> TabItems = const <TabItem>[
   const TabItem(title: 'Bells', icon: Icons.notifications),
-  //const TabItem(title: 'Today', icon: FontAwesomeIcons.bolt),
+  const TabItem(title: 'Today', icon: FontAwesomeIcons.bolt),
   const TabItem(title: 'TV', icon: Icons.tv)
 ];
 
