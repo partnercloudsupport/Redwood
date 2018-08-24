@@ -28,8 +28,16 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
 
+  SharedPreferences prefs;
 
   bool zeroPeriod = false;
+  bool firstPeriod = false;
+  bool secondPeriod = false;
+  bool thirdPeriod = false;
+  bool forthPeriod = false;
+  bool fifthPeriod = false;
+  bool sixthPeriod = false;
+  bool seventhPeriod = false;
 
   void _Setup() {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
@@ -42,15 +50,36 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _loadData;
+    init();
+
+
 
   }
 
-  void _loadData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  void init() async {
+    prefs = await SharedPreferences.getInstance();
+
+    zeroPeriod = prefs.getBool('zeroPeriod');
+    firstPeriod = prefs.getBool('firstPeriod');
+    secondPeriod = prefs.getBool('secondPeriod');
+    thirdPeriod = prefs.getBool('thirdPeriod');
+    forthPeriod = prefs.getBool('forthPeriod');
+    fifthPeriod = prefs.getBool('fifthPeriod');
+    sixthPeriod = prefs.getBool('sixthPeriod');
+    seventhPeriod = prefs.getBool('seventhPeriod');
+
     setState(() {
-      zeroPeriod = (prefs.getBool('zeroPeriod') ?? null);
+       zeroPeriod;
+       firstPeriod;
+       secondPeriod;
+       thirdPeriod;
+       forthPeriod;
+       fifthPeriod;
+       sixthPeriod;
+       seventhPeriod;
     });
+
   }
 
 
@@ -89,7 +118,6 @@ class HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           new Text('Select the classes you have.'),
-          new Text('$zeroPeriod'),
           new RaisedButton(
             child: new Text(
               'Setup your classes',
@@ -126,6 +154,15 @@ class setUp extends StatefulWidget {
 
 class setUpState extends State<setUp> {
 
+  bool zeroPeriod = false;
+  bool firstPeriod = false;
+  bool secondPeriod = false;
+  bool thirdPeriod = false;
+  bool forthPeriod = false;
+  bool fifthPeriod = false;
+  bool sixthPeriod = false;
+  bool seventhPeriod = false;
+
   void saveData() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -140,14 +177,6 @@ class setUpState extends State<setUp> {
 
 }
 
-  bool zeroPeriod = false;
-  bool firstPeriod = false;
-  bool secondPeriod = false;
-  bool thirdPeriod = false;
-  bool forthPeriod = false;
-  bool fifthPeriod = false;
-  bool sixthPeriod = false;
-  bool seventhPeriod = false;
 
   @override
   Widget build(BuildContext context) {
