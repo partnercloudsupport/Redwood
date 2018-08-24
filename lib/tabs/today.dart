@@ -31,6 +31,14 @@ class HomePageState extends State<HomePage> {
   bool sixthPeriod = false;
   bool seventhPeriod = false;
 
+  void _Setup() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new setUp();
+        },
+        fullscreenDialog: true));
+  }
+
   @override
   void initState() {
     super.initState();
@@ -106,10 +114,7 @@ class HomePageState extends State<HomePage> {
             shape: new RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(30.0)),
             splashColor: Colors.grey,
-            onPressed: () {
-              Navigator.pop(context);
-              Navigator.of(context).pushNamed('/settings');
-            },
+            onPressed: _Setup,
           ),
         ],
       );
@@ -125,5 +130,114 @@ class HomePageState extends State<HomePage> {
         ],
       );
     }
+  }
+}
+
+class setUp extends StatefulWidget {
+  @override
+  setUpState createState() => new setUpState();
+}
+
+class setUpState extends State<setUp> {
+  bool zeroPeriod = false;
+  bool firstPeriod = false;
+  bool secondPeriod = false;
+  bool thirdPeriod = false;
+  bool forthPeriod = false;
+  bool fifthPeriod = false;
+  bool sixthPeriod = false;
+  bool seventhPeriod = false;
+
+  void saveData() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    prefs.setBool('zeroPeriod', zeroPeriod);
+    prefs.setBool('firstPeriod', firstPeriod);
+    prefs.setBool('secondPeriod', secondPeriod);
+    prefs.setBool('thirdPeriod', thirdPeriod);
+    prefs.setBool('forthPeriod', forthPeriod);
+    prefs.setBool('fifthPeriod', fifthPeriod);
+    prefs.setBool('sixthPeriod', sixthPeriod);
+    prefs.setBool('seventhPeriod', seventhPeriod);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: new AppBar(
+          title: const Text('Classes Setup - BETA'),
+          actions: <Widget>[],
+        ),
+        body: ListView(
+          children: <Widget>[
+            new Align(
+                alignment: const Alignment(0.0, -0.2),
+                child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                    new SwitchListTile(
+                      title: const Text('0 Period'),
+                      value: zeroPeriod,
+                      onChanged: (bool value) { setState(() { zeroPeriod = value; }); },
+                      //secondary: const Icon(Icons.lightbulb_outline),
+                    ),
+                    new SwitchListTile(
+                      title: const Text('1st Period'),
+                      value: firstPeriod,
+                      onChanged: (bool value) { setState(() { firstPeriod = value; }); },
+                      //secondary: const Icon(Icons.lightbulb_outline),
+                    ),
+                    new SwitchListTile(
+                      title: const Text('2nd Period'),
+                      value: secondPeriod,
+                      onChanged: (bool value) { setState(() { secondPeriod = value; }); },
+                      //secondary: const Icon(Icons.lightbulb_outline),
+                    ),
+                    new SwitchListTile(
+                      title: const Text('3rd Period'),
+                      value: thirdPeriod,
+                      onChanged: (bool value) { setState(() { thirdPeriod = value; }); },
+                      //secondary: const Icon(Icons.lightbulb_outline),
+                    ),
+                    new SwitchListTile(
+                      title: const Text('4th Period'),
+                      value: forthPeriod,
+                      onChanged: (bool value) { setState(() { forthPeriod = value; }); },
+                      //secondary: const Icon(Icons.lightbulb_outline),
+                    ),
+                    new SwitchListTile(
+                      title: const Text('5th Period'),
+                      value: fifthPeriod,
+                      onChanged: (bool value) { setState(() { fifthPeriod = value; }); },
+                      //secondary: const Icon(Icons.lightbulb_outline),
+                    ),
+                    new SwitchListTile(
+                      title: const Text('6th Period'),
+                      value: sixthPeriod,
+                      onChanged: (bool value) { setState(() { sixthPeriod = value; }); },
+                      //secondary: const Icon(Icons.lightbulb_outline),
+                    ),
+                    new SwitchListTile(
+                      title: const Text('7th Period'),
+                      value: seventhPeriod,
+                      onChanged: (bool value) { setState(() { seventhPeriod = value; }); },
+                      //secondary: const Icon(Icons.lightbulb_outline),
+                    ),
+                      new RaisedButton(
+                        child: new Text(
+                          'Save',
+                          style: new TextStyle(
+                              color: Colors.white.withOpacity(0.9)),
+                        ),
+                        color: Colors.blue,
+                        elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
+                        splashColor: Colors.grey,
+                        onPressed: saveData,
+                      ),
+                    ])),
+          ],
+        ));
   }
 }
