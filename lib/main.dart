@@ -370,7 +370,10 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 //            new ListTile(
 //              leading: new Icon(FontAwesomeIcons.gamepad),
 //              title: new Text('Student Written Games'),
-//              onTap: _GMComingSoon,
+//              onTap: () {
+//                Navigator.pop(context);
+//                Navigator.of(context).pushNamed('/games');
+//              },
 //            ),
             new Divider(
               height: 10.0,

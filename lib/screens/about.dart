@@ -169,23 +169,31 @@ class About extends StatelessWidget {
                       style: new TextStyle(
                           color: Colors.white.withOpacity(0.9), fontSize: 15.0),
                     ),
-                    new NativeButton(
+                    new RaisedButton(
                       child: new Text(
                         'Open Github Project',
-                        style:
-                        new TextStyle(color: Colors.white.withOpacity(0.9)),
+                        style: new TextStyle(
+                            color: Colors.white.withOpacity(0.9)),
                       ),
-                      buttonColor: Colors.red,
+                      color: Colors.red,
+                      elevation: 4.0,
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      splashColor: Colors.grey,
                       onPressed: GitHub,
                     ),
                     new Text(''),
-                    new NativeButton(
+                    new RaisedButton(
                       child: new Text(
                         'Open Source Licenses',
-                        style:
-                        new TextStyle(color: Colors.white.withOpacity(0.9)),
+                        style: new TextStyle(
+                            color: Colors.white.withOpacity(0.9)),
                       ),
-                      buttonColor: Colors.lightBlue,
+                      color: Colors.lightBlue,
+                      elevation: 4.0,
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      splashColor: Colors.grey,
                       onPressed: () {
                         Navigator.pop(context);
                         Navigator.of(context).pushNamed('/opl');
@@ -205,13 +213,17 @@ class About extends StatelessWidget {
                                   fontSize: 12.0),
                             ),
                           ),
-                          new NativeButton(
+                          new RaisedButton(
                             child: new Text(
                               'Send Feedback',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
-                            buttonColor: Colors.red,
+                            color: Colors.red,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
                             onPressed: FBURL,
                           ),
                           new Text('\n')

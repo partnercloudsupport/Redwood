@@ -55,21 +55,6 @@ class HomePageState extends State<HomePage> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 new ListTile(
-                  title: new Text('Announcements 📢'),
-                  subtitle: new Text('None today 😎'),
-                ),
-              ],
-            ),
-          ),
-          new Divider(
-            height: 10.0,
-            color: Colors.grey,
-          ),
-          new Card(
-            child: new Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new ListTile(
                   title: new Text('Your Next Class Starts in ' +
                       nextclassstart +
                       ' minutes'),
@@ -90,24 +75,18 @@ class HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          new Card(
-            child: new Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new ListTile(
-                  title: new Text('Announcements 📢'),
-                  subtitle: new Text('None today 😎'),
-                ),
-              ],
-            ),
-          ),
           new Text('Select the classes you have.'),
-          new NativeButton(
+          new RaisedButton(
             child: new Text(
-              'Setup your class\'s',
-              style: new TextStyle(color: Colors.white.withOpacity(0.9)),
+              'Setup your classes',
+              style: new TextStyle(
+                  color: Colors.white.withOpacity(0.9)),
             ),
-            buttonColor: Colors.red,
+            color: Theme.of(context).accentColor,
+            elevation: 4.0,
+            shape: new RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(30.0)),
+            splashColor: Colors.grey,
             onPressed: _Setup,
           ),
         ],

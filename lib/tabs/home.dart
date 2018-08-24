@@ -329,7 +329,7 @@ class showMondayState extends State<showMonday> {
         appBar: new AppBar(
           title: const Text('Monday'),
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
             new Text(""),
             Villain(
@@ -484,7 +484,7 @@ class showTuesdayState extends State<showTuesday> {
         appBar: new AppBar(
           title: const Text('Tuesday'),
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
             new Text(""),
             Villain(
@@ -639,7 +639,7 @@ class showWednesdayState extends State<showWednesday> {
         appBar: new AppBar(
           title: const Text('Wednesday'),
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
             new Text(""),
             Villain(
@@ -791,7 +791,7 @@ class showThursdayState extends State<showThursday> {
         appBar: new AppBar(
           title: const Text('Thursday'),
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
             new Text(""),
             Villain(
@@ -969,7 +969,7 @@ class showFridayState extends State<showFriday> {
         appBar: new AppBar(
           title: const Text('Friday'),
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
             new Text(""),
             Villain(
@@ -1126,7 +1126,7 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
         appBar: new AppBar(
           title: const Text('RALLY Thursday'),
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
             new Text(""),
             Villain(
@@ -1303,7 +1303,7 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
         appBar: new AppBar(
           title: const Text('ASSEMBLY Thursday'),
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
             new Text(""),
             Villain(
@@ -1480,7 +1480,7 @@ class showMinimumDayState extends State<showMinimumDay> {
         appBar: new AppBar(
           title: const Text('Minimum Day'),
         ),
-        body: ListView(
+        body: Column(
           children: <Widget>[
             new Text(""),
             Villain(
