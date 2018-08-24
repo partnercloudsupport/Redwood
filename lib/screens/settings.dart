@@ -59,6 +59,19 @@ class HomePageState extends State<HomePage> {
     });
   }
 
+  void saveData() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    prefs.setBool('zeroPeriod', zeroPeriod);
+    prefs.setBool('firstPeriod', firstPeriod);
+    prefs.setBool('secondPeriod', secondPeriod);
+    prefs.setBool('thirdPeriod', thirdPeriod);
+    prefs.setBool('forthPeriod', forthPeriod);
+    prefs.setBool('fifthPeriod', fifthPeriod);
+    prefs.setBool('sixthPeriod', sixthPeriod);
+    prefs.setBool('seventhPeriod', seventhPeriod);
+  }
+
   bool classes_setup = false;
 
   Widget build(BuildContext context) => new Scaffold(
@@ -94,15 +107,79 @@ class HomePageState extends State<HomePage> {
                               fontSize: 12.0),
                         ),
                       ),
-                      new Text('0 $zeroPeriod'),
-                      new Text('1 $firstPeriod'),
-                      new Text('2 $secondPeriod'),
-                      new Text('3 $thirdPeriod'),
-                      new Text('4 $forthPeriod'),
-                      new Text('5 $fifthPeriod'),
-                      new Text('6 $sixthPeriod'),
-                      new Text('7 $seventhPeriod'),
-                      new Text('\n'),
+
+                      new SwitchListTile(
+                        title: const Text('0 Period'),
+                        value: zeroPeriod,
+                        onChanged: (bool value) { setState(() { zeroPeriod = value; }); },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('1st Period'),
+                        value: firstPeriod,
+                        onChanged: (bool value) { setState(() { firstPeriod = value; }); },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('2nd Period'),
+                        value: secondPeriod,
+                        onChanged: (bool value) { setState(() { secondPeriod = value; }); },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('3rd Period'),
+                        value: thirdPeriod,
+                        onChanged: (bool value) { setState(() { thirdPeriod = value; }); },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('4th Period'),
+                        value: forthPeriod,
+                        onChanged: (bool value) { setState(() { forthPeriod = value; }); },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('5th Period'),
+                        value: fifthPeriod,
+                        onChanged: (bool value) { setState(() { fifthPeriod = value; }); },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('6th Period'),
+                        value: sixthPeriod,
+                        onChanged: (bool value) { setState(() { sixthPeriod = value; }); },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('7th Period'),
+                        value: seventhPeriod,
+                        onChanged: (bool value) { setState(() { seventhPeriod = value; }); },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+
+                      // new Text('0 $zeroPeriod'),
+                      // new Text('1 $firstPeriod'),
+                      // new Text('2 $secondPeriod'),
+                      // new Text('3 $thirdPeriod'),
+                      // new Text('4 $forthPeriod'),
+                      // new Text('5 $fifthPeriod'),
+                      // new Text('6 $sixthPeriod'),
+                      // new Text('7 $seventhPeriod'),
+
+                      new Text("\n"),
+                      new RaisedButton(
+                        child: new Text(
+                          'Save',
+                          style: new TextStyle(
+                              color: Colors.white.withOpacity(0.9)),
+                        ),
+                        color: Colors.blue,
+                        elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
+                        splashColor: Colors.grey,
+                        onPressed: saveData,
+                      ),
                     ],
                   ),
                 ),
