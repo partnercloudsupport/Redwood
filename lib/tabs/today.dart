@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 //import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:native_ui/native_ui.dart';
@@ -26,7 +27,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   void _Setup() {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
         builder: (BuildContext context) {
@@ -38,7 +38,6 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
   }
 
   bool page = true;
@@ -79,8 +78,7 @@ class HomePageState extends State<HomePage> {
           new RaisedButton(
             child: new Text(
               'Setup your classes',
-              style: new TextStyle(
-                  color: Colors.white.withOpacity(0.9)),
+              style: new TextStyle(color: Colors.white.withOpacity(0.9)),
             ),
             color: Theme.of(context).accentColor,
             elevation: 4.0,
@@ -112,21 +110,214 @@ class setUp extends StatefulWidget {
 }
 
 class setUpState extends State<setUp> {
+  bool zeroPeriod = false;
+  bool firstPeriod = false;
+  bool secondPeriod = false;
+  bool thirdPeriod = false;
+  bool forthPeriod = false;
+  bool fifthPeriod = false;
+  bool sixthPeriod = false;
+  bool seventhPeriod = false;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: const Text('Classes Setup'),
-          actions: <Widget>[
-
-          ],
+          title: const Text('Classes Setup - BETA'),
+          actions: <Widget>[],
         ),
         body: ListView(
           children: <Widget>[
+            new Align(
+                alignment: const Alignment(0.0, -0.2),
+                child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new Card(
+                        child: new Column(
+                          children: <Widget>[
+                            new Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Text("   0 Period"),
+                                new Checkbox(
+                                  value: zeroPeriod,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      zeroPeriod = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      new Card(
+                        child: new Column(
+                          children: <Widget>[
+                            new Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Text("   1st Period"),
+                                new Checkbox(
+                                  value: firstPeriod,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      firstPeriod = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      new Card(
+                        child: new Column(
+                          children: <Widget>[
+                            new Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Text("   2nd Period"),
+                                new Checkbox(
+                                  value: secondPeriod,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      secondPeriod = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      new Card(
+                        child: new Column(
+                          children: <Widget>[
+                            new Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Text("   3rd Period"),
+                                new Checkbox(
+                                  value: thirdPeriod,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      thirdPeriod = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      new Card(
+                        child: new Column(
+                          children: <Widget>[
+                            new Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Text("   4th Period"),
+                                new Checkbox(
+                                  value: forthPeriod,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      forthPeriod = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      new Card(
+                        child: new Column(
+                          children: <Widget>[
+                            new Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Text("   5th Period"),
+                                new Checkbox(
+                                  value: fifthPeriod,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      fifthPeriod = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      new Card(
+                        child: new Column(
+                          children: <Widget>[
+                            new Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Text("   6th Period"),
+                                new Checkbox(
+                                  value: sixthPeriod,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      sixthPeriod = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      new Card(
+                        child: new Column(
+                          children: <Widget>[
+                            new Row(
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Text("   7th Period"),
+                                new Checkbox(
+                                  value: seventhPeriod,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      seventhPeriod = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
 
-
+                      new Text("\n"),
+                      new RaisedButton(
+                        child: new Text(
+                          'Save',
+                          style: new TextStyle(
+                              color: Colors.white.withOpacity(0.9)),
+                        ),
+                        color: Colors.blue,
+                        elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
+                        splashColor: Colors.grey,
+                        onPressed: () {},
+                      ),
+                    ])),
           ],
         ));
   }
 }
-
