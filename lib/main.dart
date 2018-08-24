@@ -291,19 +291,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
         ),
 
         //Tabs
-        bottomNavigationBar: Theme.of(context).platform == TargetPlatform.iOS
-            ? new CupertinoTabBar(
-                activeColor: Colors.red,
-                currentIndex: _tab,
-                onTap: onTap,
-                items: TabItems.map((TabItem) {
-                  return new BottomNavigationBarItem(
-                    title: new Text(TabItem.title),
-                    icon: new Icon(TabItem.icon),
-                  );
-                }).toList(),
-              )
-            : new BottomNavigationBar(
+        bottomNavigationBar: new BottomNavigationBar(
                 currentIndex: _tab,
                 onTap: onTap,
                 items: TabItems.map((TabItem) {
