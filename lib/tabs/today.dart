@@ -1,16 +1,9 @@
 import 'dart:async';
-import 'dart:convert';
-import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
-import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-//import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:native_ui/native_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:native_widgets/native_widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_villains/villain.dart';
 
@@ -27,7 +20,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   SharedPreferences prefs;
 
   bool zeroPeriod = false;
@@ -51,11 +43,7 @@ class HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     init();
-
-
-
   }
-
 
   void init() async {
     prefs = await SharedPreferences.getInstance();
@@ -70,18 +58,16 @@ class HomePageState extends State<HomePage> {
     seventhPeriod = prefs.getBool('seventhPeriod');
 
     setState(() {
-       zeroPeriod;
-       firstPeriod;
-       secondPeriod;
-       thirdPeriod;
-       forthPeriod;
-       fifthPeriod;
-       sixthPeriod;
-       seventhPeriod;
+      zeroPeriod;
+      firstPeriod;
+      secondPeriod;
+      thirdPeriod;
+      forthPeriod;
+      fifthPeriod;
+      sixthPeriod;
+      seventhPeriod;
     });
-
   }
-
 
   bool page = true;
   bool classes_setup = false;
@@ -153,7 +139,6 @@ class setUp extends StatefulWidget {
 }
 
 class setUpState extends State<setUp> {
-
   bool zeroPeriod = false;
   bool firstPeriod = false;
   bool secondPeriod = false;
@@ -174,9 +159,7 @@ class setUpState extends State<setUp> {
     prefs.setBool('fifthPeriod', fifthPeriod);
     prefs.setBool('sixthPeriod', sixthPeriod);
     prefs.setBool('seventhPeriod', seventhPeriod);
-
-}
-
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -360,7 +343,6 @@ class setUpState extends State<setUp> {
                           ],
                         ),
                       ),
-
                       new Text("\n"),
                       new RaisedButton(
                         child: new Text(

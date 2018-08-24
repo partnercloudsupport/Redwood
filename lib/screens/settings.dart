@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:native_widgets/native_widgets.dart';
-import 'package:meta/meta.dart';
 
 class Settings extends StatelessWidget {
   @override
@@ -20,7 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   SharedPreferences prefs;
 
   bool zeroPeriod = false;
@@ -36,7 +33,6 @@ class HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     init();
-
   }
 
   void init() async {
@@ -61,13 +57,11 @@ class HomePageState extends State<HomePage> {
       sixthPeriod;
       seventhPeriod;
     });
-
   }
 
   bool classes_setup = false;
 
   Widget build(BuildContext context) => new Scaffold(
-
         //App Bar
         appBar: new AppBar(
           title: new Text(
@@ -100,26 +94,15 @@ class HomePageState extends State<HomePage> {
                               fontSize: 12.0),
                         ),
                       ),
-
                       new Text('0 $zeroPeriod'),
-
                       new Text('1 $firstPeriod'),
-
                       new Text('2 $secondPeriod'),
-
                       new Text('3 $thirdPeriod'),
-
                       new Text('4 $forthPeriod'),
-
                       new Text('5 $fifthPeriod'),
-
                       new Text('6 $sixthPeriod'),
-
                       new Text('7 $seventhPeriod'),
-
                       new Text('\n'),
-
-
                     ],
                   ),
                 ),
@@ -160,20 +143,7 @@ class HomePageState extends State<HomePage> {
       );
 }
 
-
 FBURL() {
   launch(
       'https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
-}
-
-_0_Period() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  bool period = prefs.getBool('0_period');
-
-  if (prefs.getInt('0_period') == true) {
-    period = false;
-  } else {
-    period = true;
-  }
-  await prefs.setBool('0_period', period);
 }

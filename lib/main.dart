@@ -382,8 +382,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
             new ListTile(
                 leading: new Icon(Icons.settings),
                 title: new Text('Settings'),
-                onTap:
-                  () {
+                onTap: () {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/settings');
                 }),
