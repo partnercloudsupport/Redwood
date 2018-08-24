@@ -165,8 +165,6 @@ class HomePageState extends State<HomePage> {
                       // new Text('5 $fifthPeriod'),
                       // new Text('6 $sixthPeriod'),
                       // new Text('7 $seventhPeriod'),
-
-                      new Text("\n"),
                       new RaisedButton(
                         child: new Text(
                           'Save',
@@ -180,6 +178,7 @@ class HomePageState extends State<HomePage> {
                         splashColor: Colors.grey,
                         onPressed: saveData,
                       ),
+                      new Text("\n"),
                     ],
                   ),
                 ),

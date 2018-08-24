@@ -114,7 +114,10 @@ class HomePageState extends State<HomePage> {
             shape: new RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(30.0)),
             splashColor: Colors.grey,
-            onPressed: _Setup,
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.of(context).pushNamed('/settings');
+            },
           ),
         ],
       );
