@@ -31,6 +31,21 @@ class HomePageState extends State<HomePage> {
   bool sixthPeriod = false;
   bool seventhPeriod = false;
 
+  bool page = true;
+  bool classes_setup = false;
+
+  void checkInfo() async {
+    if (zeroPeriod == true || firstPeriod == true || secondPeriod == true || thirdPeriod == true || forthPeriod == true || fifthPeriod == true || sixthPeriod == true || seventhPeriod == true)
+    {
+      classes_setup = true;
+
+      setState(() {
+        classes_setup;
+      });
+    }
+
+  }
+
   void _Setup() {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
         builder: (BuildContext context) {
@@ -43,6 +58,8 @@ class HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     init();
+
+    checkInfo();
   }
 
   void init() async {
@@ -67,10 +84,9 @@ class HomePageState extends State<HomePage> {
       sixthPeriod;
       seventhPeriod;
     });
+
   }
 
-  bool page = true;
-  bool classes_setup = false;
   String nextclassstart = '5';
 
   @override
@@ -78,6 +94,7 @@ class HomePageState extends State<HomePage> {
     if (page == true && classes_setup == true) {
       return new Column(
         children: <Widget>[
+          new Text(""),
           new Card(
             child: new Column(
               mainAxisSize: MainAxisSize.min,
@@ -106,7 +123,7 @@ class HomePageState extends State<HomePage> {
           new Text('Select the classes you have.'),
           new RaisedButton(
             child: new Text(
-              'Setup your classes',
+              'Select Classes',
               style: new TextStyle(color: Colors.white.withOpacity(0.9)),
             ),
             color: Theme.of(context).accentColor,
@@ -148,6 +165,35 @@ class setUpState extends State<setUp> {
   bool sixthPeriod = false;
   bool seventhPeriod = false;
 
+
+  Future<Null> _savingDone() async {
+    return showDialog<Null>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return new AlertDialog(
+          title: new Text('Classes Saved'),
+//          content: new SingleChildScrollView(
+//            child: new ListBody(
+//              children: <Widget>[
+//                new Text('You will never be satisfied.'),
+//                new Text('You\’re like me. I’m never satisfied.'),
+//              ],
+//            ),
+//          ),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text('Done'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void saveData() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -159,6 +205,8 @@ class setUpState extends State<setUp> {
     prefs.setBool('fifthPeriod', fifthPeriod);
     prefs.setBool('sixthPeriod', sixthPeriod);
     prefs.setBool('seventhPeriod', seventhPeriod);
+
+    Navigator.of(context).pop();
   }
 
   @override
@@ -175,54 +223,86 @@ class setUpState extends State<setUp> {
                 child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                    new SwitchListTile(
-                      title: const Text('0 Period'),
-                      value: zeroPeriod,
-                      onChanged: (bool value) { setState(() { zeroPeriod = value; }); },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('1st Period'),
-                      value: firstPeriod,
-                      onChanged: (bool value) { setState(() { firstPeriod = value; }); },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('2nd Period'),
-                      value: secondPeriod,
-                      onChanged: (bool value) { setState(() { secondPeriod = value; }); },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('3rd Period'),
-                      value: thirdPeriod,
-                      onChanged: (bool value) { setState(() { thirdPeriod = value; }); },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('4th Period'),
-                      value: forthPeriod,
-                      onChanged: (bool value) { setState(() { forthPeriod = value; }); },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('5th Period'),
-                      value: fifthPeriod,
-                      onChanged: (bool value) { setState(() { fifthPeriod = value; }); },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('6th Period'),
-                      value: sixthPeriod,
-                      onChanged: (bool value) { setState(() { sixthPeriod = value; }); },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('7th Period'),
-                      value: seventhPeriod,
-                      onChanged: (bool value) { setState(() { seventhPeriod = value; }); },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
+                      new SwitchListTile(
+                        title: const Text('0 Period'),
+                        value: zeroPeriod,
+                        onChanged: (bool value) {
+                          setState(() {
+                            zeroPeriod = value;
+                          });
+                        },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('1st Period'),
+                        value: firstPeriod,
+                        onChanged: (bool value) {
+                          setState(() {
+                            firstPeriod = value;
+                          });
+                        },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('2nd Period'),
+                        value: secondPeriod,
+                        onChanged: (bool value) {
+                          setState(() {
+                            secondPeriod = value;
+                          });
+                        },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('3rd Period'),
+                        value: thirdPeriod,
+                        onChanged: (bool value) {
+                          setState(() {
+                            thirdPeriod = value;
+                          });
+                        },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('4th Period'),
+                        value: forthPeriod,
+                        onChanged: (bool value) {
+                          setState(() {
+                            forthPeriod = value;
+                          });
+                        },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('5th Period'),
+                        value: fifthPeriod,
+                        onChanged: (bool value) {
+                          setState(() {
+                            fifthPeriod = value;
+                          });
+                        },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('6th Period'),
+                        value: sixthPeriod,
+                        onChanged: (bool value) {
+                          setState(() {
+                            sixthPeriod = value;
+                          });
+                        },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
+                      new SwitchListTile(
+                        title: const Text('7th Period'),
+                        value: seventhPeriod,
+                        onChanged: (bool value) {
+                          setState(() {
+                            seventhPeriod = value;
+                          });
+                        },
+                        //secondary: const Icon(Icons.lightbulb_outline),
+                      ),
                       new RaisedButton(
                         child: new Text(
                           'Save',

@@ -111,49 +111,81 @@ class HomePageState extends State<HomePage> {
                       new SwitchListTile(
                         title: const Text('0 Period'),
                         value: zeroPeriod,
-                        onChanged: (bool value) { setState(() { zeroPeriod = value; }); },
+                        onChanged: (bool value) {
+                          setState(() {
+                            zeroPeriod = value;
+                          });
+                        },
                         //secondary: const Icon(Icons.lightbulb_outline),
                       ),
                       new SwitchListTile(
                         title: const Text('1st Period'),
                         value: firstPeriod,
-                        onChanged: (bool value) { setState(() { firstPeriod = value; }); },
+                        onChanged: (bool value) {
+                          setState(() {
+                            firstPeriod = value;
+                          });
+                        },
                         //secondary: const Icon(Icons.lightbulb_outline),
                       ),
                       new SwitchListTile(
                         title: const Text('2nd Period'),
                         value: secondPeriod,
-                        onChanged: (bool value) { setState(() { secondPeriod = value; }); },
+                        onChanged: (bool value) {
+                          setState(() {
+                            secondPeriod = value;
+                          });
+                        },
                         //secondary: const Icon(Icons.lightbulb_outline),
                       ),
                       new SwitchListTile(
                         title: const Text('3rd Period'),
                         value: thirdPeriod,
-                        onChanged: (bool value) { setState(() { thirdPeriod = value; }); },
+                        onChanged: (bool value) {
+                          setState(() {
+                            thirdPeriod = value;
+                          });
+                        },
                         //secondary: const Icon(Icons.lightbulb_outline),
                       ),
                       new SwitchListTile(
                         title: const Text('4th Period'),
                         value: forthPeriod,
-                        onChanged: (bool value) { setState(() { forthPeriod = value; }); },
+                        onChanged: (bool value) {
+                          setState(() {
+                            forthPeriod = value;
+                          });
+                        },
                         //secondary: const Icon(Icons.lightbulb_outline),
                       ),
                       new SwitchListTile(
                         title: const Text('5th Period'),
                         value: fifthPeriod,
-                        onChanged: (bool value) { setState(() { fifthPeriod = value; }); },
+                        onChanged: (bool value) {
+                          setState(() {
+                            fifthPeriod = value;
+                          });
+                        },
                         //secondary: const Icon(Icons.lightbulb_outline),
                       ),
                       new SwitchListTile(
                         title: const Text('6th Period'),
                         value: sixthPeriod,
-                        onChanged: (bool value) { setState(() { sixthPeriod = value; }); },
+                        onChanged: (bool value) {
+                          setState(() {
+                            sixthPeriod = value;
+                          });
+                        },
                         //secondary: const Icon(Icons.lightbulb_outline),
                       ),
                       new SwitchListTile(
                         title: const Text('7th Period'),
                         value: seventhPeriod,
-                        onChanged: (bool value) { setState(() { seventhPeriod = value; }); },
+                        onChanged: (bool value) {
+                          setState(() {
+                            seventhPeriod = value;
+                          });
+                        },
                         //secondary: const Icon(Icons.lightbulb_outline),
                       ),
 
