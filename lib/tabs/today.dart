@@ -27,6 +27,10 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+
+
+  bool zeroPeriod = false;
+
   void _Setup() {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
         builder: (BuildContext context) {
@@ -38,7 +42,17 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    _loadData;
+
   }
+
+  void _loadData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      zeroPeriod = (prefs.getBool('zeroPeriod') ?? null);
+    });
+  }
+
 
   bool page = true;
   bool classes_setup = false;
@@ -75,6 +89,7 @@ class HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           new Text('Select the classes you have.'),
+          new Text('$zeroPeriod'),
           new RaisedButton(
             child: new Text(
               'Setup your classes',
@@ -110,6 +125,21 @@ class setUp extends StatefulWidget {
 }
 
 class setUpState extends State<setUp> {
+
+  void saveData() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    prefs.setBool('zeroPeriod', zeroPeriod);
+    prefs.setBool('firstPeriod', firstPeriod);
+    prefs.setBool('secondPeriod', secondPeriod);
+    prefs.setBool('thirdPeriod', thirdPeriod);
+    prefs.setBool('forthPeriod', forthPeriod);
+    prefs.setBool('fifthPeriod', fifthPeriod);
+    prefs.setBool('sixthPeriod', sixthPeriod);
+    prefs.setBool('seventhPeriod', seventhPeriod);
+
+}
+
   bool zeroPeriod = false;
   bool firstPeriod = false;
   bool secondPeriod = false;
@@ -314,7 +344,7 @@ class setUpState extends State<setUp> {
                         shape: new RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(30.0)),
                         splashColor: Colors.grey,
-                        onPressed: () {},
+                        onPressed: saveData,
                       ),
                     ])),
           ],
