@@ -474,7 +474,7 @@ class HomePageState extends State<HomePage> {
   String _connectionStatus = 'Unknown';
   final Connectivity _connectivity = new Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
-
+  bool video = false;
   List data;
 
   //final RemoteConfig remoteConfig;
@@ -485,14 +485,19 @@ class HomePageState extends State<HomePage> {
             "https://raw.githubusercontent.com/isontic/data/master/tv.json"),
         headers: {"Accept": "application/json"});
 
+    video = true;
+
     this.setState(() {
       data = json.decode(response.body);
+      video;
     });
     print(data[1]["title"]);
     print(data[1]["body"]);
     print(data[1]["link"]);
 
+
     return "Success!";
+
   }
 
   @override
@@ -546,63 +551,80 @@ class HomePageState extends State<HomePage> {
     launch(data[0]["link"]);
   }
 
+
+
   @override
   Widget build(BuildContext context) {
-    if (_connectionStatus == 'ConnectivityResult.wifi' ||
-        _connectionStatus == 'Unknown' ||
-        _connectionStatus == 'ConnectivityResult.mobile') {
-      return new Scaffold(
-          body: new ListView.builder(
-              itemCount: data == null ? 0 : data.length,
-              itemBuilder: (BuildContext context, int index) {
-                return new Card(
-                  elevation: 3.0,
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
-                  child: new Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      ListTile(
-                          leading: const Icon(Icons.tv),
-                          title: new Text(data[index]["title"])),
-                      new Container(
-                        width: 370.0,
-                        height: 200.0,
-                        child: Stack(
-                          children: <Widget>[
-                            Center(child: NativeLoadingIndicator()),
-                            Center(
-                              child: FadeInImage.memoryNetwork(
-                                placeholder: kTransparentImage,
-                                image: data[index]["body"],
+    if (video == true){
+      if (_connectionStatus == 'ConnectivityResult.wifi' ||
+          _connectionStatus == 'Unknown' ||
+          _connectionStatus == 'ConnectivityResult.mobile') {
+        return new Scaffold(
+            body: new ListView.builder(
+                itemCount: data == null ? 0 : data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return new Card(
+                    elevation: 3.0,
+                    shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(10.0)),
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        ListTile(
+                            leading: const Icon(Icons.tv),
+                            title: new Text(data[index]["title"])),
+                        new Container(
+                          width: 370.0,
+                          height: 200.0,
+                          child: Stack(
+                            children: <Widget>[
+                              Center(child: NativeLoadingIndicator()),
+                              Center(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: data[index]["body"],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      new ButtonTheme.bar(
-                        // make buttons use the appropriate styles for cards
-                        child: new ButtonBar(
-                          children: <Widget>[
-                            new PlatformSwitcher(
-                              iOSChild: new FlatButton(
-                                child: const Text('Watch'),
-                                onPressed: playYoutubeVideo,
+                        new ButtonTheme.bar(
+                          // make buttons use the appropriate styles for cards
+                          child: new ButtonBar(
+                            children: <Widget>[
+                              new PlatformSwitcher(
+                                iOSChild: new FlatButton(
+                                  child: const Text('Watch'),
+                                  onPressed: playYoutubeVideo,
+                                ),
+                                androidChild: new FlatButton(
+                                  child: const Text('Watch'),
+                                  onPressed: playYoutubeVideo,
+                                ),
                               ),
-                              androidChild: new FlatButton(
-                                child: const Text('Watch'),
-                                onPressed: playYoutubeVideo,
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                );
-              }));
-    }
-    ;
+                      ],
+                    ),
+                  );
+                }));
+      };
+    };
+
+    if (video == false){
+      if (_connectionStatus == 'ConnectivityResult.wifi' ||
+          _connectionStatus == 'Unknown' ||
+          _connectionStatus == 'ConnectivityResult.mobile' && video == false) {
+        return new Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            new CircularProgressIndicator(),
+          ],
+        );
+      };
+    };
 
     if (_connectionStatus == 'ConnectivityResult.none') {
       return new ListView(

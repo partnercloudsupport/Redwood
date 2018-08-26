@@ -6,6 +6,9 @@ import 'package:native_ui/native_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_villains/villain.dart';
+import 'package:flutter/services.dart';
+import 'package:time_machine/time_machine.dart';
+
 
 class Today extends StatelessWidget {
   @override
@@ -22,6 +25,8 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   SharedPreferences prefs;
 
+  int time = 0;
+
   bool zeroPeriod = false;
   bool firstPeriod = false;
   bool secondPeriod = false;
@@ -34,18 +39,6 @@ class HomePageState extends State<HomePage> {
   bool page = true;
   bool classes_setup = false;
 
-  void checkInfo() async {
-    if (zeroPeriod == true || firstPeriod == true || secondPeriod == true || thirdPeriod == true || forthPeriod == true || fifthPeriod == true || sixthPeriod == true || seventhPeriod == true)
-    {
-      classes_setup = true;
-
-      setState(() {
-        classes_setup;
-      });
-    }
-
-  }
-
   void _Setup() {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
         builder: (BuildContext context) {
@@ -56,10 +49,13 @@ class HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    Timer _timer;
+    _timer = new Timer(const Duration(milliseconds: 200), () {
+      checkinfo();
+    });
+
     super.initState();
     init();
-
-    checkInfo();
   }
 
   void init() async {
@@ -74,6 +70,15 @@ class HomePageState extends State<HomePage> {
     sixthPeriod = prefs.getBool('sixthPeriod');
     seventhPeriod = prefs.getBool('seventhPeriod');
 
+
+    //Time To lunch
+    await TimeMachine.initialize({rootBundle: rootBundle});
+
+    var tzdb = await DateTimeZoneProviders.tzdb;
+    var sf = await tzdb["America/Monterrey"];
+
+    test = "${now.inZone(sf).toString('HH:mm')}";
+
     setState(() {
       zeroPeriod;
       firstPeriod;
@@ -83,11 +88,39 @@ class HomePageState extends State<HomePage> {
       fifthPeriod;
       sixthPeriod;
       seventhPeriod;
+      test;
     });
+
 
   }
 
+  void checkinfo() async {
+    if ((zeroPeriod == false && firstPeriod == false && secondPeriod == false && thirdPeriod == false && forthPeriod == false && fifthPeriod == false && sixthPeriod == false && seventhPeriod == false)){
+      Navigator.of(context).push(new MaterialPageRoute<Null>(
+          builder: (BuildContext context) {
+            return new setUp();
+          },
+          fullscreenDialog: true));
+    }
+
+    if (zeroPeriod == true || firstPeriod == true || secondPeriod == true || thirdPeriod == true || forthPeriod == true || fifthPeriod == true || sixthPeriod == true || seventhPeriod == true)
+    {
+      classes_setup = true;
+
+      setState(() {
+        classes_setup;
+      });
+
+    }
+  }
+
+
+  String test = "hi";
+
   String nextclassstart = '5';
+
+  var now = Instant.now();
+
 
   @override
   Widget build(BuildContext context) {
@@ -120,19 +153,7 @@ class HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          new Text('Select the classes you have.'),
-          new RaisedButton(
-            child: new Text(
-              'Select Classes',
-              style: new TextStyle(color: Colors.white.withOpacity(0.9)),
-            ),
-            color: Theme.of(context).accentColor,
-            elevation: 4.0,
-            shape: new RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(30.0)),
-            splashColor: Colors.grey,
-            onPressed: _Setup,
-          ),
+          new CircularProgressIndicator()
         ],
       );
     }
