@@ -38,88 +38,88 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_villains/villain.dart';
 
 void main() => runApp(new MaterialApp(
-      title: 'Redwood',
-      theme: new ThemeData(
-          primarySwatch: Colors.red,
-          scaffoldBackgroundColor: Colors.white,
-          primaryColor: Colors.red,
-          backgroundColor: Colors.white),
-      home: new Tabs(),
-      navigatorObservers: [new VillainTransitionObserver()],
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: (RouteSettings settings) {
-        switch (settings.name) {
-          case '/about':
-            return new FromRightToLeft(
-              builder: (_) => new _aboutPage.About(),
-              settings: settings,
-            );
-          case '/support':
-            return new FromRightToLeft(
-              builder: (_) => new _supportPage.Support(),
-              settings: settings,
-            );
-          case '/map':
-            return new FromRightToLeft(
-              builder: (_) => new _mapPage.Map(),
-              settings: settings,
-            );
-          case '/changelog':
-            return new FromRightToLeft(
-              builder: (_) => new _changelogPage.changelog(),
-              settings: settings,
-            );
-          case '/settings':
-            return new FromRightToLeft(
-              builder: (_) => new _settingsPage.Settings(),
-              settings: settings,
-            );
-          case '/discord':
-            return new FromRightToLeft(
-              builder: (_) => new discordPage.discord(),
-              settings: settings,
-            );
-          case '/dev':
-            return new FromRightToLeft(
-              builder: (_) => new _devPage.Dev(),
-              settings: settings,
-            );
-          case '/opl':
-            return new FromRightToLeft(
-              builder: (_) => new _oplPage.OPL(),
-              settings: settings,
-            );
-          case '/donate':
-            return new FromRightToLeft(
-              builder: (_) => new donatePage.Donate(),
-              settings: settings,
-            );
-          case '/directory':
-            return new FromRightToLeft(
-              builder: (_) => new directoryPage.Directory(),
-              settings: settings,
-            );
-          case '/tools':
-            return new FromRightToLeft(
-              builder: (_) => new toolsPage.Tools(),
-              settings: settings,
-            );
-        }
-      },
+  title: 'Redwood',
+  theme: new ThemeData(
+      primarySwatch: Colors.red,
+      scaffoldBackgroundColor: Colors.white,
+      primaryColor: Colors.red,
+      backgroundColor: Colors.white),
+  home: new Tabs(),
+  navigatorObservers: [new VillainTransitionObserver()],
+  debugShowCheckedModeBanner: false,
+  onGenerateRoute: (RouteSettings settings) {
+    switch (settings.name) {
+      case '/about':
+        return new FromRightToLeft(
+          builder: (_) => new _aboutPage.About(),
+          settings: settings,
+        );
+      case '/support':
+        return new FromRightToLeft(
+          builder: (_) => new _supportPage.Support(),
+          settings: settings,
+        );
+      case '/map':
+        return new FromRightToLeft(
+          builder: (_) => new _mapPage.Map(),
+          settings: settings,
+        );
+      case '/changelog':
+        return new FromRightToLeft(
+          builder: (_) => new _changelogPage.changelog(),
+          settings: settings,
+        );
+      case '/settings':
+        return new FromRightToLeft(
+          builder: (_) => new _settingsPage.Settings(),
+          settings: settings,
+        );
+      case '/discord':
+        return new FromRightToLeft(
+          builder: (_) => new discordPage.discord(),
+          settings: settings,
+        );
+      case '/dev':
+        return new FromRightToLeft(
+          builder: (_) => new _devPage.Dev(),
+          settings: settings,
+        );
+      case '/opl':
+        return new FromRightToLeft(
+          builder: (_) => new _oplPage.OPL(),
+          settings: settings,
+        );
+      case '/donate':
+        return new FromRightToLeft(
+          builder: (_) => new donatePage.Donate(),
+          settings: settings,
+        );
+      case '/directory':
+        return new FromRightToLeft(
+          builder: (_) => new directoryPage.Directory(),
+          settings: settings,
+        );
+      case '/tools':
+        return new FromRightToLeft(
+          builder: (_) => new toolsPage.Tools(),
+          settings: settings,
+        );
+    }
+  },
 
-      localizationsDelegates: [
-        // ... app-specific localization delegate[s] here
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: [
-        const Locale('en', 'US'), // English
-        // ... other locales the app supports
-      ],
-      // routes: <String, WidgetBuilder> {
-      //   '/about': (BuildContext context) => new _aboutPage.About(),
-      // }
-    ));
+  localizationsDelegates: [
+    // ... app-specific localization delegate[s] here
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ],
+  supportedLocales: [
+    const Locale('en', 'US'), // English
+    // ... other locales the app supports
+  ],
+  // routes: <String, WidgetBuilder> {
+  //   '/about': (BuildContext context) => new _aboutPage.About(),
+  // }
+));
 
 class FromRightToLeft<T> extends MaterialPageRoute<T> {
   FromRightToLeft({WidgetBuilder builder, RouteSettings settings})
@@ -267,9 +267,9 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => new Scaffold(
-        //App Bar
-        appBar: new AppBar(
-          title: new Text(_title_app),
+    //App Bar
+    appBar: new AppBar(
+      title: new Text(_title_app),
 //          actions: <Widget>[
 //            IconButton(
 //              icon: const Icon(Icons.person),
@@ -277,34 +277,34 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 //              onPressed: _handleSignIn,
 //            ),
 //          ],
-        ),
+    ),
 
-        //Content of tabs
-        body: new PageView(
-          controller: _tabController,
-          onPageChanged: onTabChanged,
-          children: <Widget>[
-            new _firstTab.Home(),
-            new _secondTab.Today(),
-            new Tv()
-          ],
-        ),
+    //Content of tabs
+    body: new PageView(
+      controller: _tabController,
+      onPageChanged: onTabChanged,
+      children: <Widget>[
+        new _firstTab.Home(),
+        new _secondTab.Today(),
+        new Tv()
+      ],
+    ),
 
-        //Tabs
-        bottomNavigationBar: new BottomNavigationBar(
-                currentIndex: _tab,
-                onTap: onTap,
-                items: TabItems.map((TabItem) {
-                  return new BottomNavigationBarItem(
-                    title: new Text(TabItem.title),
-                    icon: new Icon(TabItem.icon),
-                  );
-                }).toList(),
-              ),
+    //Tabs
+    bottomNavigationBar: new BottomNavigationBar(
+      currentIndex: _tab,
+      onTap: onTap,
+      items: TabItems.map((TabItem) {
+        return new BottomNavigationBarItem(
+          title: new Text(TabItem.title),
+          icon: new Icon(TabItem.icon),
+        );
+      }).toList(),
+    ),
 
-        //Drawer
-        drawer: new Drawer(
-            child: new ListView(
+    //Drawer
+    drawer: new Drawer(
+        child: new ListView(
           children: <Widget>[
             new Container(
               height: 120.0,
@@ -404,7 +404,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                 }),
           ],
         )),
-      );
+  );
 
   void onTap(int tab) {
     _tabController.jumpToPage(tab);
@@ -461,8 +461,8 @@ FBURL() {
 class Tv extends StatelessWidget {
   @override
   Widget build(BuildContext context) => new Container(
-        child: new HomePage(),
-      );
+    child: new HomePage(),
+  );
 }
 
 class HomePage extends StatefulWidget {
@@ -508,8 +508,8 @@ class HomePageState extends State<HomePage> {
     initConnectivity();
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-      setState(() => _connectionStatus = result.toString());
-    });
+          setState(() => _connectionStatus = result.toString());
+        });
   }
 
   @override

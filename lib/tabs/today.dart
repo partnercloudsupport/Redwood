@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:flutter/services.dart';
-import 'package:time_machine/time_machine.dart';
+import 'package:intl/intl.dart';
 
 
 class Today extends StatelessWidget {
@@ -26,6 +26,9 @@ class HomePageState extends State<HomePage> {
   SharedPreferences prefs;
 
   int time = 0;
+  String WeekDay = 'Monday';
+  String WeekDayTime = 'No Info';
+  String WeekDayTimeEnd = 'No Info';
 
   bool zeroPeriod = false;
   bool firstPeriod = false;
@@ -49,10 +52,14 @@ class HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    Timer _timer;
+    Timer _timer, _timertwo;
     _timer = new Timer(const Duration(milliseconds: 200), () {
       checkinfo();
     });
+
+//    _timertwo = new Timer(const Duration(milliseconds: 200), () {
+//      checkinfo();
+//    });
 
     super.initState();
     init();
@@ -60,6 +67,10 @@ class HomePageState extends State<HomePage> {
 
   void init() async {
     prefs = await SharedPreferences.getInstance();
+
+    var now = new DateTime.now();
+    var formatter = new DateFormat.E();
+    String formatted = formatter.format(now);
 
     zeroPeriod = prefs.getBool('zeroPeriod');
     firstPeriod = prefs.getBool('firstPeriod');
@@ -70,16 +81,9 @@ class HomePageState extends State<HomePage> {
     sixthPeriod = prefs.getBool('sixthPeriod');
     seventhPeriod = prefs.getBool('seventhPeriod');
 
+    WeekDay = formatted;
 
-    //Time To lunch
-    await TimeMachine.initialize({rootBundle: rootBundle});
-
-    var tzdb = await DateTimeZoneProviders.tzdb;
-    var sf = await tzdb["America/Monterrey"];
-
-    test = "${now.inZone(sf).toString('HH:mm')}";
-
-    setState(() {
+    this.setState(() {
       zeroPeriod;
       firstPeriod;
       secondPeriod;
@@ -88,14 +92,26 @@ class HomePageState extends State<HomePage> {
       fifthPeriod;
       sixthPeriod;
       seventhPeriod;
-      test;
+      WeekDay;
     });
-
 
   }
 
+
   void checkinfo() async {
-    if ((zeroPeriod == false && firstPeriod == false && secondPeriod == false && thirdPeriod == false && forthPeriod == false && fifthPeriod == false && sixthPeriod == false && seventhPeriod == false)){
+
+    var now = new DateTime.now();
+    var formatter = new DateFormat.E();
+    String formatted = formatter.format(now);
+
+    if ((zeroPeriod == false &&
+        firstPeriod == false &&
+        secondPeriod == false &&
+        thirdPeriod == false &&
+        forthPeriod == false &&
+        fifthPeriod == false &&
+        sixthPeriod == false &&
+        seventhPeriod == false)) {
       Navigator.of(context).push(new MaterialPageRoute<Null>(
           builder: (BuildContext context) {
             return new setUp();
@@ -103,49 +119,103 @@ class HomePageState extends State<HomePage> {
           fullscreenDialog: true));
     }
 
-    if (zeroPeriod == true || firstPeriod == true || secondPeriod == true || thirdPeriod == true || forthPeriod == true || fifthPeriod == true || sixthPeriod == true || seventhPeriod == true)
-    {
+    if (zeroPeriod == false ||
+        firstPeriod == true ||
+        secondPeriod == true ||
+        thirdPeriod == true ||
+        forthPeriod == true ||
+        fifthPeriod == true ||
+        sixthPeriod == true ||
+        seventhPeriod == true) {
       classes_setup = true;
+
+      WeekDay = formatted;
+      //Cal
+      if (WeekDay == 'Mon') {
+        WeekDayTime = '11:43 AM';
+        WeekDayTimeEnd = '12:18 PM';
+      }
+
+      if (WeekDay == 'Tue') {
+        WeekDayTime = '11:43 AM';
+        WeekDayTimeEnd = '12:18 PM';
+      }
+
+      if (WeekDay == 'Wed') {
+        WeekDayTime = '11:17 AM';
+        WeekDayTimeEnd = '11:53 AM';
+      }
+
+      if (WeekDay == 'Thu') {
+        WeekDayTime = '12:17 PM';
+        WeekDayTimeEnd = '12:55 PM';
+      }
+
+      if (WeekDay == 'Fri') {
+        WeekDayTime = '11:43 AM';
+        WeekDayTimeEnd = '12:18 PM';
+      }
 
       setState(() {
         classes_setup;
+        WeekDay;
+        WeekDayTime;
+        WeekDayTimeEnd;
       });
-
     }
   }
 
-
-  String test = "hi";
-
   String nextclassstart = '5';
 
-  var now = Instant.now();
+  var day = new DateFormat.EEEE();
+
 
 
   @override
   Widget build(BuildContext context) {
     if (page == true && classes_setup == true) {
-      return new Column(
-        children: <Widget>[
-          new Text(""),
-          new Card(
-            child: new Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new ListTile(
-                  title: new Text('Your Next Class Starts in ' +
-                      nextclassstart +
-                      ' minutes'),
-                ),
-              ],
+      if (WeekDay == 'Sun' || WeekDay == 'Sat'){
+        return new Column(
+          children: <Widget>[
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('No School Today!'),
+                  ),
+                ],
+              ),
             ),
-          ),
-          new Divider(
-            height: 10.0,
-            color: Colors.grey,
-          ),
-        ],
-      );
+          ],
+        );
+      } else {
+        return new Column(
+          children: <Widget>[
+            new Text(""),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('Lunch will be at ' + '$WeekDayTime' + ' and will end at ' + '$WeekDayTimeEnd'),
+                  ),
+                ],
+              ),
+            ),
+//            new Card(
+//              child: new Column(
+//                mainAxisSize: MainAxisSize.min,
+//                children: <Widget>[
+//                  new ListTile(
+//                    title: new Text('Day ' + '$WeekDay'),
+//                  ),
+//                ],
+//              ),
+//            ),
+          ],
+        );
+      }
     }
 
     if (page == true && classes_setup == false) {
@@ -153,7 +223,7 @@ class HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          new CircularProgressIndicator()
+          new CircularProgressIndicator(),
         ],
       );
     }
@@ -185,7 +255,6 @@ class setUpState extends State<setUp> {
   bool fifthPeriod = false;
   bool sixthPeriod = false;
   bool seventhPeriod = false;
-
 
   Future<Null> _savingDone() async {
     return showDialog<Null>(

@@ -85,8 +85,6 @@ class HomePageState extends State<HomePage> {
                   : 20.0,
             ),
           ),
-          elevation:
-              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs

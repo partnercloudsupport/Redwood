@@ -8,7 +8,6 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:package_info/package_info.dart';
-import 'package:time_machine/time_machine.dart';
 
 class Dev extends StatelessWidget {
 

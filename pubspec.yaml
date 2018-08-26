@@ -23,10 +23,10 @@ dependencies:
   native_widgets: "^0.1.1+1"
   package_info: "^0.3.2"
   meta: "1.1.5"
-  time_machine: "^0.9.3"
-  resource: "^2.1.4"
-  collection: "^1.14.6"
   native_ui: "^0.0.4"
+  dynamic_theme:
+      git:
+        url: git://github.com/Norbert515/dynamic_theme.git
   #material_search: "^0.2.7"
   #google_sign_in: "^3.0.4"
   flutter_villains: "^1.0.0"
@@ -65,8 +65,6 @@ flutter:
     - Day1.png
     - Day2.png
     - ethanent.png
-    - packages/time_machine/data/cultures/cultures.bin
-    - packages/time_machine/data/tzdb/tzdb.bin
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/.
