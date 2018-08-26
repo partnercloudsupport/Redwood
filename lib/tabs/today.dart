@@ -119,7 +119,7 @@ class HomePageState extends State<HomePage> {
           fullscreenDialog: true));
     }
 
-    if (zeroPeriod == false ||
+    if (zeroPeriod == true ||
         firstPeriod == true ||
         secondPeriod == true ||
         thirdPeriod == true ||
@@ -176,23 +176,19 @@ class HomePageState extends State<HomePage> {
     if (page == true && classes_setup == true) {
       if (WeekDay == 'Sun' || WeekDay == 'Sat'){
         return new Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new ListTile(
-                    title: new Text('No School Today!'),
-                  ),
-                ],
-              ),
-            ),
+            new Text('No School Today! 😄'),
           ],
         );
       } else {
         return new Column(
           children: <Widget>[
             new Text(""),
+            new ListTile(
+              title: new Text('Info about your day.'),
+            ),
             new Card(
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
