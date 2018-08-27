@@ -182,7 +182,9 @@ class HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            new Text('No School Today! 😄'),
+            new Text('No School Today! 😄',
+              style: new TextStyle(
+                  fontSize: 19.0),),
           ],
         );
       } else {
@@ -230,6 +232,11 @@ class HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           new CircularProgressIndicator(),
+          new FlatButton(
+            textColor: Colors.red,
+            onPressed: _Setup,
+            child: new Text("Setup Today Page"),
+          ),
         ],
       );
     }
