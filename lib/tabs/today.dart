@@ -30,6 +30,7 @@ class HomePageState extends State<HomePage> {
   String WeekDayTime = 'No Info';
   String WeekDayTimeEnd = 'No Info';
 
+  String Name = 'John';
   bool zeroPeriod = false;
   bool firstPeriod = false;
   bool secondPeriod = false;
@@ -80,6 +81,7 @@ class HomePageState extends State<HomePage> {
     fifthPeriod = prefs.getBool('fifthPeriod');
     sixthPeriod = prefs.getBool('sixthPeriod');
     seventhPeriod = prefs.getBool('seventhPeriod');
+    Name = prefs.getString('Name');
 
     WeekDay = formatted;
 
@@ -92,6 +94,7 @@ class HomePageState extends State<HomePage> {
       fifthPeriod;
       sixthPeriod;
       seventhPeriod;
+      Name;
       WeekDay;
     });
 
@@ -187,6 +190,13 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             new Text(""),
             new ListTile(
+              title: new Text('Hello, ' + Name,
+                style: new TextStyle(
+                    color: Colors.black.withOpacity(0.8),
+                    fontSize: 20.0),),
+            ),
+
+            new ListTile(
               title: new Text('Info about your day.'),
             ),
             new Card(
@@ -252,33 +262,16 @@ class setUpState extends State<setUp> {
   bool sixthPeriod = false;
   bool seventhPeriod = false;
 
-  Future<Null> _savingDone() async {
-    return showDialog<Null>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return new AlertDialog(
-          title: new Text('Classes Saved'),
-//          content: new SingleChildScrollView(
-//            child: new ListBody(
-//              children: <Widget>[
-//                new Text('You will never be satisfied.'),
-//                new Text('You\’re like me. I’m never satisfied.'),
-//              ],
-//            ),
-//          ),
-          actions: <Widget>[
-            new FlatButton(
-              child: new Text('Done'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
+  final TextEditingController _controller = new TextEditingController();
+  String Name = "";
+  
+
+  void _onChanged(String val) {
+    setState(() {
+      Name = val;
+    });
   }
+
 
   void saveData() async {
     final prefs = await SharedPreferences.getInstance();
@@ -291,6 +284,7 @@ class setUpState extends State<setUp> {
     prefs.setBool('fifthPeriod', fifthPeriod);
     prefs.setBool('sixthPeriod', sixthPeriod);
     prefs.setBool('seventhPeriod', seventhPeriod);
+    prefs.setString('Name', Name);
 
     Navigator.of(context).pop();
   }
@@ -299,7 +293,7 @@ class setUpState extends State<setUp> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: const Text('Classes Setup - BETA'),
+          title: const Text('Today Setup - BETA'),
           actions: <Widget>[],
         ),
         body: ListView(
@@ -309,6 +303,29 @@ class setUpState extends State<setUp> {
                 child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
+                      new ListTile(
+                        title: new Text('Add your Name'),
+                        ),
+                      new ListTile(
+                        title: new TextField(
+                          decoration: new InputDecoration(
+                            hintText: "Type your name..",
+                          ),
+                          controller: _controller,
+                          onChanged: (String value) {
+                            _onChanged(value);
+                          },
+
+                        ),
+                      ),
+                      new Text(''),
+                      new Divider(
+                        height: 10.0,
+                        color: Colors.grey,
+                      ),
+                      new ListTile(
+                        title: new Text('Add your Classes'),
+                      ),
                       new SwitchListTile(
                         title: const Text('0 Period'),
                         value: zeroPeriod,

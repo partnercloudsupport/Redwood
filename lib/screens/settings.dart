@@ -19,7 +19,9 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   SharedPreferences prefs;
+  final TextEditingController _controller = new TextEditingController();
 
+  String Name = 'John';
   bool zeroPeriod = false;
   bool firstPeriod = false;
   bool secondPeriod = false;
@@ -46,6 +48,7 @@ class HomePageState extends State<HomePage> {
     fifthPeriod = prefs.getBool('fifthPeriod');
     sixthPeriod = prefs.getBool('sixthPeriod');
     seventhPeriod = prefs.getBool('seventhPeriod');
+    Name = prefs.getString('Name');
 
     setState(() {
       zeroPeriod;
@@ -56,6 +59,7 @@ class HomePageState extends State<HomePage> {
       fifthPeriod;
       sixthPeriod;
       seventhPeriod;
+      Name;
     });
   }
 
@@ -70,6 +74,18 @@ class HomePageState extends State<HomePage> {
     prefs.setBool('fifthPeriod', fifthPeriod);
     prefs.setBool('sixthPeriod', sixthPeriod);
     prefs.setBool('seventhPeriod', seventhPeriod);
+  }
+
+  void _onChanged(String val) {
+    setState(() {
+      Name = val;
+    });
+  }
+
+  void saveName() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    prefs.setString('Name', Name);
   }
 
   bool classes_setup = false;
@@ -92,6 +108,49 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             new Column(
               children: <Widget>[
+                new Card(
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
+                        title: new Text('Your Profile'),
+                        subtitle: new Text(
+                          'This is where you edit your name',
+                          style: new TextStyle(
+                              color: Colors.grey.withOpacity(0.9),
+                              fontSize: 12.0),
+                        ),
+                      ),
+                      new ListTile(
+                        title: new TextField(
+                          decoration: new InputDecoration(
+                            hintText: "Change your name from " + Name + '..',
+                          ),
+                          controller: _controller,
+                          onChanged: (String value) {
+                            _onChanged(value);
+                          },
+
+                        ),
+                      ),
+                      new Text(''),
+                      new RaisedButton(
+                        child: new Text(
+                          'Save',
+                          style: new TextStyle(
+                              color: Colors.white.withOpacity(0.9)),
+                        ),
+                        color: Colors.blue,
+                        elevation: 4.0,
+                        shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0)),
+                        splashColor: Colors.grey,
+                        onPressed: saveName,
+                      ),
+                      new Text("\n"),
+                    ],
+                  ),
+                ),
                 new Card(
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
