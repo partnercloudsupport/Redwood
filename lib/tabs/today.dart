@@ -29,6 +29,8 @@ class HomePageState extends State<HomePage> {
   String WeekDay = 'Monday';
   String WeekDayTime = 'No Info';
   String WeekDayTimeEnd = 'No Info';
+  String SchoolStart = '8:00 AM';
+  String SchoolEnd = '3:03 PM';
 
   String Name = 'John';
   bool zeroPeriod = false;
@@ -135,35 +137,168 @@ class HomePageState extends State<HomePage> {
       WeekDay = formatted;
       //Cal
       if (WeekDay == 'Mon') {
+        if (zeroPeriod == true) {
+          SchoolStart = '7:05 AM';
+        } else {
+          if (firstPeriod == true) {
+            SchoolStart = '8:00 AM';
+          } else {
+            if (secondPeriod == true) {
+              SchoolStart = '8:55 AM';
+            } else {
+              if (thirdPeriod == true) {
+                SchoolStart = '10:00 AM';
+              }
+            }
+          }
+        }
+        if (seventhPeriod == true) {
+          SchoolEnd = '3:03 PM';
+        } else {
+          if (sixthPeriod == true) {
+            SchoolEnd = '2:08 PM';
+          } else {
+            if (fifthPeriod == true) {
+              SchoolEnd = '1:13 PM';
+            }
+          }
+        }
+
         WeekDayTime = '11:43 AM';
         WeekDayTimeEnd = '12:18 PM';
       }
 
       if (WeekDay == 'Tue') {
+        if (zeroPeriod == true) {
+          SchoolStart = '7:05 AM';
+        } else {
+          if (firstPeriod == true) {
+            SchoolStart = '8:00 AM';
+          } else {
+            if (secondPeriod == true) {
+              SchoolStart = '8:55 AM';
+            } else {
+              if (thirdPeriod == true) {
+                SchoolStart = '10:00 AM';
+              }
+            }
+          }
+        }
+        if (seventhPeriod == true) {
+          SchoolEnd = '3:03 PM';
+        } else {
+          if (sixthPeriod == true) {
+            SchoolEnd = '2:08 PM';
+          } else {
+            if (fifthPeriod == true) {
+              SchoolEnd = '1:13 PM';
+            }
+          }
+        }
+
         WeekDayTime = '11:43 AM';
         WeekDayTimeEnd = '12:18 PM';
       }
 
       if (WeekDay == 'Wed') {
+        if (forthPeriod == true) {
+          SchoolStart = '8:00 AM';
+        } else {
+          if (fifthPeriod == true) {
+            SchoolStart = '9:47 AM';
+          } else {
+            if (sixthPeriod == true) {
+              SchoolStart = '12:00 PM';
+            } else {
+              if (seventhPeriod == true) {
+                SchoolStart = '1:37 PM';
+              }
+            }
+          }
+        }
+        if (seventhPeriod == true) {
+          SchoolEnd = '3:07 PM';
+        } else {
+          if (sixthPeriod == true) {
+            SchoolEnd = '1:30 PM';
+          } else {
+            if (fifthPeriod == true) {
+              SchoolStart = '11:17 AM';
+            }
+          }
+        }
         WeekDayTime = '11:17 AM';
         WeekDayTimeEnd = '11:53 AM';
       }
 
       if (WeekDay == 'Thu') {
+        if (zeroPeriod == true) {
+          SchoolStart = '7:05 AM';
+        } else {
+          if (firstPeriod == true) {
+            SchoolStart = '8:00 AM';
+          } else {
+            if (secondPeriod == true) {
+              SchoolStart = '10:47 AM';
+            } else {
+              if (thirdPeriod == true) {
+                SchoolStart = '1:02 PM';
+              }
+            }
+          }
+        }
+        if (thirdPeriod == true) {
+          SchoolEnd = '2:32 PM';
+        } else {
+          if (secondPeriod == true) {
+            SchoolEnd = '12:17 PM';
+          }
+        }
+
         WeekDayTime = '12:17 PM';
         WeekDayTimeEnd = '12:55 PM';
       }
 
       if (WeekDay == 'Fri') {
+        if (zeroPeriod == true) {
+          SchoolStart = '7:05 AM';
+        } else {
+          if (firstPeriod == true) {
+            SchoolStart = '8:00 AM';
+          } else {
+            if (secondPeriod == true) {
+              SchoolStart = '8:55 AM';
+            } else {
+              if (thirdPeriod == true) {
+                SchoolStart = '10:00 AM';
+              }
+            }
+          }
+        }
+        if (seventhPeriod == true) {
+          SchoolEnd = '3:03 PM';
+        } else {
+          if (sixthPeriod == true) {
+            SchoolEnd = '2:08 PM';
+          } else {
+            if (fifthPeriod == true) {
+              SchoolEnd = '1:13 PM';
+            }
+          }
+        }
+
         WeekDayTime = '11:43 AM';
         WeekDayTimeEnd = '12:18 PM';
       }
+
 
       setState(() {
         classes_setup;
         WeekDay;
         WeekDayTime;
         WeekDayTimeEnd;
+        SchoolStart;
+        SchoolEnd;
       });
     }
   }
@@ -210,6 +345,16 @@ class HomePageState extends State<HomePage> {
                 children: <Widget>[
                   new ListTile(
                     title: new Text('Lunch will be at ' + '$WeekDayTime' + ' and will end at ' + '$WeekDayTimeEnd'),
+                  ),
+                ],
+              ),
+            ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('School will start for you at ' + '$SchoolStart' + ' and will end at ' + '$SchoolEnd'),
                   ),
                 ],
               ),
