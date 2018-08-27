@@ -197,7 +197,10 @@ class HomePageState extends State<HomePage> {
                     color: Colors.black.withOpacity(0.8),
                     fontSize: 20.0),),
             ),
-
+            new Divider(
+              height: 10.0,
+              color: Colors.grey,
+            ),
             new ListTile(
               title: new Text('Info about your day.'),
             ),
@@ -413,6 +416,7 @@ class setUpState extends State<setUp> {
                         },
                         //secondary: const Icon(Icons.lightbulb_outline),
                       ),
+                      new Text(''),
                       new RaisedButton(
                         child: new Text(
                           'Save',
@@ -426,6 +430,7 @@ class setUpState extends State<setUp> {
                         splashColor: Colors.grey,
                         onPressed: saveData,
                       ),
+                      new Text('\n'),
                     ])),
           ],
         ));

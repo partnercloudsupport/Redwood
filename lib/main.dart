@@ -223,60 +223,11 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
     _tabController.dispose();
   }
 
-  Future<Null> _GMComingSoon() async {
-    return showDialog<Null>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return new AlertDialog(
-          title: new Text('Coming Soon!'),
-          content: new SingleChildScrollView(
-            child: new ListBody(
-              children: <Widget>[
-                new Text(
-                    'This is something we are looking on adding this to the app sometime soon.'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            new FlatButton(
-              child: new Text('Done'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  //final GoogleSignIn _googleSignIn = GoogleSignIn();
-  //final FirebaseAuth _auth = FirebaseAuth.instance;
-
-  //Future<FirebaseUser> _handleSignIn() async {
-  //GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-  //GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-  //FirebaseUser user = await _auth.signInWithGoogle(
-  //     accessToken: googleAuth.accessToken,
-//      idToken: googleAuth.idToken,
-//    );
-//    print("signed in " + user.displayName);
-//    return user;
-//  }
-
   @override
   Widget build(BuildContext context) => new Scaffold(
     //App Bar
     appBar: new AppBar(
       title: new Text(_title_app),
-//          actions: <Widget>[
-//            IconButton(
-//              icon: const Icon(Icons.person),
-//              tooltip: 'Login',
-//              onPressed: _handleSignIn,
-//            ),
-//          ],
     ),
 
     //Content of tabs
