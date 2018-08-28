@@ -25,13 +25,17 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   SharedPreferences prefs;
 
+
   int time = 0;
+  //--This is for the info cards for users--
   String WeekDay = 'Monday';
   String WeekDayTime = 'No Info';
   String WeekDayTimeEnd = 'No Info';
   String SchoolStart = '8:00 AM';
   String SchoolEnd = '3:03 PM';
+  //--
 
+  //--This is the bools that cached version overrides
   String Name = 'John';
   bool zeroPeriod = false;
   bool firstPeriod = false;
@@ -41,9 +45,15 @@ class HomePageState extends State<HomePage> {
   bool fifthPeriod = false;
   bool sixthPeriod = false;
   bool seventhPeriod = false;
+  //--
 
+  //Puts the page in lockdown
   bool page = true;
+  //--
+
+  //-- if this is true the user has setup there profile
   bool classes_setup = false;
+  //--
 
   void _Setup() {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
@@ -55,14 +65,12 @@ class HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    //-- Lets cached info load in before it overrides the page defaults
     Timer _timer, _timertwo;
     _timer = new Timer(const Duration(milliseconds: 100), () {
       checkinfo();
     });
-
-//    _timertwo = new Timer(const Duration(milliseconds: 200), () {
-//      checkinfo();
-//    });
+    //--
 
     super.initState();
     init();
@@ -75,6 +83,7 @@ class HomePageState extends State<HomePage> {
     var formatter = new DateFormat.E();
     String formatted = formatter.format(now);
 
+    //-- Gets the cached info from SharedPreferences
     zeroPeriod = prefs.getBool('zeroPeriod');
     firstPeriod = prefs.getBool('firstPeriod');
     secondPeriod = prefs.getBool('secondPeriod');
@@ -84,9 +93,11 @@ class HomePageState extends State<HomePage> {
     sixthPeriod = prefs.getBool('sixthPeriod');
     seventhPeriod = prefs.getBool('seventhPeriod');
     Name = prefs.getString('Name');
+    //--
 
     WeekDay = formatted;
 
+    //-- overrides the default info and replaces it with the cached info
     this.setState(() {
       zeroPeriod;
       firstPeriod;
@@ -124,6 +135,7 @@ class HomePageState extends State<HomePage> {
           fullscreenDialog: true));
     }
 
+    //-- Sets up the info section bools and strings depending on the day
     if (zeroPeriod == true ||
         firstPeriod == true ||
         secondPeriod == true ||
@@ -135,7 +147,7 @@ class HomePageState extends State<HomePage> {
       classes_setup = true;
 
       WeekDay = formatted;
-      //Cal
+      //-- Sets the Strings
       if (WeekDay == 'Mon') {
         if (zeroPeriod == true) {
           SchoolStart = '7:05 AM';
@@ -303,15 +315,17 @@ class HomePageState extends State<HomePage> {
     }
   }
 
+  //-- This is not used yet
   String nextclassstart = '5';
+  //--
 
   var day = new DateFormat.EEEE();
 
-
-
   @override
   Widget build(BuildContext context) {
+    //-- If a user set up there classes it displays the today page
     if (page == true && classes_setup == true) {
+      //If its the weekend it shows this
       if (WeekDay == 'Sun' || WeekDay == 'Sat'){
         return new Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -323,6 +337,7 @@ class HomePageState extends State<HomePage> {
           ],
         );
       } else {
+        //If its during the week displays this
         return new Column(
           children: <Widget>[
             new Text(""),
@@ -359,16 +374,7 @@ class HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-//            new Card(
-//              child: new Column(
-//                mainAxisSize: MainAxisSize.min,
-//                children: <Widget>[
-//                  new ListTile(
-//                    title: new Text('Day ' + '$WeekDay'),
-//                  ),
-//                ],
-//              ),
-//            ),
+                 ),
           ],
         );
       }
@@ -419,7 +425,7 @@ class setUpState extends State<setUp> {
 
   final TextEditingController _controller = new TextEditingController();
   String Name = "";
-  
+
 
   void _onChanged(String val) {
     setState(() {
@@ -431,6 +437,7 @@ class setUpState extends State<setUp> {
   void saveData() async {
     final prefs = await SharedPreferences.getInstance();
 
+    //-- This sets the cached values
     prefs.setBool('zeroPeriod', zeroPeriod);
     prefs.setBool('firstPeriod', firstPeriod);
     prefs.setBool('secondPeriod', secondPeriod);
@@ -446,6 +453,7 @@ class setUpState extends State<setUp> {
 
   @override
   Widget build(BuildContext context) {
+    //-- This is the today page setup PopUp
     return new Scaffold(
         appBar: new AppBar(
           title: const Text('Today Setup'),

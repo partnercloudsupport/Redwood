@@ -39,15 +39,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_villains/villain.dart';
 
 void main() => runApp(new MaterialApp(
+      //-- This is the name of the app
       title: 'Redwood',
+      //-- This sets the colors for the app
       theme: new ThemeData(
           primarySwatch: Colors.red,
           scaffoldBackgroundColor: Colors.white,
           primaryColor: Colors.red,
           backgroundColor: Colors.white),
       home: new Tabs(),
-      navigatorObservers: [new VillainTransitionObserver()],
-      debugShowCheckedModeBanner: false,
+      navigatorObservers: [new VillainTransitionObserver()], //-- Calls the Villains on the page to be played
+      debugShowCheckedModeBanner: false, //- Disables the debug banner
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/about':
@@ -373,13 +375,6 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/about');
                 }),
-//            new ListTile(
-//                leading: new Icon(FontAwesomeIcons.donate),
-//                title: new Text('Donate'),
-//                onTap: () {
-//                  Navigator.pop(context);
-//                  Navigator.of(context).pushNamed('/donate');
-//                }),
             new ListTile(
                 leading: new Icon(Icons.cached),
                 title: new Text('Change Log'),
@@ -406,7 +401,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
     setState(() {
       this._tab = tab;
     });
-
+    //-- Updates the AppBar name for what tab your in
     switch (tab) {
       case 0:
         this._title_app = "Redwood - " + TabItems[0].title + " 🔔";
@@ -437,6 +432,7 @@ const List<TabItem> TabItems = const <TabItem>[
   const TabItem(title: 'TV', icon: Icons.tv)
 ];
 
+//-- Drawer Links
 RHSURL() {
   launch('http://redwood.org');
 }
@@ -449,6 +445,7 @@ FBURL() {
   launch(
       'https://docs.google.com/forms/d/e/1FAIpQLScG_fu-2lpfdikypltPVxxVmpBJtpvcRYrD-n1V2frlQtS9IQ/viewform?usp=sf_link');
 }
+//--
 
 class Tv extends StatelessWidget {
   @override
@@ -471,6 +468,7 @@ class HomePageState extends State<HomePage> {
 
   //final RemoteConfig remoteConfig;
 
+  //Downloads the updated json file
   Future<String> getData() async {
     var response = await http.get(
         Uri.encodeFull(
@@ -537,10 +535,6 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  VidURL() {
-    launch(data[0]["link"]);
-  }
-
   @override
   Widget build(BuildContext context) {
     if (video == true) {
@@ -601,7 +595,7 @@ class HomePageState extends State<HomePage> {
       ;
     }
     ;
-
+    //Loading Screen for Today Page
     if (video == false) {
       if (_connectionStatus == 'ConnectivityResult.wifi' ||
           _connectionStatus == 'Unknown' ||
@@ -618,6 +612,7 @@ class HomePageState extends State<HomePage> {
     }
     ;
 
+    //-- If there is no Connection is displays this page
     if (_connectionStatus == 'ConnectivityResult.none') {
       return new ListView(
         children: <Widget>[

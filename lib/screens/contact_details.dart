@@ -40,17 +40,19 @@ class ContactViewPage extends StatelessWidget {
                           style: new TextStyle(fontWeight: FontWeight.w400),
                         ),
                       ),
-                      new ListTile(
-                        leading: new Icon(
-                          Icons.room,
-                          color: Colors.redAccent,
-                          size: 26.0,
-                        ),
-                        title: new Text(
-                          contact.room,
-                          style: new TextStyle(fontWeight: FontWeight.w400),
-                        ),
-                      ),
+                      //-- This is going to added back as soon as we get permission from the principal
+                      
+                      // new ListTile(
+                      //   leading: new Icon(
+                      //     Icons.room,
+                      //     color: Colors.redAccent,
+                      //     size: 26.0,
+                      //   ),
+                      //   title: new Text(
+                      //     contact.room,
+                      //     style: new TextStyle(fontWeight: FontWeight.w400),
+                      //   ),
+                      // ),
                       new ListTile(
                         onTap: () {
                           launch('mailto:' + contact.email);
