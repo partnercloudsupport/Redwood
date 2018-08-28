@@ -374,7 +374,6 @@ class HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-                 ),
           ],
         );
       }
@@ -447,6 +446,7 @@ class setUpState extends State<setUp> {
     prefs.setBool('sixthPeriod', sixthPeriod);
     prefs.setBool('seventhPeriod', seventhPeriod);
     prefs.setString('Name', Name);
+
 
     Navigator.of(context).pop();
   }
