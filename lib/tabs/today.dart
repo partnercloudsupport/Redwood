@@ -448,7 +448,7 @@ class setUpState extends State<setUp> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: const Text('Today Setup - BETA'),
+          title: const Text('Today Setup'),
           actions: <Widget>[],
         ),
         body: ListView(

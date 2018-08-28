@@ -118,7 +118,7 @@ class Tools extends StatelessWidget {
                                   leading: new Icon(FontAwesomeIcons.comments),
                                   title: new Text('RHS Chat'),
                                   subtitle: new Text(
-                                      'Chat with the classes or the school'),
+                                      'Chat with the classmates or the school'),
                                   onTap: RHSChat,
                                 ),
                               ],

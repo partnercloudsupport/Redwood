@@ -48,6 +48,99 @@ class changelog extends StatelessWidget {
                       children: <Widget>[
                         new ListTile(
                           title:
+                          new Text('V2.0'),
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   New',
+                              style: new TextStyle(
+                                  color: Colors.green.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   New Today Tab (View info about your day)',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   New',
+                              style: new TextStyle(
+                                  color: Colors.green.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   New Settings page (Change the classes you have and update your name)',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   New',
+                              style: new TextStyle(
+                                  color: Colors.green.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   New Rounded Buttons and cards',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   Enhancement',
+                              style: new TextStyle(
+                                  color: Colors.lightBlueAccent.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   New Loading Screens for the Today page and the TV page',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            new Text(
+                              '   Fix\'s',
+                              style: new TextStyle(
+                                  color: Colors.yellow.withOpacity(0.9),
+                                  fontSize: 12.0),
+                            ),
+                            const Expanded(
+                                child: const Text(
+                                  '   Small Bug fixes :)',
+                                  style: const TextStyle(fontSize: 12.0),
+                                )),
+                          ],
+                        ),
+
+                        new Text('\n'),
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new ListTile(
+                          title:
                           new Text('V1.2'),
                         ),
                         new Row(

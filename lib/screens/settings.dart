@@ -109,7 +109,7 @@ class HomePageState extends State<HomePage> {
       new Scaffold(
         appBar: new AppBar(
           title: new Text(
-            'Settings - BETA',
+            'Settings',
             style: new TextStyle(
               fontSize: Theme
                   .of(context)
