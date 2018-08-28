@@ -384,6 +384,9 @@ class HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
+          new Text('If you have set up your profile\n'
+          'leave this tab and come back',style: new TextStyle(
+              color: Colors.red.withOpacity(0.7),),),
           new CircularProgressIndicator(),
           new FlatButton(
             textColor: Colors.red,
