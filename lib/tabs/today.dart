@@ -56,7 +56,7 @@ class HomePageState extends State<HomePage> {
   @override
   void initState() {
     Timer _timer, _timertwo;
-    _timer = new Timer(const Duration(milliseconds: 200), () {
+    _timer = new Timer(const Duration(milliseconds: 100), () {
       checkinfo();
     });
 

@@ -5,7 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => new Container(
+  Widget build(BuildContext context) =>
+      new Container(
         child: new HomePage(),
       );
 }
@@ -40,15 +41,28 @@ class HomePageState extends State<HomePage> {
   void init() async {
     prefs = await SharedPreferences.getInstance();
 
-    zeroPeriod = prefs.getBool('zeroPeriod');
-    firstPeriod = prefs.getBool('firstPeriod');
-    secondPeriod = prefs.getBool('secondPeriod');
-    thirdPeriod = prefs.getBool('thirdPeriod');
-    forthPeriod = prefs.getBool('forthPeriod');
-    fifthPeriod = prefs.getBool('fifthPeriod');
-    sixthPeriod = prefs.getBool('sixthPeriod');
-    seventhPeriod = prefs.getBool('seventhPeriod');
-    Name = prefs.getString('Name');
+    if (prefs.getBool('zeroPeriod') == false){
+      zeroPeriod = prefs.getBool('zeroPeriod');
+      firstPeriod = prefs.getBool('firstPeriod');
+      secondPeriod = prefs.getBool('secondPeriod');
+      thirdPeriod = prefs.getBool('thirdPeriod');
+      forthPeriod = prefs.getBool('forthPeriod');
+      fifthPeriod = prefs.getBool('fifthPeriod');
+      sixthPeriod = prefs.getBool('sixthPeriod');
+      seventhPeriod = prefs.getBool('seventhPeriod');
+      Name = prefs.getString('Name');
+    }
+    if (prefs.getBool('zeroPeriod') == null){
+      Name = 'John';
+      zeroPeriod = false;
+      firstPeriod = false;
+      secondPeriod = false;
+      thirdPeriod = false;
+      forthPeriod = false;
+      fifthPeriod = false;
+      sixthPeriod = false;
+      seventhPeriod = false;
+    }
 
     setState(() {
       zeroPeriod;
@@ -90,13 +104,16 @@ class HomePageState extends State<HomePage> {
 
   bool classes_setup = false;
 
-  Widget build(BuildContext context) => new Scaffold(
-        //App Bar
+
+  Widget build(BuildContext context) =>
+      new Scaffold(
         appBar: new AppBar(
           title: new Text(
             'Settings - BETA',
             style: new TextStyle(
-              fontSize: Theme.of(context).platform == TargetPlatform.iOS
+              fontSize: Theme
+                  .of(context)
+                  .platform == TargetPlatform.iOS
                   ? 17.0
                   : 20.0,
             ),
@@ -124,7 +141,7 @@ class HomePageState extends State<HomePage> {
                       new ListTile(
                         title: new TextField(
                           decoration: new InputDecoration(
-                            hintText: "Change your name from " + Name + '..',
+                            hintText: "Change your name here..",
                           ),
                           controller: _controller,
                           onChanged: (String value) {

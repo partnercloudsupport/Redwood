@@ -54,6 +54,46 @@ class HomePageState extends State<HomePage> {
         _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
       setState(() => _connectionStatus = result.toString());
     });
+
+    init();
+  }
+
+  SharedPreferences prefs;
+
+  String Name = 'John';
+  bool zeroPeriod = false;
+  bool firstPeriod = false;
+  bool secondPeriod = false;
+  bool thirdPeriod = false;
+  bool forthPeriod = false;
+  bool fifthPeriod = false;
+  bool sixthPeriod = false;
+  bool seventhPeriod = false;
+
+  void init() async {
+    prefs = await SharedPreferences.getInstance();
+
+    zeroPeriod = prefs.getBool('zeroPeriod');
+    firstPeriod = prefs.getBool('firstPeriod');
+    secondPeriod = prefs.getBool('secondPeriod');
+    thirdPeriod = prefs.getBool('thirdPeriod');
+    forthPeriod = prefs.getBool('forthPeriod');
+    fifthPeriod = prefs.getBool('fifthPeriod');
+    sixthPeriod = prefs.getBool('sixthPeriod');
+    seventhPeriod = prefs.getBool('seventhPeriod');
+    Name = prefs.getString('Name');
+
+    setState(() {
+      zeroPeriod;
+      firstPeriod;
+      secondPeriod;
+      thirdPeriod;
+      forthPeriod;
+      fifthPeriod;
+      sixthPeriod;
+      seventhPeriod;
+      Name;
+    });
   }
 
   @override
@@ -128,6 +168,7 @@ class HomePageState extends State<HomePage> {
                         color: Colors.white.withOpacity(0.9), fontSize: 12.0),
                   ),
                   new Text('\n'),
+                  new Text('$Name'),
                   new Text('$_connectionStatus',
                       style: new TextStyle(
                           color: Colors.white.withOpacity(0.9),
