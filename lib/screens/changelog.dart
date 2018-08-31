@@ -48,6 +48,20 @@ class changelog extends StatelessWidget {
                       children: <Widget>[
                         new ListTile(
                           title:
+                          new Text('V2.1'),
+                        ),
+
+
+                        new Text('\n'),
+                      ],
+                    ),
+                  ),
+                  new Card(
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new ListTile(
+                          title:
                           new Text('V2.0'),
                         ),
                         new Row(

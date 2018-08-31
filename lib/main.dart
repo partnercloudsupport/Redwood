@@ -33,10 +33,10 @@ import 'package:native_ui/native_ui.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-//import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_whatsnew/flutter_whatsnew.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_villains/villain.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 void main() => runApp(new MaterialApp(
       //-- This is the name of the app
@@ -47,6 +47,7 @@ void main() => runApp(new MaterialApp(
           scaffoldBackgroundColor: Colors.white,
           primaryColor: Colors.red,
           backgroundColor: Colors.white),
+
       home: new Tabs(),
       navigatorObservers: [new VillainTransitionObserver()], //-- Calls the Villains on the page to be played
       debugShowCheckedModeBanner: false, //- Disables the debug banner
@@ -178,6 +179,8 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 
   String textValue = 'Hello World !';
   FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+
 
   update(String token) {
     print(token);
@@ -231,6 +234,25 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
           type: 'bells', localizedTitle: 'Bells', icon: 'notifications'),
       //const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
     ]);
+
+    Future onSelectNotification(String payload) async {
+      if (payload != null) {
+        debugPrint('notification payload: ' + payload);
+      }
+//      await Navigator.push(
+//        context,
+//        //new MaterialPageRoute(builder: (context) => new SecondScreen(payload)),
+//      );
+    }
+
+    var initializationSettingsAndroid =
+    new AndroidInitializationSettings('app_icon');
+    var initializationSettingsIOS = new IOSInitializationSettings();
+    var initializationSettings = new InitializationSettings(initializationSettingsAndroid, initializationSettingsIOS);
+    flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+    flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        selectNotification: onSelectNotification);
+
   }
 
   void init() async {
@@ -257,6 +279,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
       seventhPeriod;
       Name;
     });
+
   }
 
   @override

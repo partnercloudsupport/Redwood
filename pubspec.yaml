@@ -11,22 +11,20 @@ dependencies:
   cloud_firestore: "^0.7.4"
   firebase_database: "^1.0.3"
   firebase_auth: "^0.5.15"
-  flutter_launcher_icons: "^0.5.2"
   scalable_image: "^1.1.1"
   quick_actions: "^0.2.1"
   flutter_youtube: "^1.0.1"
   firebase_core:
   shared_preferences: "^0.4.2"
-  font_awesome_flutter: "^7.1.0"
+  font_awesome_flutter:
   firebase_remote_config: "^0.0.5"
   connectivity: "^0.3.1"
   native_widgets: "^0.1.1+1"
   package_info: "^0.3.2"
-  meta: "1.1.5"
+  flutter_local_notifications: "^0.3.7"
+  meta: "1.1.6"
   native_ui: "^0.0.4"
-  dynamic_theme:
-      git:
-        url: git://github.com/Norbert515/dynamic_theme.git
+  flutter_whatsnew: "^0.0.6"
   #material_search: "^0.2.7"
   #google_sign_in: "^3.0.4"
   flutter_villains: "^1.0.0"
