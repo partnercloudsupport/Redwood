@@ -177,6 +177,8 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
   bool sixthPeriod = false;
   bool seventhPeriod = false;
 
+  bool lunchnotification = false;
+
   String textValue = 'Hello World !';
   FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
@@ -235,6 +237,8 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
       //const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
     ]);
 
+
+    //THis is a work in progress
     Future onSelectNotification(String payload) async {
       if (payload != null) {
         debugPrint('notification payload: ' + payload);
@@ -252,6 +256,22 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
     flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
     flutterLocalNotificationsPlugin.initialize(initializationSettings,
         selectNotification: onSelectNotification);
+    notif();
+  }
+
+  //THis is a work in progress
+  void notif() async {
+    prefs = await SharedPreferences.getInstance();
+
+    if (prefs.getBool('lunchnotification') == null){
+      prefs.setBool('lunchnotification', lunchnotification);
+    }
+
+
+
+    setState(() {
+      lunchnotification;
+    });
 
   }
 
@@ -487,34 +507,36 @@ class HomePageState extends State<HomePage> {
   final Connectivity _connectivity = new Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
   bool video = false;
-  List data;
 
-  //final RemoteConfig remoteConfig;
+  String Title = 'Redwood TV Season 8 Episode 1';
+  String IMGURL = 'https://raw.githubusercontent.com/isontic/data/master/Screenshot_49.png';
+  String VURL = 'https://www.youtube.com/watch?v=VeqBXW1ViN8&t=483s';
 
-  //Downloads the updated json file
-  Future<String> getData() async {
-    var response = await http.get(
-        Uri.encodeFull(
-            "https://raw.githubusercontent.com/isontic/data/master/tv.json"),
-        headers: {"Accept": "application/json"});
+  StreamSubscription<DocumentSnapshot> subscription;
 
-    video = true;
+  final DocumentReference documentReference =
+  Firestore.instance.document("tv/Qs1EPP7eP5TijgOVpgGi");
 
-    this.setState(() {
-      data = json.decode(response.body);
-      video;
+
+  void _fetch() {
+    documentReference.get().then((datasnapshot) {
+      if (datasnapshot.exists) {
+        video = true;
+        setState(() {
+          Title = datasnapshot.data['title'];
+          IMGURL = datasnapshot.data['img-url'];
+          VURL = datasnapshot.data['vid-url'];
+          video;
+        });
+      }
     });
-    print(data[1]["title"]);
-    print(data[1]["body"]);
-    print(data[1]["link"]);
-
-    return "Success!";
   }
 
   @override
   void initState() {
     super.initState();
-    this.getData();
+
+    this._fetch();
 
     initConnectivity();
     _connectivitySubscription =
@@ -554,7 +576,7 @@ class HomePageState extends State<HomePage> {
   void playYoutubeVideo() {
     FlutterYoutube.playYoutubeVideoByUrl(
       apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
-      videoUrl: data[0]["link"],
+      videoUrl: VURL,
     );
   }
 
@@ -566,7 +588,7 @@ class HomePageState extends State<HomePage> {
           _connectionStatus == 'ConnectivityResult.mobile') {
         return new Scaffold(
             body: new ListView.builder(
-                itemCount: data == null ? 0 : data.length,
+                itemCount: 1,
                 itemBuilder: (BuildContext context, int index) {
                   return new Card(
                     elevation: 3.0,
@@ -577,7 +599,8 @@ class HomePageState extends State<HomePage> {
                       children: <Widget>[
                         ListTile(
                             leading: const Icon(Icons.tv),
-                            title: new Text(data[index]["title"])),
+                            title: new Text(Title),
+                        ),
                         new Container(
                           width: 370.0,
                           height: 200.0,
@@ -587,7 +610,7 @@ class HomePageState extends State<HomePage> {
                               Center(
                                 child: FadeInImage.memoryNetwork(
                                   placeholder: kTransparentImage,
-                                  image: data[index]["body"],
+                                  image: IMGURL,
                                 ),
                               ),
                             ],
