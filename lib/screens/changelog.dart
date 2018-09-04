@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:native_widgets/native_widgets.dart';
 
 class changelog extends StatelessWidget {
   @override
@@ -600,13 +599,17 @@ class changelog extends StatelessWidget {
                                 fontSize: 12.0),
                           ),
                         ),
-                        new NativeButton(
+                        new RaisedButton(
                           child: new Text(
                             'Send Feedback',
                             style: new TextStyle(
                                 color: Colors.white.withOpacity(0.9)),
                           ),
-                          buttonColor: Colors.red,
+                          color: Colors.red,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
                           onPressed: FBURL,
                         ),
                         new Text('\n')

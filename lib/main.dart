@@ -11,14 +11,12 @@ import './screens/dev.dart' as _devPage;
 import './screens/opl.dart' as _oplPage;
 import './screens/discord.dart' as discordPage;
 import './screens/tools.dart' as toolsPage;
-import './screens/donate.dart' as donatePage;
 import './screens/directory.dart' as directoryPage;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:native_widgets/native_widgets.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/services.dart';
@@ -28,12 +26,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:meta/meta.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:native_ui/native_ui.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_whatsnew/flutter_whatsnew.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -47,7 +42,6 @@ void main() => runApp(new MaterialApp(
           scaffoldBackgroundColor: Colors.white,
           primaryColor: Colors.red,
           backgroundColor: Colors.white),
-
       home: new Tabs(),
       navigatorObservers: [new VillainTransitionObserver()], //-- Calls the Villains on the page to be played
       debugShowCheckedModeBanner: false, //- Disables the debug banner
@@ -91,11 +85,6 @@ void main() => runApp(new MaterialApp(
           case '/opl':
             return new FromRightToLeft(
               builder: (_) => new _oplPage.OPL(),
-              settings: settings,
-            );
-          case '/donate':
-            return new FromRightToLeft(
-              builder: (_) => new donatePage.Donate(),
               settings: settings,
             );
           case '/directory':
@@ -239,24 +228,24 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 
 
     //THis is a work in progress
-    Future onSelectNotification(String payload) async {
-      if (payload != null) {
-        debugPrint('notification payload: ' + payload);
-      }
-//      await Navigator.push(
-//        context,
-//        //new MaterialPageRoute(builder: (context) => new SecondScreen(payload)),
-//      );
-    }
-
-    var initializationSettingsAndroid =
-    new AndroidInitializationSettings('app_icon');
-    var initializationSettingsIOS = new IOSInitializationSettings();
-    var initializationSettings = new InitializationSettings(initializationSettingsAndroid, initializationSettingsIOS);
-    flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
-    flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        selectNotification: onSelectNotification);
-    notif();
+//    Future onSelectNotification(String payload) async {
+//      if (payload != null) {
+//        debugPrint('notification payload: ' + payload);
+//      }
+////      await Navigator.push(
+////        context,
+////        //new MaterialPageRoute(builder: (context) => new SecondScreen(payload)),
+////      );
+//    }
+//
+//    var initializationSettingsAndroid =
+//    new AndroidInitializationSettings('app_icon');
+//    var initializationSettingsIOS = new IOSInitializationSettings();
+//    var initializationSettings = new InitializationSettings(initializationSettingsAndroid, initializationSettingsIOS);
+//    flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+//    flutterLocalNotificationsPlugin.initialize(initializationSettings,
+//        selectNotification: onSelectNotification);
+//    notif();
   }
 
   //THis is a work in progress
@@ -606,7 +595,7 @@ class HomePageState extends State<HomePage> {
                           height: 200.0,
                           child: Stack(
                             children: <Widget>[
-                              Center(child: NativeLoadingIndicator()),
+                              Center(child: CircularProgressIndicator()),
                               Center(
                                 child: FadeInImage.memoryNetwork(
                                   placeholder: kTransparentImage,
