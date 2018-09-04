@@ -12,6 +12,7 @@ import './screens/opl.dart' as _oplPage;
 import './screens/discord.dart' as discordPage;
 import './screens/tools.dart' as toolsPage;
 import './screens/directory.dart' as directoryPage;
+import './todo/todo.dart' as todoPage;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -32,6 +33,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 void main() => runApp(new MaterialApp(
       //-- This is the name of the app
@@ -95,6 +97,11 @@ void main() => runApp(new MaterialApp(
           case '/tools':
             return new FromRightToLeft(
               builder: (_) => new toolsPage.Tools(),
+              settings: settings,
+            );
+          case '/todo':
+            return new FromRightToLeft(
+              builder: (_) => new todoPage.Todo(),
               settings: settings,
             );
         }
@@ -311,11 +318,6 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
         appBar: new AppBar(
           title: new Text(_title_app),
           actions: <Widget>[
-            // action button
-            IconButton(
-              icon: Icon(FontAwesomeIcons.tasks),
-              onPressed: (){},
-            ),
             IconButton(
               icon: Icon(FontAwesomeIcons.userCog),
               onPressed: _Settings,
@@ -380,11 +382,11 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
               onTap: ESCHOOLURL,
             ),
             new ListTile(
-                leading: new Icon(Icons.map),
-                title: new Text('School Map'),
+                leading: new Icon(FontAwesomeIcons.tasks),
+                title: new Text('ToDo'),
                 onTap: () {
                   Navigator.pop(context);
-                  Navigator.of(context).pushNamed('/map');
+                  Navigator.of(context).pushNamed('/todo');
                 }),
             new ListTile(
                 leading: new Icon(FontAwesomeIcons.chalkboardTeacher),
@@ -400,6 +402,14 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/tools');
                 }),
+            new ListTile(
+                leading: new Icon(Icons.map),
+                title: new Text('School Map'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/map');
+                }),
+
 //            new ListTile(
 //              leading: new Icon(FontAwesomeIcons.gamepad),
 //              title: new Text('Student Written Games'),
