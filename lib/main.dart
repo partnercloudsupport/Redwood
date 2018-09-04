@@ -313,7 +313,11 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
           actions: <Widget>[
             // action button
             IconButton(
-              icon: Icon(Icons.settings),
+              icon: Icon(FontAwesomeIcons.tasks),
+              onPressed: (){},
+            ),
+            IconButton(
+              icon: Icon(FontAwesomeIcons.userCog),
               onPressed: _Settings,
             ),
 
@@ -409,7 +413,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
               color: Colors.grey,
             ),
             new ListTile(
-              leading: new Icon(Icons.settings),
+              leading: new Icon(FontAwesomeIcons.userCog),
               title: new Text('Settings'),
               onTap: () {
                 Navigator.pop(context);
