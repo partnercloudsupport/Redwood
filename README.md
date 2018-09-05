@@ -4,6 +4,7 @@
 
 ## Redwood App (v2.0)
 [![GitHub issues](https://img.shields.io/github/issues/isontic/Redwood.svg)](https://github.com/isontic/Redwood/issues)
+[Donate](https://isontic.givingfuel.com/redwood-app "Donate")    
 
 This app lets you see what time the bells will ring and watch the latest Episode of Redwood TV!
 
