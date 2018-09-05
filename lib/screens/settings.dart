@@ -88,6 +88,7 @@ class HomePageState extends State<HomePage> {
     prefs.setBool('fifthPeriod', fifthPeriod);
     prefs.setBool('sixthPeriod', sixthPeriod);
     prefs.setBool('seventhPeriod', seventhPeriod);
+
   }
 
   void _onChanged(String val) {

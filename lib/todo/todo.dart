@@ -19,11 +19,34 @@ class _TodoState extends State<Todo> {
   String Item;
   List<_SecItem> _items = [];
 
+  void _showAboutDialog() async {
+
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("About Tasks"),
+          content: new Text('Here you can add Homework or other school related tasks!'),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Done"),
+              onPressed: (){
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   void initState() {
     super.initState();
-
-    _readAll();
+    this._readAll();
   }
 
   Future<Null> _readAll() async {
@@ -41,6 +64,54 @@ class _TodoState extends State<Todo> {
     });
   }
 
+  void _showAddDialog() async {
+    final TextEditingController _controller = new TextEditingController();
+    final String key = _randomValue();
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Add Item"),
+          content: new TextField(
+            controller: _controller,
+            autofocus: true,
+            onChanged: _onChanged,
+          ),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Add"),
+              onPressed: (){
+                _storage.write(key: key, value: Item);
+                _readAll();
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+  _navigateAndDisplaySelection(BuildContext context) async {
+    // Navigator.push returns a Future that will complete after we call
+    // Navigator.pop on the Selection Screen!
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute<Future>(
+          builder: (BuildContext context) {
+            return new AddTaskDialog();
+          },
+          fullscreenDialog: true),
+    );
+
+    // After the Selection Screen returns a result, show it in a Snackbar!
+    //Scaffold.of(context).initState();
+  }
+
   void _openAddTaskDialog() {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
         builder: (BuildContext context) {
@@ -48,7 +119,7 @@ class _TodoState extends State<Todo> {
         },
         fullscreenDialog: true));
   }
-  
+
   _addNewItem() async {
     final String key = _randomValue();
     final String value = Item;
@@ -61,10 +132,28 @@ class _TodoState extends State<Todo> {
   Widget build(BuildContext context) => new Scaffold(
         appBar: new AppBar(
           title: new Text('Tasks'),
-          actions: <Widget>[
-            new IconButton(
-                onPressed: _openAddTaskDialog, icon: new Icon(Icons.add)),
-          ],
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton.extended(
+          elevation: 4.0,
+          icon: const Icon(Icons.add),
+          label: const Text('Add a task'),
+          onPressed: _showAddDialog,
+        ),
+        bottomNavigationBar: BottomAppBar(
+          elevation: 3.0,
+          color: Colors.white,
+          child: new Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.info),
+                color: Colors.grey,
+                onPressed: _showAboutDialog,
+              ),
+            ],
+          ),
         ),
         body: new ListView.builder(
           itemCount: _items.length,
@@ -140,7 +229,7 @@ class _EditItemWidget extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(),
             child: new Text('Cancel')),
         new FlatButton(
-            onPressed: () => Navigator.of(context).pop(_controller.text),
+            onPressed: () {Navigator.of(context).pop(_controller.text); Navigator.of(context).pushNamed('/todo');},
             child: new Text('Save')),
       ],
     );
@@ -163,6 +252,7 @@ class AddTaskDialogState extends State<AddTaskDialog> {
   final _storage = new FlutterSecureStorage();
 
   String Item;
+
   List<_SecItem> _items = [];
 
   @override
@@ -225,6 +315,8 @@ class AddTaskDialogState extends State<AddTaskDialog> {
           new FlatButton(
               onPressed: () {
                 saveTask();
+
+                Navigator.of(context).setState(_readAll);
                 Navigator.of(context).pop();
               },
               child: new Text('SAVE',
