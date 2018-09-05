@@ -17,6 +17,8 @@ class _TodoState extends State<Todo> {
   final _storage = new FlutterSecureStorage();
 
   String Item;
+  String DUEDate;
+  String FinelItem;
   List<_SecItem> _items = [];
 
   void _showAboutDialog() async {
@@ -100,29 +102,11 @@ class _TodoState extends State<Todo> {
     );
   }
 
-
-  _navigateAndDisplaySelection(BuildContext context) async {
-    // Navigator.push returns a Future that will complete after we call
-    // Navigator.pop on the Selection Screen!
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute<Future>(
-          builder: (BuildContext context) {
-            return new AddTaskDialog();
-          },
-          fullscreenDialog: true),
-    );
-
-    // After the Selection Screen returns a result, show it in a Snackbar!
-    //Scaffold.of(context).initState();
-  }
-
   void _openAddTaskDialog() {
-    Navigator.of(context).push(new MaterialPageRoute<Null>(
-        builder: (BuildContext context) {
-          return new AddTaskDialog();
-        },
-        fullscreenDialog: true));
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) =>  AddTaskDialog(),
+        fullscreenDialog: true),
+    ).then((_) => setState(() {_readAll();}));
   }
 
   _addNewItem() async {
@@ -143,10 +127,9 @@ class _TodoState extends State<Todo> {
           elevation: 4.0,
           icon: const Icon(Icons.add),
           label: const Text('Add a task'),
-          onPressed: _showAddDialog,
+          onPressed: _openAddTaskDialog,
         ),
         bottomNavigationBar: BottomAppBar(
-          elevation: 3.0,
           color: Colors.white,
           child: new Row(
             mainAxisSize: MainAxisSize.max,
@@ -310,7 +293,6 @@ class AddTaskDialogState extends State<AddTaskDialog> {
   }
 
   final TextEditingController _controller = new TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -319,10 +301,13 @@ class AddTaskDialogState extends State<AddTaskDialog> {
         actions: [
           new FlatButton(
               onPressed: () {
-                saveTask();
-
-                Navigator.of(context).setState(_readAll);
+                if (Item != ''){
+                  saveTask();
+                }
                 Navigator.of(context).pop();
+                setState(() {
+                  Item = '';
+                });
               },
               child: new Text('SAVE',
                   style: Theme.of(context)

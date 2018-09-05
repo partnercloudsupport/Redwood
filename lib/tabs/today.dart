@@ -9,7 +9,6 @@ import 'package:flutter_villains/villain.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
-
 class Today extends StatelessWidget {
   @override
   Widget build(BuildContext context) => new Container(
@@ -25,14 +24,17 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   SharedPreferences prefs;
 
-
   int time = 0;
+
   //--This is for the info cards for users--
   String WeekDay = 'Monday';
   String WeekDayTime = 'No Info';
   String WeekDayTimeEnd = 'No Info';
   String SchoolStart = '8:00 AM';
   String SchoolEnd = '3:03 PM';
+  String CurrentClass = 'First Period';
+  String CurrentClassStart = '8:00 AM';
+  String CurrentClassEnd = '8:48 AM';
   //--
 
   //--This is the bools that cached version overrides
@@ -45,14 +47,17 @@ class HomePageState extends State<HomePage> {
   bool fifthPeriod = false;
   bool sixthPeriod = false;
   bool seventhPeriod = false;
+
   //--
 
   //Puts the page in lockdown
   bool page = true;
+
   //--
 
   //-- if this is true the user has setup there profile
   bool classes_setup = false;
+
   //--
 
   void _Setup() {
@@ -110,12 +115,9 @@ class HomePageState extends State<HomePage> {
       Name;
       WeekDay;
     });
-
   }
 
-
   void checkinfo() async {
-
     var now = new DateTime.now();
     var formatter = new DateFormat.E();
     String formatted = formatter.format(now);
@@ -303,7 +305,6 @@ class HomePageState extends State<HomePage> {
         WeekDayTimeEnd = '12:18 PM';
       }
 
-
       setState(() {
         classes_setup;
         WeekDay;
@@ -317,6 +318,7 @@ class HomePageState extends State<HomePage> {
 
   //-- This is not used yet
   String nextclassstart = '5';
+
   //--
 
   var day = new DateFormat.EEEE();
@@ -326,26 +328,28 @@ class HomePageState extends State<HomePage> {
     //-- If a user set up there classes it displays the today page
     if (page == true && classes_setup == true) {
       //If its the weekend it shows this
-      if (WeekDay == 'Sun' || WeekDay == 'Sat'){
+      if (WeekDay == 'Sun' || WeekDay == 'Sat') {
         return new Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            new Text('No School Today! 😄',
-              style: new TextStyle(
-                  fontSize: 19.0),),
+            new Text(
+              'No School Today! 😄',
+              style: new TextStyle(fontSize: 19.0),
+            ),
           ],
         );
       } else {
         //If its during the week displays this
-        return new Column(
+        return new ListView(
           children: <Widget>[
             new Text(""),
             new ListTile(
-              title: new Text('Hello, ' + Name,
+              title: new Text(
+                'Hello, ' + Name,
                 style: new TextStyle(
-                    color: Colors.black.withOpacity(0.8),
-                    fontSize: 20.0),),
+                    color: Colors.black.withOpacity(0.8), fontSize: 20.0),
+              ),
             ),
             new Divider(
               height: 10.0,
@@ -359,7 +363,10 @@ class HomePageState extends State<HomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   new ListTile(
-                    title: new Text('Lunch will be at ' + '$WeekDayTime' + ' and will end at ' + '$WeekDayTimeEnd'),
+                    title: new Text('Lunch will be at ' +
+                        '$WeekDayTime' +
+                        ' and will end at ' +
+                        '$WeekDayTimeEnd'),
                   ),
                 ],
               ),
@@ -369,7 +376,23 @@ class HomePageState extends State<HomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   new ListTile(
-                    title: new Text('School will start for you at ' + '$SchoolStart' + ' and will end at ' + '$SchoolEnd'),
+                    title: new Text('School will start for you at ' +
+                        '$SchoolStart' +
+                        ' and will end at ' +
+                        '$SchoolEnd'),
+                  ),
+                ],
+              ),
+            ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('It is currently ' +
+                        '$CurrentClass' +
+                        ' and started at ' +
+                        '$CurrentClassStart' + ' and it will end at ' + '$CurrentClassEnd'),
                   ),
                 ],
               ),
@@ -384,9 +407,13 @@ class HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          new Text('If you have set up your profile\n'
-          'leave this tab and come back',style: new TextStyle(
-              color: Colors.red.withOpacity(0.7),),),
+          new Text(
+            'If you have set up your profile\n'
+                'leave this tab and come back',
+            style: new TextStyle(
+              color: Colors.red.withOpacity(0.7),
+            ),
+          ),
           new CircularProgressIndicator(),
           new FlatButton(
             textColor: Colors.red,
@@ -428,13 +455,11 @@ class setUpState extends State<setUp> {
   final TextEditingController _controller = new TextEditingController();
   String Name = "";
 
-
   void _onChanged(String val) {
     setState(() {
       Name = val;
     });
   }
-
 
   void saveData() async {
     final prefs = await SharedPreferences.getInstance();
@@ -449,7 +474,6 @@ class setUpState extends State<setUp> {
     prefs.setBool('sixthPeriod', sixthPeriod);
     prefs.setBool('seventhPeriod', seventhPeriod);
     prefs.setString('Name', Name);
-
 
     Navigator.of(context).pop();
   }
@@ -471,7 +495,7 @@ class setUpState extends State<setUp> {
                     children: <Widget>[
                       new ListTile(
                         title: new Text('Add your Name'),
-                        ),
+                      ),
                       new ListTile(
                         title: new TextField(
                           decoration: new InputDecoration(
@@ -481,7 +505,6 @@ class setUpState extends State<setUp> {
                           onChanged: (String value) {
                             _onChanged(value);
                           },
-
                         ),
                       ),
                       new Text(''),
