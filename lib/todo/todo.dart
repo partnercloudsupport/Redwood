@@ -84,9 +84,14 @@ class _TodoState extends State<Todo> {
             new FlatButton(
               child: new Text("Add"),
               onPressed: (){
-                _storage.write(key: key, value: Item);
-                _readAll();
+                if (Item != ''){
+                  _storage.write(key: key, value: Item);
+                  _readAll();
+                }
                 Navigator.of(context).pop();
+                setState(() {
+                  Item = '';
+                });
               },
             ),
           ],

@@ -63,6 +63,24 @@ class Tools extends StatelessWidget {
                               children: <Widget>[
                                 new ListTile(
                                     leading: new Icon(
+                                        FontAwesomeIcons.tasks),
+                                    title: new Text('Tasks'),
+                                    subtitle: new Text(
+                                        'Create tasks for your work'),
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                      Navigator
+                                          .of(context)
+                                          .pushNamed('/todo');
+                                    }),
+                              ],
+                            ),
+                          ),
+                          new Card(
+                            child: new Column(
+                              children: <Widget>[
+                                new ListTile(
+                                    leading: new Icon(
                                         FontAwesomeIcons.chalkboardTeacher),
                                     title: new Text('Faculty Directory'),
                                     subtitle: new Text(
