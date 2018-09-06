@@ -35,6 +35,7 @@ class HomePageState extends State<HomePage> {
   String CurrentClass = 'First Period';
   String CurrentClassStart = '8:00 AM';
   String CurrentClassEnd = '8:48 AM';
+
   //--
 
   //--This is the bools that cached version overrides
@@ -61,19 +62,19 @@ class HomePageState extends State<HomePage> {
   //--
 
   void _Setup() {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) =>  setUp(),
-        fullscreenDialog: true),
-    ).then((result) => setState(() {
-
-      init();
-      Timer _timer;
-      _timer = new Timer(const Duration(milliseconds: 100), () {
-        checkinfo();
-      });
-    }));
+    Navigator.of(context)
+        .push(
+          MaterialPageRoute(
+              builder: (context) => setUp(), fullscreenDialog: true),
+        )
+        .then((result) => setState(() {
+              init();
+              Timer _timer;
+              _timer = new Timer(const Duration(milliseconds: 100), () {
+                checkinfo();
+              });
+            }));
   }
-
 
   @override
   void initState() {
