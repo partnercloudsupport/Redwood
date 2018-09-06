@@ -318,10 +318,10 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
         appBar: new AppBar(
           title: new Text(_title_app),
           actions: <Widget>[
-            IconButton(
-              icon: Icon(FontAwesomeIcons.userCog),
-              onPressed: _Settings,
-            ),
+//            IconButton(
+//              icon: Icon(FontAwesomeIcons.userCog),
+//              onPressed: _Settings,
+//            ),
 
           ],
         ),
@@ -381,13 +381,13 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
               title: new Text('ESchool'),
               onTap: ESCHOOLURL,
             ),
-            new ListTile(
-                leading: new Icon(FontAwesomeIcons.tasks),
-                title: new Text('Tasks'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.of(context).pushNamed('/todo');
-                }),
+//            new ListTile(
+//                leading: new Icon(FontAwesomeIcons.tasks),
+//                title: new Text('Tasks'),
+//                onTap: () {
+//                  Navigator.pop(context);
+//                  Navigator.of(context).pushNamed('/todo');
+//                }),
             new ListTile(
                 leading: new Icon(FontAwesomeIcons.chalkboardTeacher),
                 title: new Text('Faculty Directory'),

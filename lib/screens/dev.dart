@@ -195,6 +195,25 @@ class HomePageState extends State<HomePage> {
 //                    onPressed: _Settings,
 //                  ),
 
+                  new Card(
+                    child: new Column(
+                      children: <Widget>[
+                        new ListTile(
+                            leading: new Icon(
+                                FontAwesomeIcons.tasks),
+                            title: new Text('Tasks'),
+                            subtitle: new Text(
+                                'Create tasks for your work'),
+                            onTap: () {
+                              Navigator.pop(context);
+                              Navigator
+                                  .of(context)
+                                  .pushNamed('/todo');
+                            }),
+                      ],
+                    ),
+                  ),
+
                   new GestureDetector(
                     onTap: () {
                       _incrementCounter;
