@@ -58,24 +58,24 @@ class Tools extends StatelessWidget {
                                 fontSize: 50.0,
                                 fontFamily: 'Pacifico'),
                           ),
-//                          new Card(
-//                            child: new Column(
-//                              children: <Widget>[
-//                                new ListTile(
-//                                    leading: new Icon(
-//                                        FontAwesomeIcons.tasks),
-//                                    title: new Text('Tasks'),
-//                                    subtitle: new Text(
-//                                        'Create tasks for your work'),
-//                                    onTap: () {
-//                                      Navigator.pop(context);
-//                                      Navigator
-//                                          .of(context)
-//                                          .pushNamed('/todo');
-//                                    }),
-//                              ],
-//                            ),
-//                          ),
+                          new Card(
+                            child: new Column(
+                              children: <Widget>[
+                                new ListTile(
+                                    leading: new Icon(
+                                        FontAwesomeIcons.tasks),
+                                    title: new Text('Tasks'),
+                                    subtitle: new Text(
+                                        'Create tasks for your work'),
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                      Navigator
+                                          .of(context)
+                                          .pushNamed('/todo');
+                                    }),
+                              ],
+                            ),
+                          ),
                           new Card(
                             child: new Column(
                               children: <Widget>[

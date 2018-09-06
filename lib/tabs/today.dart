@@ -392,19 +392,19 @@ class HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-//            new Card(
-//              child: new Column(
-//                mainAxisSize: MainAxisSize.min,
-//                children: <Widget>[
-//                  new ListTile(
-//                    title: new Text('It is currently ' +
-//                        '$CurrentClass' +
-//                        ' and started at ' +
-//                        '$CurrentClassStart' + ' and it will end at ' + '$CurrentClassEnd'),
-//                  ),
-//                ],
-//              ),
-//            ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('It is currently ' +
+                        '$CurrentClass' +
+                        ' and started at ' +
+                        '$CurrentClassStart' + ' and it will end at ' + '$CurrentClassEnd'),
+                  ),
+                ],
+              ),
+            ),
           ],
         );
       }

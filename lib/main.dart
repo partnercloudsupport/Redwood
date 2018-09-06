@@ -5,7 +5,6 @@ import './tabs/today.dart' as _secondTab;
 import './screens/about.dart' as _aboutPage;
 import './screens/support.dart' as _supportPage;
 import './screens/Map.dart' as _mapPage;
-import './screens/changelog.dart' as _changelogPage;
 import './screens/settings.dart' as _settingsPage;
 import './screens/dev.dart' as _devPage;
 import './screens/opl.dart' as _oplPage;
@@ -62,11 +61,6 @@ void main() => runApp(new MaterialApp(
           case '/map':
             return new FromRightToLeft(
               builder: (_) => new _mapPage.Map(),
-              settings: settings,
-            );
-          case '/changelog':
-            return new FromRightToLeft(
-              builder: (_) => new _changelogPage.changelog(),
               settings: settings,
             );
           case '/settings':
@@ -381,26 +375,19 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
               title: new Text('ESchool'),
               onTap: ESCHOOLURL,
             ),
-//            new ListTile(
-//                leading: new Icon(FontAwesomeIcons.tasks),
-//                title: new Text('Tasks'),
-//                onTap: () {
-//                  Navigator.pop(context);
-//                  Navigator.of(context).pushNamed('/todo');
-//                }),
+            new ListTile(
+                leading: new Icon(FontAwesomeIcons.tasks),
+                title: new Text('Tasks'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/todo');
+                }),
             new ListTile(
                 leading: new Icon(FontAwesomeIcons.chalkboardTeacher),
                 title: new Text('Faculty Directory'),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/directory');
-                }),
-            new ListTile(
-                leading: new Icon(FontAwesomeIcons.toolbox),
-                title: new Text('Tools'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.of(context).pushNamed('/tools');
                 }),
             new ListTile(
                 leading: new Icon(Icons.map),
@@ -431,18 +418,18 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
               },
             ),
             new ListTile(
+                leading: new Icon(FontAwesomeIcons.toolbox),
+                title: new Text('Tools'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/tools');
+                }),
+            new ListTile(
                 leading: new Icon(Icons.info),
                 title: new Text('About'),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/about');
-                }),
-            new ListTile(
-                leading: new Icon(Icons.cached),
-                title: new Text('Change Log'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.of(context).pushNamed('/changelog');
                 }),
             new ListTile(
                 leading: new Icon(FontAwesomeIcons.discord),
