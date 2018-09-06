@@ -61,17 +61,24 @@ class HomePageState extends State<HomePage> {
   //--
 
   void _Setup() {
-    Navigator.of(context).push(new MaterialPageRoute<Null>(
-        builder: (BuildContext context) {
-          return new setUp();
-        },
-        fullscreenDialog: true));
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) =>  setUp(),
+        fullscreenDialog: true),
+    ).then((result) => setState(() {
+
+      init();
+      Timer _timer;
+      _timer = new Timer(const Duration(milliseconds: 100), () {
+        checkinfo();
+      });
+    }));
   }
+
 
   @override
   void initState() {
     //-- Lets cached info load in before it overrides the page defaults
-    Timer _timer, _timertwo;
+    Timer _timer;
     _timer = new Timer(const Duration(milliseconds: 100), () {
       checkinfo();
     });
@@ -407,13 +414,6 @@ class HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          new Text(
-            'If you have set up your profile\n'
-                'leave this tab and come back',
-            style: new TextStyle(
-              color: Colors.red.withOpacity(0.7),
-            ),
-          ),
           new CircularProgressIndicator(),
           new FlatButton(
             textColor: Colors.red,
