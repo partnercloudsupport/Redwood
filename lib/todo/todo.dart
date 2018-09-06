@@ -66,55 +66,11 @@ class _TodoState extends State<Todo> {
     });
   }
 
-  void _showAddDialog() async {
-    final TextEditingController _controller = new TextEditingController();
-    final String key = _randomValue();
-    // flutter defined function
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
-          title: new Text("Add Item"),
-          content: new TextField(
-            controller: _controller,
-            autofocus: true,
-            onChanged: _onChanged,
-          ),
-          actions: <Widget>[
-            // usually buttons at the bottom of the dialog
-            new FlatButton(
-              child: new Text("Add"),
-              onPressed: (){
-                if (Item != ''){
-                  _storage.write(key: key, value: Item);
-                  _readAll();
-                }
-                Navigator.of(context).pop();
-                setState(() {
-                  Item = '';
-                });
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   void _openAddTaskDialog() {
     Navigator.of(context).push(MaterialPageRoute(
         builder: (context) =>  AddTaskDialog(),
         fullscreenDialog: true),
     ).then((_) => setState(() {_readAll();}));
-  }
-
-  _addNewItem() async {
-    final String key = _randomValue();
-    final String value = Item;
-
-    await _storage.write(key: key, value: value);
-    _readAll();
   }
 
   @override
