@@ -394,34 +394,34 @@ class HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            new ListTile(
-              title: new Text(
-                '* Beta Cards *',
-                style: new TextStyle(
-                    color: Colors.red.withOpacity(0.8),),
-              ),
-            ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new ListTile(
-                    title: new Text('It is currently ' +
-                        '$CurrentClass' +
-                        ' and started at ' +
-                        '$CurrentClassStart' +
-                        ' and it will end at ' +
-                        '$CurrentClassEnd'),
-                  ),
-                ],
-              ),
-            ),
-
-            new Text(''),
-            new Divider(
-              height: 10.0,
-              color: Colors.grey,
-            ),
+//            new ListTile(
+//              title: new Text(
+//                '* Beta Cards *',
+//                style: new TextStyle(
+//                    color: Colors.red.withOpacity(0.8),),
+//              ),
+//            ),
+//            new Card(
+//              child: new Column(
+//                mainAxisSize: MainAxisSize.min,
+//                children: <Widget>[
+//                  new ListTile(
+//                    title: new Text('It is currently ' +
+//                        '$CurrentClass' +
+//                        ' and started at ' +
+//                        '$CurrentClassStart' +
+//                        ' and it will end at ' +
+//                        '$CurrentClassEnd'),
+//                  ),
+//                ],
+//              ),
+//            ),
+//
+//            new Text(''),
+//            new Divider(
+//              height: 10.0,
+//              color: Colors.grey,
+//            ),
 
 
           ],
