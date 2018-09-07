@@ -69,6 +69,8 @@ class HomePageState extends State<HomePage> {
         )
         .then((result) => setState(() {
               init();
+              Scaffold.of(context)
+                  .showSnackBar(SnackBar(content: Text('Profile Saved!')));
               Timer _timer;
               _timer = new Timer(const Duration(milliseconds: 100), () {
                 checkinfo();
@@ -392,6 +394,13 @@ class HomePageState extends State<HomePage> {
                 ],
               ),
             ),
+            new ListTile(
+              title: new Text(
+                '* Beta Cards *',
+                style: new TextStyle(
+                    color: Colors.red.withOpacity(0.8),),
+              ),
+            ),
             new Card(
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
@@ -400,11 +409,21 @@ class HomePageState extends State<HomePage> {
                     title: new Text('It is currently ' +
                         '$CurrentClass' +
                         ' and started at ' +
-                        '$CurrentClassStart' + ' and it will end at ' + '$CurrentClassEnd'),
+                        '$CurrentClassStart' +
+                        ' and it will end at ' +
+                        '$CurrentClassEnd'),
                   ),
                 ],
               ),
             ),
+
+            new Text(''),
+            new Divider(
+              height: 10.0,
+              color: Colors.grey,
+            ),
+
+
           ],
         );
       }

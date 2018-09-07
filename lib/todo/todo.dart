@@ -22,7 +22,6 @@ class _TodoState extends State<Todo> {
   List<_SecItem> _items = [];
 
   void _showAboutDialog() async {
-
     // flutter defined function
     showDialog(
       context: context,
@@ -30,12 +29,13 @@ class _TodoState extends State<Todo> {
         // return object of type Dialog
         return AlertDialog(
           title: new Text("About Tasks"),
-          content: new Text('Here you can add Homework or other school related tasks!'),
+          content: new Text(
+              'Here you can add Homework or other school related tasks!'),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
               child: new Text("Done"),
-              onPressed: (){
+              onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
@@ -67,10 +67,14 @@ class _TodoState extends State<Todo> {
   }
 
   void _openAddTaskDialog() {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) =>  AddTaskDialog(),
-        fullscreenDialog: true),
-    ).then((_) => setState(() {_readAll();}));
+    Navigator.of(context)
+        .push(
+          MaterialPageRoute(
+              builder: (context) => AddTaskDialog(), fullscreenDialog: true),
+        )
+        .then((_) => setState(() {
+              _readAll();
+            }));
   }
 
   @override
@@ -178,7 +182,10 @@ class _EditItemWidget extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(),
             child: new Text('Cancel')),
         new FlatButton(
-            onPressed: () {Navigator.of(context).pop(_controller.text); Navigator.of(context).pushNamed('/todo');},
+            onPressed: () {
+              Navigator.of(context).pop(_controller.text);
+              Navigator.of(context).pushNamed('/todo');
+            },
             child: new Text('Save')),
       ],
     );
@@ -254,6 +261,7 @@ class AddTaskDialogState extends State<AddTaskDialog> {
   }
 
   final TextEditingController _controller = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -262,7 +270,7 @@ class AddTaskDialogState extends State<AddTaskDialog> {
         actions: [
           new FlatButton(
               onPressed: () {
-                if (Item != ''){
+                if (Item != '') {
                   saveTask();
                 }
                 Navigator.of(context).pop();
