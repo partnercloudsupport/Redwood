@@ -15,6 +15,27 @@ enum _ItemActions { delete, edit }
 
 
 class _TodoState extends State<Todo> {
+
+  bool sortbydate = true;
+
+  void _showSortMenu() {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder) {
+          if (sortbydate == true){
+            return new Container(
+              color: Colors.white,
+              child: new Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Text('Sort Menu'),
+                  ]),
+            );
+          }
+        });
+  }
+
+
   final _storage = new FlutterSecureStorage();
 
   String Item;
@@ -104,7 +125,7 @@ class _TodoState extends State<Todo> {
               IconButton(
                 icon: Icon(Icons.menu),
                 color: Colors.grey,
-                onPressed: () {},
+                onPressed: _showSortMenu,
               ),
             ],
           ),
