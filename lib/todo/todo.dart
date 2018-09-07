@@ -97,14 +97,14 @@ class _TodoState extends State<Todo> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.menu),
-                color: Colors.grey,
-                onPressed: () {},
-              ),
-              IconButton(
                 icon: Icon(Icons.info),
                 color: Colors.grey,
                 onPressed: _showAboutDialog,
+              ),
+              IconButton(
+                icon: Icon(Icons.menu),
+                color: Colors.grey,
+                onPressed: () {},
               ),
             ],
           ),
