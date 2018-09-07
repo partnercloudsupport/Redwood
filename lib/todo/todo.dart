@@ -13,6 +13,7 @@ class Todo extends StatefulWidget {
 enum _Actions { deleteAll }
 enum _ItemActions { delete, edit }
 
+
 class _TodoState extends State<Todo> {
   final _storage = new FlutterSecureStorage();
 
@@ -110,7 +111,8 @@ class _TodoState extends State<Todo> {
         ),
         body: new ListView.builder(
           itemCount: _items.length,
-          itemBuilder: (BuildContext context, int index) => new Card(
+          itemBuilder: (BuildContext context, int index) =>
+          new Card(
                 elevation: 2.0,
                 child: new ListTile(
                   trailing: new PopupMenuButton(

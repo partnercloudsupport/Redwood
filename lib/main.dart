@@ -433,7 +433,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                 }),
             new ListTile(
                 leading: new Icon(FontAwesomeIcons.discord),
-                title: new Text('Team RHS Discord'),
+                title: new Text('Discord'),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/discord');
@@ -484,6 +484,10 @@ const List<TabItem> TabItems = const <TabItem>[
 //-- Drawer Links
 RHSURL() {
   launch('http://redwood.org');
+}
+
+isonticDURL() {
+  launch('https://discord.gg/X7QJ8A7');
 }
 
 ESCHOOLURL() {

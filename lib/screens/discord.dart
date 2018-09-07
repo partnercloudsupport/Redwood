@@ -8,7 +8,7 @@ class discord extends StatelessWidget {
         //App Bar
         appBar: new AppBar(
           title: new Text(
-            'Team RHS Discord'
+            'Discord'
           ),
         ),
 
@@ -40,47 +40,58 @@ class discord extends StatelessWidget {
               new Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new Text('\n\n'),
+                  new Text(''),
+                  new Text(
+                    'isontic',
+                    style: new TextStyle(
+                        color: Colors.white.withOpacity(1.0),
+                        fontSize: 45.0,
+                        fontFamily: 'Pacifico'),
+                  ),
                   new Card(
                     child: new Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         new ListTile(
-                          title: new Text('Disclaimer'),
+                          title: new Text('Join the isontic Discord!'),
+                          subtitle: new Text('Talk to the team or get support!'),
                         ),
-                        new Text(
-                          'Redwood App project is not connected to Team RHS',
-                          style: const TextStyle(fontSize: 12.0),
-                        ),
-                        new Text(
-                          'nor do we or any of our sponsors endorse any of',
-                          style: const TextStyle(fontSize: 12.0),
-                        ),
-                        new Text(
-                          'its actions but since they are student-run and',
-                          style: const TextStyle(fontSize: 12.0),
-                        ),
-                        new Text(
-                          'made we would like to support them by ',
-                          style: const TextStyle(fontSize: 12.0),
-                        ),
-                        new Text(
-                          'providing a link to join the Discord server.',
-                          style: const TextStyle(fontSize: 12.0),
+                        new RaisedButton(
+                          child: new Text(
+                            'Join!',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          splashColor: Colors.blueGrey,
+                          onPressed: discord2,
                         ),
                         new Text('\n')
                       ],
                     ),
                   ),
-
-                  //Feedback Card
                   new Text('\n'),
+                  new Divider(
+                    height: 10.0,
+                    color: Colors.grey,
+                  ),
+                  new Text('\n'),
+                  new Text(
+                    'Team RHS',
+                    style: new TextStyle(
+                        color: Colors.white.withOpacity(1.0),
+                        fontSize: 35.0,
+                    ),
+                  ),
+                  new Text(''),
                   new Card(
                     child: new Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         new ListTile(
                           title: new Text('Join the Team RHS Discord!'),
+                          subtitle: new Text('Talk to other students at redwood!'),
                         ),
                         new RaisedButton(
                           child: new Text(
@@ -107,4 +118,8 @@ class discord extends StatelessWidget {
 
 discordl() {
   launch('https://discord.gg/VxjQGMr');
+}
+
+discord2() {
+  launch('https://discord.gg/X7QJ8A7');
 }
