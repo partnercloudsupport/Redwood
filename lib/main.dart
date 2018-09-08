@@ -357,8 +357,8 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                 child: new Center(
                   child: new GestureDetector(
                       onLongPress: () {
-                        Navigator.pop(context);
-                        Navigator.of(context).pushNamed('/dev');
+//                        Navigator.pop(context);
+//                        Navigator.of(context).pushNamed('/dev');
                       },
                       child: new Image.asset('logo.gif')),
                 ),
@@ -375,13 +375,13 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
               title: new Text('ESchool'),
               onTap: ESCHOOLURL,
             ),
-            new ListTile(
-                leading: new Icon(FontAwesomeIcons.tasks),
-                title: new Text('Tasks'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.of(context).pushNamed('/todo');
-                }),
+//            new ListTile(
+//                leading: new Icon(FontAwesomeIcons.tasks),
+//                title: new Text('Tasks'),
+//                onTap: () {
+//                  Navigator.pop(context);
+//                  Navigator.of(context).pushNamed('/todo');
+//                }),
             new ListTile(
                 leading: new Icon(FontAwesomeIcons.chalkboardTeacher),
                 title: new Text('Faculty Directory'),
