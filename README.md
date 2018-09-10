@@ -8,6 +8,5 @@
 
 This app lets you see what time the bells will ring and watch the latest Episode of Redwood TV!
 
-[![](http://uploads.webflow.com/55e84163742775423456b2cb/55b922e456162c9c6d02b283_store-badge-apple%402x.png)](https://itunes.apple.com/us/app/redwood-high/id1418367043?ls=1&mt=8 "IOS")
-[![](http://www.te.com/content/dam/te-com/images/application-tooling/global/infographics/google-play-badge.png)](https://play.google.com/store/apps/details?id=com.isontic.rhs "Android")
-
+[![](https://isontic.com/Redwood/img/appple-store.png)](https://itunes.apple.com/us/app/redwood-high/id1418367043?ls=1&mt=8 "IOS")
+[![](https://isontic.com/Redwood/img/google-play.png)](https://play.google.com/store/apps/details?id=com.isontic.rhs "Android")
