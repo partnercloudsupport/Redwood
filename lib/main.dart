@@ -945,9 +945,8 @@ class HomePageState extends State<HomePage> {
                           ),
                         ),
                         new ListTile(
-                          leading: const Icon(Icons.remove_red_eye),
                           title: new Text(
-                            '$views',
+                            '$views views',
                             style: new TextStyle(
                               color: Colors.grey.withOpacity(1.0),
                             ),
