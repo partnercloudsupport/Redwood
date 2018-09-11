@@ -33,6 +33,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:share/share.dart';
 
 void main() => runApp(new MaterialApp(
       //-- This is the name of the app
@@ -908,6 +909,10 @@ class HomePageState extends State<HomePage> {
     }).catchError((e) => print(e));
   }
 
+  void share() {
+    Share.share('$VURL');
+  }
+
   @override
   Widget build(BuildContext context) {
     if (video == true) {
@@ -928,6 +933,11 @@ class HomePageState extends State<HomePage> {
                         ListTile(
                           leading: const Icon(Icons.tv),
                           title: new Text(Title),
+                          trailing: new IconButton(
+                            icon: new Icon(Icons.more_vert),
+                            tooltip: 'Share URL',
+                            onPressed: share,
+                          )
                         ),
                         new Container(
                           width: 370.0,
