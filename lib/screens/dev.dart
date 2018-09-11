@@ -311,14 +311,15 @@ class showSettingsState extends State<showSettings> {
 
   void checkpassword() async {
     if (Pass == PassU){
-      Map<String, String> data = <String, String>{
-        "title": Title,
-        "img-url": IMGURL,
-        "vid-url": VidURL,
-      };
-      documentReference.updateData(data).whenComplete(() {
-        Sug = 'Updated!';
-      }).catchError((e) => print(e));
+//      Map<String, String> data = <String, String>{
+//        "title": Title,
+//        "img-url": IMGURL,
+//        "vid-url": VidURL,
+//      };
+//      documentReference.updateData(data).whenComplete(() {
+//        Sug = 'Updated!';
+//      }).catchError((e) => print(e));
+      Sug = 'YEs';
     }
   }
 

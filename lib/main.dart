@@ -44,8 +44,10 @@ void main() => runApp(new MaterialApp(
           primaryColor: Colors.red,
           backgroundColor: Colors.white),
       home: new Tabs(),
-      navigatorObservers: [new VillainTransitionObserver()], //-- Calls the Villains on the page to be played
-      debugShowCheckedModeBanner: false, //- Disables the debug banner
+      navigatorObservers: [new VillainTransitionObserver()],
+      //-- Calls the Villains on the page to be played
+      debugShowCheckedModeBanner: false,
+      //- Disables the debug banner
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/about':
@@ -171,8 +173,8 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 
   String textValue = 'Hello World !';
   FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
-
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      new FlutterLocalNotificationsPlugin();
 
   update(String token) {
     print(token);
@@ -227,7 +229,6 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
       //const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
     ]);
 
-
     //THis is a work in progress
 //    Future onSelectNotification(String payload) async {
 //      if (payload != null) {
@@ -253,16 +254,13 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
   void notif() async {
     prefs = await SharedPreferences.getInstance();
 
-    if (prefs.getBool('lunchnotification') == null){
+    if (prefs.getBool('lunchnotification') == null) {
       prefs.setBool('lunchnotification', lunchnotification);
     }
-
-
 
     setState(() {
       lunchnotification;
     });
-
   }
 
   void init() async {
@@ -289,7 +287,6 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
       seventhPeriod;
       Name;
     });
-
   }
 
   @override
@@ -316,7 +313,6 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 //              icon: Icon(FontAwesomeIcons.userCog),
 //              onPressed: _Settings,
 //            ),
-
           ],
         ),
 
@@ -528,7 +524,7 @@ class showSettingsState extends State<showSettings> {
   void init() async {
     prefs = await SharedPreferences.getInstance();
 
-    if (prefs.getBool('zeroPeriod') == false){
+    if (prefs.getBool('zeroPeriod') == false) {
       zeroPeriod = prefs.getBool('zeroPeriod');
       firstPeriod = prefs.getBool('firstPeriod');
       secondPeriod = prefs.getBool('secondPeriod');
@@ -539,7 +535,7 @@ class showSettingsState extends State<showSettings> {
       seventhPeriod = prefs.getBool('seventhPeriod');
       Name = prefs.getString('Name');
     }
-    if (prefs.getBool('zeroPeriod') == null){
+    if (prefs.getBool('zeroPeriod') == null) {
       Name = 'John';
       zeroPeriod = false;
       firstPeriod = false;
@@ -598,11 +594,8 @@ class showSettingsState extends State<showSettings> {
         title: new Text(
           'Settings',
           style: new TextStyle(
-            fontSize: Theme
-                .of(context)
-                .platform == TargetPlatform.iOS
-                ? 17.0
-                : 20.0,
+            fontSize:
+                Theme.of(context).platform == TargetPlatform.iOS ? 17.0 : 20.0,
           ),
         ),
       ),
@@ -634,15 +627,14 @@ class showSettingsState extends State<showSettings> {
                         onChanged: (String value) {
                           _onChanged(value);
                         },
-
                       ),
                     ),
                     new Text(''),
                     new RaisedButton(
                       child: new Text(
                         'Save',
-                        style: new TextStyle(
-                            color: Colors.white.withOpacity(0.9)),
+                        style:
+                            new TextStyle(color: Colors.white.withOpacity(0.9)),
                       ),
                       color: Colors.blue,
                       elevation: 4.0,
@@ -761,8 +753,8 @@ class showSettingsState extends State<showSettings> {
                     new RaisedButton(
                       child: new Text(
                         'Save',
-                        style: new TextStyle(
-                            color: Colors.white.withOpacity(0.9)),
+                        style:
+                            new TextStyle(color: Colors.white.withOpacity(0.9)),
                       ),
                       color: Colors.blue,
                       elevation: 4.0,
@@ -791,8 +783,8 @@ class showSettingsState extends State<showSettings> {
                     new RaisedButton(
                       child: new Text(
                         'Send Feedback',
-                        style: new TextStyle(
-                            color: Colors.white.withOpacity(0.9)),
+                        style:
+                            new TextStyle(color: Colors.white.withOpacity(0.9)),
                       ),
                       color: Colors.red,
                       elevation: 4.0,
@@ -829,17 +821,18 @@ class HomePageState extends State<HomePage> {
   String _connectionStatus = 'Unknown';
   final Connectivity _connectivity = new Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
-  bool video = false;
 
+  bool video = false;
+  int views = 0;
   String Title = 'Redwood TV Season 8 Episode 1';
-  String IMGURL = 'https://raw.githubusercontent.com/isontic/data/master/Screenshot_49.png';
+  String IMGURL =
+      'https://raw.githubusercontent.com/isontic/data/master/Screenshot_49.png';
   String VURL = 'https://www.youtube.com/watch?v=VeqBXW1ViN8&t=483s';
 
   StreamSubscription<DocumentSnapshot> subscription;
 
   final DocumentReference documentReference =
-  Firestore.instance.document("tv/Qs1EPP7eP5TijgOVpgGi");
-
+      Firestore.instance.document("tv/Qs1EPP7eP5TijgOVpgGi");
 
   void _fetch() {
     documentReference.get().then((datasnapshot) {
@@ -849,6 +842,7 @@ class HomePageState extends State<HomePage> {
           Title = datasnapshot.data['title'];
           IMGURL = datasnapshot.data['img-url'];
           VURL = datasnapshot.data['vid-url'];
+          views = datasnapshot.data['views'];
           video;
         });
       }
@@ -901,6 +895,17 @@ class HomePageState extends State<HomePage> {
       apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
       videoUrl: VURL,
     );
+
+    setState(() {
+      views = views +1;
+    });
+
+    Map<String, int> data = <String, int>{
+      "views": views,
+    };
+    documentReference.updateData(data).whenComplete(() {
+
+    }).catchError((e) => print(e));
   }
 
   @override
@@ -921,8 +926,8 @@ class HomePageState extends State<HomePage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         ListTile(
-                            leading: const Icon(Icons.tv),
-                            title: new Text(Title),
+                          leading: const Icon(Icons.tv),
+                          title: new Text(Title),
                         ),
                         new Container(
                           width: 370.0,
@@ -939,21 +944,20 @@ class HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        new ButtonTheme.bar(
-                          // make buttons use the appropriate styles for cards
-                          child: new ButtonBar(
-                            children: <Widget>[
-                              new PlatformSwitcher(
-                                iOSChild: new FlatButton(
-                                  child: const Text('Watch'),
-                                  onPressed: playYoutubeVideo,
-                                ),
-                                androidChild: new FlatButton(
-                                  child: const Text('Watch'),
-                                  onPressed: playYoutubeVideo,
-                                ),
-                              ),
-                            ],
+                        new ListTile(
+                          leading: const Icon(Icons.remove_red_eye),
+                          title: new Text(
+                            '$views',
+                            style: new TextStyle(
+                              color: Colors.grey.withOpacity(1.0),
+                            ),
+                          ),
+                          trailing: new FlatButton(
+                            child: new Text('Watch',
+                              style: new TextStyle(
+                                color: Colors.red.withOpacity(1.0),
+                              ),),
+                            onPressed: playYoutubeVideo,
                           ),
                         ),
                       ],
@@ -1019,5 +1023,6 @@ class HomePageState extends State<HomePage> {
         ],
       );
     }
+    ;
   }
 }
