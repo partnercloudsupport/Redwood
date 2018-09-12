@@ -3,11 +3,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'contact_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_villains/villain.dart';
+import 'package:share/share.dart';
 
 class ContactViewPage extends StatelessWidget {
   final Contact contact;
 
   ContactViewPage({Key key, this.contact}) : super(key: key);
+
+  void share() {
+    Share.share(contact.email);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +62,7 @@ class ContactViewPage extends StatelessWidget {
                         onTap: () {
                           launch('mailto:' + contact.email);
                         },
+                        onLongPress: share,
                         leading: new Icon(
                           Icons.email,
                           color: Colors.redAccent,
