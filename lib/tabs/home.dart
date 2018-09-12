@@ -304,7 +304,7 @@ class HomePageState extends State<HomePage> {
                       title: new Text(
                           '* Week with a Minimum Wednesday or Minimum Friday day has an altered Wednesday and Thursday or Friday and Thursday schedule as listed.'),
                     ),
-                    new Text('\n'),
+                    new Text(''),
                   ],
                 ),
               ),

@@ -277,7 +277,10 @@ class AddTaskDialogState extends State<AddTaskDialog> {
         lastDate: new DateTime(2019));
     if (picked != null) {
       var string = picked.toString();
-      setState(() => ItemDue = string.substring(5, 10));
+      setState(() {
+        ItemDue = string.substring(5, 10);
+        AddDate = 'Due ' + string.substring(5, 10);
+      } );
     }
   }
 
