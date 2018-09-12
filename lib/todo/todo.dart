@@ -154,7 +154,7 @@ class _TodoState extends State<Todo> {
             ),
           ),
           ),
-      )));
+      );
 
   Future<Null> _performAction(_ItemActions action, _SecItem item) async {
     switch (action) {
