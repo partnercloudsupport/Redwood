@@ -354,8 +354,8 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                 child: new Center(
                   child: new GestureDetector(
                       onLongPress: () {
-                        Navigator.pop(context);
-                        Navigator.of(context).pushNamed('/dev');
+//                        Navigator.pop(context);
+//                        Navigator.of(context).pushNamed('/dev');
                       },
                       child: new Image.asset('logo.gif')),
                 ),

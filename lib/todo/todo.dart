@@ -231,6 +231,7 @@ class AddTaskDialogState extends State<AddTaskDialog> {
   final _storage = new FlutterSecureStorage();
 
   String Item;
+  String ItemDue;
 
   List<_SecItem> _items = [];
 
@@ -270,10 +271,24 @@ class AddTaskDialogState extends State<AddTaskDialog> {
     });
   }
 
+  Future _selectDate() async {
+    DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: new DateTime.now(),
+        firstDate: new DateTime(2017),
+        lastDate: new DateTime(2019)
+    );
+    if(picked != null){
+      var string = picked.toString();
+      setState(() => ItemDue = string.substring(5, 10));
+    }
+  }
+
   void saveTask() async {
     final String key = _randomValue();
+    String FinalItem = '$Item' + ' - Due ' + '$ItemDue';
 
-    _storage.write(key: key, value: Item);
+    _storage.write(key: key, value: FinalItem);
     _readAll();
   }
 
@@ -308,7 +323,7 @@ class AddTaskDialogState extends State<AddTaskDialog> {
                       .copyWith(color: Colors.white))),
         ],
       ),
-      body: new PageView(
+      body: new ListView(
         children: <Widget>[
           new ListTile(
             title: new TextField(
@@ -316,10 +331,16 @@ class AddTaskDialogState extends State<AddTaskDialog> {
                 hintText: "Task..",
               ),
               controller: _controller,
-              autofocus: true,
+              autofocus: false,
               onChanged: _onChanged,
             ),
-          )
+          ),
+          new ListTile(
+            leading: new Icon(Icons.calendar_today),
+            title: new Text('Due Date'),
+            onTap: _selectDate,
+          ),
+
         ],
       ),
     );
