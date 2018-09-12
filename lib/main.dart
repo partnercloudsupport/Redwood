@@ -897,9 +897,7 @@ class HomePageState extends State<HomePage> {
       videoUrl: VURL,
     );
 
-    setState(() {
-      views = views +1;
-    });
+    views = views +1;
 
     Map<String, int> data = <String, int>{
       "views": views,
