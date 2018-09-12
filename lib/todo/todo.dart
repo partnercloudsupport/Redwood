@@ -49,7 +49,7 @@ class _TodoState extends State<Todo> {
         return AlertDialog(
           title: new Text("About Tasks"),
           content: new Text(
-              'Here you can add Homework or other school related tasks!'),
+              'Here you can add Homework or other school related tasks! We will be adding a way to sort through the Tasks soon!'),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
@@ -119,11 +119,11 @@ class _TodoState extends State<Todo> {
                 color: Colors.grey,
                 onPressed: _showAboutDialog,
               ),
-              IconButton(
-                icon: Icon(Icons.menu),
-                color: Colors.grey,
-                onPressed: _showSortMenu,
-              ),
+//              IconButton(
+//                icon: Icon(Icons.menu),
+//                color: Colors.grey,
+//                onPressed: _showSortMenu,
+//              ),
             ],
           ),
         ),
