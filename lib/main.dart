@@ -909,7 +909,7 @@ class HomePageState extends State<HomePage> {
   }
 
   void share() {
-    Share.share('Redwood TV' + '$Title: ' + '$VURL');
+    Share.share('Redwood TV ' + '$Title: ' + '$VURL');
   }
 
   @override
