@@ -13,16 +13,14 @@ class Todo extends StatefulWidget {
 enum _Actions { deleteAll }
 enum _ItemActions { delete, edit }
 
-
 class _TodoState extends State<Todo> {
-
   bool sortbydate = true;
 
   void _showSortMenu() {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
-          if (sortbydate == true){
+          if (sortbydate == true) {
             return new Container(
               color: Colors.white,
               child: new Column(
@@ -34,7 +32,6 @@ class _TodoState extends State<Todo> {
           }
         });
   }
-
 
   final _storage = new FlutterSecureStorage();
 
@@ -132,8 +129,7 @@ class _TodoState extends State<Todo> {
         ),
         body: new ListView.builder(
           itemCount: _items.length,
-          itemBuilder: (BuildContext context, int index) =>
-          new Card(
+          itemBuilder: (BuildContext context, int index) => new Card(
                 elevation: 2.0,
                 child: new ListTile(
                   trailing: new PopupMenuButton(
@@ -233,6 +229,8 @@ class AddTaskDialogState extends State<AddTaskDialog> {
   String Item;
   String ItemDue;
 
+  String AddDate = 'Add Due Date';
+
   List<_SecItem> _items = [];
 
   @override
@@ -275,10 +273,9 @@ class AddTaskDialogState extends State<AddTaskDialog> {
     DateTime picked = await showDatePicker(
         context: context,
         initialDate: new DateTime.now(),
-        firstDate: new DateTime(2017),
-        lastDate: new DateTime(2019)
-    );
-    if(picked != null){
+        firstDate: new DateTime(2018),
+        lastDate: new DateTime(2019));
+    if (picked != null) {
       var string = picked.toString();
       setState(() => ItemDue = string.substring(5, 10));
     }
@@ -286,7 +283,13 @@ class AddTaskDialogState extends State<AddTaskDialog> {
 
   void saveTask() async {
     final String key = _randomValue();
-    String FinalItem = '$Item' + ' - Due ' + '$ItemDue';
+    String FinalItem;
+
+    if (ItemDue == null) {
+      FinalItem = '$Item';
+    } else {
+      FinalItem = '$Item' + ' - Due ' + '$ItemDue';
+    }
 
     _storage.write(key: key, value: FinalItem);
     _readAll();
@@ -337,10 +340,9 @@ class AddTaskDialogState extends State<AddTaskDialog> {
           ),
           new ListTile(
             leading: new Icon(Icons.calendar_today),
-            title: new Text('Due Date'),
+            title: new Text('$AddDate'),
             onTap: _selectDate,
           ),
-
         ],
       ),
     );
