@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:math';
-
+import 'package:share/share.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -129,28 +129,32 @@ class _TodoState extends State<Todo> {
         ),
         body: new ListView.builder(
           itemCount: _items.length,
-          itemBuilder: (BuildContext context, int index) => new Card(
-                elevation: 2.0,
-                child: new ListTile(
-                  trailing: new PopupMenuButton(
-                      onSelected: (_ItemActions action) =>
-                          _performAction(action, _items[index]),
-                      itemBuilder: (BuildContext context) =>
-                          <PopupMenuEntry<_ItemActions>>[
-                            new PopupMenuItem(
-                              value: _ItemActions.delete,
-                              child: new Text('Done'),
-                            ),
-                            new PopupMenuItem(
-                              value: _ItemActions.edit,
-                              child: new Text('Edit'),
-                            ),
-                          ]),
-                  title: new Text(_items[index].value),
-                ),
+          itemBuilder: (BuildContext context, int index) =>
+          new GestureDetector(
+            onLongPress: () => Share.share(_items[index].value),
+            child: new Card(
+              elevation: 2.0,
+              child: new ListTile(
+                trailing: new PopupMenuButton(
+                    onSelected: (_ItemActions action) =>
+                        _performAction(action, _items[index]),
+                    itemBuilder: (BuildContext context) =>
+                    <PopupMenuEntry<_ItemActions>>[
+                      new PopupMenuItem(
+                        value: _ItemActions.delete,
+                        child: new Text('Done'),
+                      ),
+                      new PopupMenuItem(
+                        value: _ItemActions.edit,
+                        child: new Text('Edit'),
+                      ),
+                    ]),
+                title: new Text(_items[index].value),
               ),
-        ),
-      );
+            ),
+          ),
+          ),
+      )));
 
   Future<Null> _performAction(_ItemActions action, _SecItem item) async {
     switch (action) {
