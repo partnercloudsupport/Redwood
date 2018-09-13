@@ -358,13 +358,13 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
               title: new Text('ESchool'),
               onTap: ESCHOOLURL,
             ),
-            new ListTile(
-                leading: new Icon(FontAwesomeIcons.tasks),
-                title: new Text('Tasks'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.of(context).pushNamed('/todo');
-                }),
+//            new ListTile(
+//                leading: new Icon(FontAwesomeIcons.tasks),
+//                title: new Text('Planner'),
+//                onTap: () {
+//                  Navigator.pop(context);
+//                  Navigator.of(context).pushNamed('/todo');
+//                }),
             new ListTile(
                 leading: new Icon(FontAwesomeIcons.chalkboardTeacher),
                 title: new Text('Faculty Directory'),

@@ -47,9 +47,9 @@ class _TodoState extends State<Todo> {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: new Text("About Tasks"),
+          title: new Text("About Planner"),
           content: new Text(
-              'Here you can add Homework or other school related tasks! We will be adding a way to sort through the Tasks soon!'),
+              'Here you can add Homework or other school related tasks! We will be adding a way to sort through your tasks soon!'),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
@@ -99,7 +99,7 @@ class _TodoState extends State<Todo> {
   @override
   Widget build(BuildContext context) => new Scaffold(
         appBar: new AppBar(
-          title: new Text('Tasks'),
+          title: new Text('Planner'),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton.extended(
@@ -326,7 +326,7 @@ class AddTaskDialogState extends State<AddTaskDialog> {
                   Item = '';
                 });
               },
-              child: new Text('SAVE',
+              child: new Text('Save',
                   style: Theme.of(context)
                       .textTheme
                       .subhead
