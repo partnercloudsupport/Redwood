@@ -64,9 +64,9 @@ class Tools extends StatelessWidget {
 //                                new ListTile(
 //                                    leading: new Icon(
 //                                        FontAwesomeIcons.tasks),
-//                                    title: new Text('Tasks'),
+//                                    title: new Text('Planner'),
 //                                    subtitle: new Text(
-//                                        'Create tasks for your work'),
+//                                        'Add your homework or upcoming tests'),
 //                                    onTap: () {
 //                                      Navigator.pop(context);
 //                                      Navigator
