@@ -570,11 +570,13 @@ class HomePageState extends State<HomePage> {
 
   void playYoutubeVideo() {
     FlutterYoutube.playYoutubeVideoByUrl(
-      apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
+      apiKey: "AIzaSyCFTOVFljhMMoamV_X1PktBGGcz2nRt_UM",
       videoUrl: VURL,
     );
+  }
 
-    //Waiting for flutter_youtube to add end call for ios
+
+  //Waiting for flutter_youtube to add end call for ios
 //    views = views +1;
 //
 //    Map<String, int> data = <String, int>{
@@ -583,7 +585,6 @@ class HomePageState extends State<HomePage> {
 //    documentReference.updateData(data).whenComplete(() {
 //
 //    }).catchError((e) => print(e));
-  }
 
   void share() {
     Share.share('Redwood TV ' + '$Title: ' + '$VURL');
