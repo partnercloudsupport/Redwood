@@ -360,7 +360,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
             ),
             new ListTile(
                 leading: new Icon(FontAwesomeIcons.tasks),
-                title: new Text('Tasks'),
+                title: new Text('Planner'),
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/todo');
