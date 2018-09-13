@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:math';
-
+import 'package:share/share.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,16 +13,14 @@ class Todo extends StatefulWidget {
 enum _Actions { deleteAll }
 enum _ItemActions { delete, edit }
 
-
 class _TodoState extends State<Todo> {
-
   bool sortbydate = true;
 
   void _showSortMenu() {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
-          if (sortbydate == true){
+          if (sortbydate == true) {
             return new Container(
               color: Colors.white,
               child: new Column(
@@ -34,7 +32,6 @@ class _TodoState extends State<Todo> {
           }
         });
   }
-
 
   final _storage = new FlutterSecureStorage();
 
@@ -50,9 +47,9 @@ class _TodoState extends State<Todo> {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: new Text("About Tasks"),
+          title: new Text("About Planner"),
           content: new Text(
-              'Here you can add Homework or other school related tasks!'),
+              'Here you can add Homework or other school related tasks! We will be adding a way to sort through your tasks soon!'),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             new FlatButton(
@@ -102,7 +99,7 @@ class _TodoState extends State<Todo> {
   @override
   Widget build(BuildContext context) => new Scaffold(
         appBar: new AppBar(
-          title: new Text('Tasks'),
+          title: new Text('Planner'),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton.extended(
@@ -122,38 +119,41 @@ class _TodoState extends State<Todo> {
                 color: Colors.grey,
                 onPressed: _showAboutDialog,
               ),
-              IconButton(
-                icon: Icon(Icons.menu),
-                color: Colors.grey,
-                onPressed: _showSortMenu,
-              ),
+//              IconButton(
+//                icon: Icon(Icons.menu),
+//                color: Colors.grey,
+//                onPressed: _showSortMenu,
+//              ),
             ],
           ),
         ),
         body: new ListView.builder(
           itemCount: _items.length,
           itemBuilder: (BuildContext context, int index) =>
-          new Card(
-                elevation: 2.0,
-                child: new ListTile(
-                  trailing: new PopupMenuButton(
-                      onSelected: (_ItemActions action) =>
-                          _performAction(action, _items[index]),
-                      itemBuilder: (BuildContext context) =>
-                          <PopupMenuEntry<_ItemActions>>[
-                            new PopupMenuItem(
-                              value: _ItemActions.delete,
-                              child: new Text('Done'),
-                            ),
-                            new PopupMenuItem(
-                              value: _ItemActions.edit,
-                              child: new Text('Edit'),
-                            ),
-                          ]),
-                  title: new Text(_items[index].value),
-                ),
+          new GestureDetector(
+            onLongPress: () => Share.share(_items[index].value),
+            child: new Card(
+              elevation: 2.0,
+              child: new ListTile(
+                trailing: new PopupMenuButton(
+                    onSelected: (_ItemActions action) =>
+                        _performAction(action, _items[index]),
+                    itemBuilder: (BuildContext context) =>
+                    <PopupMenuEntry<_ItemActions>>[
+                      new PopupMenuItem(
+                        value: _ItemActions.delete,
+                        child: new Text('Done'),
+                      ),
+                      new PopupMenuItem(
+                        value: _ItemActions.edit,
+                        child: new Text('Edit'),
+                      ),
+                    ]),
+                title: new Text(_items[index].value),
               ),
-        ),
+            ),
+          ),
+          ),
       );
 
   Future<Null> _performAction(_ItemActions action, _SecItem item) async {
@@ -231,6 +231,9 @@ class AddTaskDialogState extends State<AddTaskDialog> {
   final _storage = new FlutterSecureStorage();
 
   String Item;
+  String ItemDue;
+
+  String AddDate = 'Add Due Date';
 
   List<_SecItem> _items = [];
 
@@ -270,10 +273,32 @@ class AddTaskDialogState extends State<AddTaskDialog> {
     });
   }
 
+  Future _selectDate() async {
+    DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: new DateTime.now(),
+        firstDate: new DateTime(2018),
+        lastDate: new DateTime(2019));
+    if (picked != null) {
+      var string = picked.toString();
+      setState(() {
+        ItemDue = string.substring(5, 10);
+        AddDate = 'Due ' + string.substring(5, 10);
+      } );
+    }
+  }
+
   void saveTask() async {
     final String key = _randomValue();
+    String FinalItem;
 
-    _storage.write(key: key, value: Item);
+    if (ItemDue == null) {
+      FinalItem = '$Item';
+    } else {
+      FinalItem = '$Item' + ' - Due ' + '$ItemDue';
+    }
+
+    _storage.write(key: key, value: FinalItem);
     _readAll();
   }
 
@@ -301,14 +326,14 @@ class AddTaskDialogState extends State<AddTaskDialog> {
                   Item = '';
                 });
               },
-              child: new Text('SAVE',
+              child: new Text('Save',
                   style: Theme.of(context)
                       .textTheme
                       .subhead
                       .copyWith(color: Colors.white))),
         ],
       ),
-      body: new PageView(
+      body: new ListView(
         children: <Widget>[
           new ListTile(
             title: new TextField(
@@ -316,10 +341,15 @@ class AddTaskDialogState extends State<AddTaskDialog> {
                 hintText: "Task..",
               ),
               controller: _controller,
-              autofocus: true,
+              autofocus: false,
               onChanged: _onChanged,
             ),
-          )
+          ),
+          new ListTile(
+            leading: new Icon(Icons.calendar_today),
+            title: new Text('$AddDate'),
+            onTap: _selectDate,
+          ),
         ],
       ),
     );

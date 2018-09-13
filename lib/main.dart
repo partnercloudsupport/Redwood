@@ -33,6 +33,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:share/share.dart';
 
 void main() => runApp(new MaterialApp(
       //-- This is the name of the app
@@ -44,8 +45,10 @@ void main() => runApp(new MaterialApp(
           primaryColor: Colors.red,
           backgroundColor: Colors.white),
       home: new Tabs(),
-      navigatorObservers: [new VillainTransitionObserver()], //-- Calls the Villains on the page to be played
-      debugShowCheckedModeBanner: false, //- Disables the debug banner
+      navigatorObservers: [new VillainTransitionObserver()],
+      //-- Calls the Villains on the page to be played
+      debugShowCheckedModeBanner: false,
+      //- Disables the debug banner
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case '/about':
@@ -171,8 +174,8 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 
   String textValue = 'Hello World !';
   FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
-
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      new FlutterLocalNotificationsPlugin();
 
   update(String token) {
     print(token);
@@ -227,7 +230,6 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
       //const ShortcutItem(type: 'tv', localizedTitle: 'Redwood Tv', icon: 'tv'),
     ]);
 
-
     //THis is a work in progress
 //    Future onSelectNotification(String payload) async {
 //      if (payload != null) {
@@ -253,16 +255,13 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
   void notif() async {
     prefs = await SharedPreferences.getInstance();
 
-    if (prefs.getBool('lunchnotification') == null){
+    if (prefs.getBool('lunchnotification') == null) {
       prefs.setBool('lunchnotification', lunchnotification);
     }
-
-
 
     setState(() {
       lunchnotification;
     });
-
   }
 
   void init() async {
@@ -289,7 +288,6 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
       seventhPeriod;
       Name;
     });
-
   }
 
   @override
@@ -298,26 +296,11 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
     _tabController.dispose();
   }
 
-  void _Settings() {
-    Navigator.of(context).push(new MaterialPageRoute<Null>(
-        builder: (BuildContext context) {
-          return new showSettings();
-        },
-        fullscreenDialog: true));
-  }
-
   @override
   Widget build(BuildContext context) => new Scaffold(
         //App Bar
         appBar: new AppBar(
           title: new Text(_title_app),
-          actions: <Widget>[
-//            IconButton(
-//              icon: Icon(FontAwesomeIcons.userCog),
-//              onPressed: _Settings,
-//            ),
-
-          ],
         ),
 
         //Content of tabs
@@ -500,319 +483,6 @@ FBURL() {
 }
 //--
 
-class showSettings extends StatefulWidget {
-  @override
-  showSettingsState createState() => new showSettingsState();
-}
-
-class showSettingsState extends State<showSettings> {
-  SharedPreferences prefs;
-  final TextEditingController _controller = new TextEditingController();
-
-  String Name = 'John';
-  bool zeroPeriod = false;
-  bool firstPeriod = false;
-  bool secondPeriod = false;
-  bool thirdPeriod = false;
-  bool forthPeriod = false;
-  bool fifthPeriod = false;
-  bool sixthPeriod = false;
-  bool seventhPeriod = false;
-
-  @override
-  void initState() {
-    super.initState();
-    init();
-  }
-
-  void init() async {
-    prefs = await SharedPreferences.getInstance();
-
-    if (prefs.getBool('zeroPeriod') == false){
-      zeroPeriod = prefs.getBool('zeroPeriod');
-      firstPeriod = prefs.getBool('firstPeriod');
-      secondPeriod = prefs.getBool('secondPeriod');
-      thirdPeriod = prefs.getBool('thirdPeriod');
-      forthPeriod = prefs.getBool('forthPeriod');
-      fifthPeriod = prefs.getBool('fifthPeriod');
-      sixthPeriod = prefs.getBool('sixthPeriod');
-      seventhPeriod = prefs.getBool('seventhPeriod');
-      Name = prefs.getString('Name');
-    }
-    if (prefs.getBool('zeroPeriod') == null){
-      Name = 'John';
-      zeroPeriod = false;
-      firstPeriod = false;
-      secondPeriod = false;
-      thirdPeriod = false;
-      forthPeriod = false;
-      fifthPeriod = false;
-      sixthPeriod = false;
-      seventhPeriod = false;
-    }
-
-    setState(() {
-      zeroPeriod;
-      firstPeriod;
-      secondPeriod;
-      thirdPeriod;
-      forthPeriod;
-      fifthPeriod;
-      sixthPeriod;
-      seventhPeriod;
-      Name;
-    });
-  }
-
-  void saveData() async {
-    final prefs = await SharedPreferences.getInstance();
-
-    prefs.setBool('zeroPeriod', zeroPeriod);
-    prefs.setBool('firstPeriod', firstPeriod);
-    prefs.setBool('secondPeriod', secondPeriod);
-    prefs.setBool('thirdPeriod', thirdPeriod);
-    prefs.setBool('forthPeriod', forthPeriod);
-    prefs.setBool('fifthPeriod', fifthPeriod);
-    prefs.setBool('sixthPeriod', sixthPeriod);
-    prefs.setBool('seventhPeriod', seventhPeriod);
-  }
-
-  void _onChanged(String val) {
-    setState(() {
-      Name = val;
-    });
-  }
-
-  void saveName() async {
-    final prefs = await SharedPreferences.getInstance();
-
-    prefs.setString('Name', Name);
-  }
-
-  bool classes_setup = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(
-          'Settings',
-          style: new TextStyle(
-            fontSize: Theme
-                .of(context)
-                .platform == TargetPlatform.iOS
-                ? 17.0
-                : 20.0,
-          ),
-        ),
-      ),
-
-      //Content of tabs
-      body: new ListView(
-        children: <Widget>[
-          new Column(
-            children: <Widget>[
-              new Card(
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text('Your Profile'),
-                      subtitle: new Text(
-                        'This is where you edit your name',
-                        style: new TextStyle(
-                            color: Colors.grey.withOpacity(0.9),
-                            fontSize: 12.0),
-                      ),
-                    ),
-                    new ListTile(
-                      title: new TextField(
-                        decoration: new InputDecoration(
-                          hintText: "Change your name here..",
-                        ),
-                        controller: _controller,
-                        onChanged: (String value) {
-                          _onChanged(value);
-                        },
-
-                      ),
-                    ),
-                    new Text(''),
-                    new RaisedButton(
-                      child: new Text(
-                        'Save',
-                        style: new TextStyle(
-                            color: Colors.white.withOpacity(0.9)),
-                      ),
-                      color: Colors.blue,
-                      elevation: 4.0,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      splashColor: Colors.grey,
-                      onPressed: saveName,
-                    ),
-                    new Text("\n"),
-                  ],
-                ),
-              ),
-              new Card(
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text('Your Classes'),
-                      subtitle: new Text(
-                        'Select the periods you have classes in.',
-                        style: new TextStyle(
-                            color: Colors.grey.withOpacity(0.9),
-                            fontSize: 12.0),
-                      ),
-                    ),
-
-                    new SwitchListTile(
-                      title: const Text('0 Period'),
-                      value: zeroPeriod,
-                      onChanged: (bool value) {
-                        setState(() {
-                          zeroPeriod = value;
-                        });
-                      },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('1st Period'),
-                      value: firstPeriod,
-                      onChanged: (bool value) {
-                        setState(() {
-                          firstPeriod = value;
-                        });
-                      },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('2nd Period'),
-                      value: secondPeriod,
-                      onChanged: (bool value) {
-                        setState(() {
-                          secondPeriod = value;
-                        });
-                      },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('3rd Period'),
-                      value: thirdPeriod,
-                      onChanged: (bool value) {
-                        setState(() {
-                          thirdPeriod = value;
-                        });
-                      },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('4th Period'),
-                      value: forthPeriod,
-                      onChanged: (bool value) {
-                        setState(() {
-                          forthPeriod = value;
-                        });
-                      },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('5th Period'),
-                      value: fifthPeriod,
-                      onChanged: (bool value) {
-                        setState(() {
-                          fifthPeriod = value;
-                        });
-                      },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('6th Period'),
-                      value: sixthPeriod,
-                      onChanged: (bool value) {
-                        setState(() {
-                          sixthPeriod = value;
-                        });
-                      },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-                    new SwitchListTile(
-                      title: const Text('7th Period'),
-                      value: seventhPeriod,
-                      onChanged: (bool value) {
-                        setState(() {
-                          seventhPeriod = value;
-                        });
-                      },
-                      //secondary: const Icon(Icons.lightbulb_outline),
-                    ),
-
-                    // new Text('0 $zeroPeriod'),
-                    // new Text('1 $firstPeriod'),
-                    // new Text('2 $secondPeriod'),
-                    // new Text('3 $thirdPeriod'),
-                    // new Text('4 $forthPeriod'),
-                    // new Text('5 $fifthPeriod'),
-                    // new Text('6 $sixthPeriod'),
-                    // new Text('7 $seventhPeriod'),
-                    new RaisedButton(
-                      child: new Text(
-                        'Save',
-                        style: new TextStyle(
-                            color: Colors.white.withOpacity(0.9)),
-                      ),
-                      color: Colors.blue,
-                      elevation: 4.0,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      splashColor: Colors.grey,
-                      onPressed: saveData,
-                    ),
-                    new Text("\n"),
-                  ],
-                ),
-              ),
-              new Card(
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text('Feedback'),
-                      subtitle: new Text(
-                        'Feedback help us better develop the app',
-                        style: new TextStyle(
-                            color: Colors.grey.withOpacity(0.9),
-                            fontSize: 12.0),
-                      ),
-                    ),
-                    new RaisedButton(
-                      child: new Text(
-                        'Send Feedback',
-                        style: new TextStyle(
-                            color: Colors.white.withOpacity(0.9)),
-                      ),
-                      color: Colors.red,
-                      elevation: 4.0,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      splashColor: Colors.grey,
-                      onPressed: FBURL,
-                    ),
-                    new Text('\n')
-                  ],
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
 class Tv extends StatelessWidget {
   @override
   Widget build(BuildContext context) => new Container(
@@ -829,17 +499,18 @@ class HomePageState extends State<HomePage> {
   String _connectionStatus = 'Unknown';
   final Connectivity _connectivity = new Connectivity();
   StreamSubscription<ConnectivityResult> _connectivitySubscription;
-  bool video = false;
 
+  bool video = false;
+  int views = 0;
   String Title = 'Redwood TV Season 8 Episode 1';
-  String IMGURL = 'https://raw.githubusercontent.com/isontic/data/master/Screenshot_49.png';
+  String IMGURL =
+      'https://raw.githubusercontent.com/isontic/data/master/Screenshot_49.png';
   String VURL = 'https://www.youtube.com/watch?v=VeqBXW1ViN8&t=483s';
 
   StreamSubscription<DocumentSnapshot> subscription;
 
   final DocumentReference documentReference =
-  Firestore.instance.document("tv/Qs1EPP7eP5TijgOVpgGi");
-
+      Firestore.instance.document("tv/Qs1EPP7eP5TijgOVpgGi");
 
   void _fetch() {
     documentReference.get().then((datasnapshot) {
@@ -849,6 +520,7 @@ class HomePageState extends State<HomePage> {
           Title = datasnapshot.data['title'];
           IMGURL = datasnapshot.data['img-url'];
           VURL = datasnapshot.data['vid-url'];
+          views = datasnapshot.data['views'];
           video;
         });
       }
@@ -901,6 +573,20 @@ class HomePageState extends State<HomePage> {
       apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
       videoUrl: VURL,
     );
+
+    //Waiting for flutter_youtube to add end call for ios
+//    views = views +1;
+//
+//    Map<String, int> data = <String, int>{
+//      "views": views,
+//    };
+//    documentReference.updateData(data).whenComplete(() {
+//
+//    }).catchError((e) => print(e));
+  }
+
+  void share() {
+    Share.share('Redwood TV ' + '$Title: ' + '$VURL');
   }
 
   @override
@@ -921,8 +607,13 @@ class HomePageState extends State<HomePage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         ListTile(
-                            leading: const Icon(Icons.tv),
-                            title: new Text(Title),
+                          leading: const Icon(Icons.tv),
+                          title: new Text(Title),
+                          trailing: new IconButton(
+                            icon: new Icon(Icons.more_vert),
+                            tooltip: 'Share URL',
+                            onPressed: share,
+                          )
                         ),
                         new Container(
                           width: 370.0,
@@ -939,21 +630,19 @@ class HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        new ButtonTheme.bar(
-                          // make buttons use the appropriate styles for cards
-                          child: new ButtonBar(
-                            children: <Widget>[
-                              new PlatformSwitcher(
-                                iOSChild: new FlatButton(
-                                  child: const Text('Watch'),
-                                  onPressed: playYoutubeVideo,
-                                ),
-                                androidChild: new FlatButton(
-                                  child: const Text('Watch'),
-                                  onPressed: playYoutubeVideo,
-                                ),
-                              ),
-                            ],
+                        new ListTile(
+//                          title: new Text(
+//                            '$views views',
+//                            style: new TextStyle(
+//                              color: Colors.grey.withOpacity(1.0),
+//                            ),
+//                          ),
+                          trailing: new FlatButton(
+                            child: new Text('Watch',
+                              style: new TextStyle(
+                                color: Colors.red.withOpacity(1.0),
+                              ),),
+                            onPressed: playYoutubeVideo,
                           ),
                         ),
                       ],
@@ -968,7 +657,7 @@ class HomePageState extends State<HomePage> {
     if (video == false) {
       if (_connectionStatus == 'ConnectivityResult.wifi' ||
           _connectionStatus == 'Unknown' ||
-          _connectionStatus == 'ConnectivityResult.mobile' && video == false) {
+          _connectionStatus == 'ConnectivityResult.mobile') {
         return new Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1019,5 +708,6 @@ class HomePageState extends State<HomePage> {
         ],
       );
     }
+    ;
   }
 }
