@@ -168,7 +168,7 @@ class HomePageState extends State<HomePage> {
       WeekDay = formattedDayWeek;
       //-- Sets the Strings
       if (WeekDay == 'Mon') {
-        //Next period card
+        //Current Class Card
         // Zero Period **
         if (formatted24Hour == '07'){
           if (min >= 05){
@@ -358,7 +358,7 @@ class HomePageState extends State<HomePage> {
       }
 
       if (WeekDay == 'Tue') {
-        //Next period card
+        //Current Class Card
         // Zero Period **
         if (formatted24Hour == '07'){
           if (min >= 05){
@@ -548,6 +548,133 @@ class HomePageState extends State<HomePage> {
       }
 
       if (WeekDay == 'Wed') {
+        //Current Class Card
+        //Zero Period **
+        if (formatted24Hour == '07'){
+          if (min >= 05){
+            if (min <= 53){
+              CurrentClass = 'Zero Period';
+              CurrentClassStart = '7:05 AM';
+              CurrentClassEnd = '7:53 AM';
+            }
+          }
+        }
+        //** Forth Period **
+        if (formatted24Hour == '8'){
+          if (min >= 00){
+            if (min <= 59){
+              CurrentClass = 'Forth Period';
+              CurrentClassStart = '8:00 AM';
+              CurrentClassEnd = '9:30 AM';
+            }
+          }
+        }
+        if (formatted24Hour == '9'){
+          if (min >= 00){
+            if (min <= 29){
+              CurrentClass = 'Forth Period';
+              CurrentClassStart = '8:00 AM';
+              CurrentClassEnd = '9:30 AM';
+            }
+          }
+        }
+        // ** Break **
+        if (formatted24Hour == '9'){
+          if (min >= 30){
+            if (min <= 40){
+              CurrentClass = 'Break';
+              CurrentClassStart = '9:40 AM';
+              CurrentClassEnd = '9:40 AM';
+            }
+          }
+        }
+        // ** Fifth Period **
+        if (formatted24Hour == '9'){
+          if (min >= 47){
+            if (min <= 59){
+              CurrentClass = 'Fifth Period';
+              CurrentClassStart = '9:47 AM';
+              CurrentClassEnd = '11:17 AM';
+            }
+          }
+        }
+        if (formatted24Hour == '10'){
+          if (min >= 00){
+            if (min <= 59){
+              CurrentClass = 'Fifth Period';
+              CurrentClassStart = '9:47 AM';
+              CurrentClassEnd = '11:17 AM';
+            }
+          }
+        }
+        if (formatted24Hour == '11'){
+          if (min >= 00){
+            if (min <= 16){
+              CurrentClass = 'Fifth Period';
+              CurrentClassStart = '9:47 AM';
+              CurrentClassEnd = '11:17 AM';
+            }
+          }
+        }
+        // ** Lunch **
+        if (formatted24Hour == '11'){
+          if (min >= 17){
+            if (min <= 53){
+              CurrentClass = 'Fifth Period';
+              CurrentClassStart = '11:17 AM';
+              CurrentClassEnd = '11:53 AM';
+            }
+          }
+        }
+        // ** Sixth Period **
+        if (formatted24Hour == '12'){
+          if (min >= 00){
+            if (min <= 59){
+              CurrentClass = 'Sixth Period';
+              CurrentClassStart = '12:00 PM';
+              CurrentClassEnd = '1:30 PM';
+            }
+          }
+        }
+        if (formatted24Hour == '13'){
+          if (min >= 00){
+            if (min <= 30){
+              CurrentClass = 'Sixth Period';
+              CurrentClassStart = '12:00 PM';
+              CurrentClassEnd = '1:30 PM';
+            }
+          }
+        }
+        // ** Seventh Period **
+        if (formatted24Hour == '13'){
+          if (min >= 37){
+            if (min <= 59){
+              CurrentClass = 'Seventh Period';
+              CurrentClassStart = '1:37 PM';
+              CurrentClassEnd = '3:07 PM';
+            }
+          }
+        }
+        if (formatted24Hour == '14'){
+          if (min >= 00){
+            if (min <= 59){
+              CurrentClass = 'Seventh Period';
+              CurrentClassStart = '1:37 PM';
+              CurrentClassEnd = '3:07 PM';
+            }
+          }
+        }
+        if (formatted24Hour == '15'){
+          if (min >= 00){
+            if (min <= 07){
+              CurrentClass = 'Seventh Period';
+              CurrentClassStart = '1:37 PM';
+              CurrentClassEnd = '3:07 PM';
+            }
+          }
+        }
+
+        //School starting __ card
         if (forthPeriod == true) {
           SchoolStart = '8:00 AM';
         } else {
@@ -579,6 +706,134 @@ class HomePageState extends State<HomePage> {
       }
 
       if (WeekDay == 'Thu') {
+        //Current Class Card
+        //Zero Period
+        if (formatted24Hour == '07'){
+          if (min >= 05){
+            if (min <= 53){
+              CurrentClass = 'Seventh Period';
+              CurrentClassStart = '7:05 AM';
+              CurrentClassEnd = '7:53 AM';
+            }
+          }
+        }
+        // ** First Period **
+        if (formatted24Hour == '08'){
+          if (min >= 00){
+            if (min <= 59){
+              CurrentClass = 'First Period';
+              CurrentClassStart = '8:00 AM';
+              CurrentClassEnd = '9:30 AM';
+            }
+          }
+        }
+        if (formatted24Hour == '09'){
+          if (min >= 00){
+            if (min <= 30){
+              CurrentClass = 'First Period';
+              CurrentClassStart = '8:00 AM';
+              CurrentClassEnd = '9:30 AM';
+            }
+          }
+        }
+        // ** Homeroom **
+        if (formatted24Hour == '09'){
+          if (min >= 37){
+            if (min <= 46){
+              CurrentClass = 'Homeroom';
+              CurrentClassStart = '9:37 AM';
+              CurrentClassEnd = '9:47 AM';
+            }
+          }
+        }
+        // ** SMART **
+        if (formatted24Hour == '09'){
+          if (min >= 47){
+            if (min <= 59){
+              CurrentClass = 'SMART';
+              CurrentClassStart = '9:47 AM';
+              CurrentClassEnd = '10:30 AM';
+            }
+          }
+        }
+        if (formatted24Hour == '10'){
+          if (min >= 00){
+            if (min <= 29){
+              CurrentClass = 'SMART';
+              CurrentClassStart = '9:47 AM';
+              CurrentClassEnd = '10:30 AM';
+            }
+          }
+        }
+        // ** Break **
+        if (formatted24Hour == '10'){
+          if (min >= 30){
+            if (min <= 40){
+              CurrentClass = 'Break';
+              CurrentClassStart = '10:30 AM';
+              CurrentClassEnd = '10:40 AM';
+            }
+          }
+        }
+        // ** Second Period **
+        if (formatted24Hour == '10'){
+          if (min >= 47){
+            if (min <= 40){
+              CurrentClass = 'Second Period';
+              CurrentClassStart = '10:47 AM';
+              CurrentClassEnd = '12:17 PM';
+            }
+          }
+        }
+        if (formatted24Hour == '11'){
+          if (min >= 00){
+            if (min <= 59){
+              CurrentClass = 'Second Period';
+              CurrentClassStart = '10:47 AM';
+              CurrentClassEnd = '12:17 PM';
+            }
+          }
+        }
+        if (formatted24Hour == '12'){
+          if (min >= 00){
+            if (min <= 16){
+              CurrentClass = 'Second Period';
+              CurrentClassStart = '10:47 AM';
+              CurrentClassEnd = '12:17 PM';
+            }
+          }
+        }
+        // ** Lunch **
+        if (formatted24Hour == '12'){
+          if (min >= 17){
+            if (min <= 55){
+              CurrentClass = 'Lunch';
+              CurrentClassStart = '12:17 PM';
+              CurrentClassEnd = '12:55 PM';
+            }
+          }
+        }
+        // ** Third Period **
+        if (formatted24Hour == '13'){
+          if (min >= 02){
+            if (min <= 59){
+              CurrentClass = 'Third Period';
+              CurrentClassStart = '1:02 PM';
+              CurrentClassEnd = '2:32 PM';
+            }
+          }
+        }
+        if (formatted24Hour == '14'){
+          if (min >= 00){
+            if (min <= 32){
+              CurrentClass = 'Third Period';
+              CurrentClassStart = '1:02 PM';
+              CurrentClassEnd = '2:32 PM';
+            }
+          }
+        }
+
+        //School starting __ card
         if (zeroPeriod == true) {
           SchoolStart = '7:05 AM';
         } else {
@@ -607,7 +862,7 @@ class HomePageState extends State<HomePage> {
       }
 
       if (WeekDay == 'Fri') {
-        //Next period card
+        //Current Class Card
         // Zero Period **
         if (formatted24Hour == '07'){
           if (min >= 05){
@@ -876,13 +1131,6 @@ class HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            new ListTile(
-              title: new Text(
-                '* Beta Cards *',
-                style: new TextStyle(
-                    color: Colors.red.withOpacity(0.8),),
-              ),
-            ),
             new Card(
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
@@ -898,13 +1146,6 @@ class HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-
-            new Text(''),
-            new Divider(
-              height: 10.0,
-              color: Colors.grey,
-            ),
-
 
           ],
         );
