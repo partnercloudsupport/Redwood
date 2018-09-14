@@ -575,14 +575,14 @@ class HomePageState extends State<HomePage> {
     );
 
     //Waiting for flutter_youtube to add end call for ios
-//    views = views +1;
-//
-//    Map<String, int> data = <String, int>{
-//      "views": views,
-//    };
-//    documentReference.updateData(data).whenComplete(() {
-//
-//    }).catchError((e) => print(e));
+    views = views +1;
+
+    Map<String, int> data = <String, int>{
+      "views": views,
+    };
+    documentReference.updateData(data).whenComplete(() {
+
+    }).catchError((e) => print(e));
   }
 
   void share() {
@@ -631,12 +631,12 @@ class HomePageState extends State<HomePage> {
                           ),
                         ),
                         new ListTile(
-//                          title: new Text(
-//                            '$views views',
-//                            style: new TextStyle(
-//                              color: Colors.grey.withOpacity(1.0),
-//                            ),
-//                          ),
+                          title: new Text(
+                            '$views views',
+                            style: new TextStyle(
+                              color: Colors.grey.withOpacity(1.0),
+                            ),
+                          ),
                           trailing: new FlatButton(
                             child: new Text('Watch',
                               style: new TextStyle(
