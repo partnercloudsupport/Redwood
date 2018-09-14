@@ -575,7 +575,6 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-
   //Waiting for flutter_youtube to add end call for ios
 //    views = views +1;
 //
@@ -608,14 +607,13 @@ class HomePageState extends State<HomePage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         ListTile(
-                          leading: const Icon(Icons.tv),
-                          title: new Text(Title),
-                          trailing: new IconButton(
-                            icon: new Icon(Icons.more_vert),
-                            tooltip: 'Share URL',
-                            onPressed: share,
-                          )
-                        ),
+                            leading: const Icon(Icons.tv),
+                            title: new Text(Title),
+                            trailing: new IconButton(
+                              icon: new Icon(Icons.more_vert),
+                              tooltip: 'Share URL',
+                              onPressed: share,
+                            )),
                         new Container(
                           width: 370.0,
                           height: 200.0,
@@ -631,19 +629,21 @@ class HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        new ListTile(
-//                          title: new Text(
-//                            '$views views',
-//                            style: new TextStyle(
-//                              color: Colors.grey.withOpacity(1.0),
-//                            ),
-//                          ),
-                          trailing: new FlatButton(
-                            child: new Text('Watch',
-                              style: new TextStyle(
-                                color: Colors.red.withOpacity(1.0),
-                              ),),
-                            onPressed: playYoutubeVideo,
+                        new ButtonTheme.bar(
+                          // make buttons use the appropriate styles for cards
+                          child: new ButtonBar(
+                            children: <Widget>[
+                              new PlatformSwitcher(
+                                iOSChild: new FlatButton(
+                                  child: const Text('Watch'),
+                                  onPressed: playYoutubeVideo,
+                                ),
+                                androidChild: new FlatButton(
+                                  child: const Text('Watch'),
+                                  onPressed: playYoutubeVideo,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
