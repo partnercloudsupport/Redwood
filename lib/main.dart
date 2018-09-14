@@ -570,10 +570,10 @@ class HomePageState extends State<HomePage> {
 
   void playYoutubeVideo() {
     FlutterYoutube.playYoutubeVideoByUrl(
-      apiKey: "AIzaSyCjfc_8iJx3H1hw8ZN3J06tkKRy2lIOQks",
+      apiKey: "AIzaSyCFTOVFljhMMoamV_X1PktBGGcz2nRt_UM",
       videoUrl: VURL,
     );
-
+    
     //Waiting for flutter_youtube to add end call for ios
     views = views +1;
 
@@ -584,6 +584,7 @@ class HomePageState extends State<HomePage> {
 
     }).catchError((e) => print(e));
   }
+
 
   void share() {
     Share.share('Redwood TV ' + '$Title: ' + '$VURL');
@@ -607,14 +608,13 @@ class HomePageState extends State<HomePage> {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         ListTile(
-                          leading: const Icon(Icons.tv),
-                          title: new Text(Title),
-                          trailing: new IconButton(
-                            icon: new Icon(Icons.more_vert),
-                            tooltip: 'Share URL',
-                            onPressed: share,
-                          )
-                        ),
+                            leading: const Icon(Icons.tv),
+                            title: new Text(Title),
+                            trailing: new IconButton(
+                              icon: new Icon(Icons.more_vert),
+                              tooltip: 'Share URL',
+                              onPressed: share,
+                            )),
                         new Container(
                           width: 370.0,
                           height: 200.0,
@@ -643,6 +643,8 @@ class HomePageState extends State<HomePage> {
                                 color: Colors.red.withOpacity(1.0),
                               ),),
                             onPressed: playYoutubeVideo,
+                          ),
+                        ),
                           ),
                         ),
                       ],
