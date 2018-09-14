@@ -573,17 +573,18 @@ class HomePageState extends State<HomePage> {
       apiKey: "AIzaSyCFTOVFljhMMoamV_X1PktBGGcz2nRt_UM",
       videoUrl: VURL,
     );
+    
+    //Waiting for flutter_youtube to add end call for ios
+    views = views +1;
+
+    Map<String, int> data = <String, int>{
+      "views": views,
+    };
+    documentReference.updateData(data).whenComplete(() {
+
+    }).catchError((e) => print(e));
   }
 
-  //Waiting for flutter_youtube to add end call for ios
-//    views = views +1;
-//
-//    Map<String, int> data = <String, int>{
-//      "views": views,
-//    };
-//    documentReference.updateData(data).whenComplete(() {
-//
-//    }).catchError((e) => print(e));
 
   void share() {
     Share.share('Redwood TV ' + '$Title: ' + '$VURL');
@@ -629,21 +630,21 @@ class HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        new ButtonTheme.bar(
-                          // make buttons use the appropriate styles for cards
-                          child: new ButtonBar(
-                            children: <Widget>[
-                              new PlatformSwitcher(
-                                iOSChild: new FlatButton(
-                                  child: const Text('Watch'),
-                                  onPressed: playYoutubeVideo,
-                                ),
-                                androidChild: new FlatButton(
-                                  child: const Text('Watch'),
-                                  onPressed: playYoutubeVideo,
-                                ),
-                              ),
-                            ],
+                        new ListTile(
+                          title: new Text(
+                            '$views views',
+                            style: new TextStyle(
+                              color: Colors.grey.withOpacity(1.0),
+                            ),
+                          ),
+                          trailing: new FlatButton(
+                            child: new Text('Watch',
+                              style: new TextStyle(
+                                color: Colors.red.withOpacity(1.0),
+                              ),),
+                            onPressed: playYoutubeVideo,
+                          ),
+                        ),
                           ),
                         ),
                       ],
