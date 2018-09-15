@@ -35,6 +35,7 @@ class HomePageState extends State<HomePage> {
   String CurrentClass = 'First Period';
   String CurrentClassStart = '8:00 AM';
   String CurrentClassEnd = '8:48 AM';
+  String Date;
 
   //--
 
@@ -96,7 +97,9 @@ class HomePageState extends State<HomePage> {
 
     var now = new DateTime.now();
     var formatter = new DateFormat.E();
+    var formatterDate = new DateFormat('MM.dd.yyyy');
     String formatted = formatter.format(now);
+    String formattedDate = formatterDate.format(now);
 
     //-- Gets the cached info from SharedPreferences
     zeroPeriod = prefs.getBool('zeroPeriod');
@@ -111,6 +114,7 @@ class HomePageState extends State<HomePage> {
     //--
 
     WeekDay = formatted;
+    Date = formattedDate;
 
     //-- overrides the default info and replaces it with the cached info
     this.setState(() {
@@ -124,6 +128,7 @@ class HomePageState extends State<HomePage> {
       seventhPeriod;
       Name;
       WeekDay;
+      Date;
     });
   }
 
@@ -1075,13 +1080,18 @@ class HomePageState extends State<HomePage> {
     //-- If a user set up there classes it displays the today page
     if (page == true && classes_setup == true) {
       //If its the weekend it shows this
-      if (WeekDay == 'Sun' || WeekDay == 'Sat') {
+      if (WeekDay == 'Sun' || WeekDay == 'Sat' || Date == '09.19.2018' || Date == '11.19.2018' || Date == '11.20.2018'
+          || Date == '11.21.2018' || Date == '11.22.2018' || Date == '11.23.2018') {
         return new Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             new Text(
               'No School Today! 😄',
+              style: new TextStyle(fontSize: 19.0),
+            ),
+            new Text(
+              '\nHave a good day!',
               style: new TextStyle(fontSize: 19.0),
             ),
           ],
@@ -1142,6 +1152,17 @@ class HomePageState extends State<HomePage> {
                         '$CurrentClassStart' +
                         ' and it will end at ' +
                         '$CurrentClassEnd' + ''),
+                  ),
+                ],
+              ),
+            ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('It is currently ' +
+                        '$Date' ),
                   ),
                 ],
               ),
