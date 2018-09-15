@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Today extends StatelessWidget {
   @override
@@ -25,6 +26,7 @@ class HomePageState extends State<HomePage> {
   SharedPreferences prefs;
 
   int time = 0;
+  String annBody = 'No announcements today! 😃';
 
   //--This is for the info cards for users--
   String WeekDay = 'Monday';
@@ -79,6 +81,21 @@ class HomePageState extends State<HomePage> {
             }));
   }
 
+  StreamSubscription<DocumentSnapshot> subscription;
+
+  final DocumentReference documentReference =
+  Firestore.instance.document("a/post1");
+
+  void _fetch() {
+    documentReference.get().then((datasnapshot) {
+      if (datasnapshot.exists) {
+        setState(() {
+          annBody = datasnapshot.data['body'];
+        });
+      }
+    });
+  }
+
   @override
   void initState() {
     //-- Lets cached info load in before it overrides the page defaults
@@ -87,7 +104,7 @@ class HomePageState extends State<HomePage> {
       checkinfo();
     });
     //--
-
+    this._fetch();
     super.initState();
     init();
   }
@@ -1112,6 +1129,21 @@ class HomePageState extends State<HomePage> {
               height: 10.0,
               color: Colors.grey,
             ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('Announcements 💬'),
+                    subtitle: new Text('$annBody'),
+                  ),
+                ],
+              ),
+            ),
+            new Divider(
+              height: 10.0,
+              color: Colors.grey,
+            ),
             new ListTile(
               title: new Text('Info about your day.'),
             ),
@@ -1152,17 +1184,6 @@ class HomePageState extends State<HomePage> {
                         '$CurrentClassStart' +
                         ' and it will end at ' +
                         '$CurrentClassEnd' + ''),
-                  ),
-                ],
-              ),
-            ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new ListTile(
-                    title: new Text('It is currently ' +
-                        '$Date' ),
                   ),
                 ],
               ),
