@@ -610,7 +610,7 @@ class HomePageState extends State<HomePage> {
                             leading: const Icon(Icons.tv),
                             title: new Text(Title),
                             trailing: new IconButton(
-                              icon: new Icon(Icons.more_vert),
+                              icon: new Icon(Icons.share),
                               tooltip: 'Share URL',
                               onPressed: share,
                             )

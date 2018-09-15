@@ -10,7 +10,6 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
 class Today extends StatelessWidget {
   @override
   Widget build(BuildContext context) => new Container(
@@ -1114,10 +1113,6 @@ class HomePageState extends State<HomePage> {
               'No School Today! 😄',
               style: new TextStyle(fontSize: 19.0),
             ),
-            new Text(
-              '\nHave a good day!',
-              style: new TextStyle(fontSize: 19.0),
-            ),
           ],
         );
       } else {
@@ -1149,7 +1144,7 @@ class HomePageState extends State<HomePage> {
                       subtitle: new Text(
                         '$annBody',
                         style:
-                        new TextStyle(color: Colors.black.withOpacity(1.0)),
+                            new TextStyle(color: Colors.black.withOpacity(1.0)),
                       ),
                     ),
                   ],
