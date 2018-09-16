@@ -1135,19 +1135,27 @@ class HomePageState extends State<HomePage> {
               onTap: () {
                 launch(annLink);
               },
-              child: new Card(
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text('Announcements 💬'),
-                      subtitle: new Text(
-                        '$annBody',
-                        style:
-                            new TextStyle(color: Colors.black.withOpacity(1.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
+                        title: new Text('Announcements 💬'),
+                        subtitle: new Text(
+                          '$annBody',
+                          style:
+                          new TextStyle(color: Colors.black.withOpacity(1.0)),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -1158,46 +1166,64 @@ class HomePageState extends State<HomePage> {
             new ListTile(
               title: new Text('Info about your day.'),
             ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new ListTile(
-                    title: new Text('Lunch will be at ' +
-                        '$WeekDayTime' +
-                        ' and will end at ' +
-                        '$WeekDayTimeEnd'),
-                  ),
-                ],
+            new Padding(
+              padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Material(
+                elevation: 5.0,
+                borderRadius:
+                new BorderRadius.all(new Radius.circular(10.0)),
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
+                      title: new Text('Lunch will be at ' +
+                          '$WeekDayTime' +
+                          ' and will end at ' +
+                          '$WeekDayTimeEnd'),
+                    ),
+                  ],
+                ),
               ),
             ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new ListTile(
-                    title: new Text('School will start for you at ' +
-                        '$SchoolStart' +
-                        ' and will end at ' +
-                        '$SchoolEnd'),
-                  ),
-                ],
+            new Padding(
+              padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Material(
+                elevation: 5.0,
+                borderRadius:
+                new BorderRadius.all(new Radius.circular(10.0)),
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
+                      title: new Text('School will start for you at ' +
+                          '$SchoolStart' +
+                          ' and will end at ' +
+                          '$SchoolEnd'),
+                    ),
+                  ],
+                ),
               ),
             ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new ListTile(
-                    title: new Text('It is currently ' +
-                        '$CurrentClass' +
-                        ' and started at ' +
-                        '$CurrentClassStart' +
-                        ' and it will end at ' +
-                        '$CurrentClassEnd' +
-                        ''),
-                  ),
-                ],
+            new Padding(
+              padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Material(
+                elevation: 5.0,
+                borderRadius:
+                new BorderRadius.all(new Radius.circular(10.0)),
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
+                      title: new Text('It is currently ' +
+                          '$CurrentClass' +
+                          ' and started at ' +
+                          '$CurrentClassStart' +
+                          ' and it will end at ' +
+                          '$CurrentClassEnd' +
+                          ''),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

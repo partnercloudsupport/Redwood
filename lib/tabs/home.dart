@@ -208,12 +208,6 @@ class HomePageState extends State<HomePage> {
                     children: <Widget>[
                       new ListTile(
                         title: new Text('Special Days'),
-                        subtitle: new Text(
-                          '',
-                          style: new TextStyle(
-                              color: Colors.grey.withOpacity(0.9),
-                              fontSize: 12.0),
-                        ),
                       ),
                       new ListTile(
                         title: new RaisedButton(
@@ -1223,11 +1217,14 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1250,11 +1247,14 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1276,11 +1276,14 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1302,11 +1305,14 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.redAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1328,11 +1334,14 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1354,11 +1363,14 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1400,11 +1412,14 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1427,11 +1442,14 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1453,11 +1471,14 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1479,11 +1500,14 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.redAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1505,11 +1529,14 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1531,11 +1558,14 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1577,11 +1607,14 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1604,11 +1637,14 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.redAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1630,11 +1666,14 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1656,11 +1695,14 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1682,11 +1724,14 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1708,11 +1753,14 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1743,7 +1791,7 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: const Text('Following a Minimum Day'),
+          title: const Text('Bef or Aft a Minimum Day'),
         ),
         body: ListView(
           children: <Widget>[
@@ -1755,11 +1803,14 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1782,11 +1833,14 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1808,11 +1862,14 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1834,11 +1891,14 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1860,11 +1920,14 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1886,11 +1949,14 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1912,11 +1978,14 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
