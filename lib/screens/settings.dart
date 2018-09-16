@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flushbar/flushbar.dart';
 
 class Settings extends StatelessWidget {
   @override
-  Widget build(BuildContext context) =>
-      new Container(
+  Widget build(BuildContext context) => new Container(
         child: new HomePage(),
       );
 }
@@ -41,7 +41,7 @@ class HomePageState extends State<HomePage> {
   void init() async {
     prefs = await SharedPreferences.getInstance();
 
-    if (prefs.getBool('zeroPeriod') == false){
+    if (prefs.getBool('zeroPeriod') == false) {
       zeroPeriod = prefs.getBool('zeroPeriod');
       firstPeriod = prefs.getBool('firstPeriod');
       secondPeriod = prefs.getBool('secondPeriod');
@@ -52,7 +52,7 @@ class HomePageState extends State<HomePage> {
       seventhPeriod = prefs.getBool('seventhPeriod');
       Name = prefs.getString('Name');
     }
-    if (prefs.getBool('zeroPeriod') == null){
+    if (prefs.getBool('zeroPeriod') == null) {
       Name = 'John';
       zeroPeriod = false;
       firstPeriod = false;
@@ -89,6 +89,12 @@ class HomePageState extends State<HomePage> {
     prefs.setBool('sixthPeriod', sixthPeriod);
     prefs.setBool('seventhPeriod', seventhPeriod);
 
+    Flushbar()
+      ..message = "Saved Classes"
+      ..backgroundColor = Colors.black
+      ..shadowColor = Colors.black
+      ..duration = Duration(seconds: 3)
+      ..show(context);
   }
 
   void _onChanged(String val) {
@@ -101,10 +107,16 @@ class HomePageState extends State<HomePage> {
     final prefs = await SharedPreferences.getInstance();
 
     prefs.setString('Name', Name);
+
+    Flushbar()
+      ..message = "Saved Name"
+      ..backgroundColor = Colors.black
+      ..shadowColor = Colors.black
+      ..duration = Duration(seconds: 3)
+      ..show(context);
   }
 
   bool classes_setup = false;
-
 
   Widget build(BuildContext context) =>
       new Scaffold(
@@ -112,9 +124,7 @@ class HomePageState extends State<HomePage> {
           title: new Text(
             'Settings',
             style: new TextStyle(
-              fontSize: Theme
-                  .of(context)
-                  .platform == TargetPlatform.iOS
+              fontSize: Theme.of(context).platform == TargetPlatform.iOS
                   ? 17.0
                   : 20.0,
             ),
@@ -131,7 +141,7 @@ class HomePageState extends State<HomePage> {
                   child: new Material(
                     elevation: 5.0,
                     borderRadius:
-                    new BorderRadius.all(new Radius.circular(10.0)),
+                        new BorderRadius.all(new Radius.circular(10.0)),
                     child: new Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -153,7 +163,6 @@ class HomePageState extends State<HomePage> {
                             onChanged: (String value) {
                               _onChanged(value);
                             },
-
                           ),
                         ),
                         new Text(''),
@@ -180,7 +189,7 @@ class HomePageState extends State<HomePage> {
                   child: new Material(
                     elevation: 5.0,
                     borderRadius:
-                    new BorderRadius.all(new Radius.circular(10.0)),
+                        new BorderRadius.all(new Radius.circular(10.0)),
                     child: new Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -193,7 +202,6 @@ class HomePageState extends State<HomePage> {
                                 fontSize: 12.0),
                           ),
                         ),
-
                         new SwitchListTile(
                           title: const Text('0 Period'),
                           value: zeroPeriod,
@@ -274,7 +282,6 @@ class HomePageState extends State<HomePage> {
                           },
                           //secondary: const Icon(Icons.lightbulb_outline),
                         ),
-
                         new RaisedButton(
                           child: new Text(
                             'Save',
@@ -298,7 +305,7 @@ class HomePageState extends State<HomePage> {
                   child: new Material(
                     elevation: 5.0,
                     borderRadius:
-                    new BorderRadius.all(new Radius.circular(10.0)),
+                        new BorderRadius.all(new Radius.circular(10.0)),
                     child: new Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[

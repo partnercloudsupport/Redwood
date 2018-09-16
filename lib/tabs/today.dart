@@ -69,7 +69,7 @@ class HomePageState extends State<HomePage> {
 
   _STinson() {
     ST = ST + 1;
-    if (ST >= 25){
+    if (ST >= 26){
       ST = 0;
       final snackBar = new SnackBar(
         content: new Text("sUper STinson sLimey Bois"),
