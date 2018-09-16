@@ -36,87 +36,87 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:share/share.dart';
 
 void main() => runApp(new MaterialApp(
-  //-- This is the name of the app
-  title: 'Redwood',
-  //-- This sets the colors for the app
-  theme: new ThemeData(
-      primarySwatch: Colors.red,
-      scaffoldBackgroundColor: Colors.white,
-      primaryColor: Colors.red,
-      backgroundColor: Colors.white),
-  home: new Tabs(),
-  navigatorObservers: [new VillainTransitionObserver()],
-  //-- Calls the Villains on the page to be played
-  debugShowCheckedModeBanner: false,
-  //- Disables the debug banner
-  onGenerateRoute: (RouteSettings settings) {
-    switch (settings.name) {
-      case '/about':
-        return new FromRightToLeft(
-          builder: (_) => new _aboutPage.About(),
-          settings: settings,
-        );
-      case '/support':
-        return new FromRightToLeft(
-          builder: (_) => new _supportPage.Support(),
-          settings: settings,
-        );
-      case '/map':
-        return new FromRightToLeft(
-          builder: (_) => new _mapPage.Map(),
-          settings: settings,
-        );
-      case '/settings':
-        return new FromRightToLeft(
-          builder: (_) => new _settingsPage.Settings(),
-          settings: settings,
-        );
-      case '/discord':
-        return new FromRightToLeft(
-          builder: (_) => new discordPage.discord(),
-          settings: settings,
-        );
-      case '/dev':
-        return new FromRightToLeft(
-          builder: (_) => new _devPage.Dev(),
-          settings: settings,
-        );
-      case '/opl':
-        return new FromRightToLeft(
-          builder: (_) => new _oplPage.OPL(),
-          settings: settings,
-        );
-      case '/directory':
-        return new FromRightToLeft(
-          builder: (_) => new directoryPage.Directory(),
-          settings: settings,
-        );
-      case '/tools':
-        return new FromRightToLeft(
-          builder: (_) => new toolsPage.Tools(),
-          settings: settings,
-        );
-      case '/todo':
-        return new FromRightToLeft(
-          builder: (_) => new todoPage.Todo(),
-          settings: settings,
-        );
-    }
-  },
+      //-- This is the name of the app
+      title: 'Redwood',
+      //-- This sets the colors for the app
+      theme: new ThemeData(
+          primarySwatch: Colors.red,
+          scaffoldBackgroundColor: Colors.white,
+          primaryColor: Colors.red,
+          backgroundColor: Colors.white),
+      home: new Tabs(),
+      navigatorObservers: [new VillainTransitionObserver()],
+      //-- Calls the Villains on the page to be played
+      debugShowCheckedModeBanner: false,
+      //- Disables the debug banner
+      onGenerateRoute: (RouteSettings settings) {
+        switch (settings.name) {
+          case '/about':
+            return new FromRightToLeft(
+              builder: (_) => new _aboutPage.About(),
+              settings: settings,
+            );
+          case '/support':
+            return new FromRightToLeft(
+              builder: (_) => new _supportPage.Support(),
+              settings: settings,
+            );
+          case '/map':
+            return new FromRightToLeft(
+              builder: (_) => new _mapPage.Map(),
+              settings: settings,
+            );
+          case '/settings':
+            return new FromRightToLeft(
+              builder: (_) => new _settingsPage.Settings(),
+              settings: settings,
+            );
+          case '/discord':
+            return new FromRightToLeft(
+              builder: (_) => new discordPage.discord(),
+              settings: settings,
+            );
+          case '/dev':
+            return new FromRightToLeft(
+              builder: (_) => new _devPage.Dev(),
+              settings: settings,
+            );
+          case '/opl':
+            return new FromRightToLeft(
+              builder: (_) => new _oplPage.OPL(),
+              settings: settings,
+            );
+          case '/directory':
+            return new FromRightToLeft(
+              builder: (_) => new directoryPage.Directory(),
+              settings: settings,
+            );
+          case '/tools':
+            return new FromRightToLeft(
+              builder: (_) => new toolsPage.Tools(),
+              settings: settings,
+            );
+          case '/todo':
+            return new FromRightToLeft(
+              builder: (_) => new todoPage.Todo(),
+              settings: settings,
+            );
+        }
+      },
 
-  localizationsDelegates: [
-    // ... app-specific localization delegate[s] here
-    GlobalMaterialLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ],
-  supportedLocales: [
-    const Locale('en', 'US'), // English
-    // ... other locales the app supports
-  ],
-  // routes: <String, WidgetBuilder> {
-  //   '/about': (BuildContext context) => new _aboutPage.About(),
-  // }
-));
+      localizationsDelegates: [
+        // ... app-specific localization delegate[s] here
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'), // English
+        // ... other locales the app supports
+      ],
+      // routes: <String, WidgetBuilder> {
+      //   '/about': (BuildContext context) => new _aboutPage.About(),
+      // }
+    ));
 
 class FromRightToLeft<T> extends MaterialPageRoute<T> {
   FromRightToLeft({WidgetBuilder builder, RouteSettings settings})
@@ -175,7 +175,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
   String textValue = 'Hello World !';
   FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  new FlutterLocalNotificationsPlugin();
+      new FlutterLocalNotificationsPlugin();
 
   update(String token) {
     print(token);
@@ -298,37 +298,37 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => new Scaffold(
-    //App Bar
-    appBar: new AppBar(
-      title: new Text(_title_app),
-    ),
+        //App Bar
+        appBar: new AppBar(
+          title: new Text(_title_app),
+        ),
 
-    //Content of tabs
-    body: new PageView(
-      controller: _tabController,
-      onPageChanged: onTabChanged,
-      children: <Widget>[
-        new _firstTab.Home(),
-        new _secondTab.Today(),
-        new Tv()
-      ],
-    ),
+        //Content of tabs
+        body: new PageView(
+          controller: _tabController,
+          onPageChanged: onTabChanged,
+          children: <Widget>[
+            new _firstTab.Home(),
+            new _secondTab.Today(),
+            new Tv()
+          ],
+        ),
 
-    //Tabs
-    bottomNavigationBar: new BottomNavigationBar(
-      currentIndex: _tab,
-      onTap: onTap,
-      items: TabItems.map((TabItem) {
-        return new BottomNavigationBarItem(
-          title: new Text(TabItem.title),
-          icon: new Icon(TabItem.icon),
-        );
-      }).toList(),
-    ),
+        //Tabs
+        bottomNavigationBar: new BottomNavigationBar(
+          currentIndex: _tab,
+          onTap: onTap,
+          items: TabItems.map((TabItem) {
+            return new BottomNavigationBarItem(
+              title: new Text(TabItem.title),
+              icon: new Icon(TabItem.icon),
+            );
+          }).toList(),
+        ),
 
-    //Drawer
-    drawer: new Drawer(
-        child: new ListView(
+        //Drawer
+        drawer: new Drawer(
+            child: new ListView(
           children: <Widget>[
             new Container(
               height: 120.0,
@@ -423,7 +423,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                 }),
           ],
         )),
-  );
+      );
 
   void onTap(int tab) {
     _tabController.jumpToPage(tab);
@@ -486,8 +486,8 @@ FBURL() {
 class Tv extends StatelessWidget {
   @override
   Widget build(BuildContext context) => new Container(
-    child: new HomePage(),
-  );
+        child: new HomePage(),
+      );
 }
 
 class HomePage extends StatefulWidget {
@@ -510,7 +510,7 @@ class HomePageState extends State<HomePage> {
   StreamSubscription<DocumentSnapshot> subscription;
 
   final DocumentReference documentReference =
-  Firestore.instance.document("tv/Qs1EPP7eP5TijgOVpgGi");
+      Firestore.instance.document("tv/Qs1EPP7eP5TijgOVpgGi");
 
   void _fetch() {
     documentReference.get().then((datasnapshot) {
@@ -536,8 +536,8 @@ class HomePageState extends State<HomePage> {
     initConnectivity();
     _connectivitySubscription =
         _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-          setState(() => _connectionStatus = result.toString());
-        });
+      setState(() => _connectionStatus = result.toString());
+    });
   }
 
   @override
@@ -575,14 +575,15 @@ class HomePageState extends State<HomePage> {
     );
 
     //Waiting for flutter_youtube to add end call for ios
-    views = views +1;
+    views = views + 1;
 
     Map<String, int> data = <String, int>{
       "views": views,
     };
-    documentReference.updateData(data).whenComplete(() {
-
-    }).catchError((e) => print(e));
+    documentReference
+        .updateData(data)
+        .whenComplete(() {})
+        .catchError((e) => print(e));
   }
 
   void share() {
@@ -596,66 +597,67 @@ class HomePageState extends State<HomePage> {
           _connectionStatus == 'Unknown' ||
           _connectionStatus == 'ConnectivityResult.mobile') {
         return new Scaffold(
-            body:
-                    new Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                    new Material(
-                    elevation: 8.0,
-                      borderRadius:
-                      new BorderRadius.all(new Radius.circular(8.0)),
-                      child: new Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          ListTile(
-                              leading: const Icon(Icons.tv),
-                              title: new Text(Title),
-                              trailing: new IconButton(
-                                icon: new Icon(Icons.share),
-                                tooltip: 'Share URL',
-                                onPressed: share,
-                              )
-                          ),
-                          new Container(
-                            width: 370.0,
-                            height: 200.0,
-                            child: Stack(
-                              children: <Widget>[
-                                Center(child: CircularProgressIndicator()),
-                                Center(
-                                  child: FadeInImage.memoryNetwork(
-                                    placeholder: kTransparentImage,
-                                    image: IMGURL,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          new ListTile(
-                            title: new Text(
-                              '$views views',
-                              style: new TextStyle(
-                                color: Colors.grey.withOpacity(1.0),
+          body: new Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              new Padding(
+                padding: new EdgeInsets.all(8.0),
+                child: new Material(
+                  elevation: 5.0,
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ListTile(
+                          leading: const Icon(Icons.tv),
+                          title: new Text(Title),
+                          trailing: new IconButton(
+                            icon: new Icon(Icons.share),
+                            tooltip: 'Share URL',
+                            onPressed: share,
+                          )),
+                      new Container(
+                        width: 370.0,
+                        height: 200.0,
+                        child: Stack(
+                          children: <Widget>[
+                            Center(child: CircularProgressIndicator()),
+                            Center(
+                              child: FadeInImage.memoryNetwork(
+                                placeholder: kTransparentImage,
+                                image: IMGURL,
                               ),
                             ),
-                            trailing: new FlatButton(
-                              child: new Text('Watch',
-                                style: new TextStyle(
-                                  color: Colors.red.withOpacity(1.0),
-                                ),),
-                              onPressed: playYoutubeVideo,
+                          ],
+                        ),
+                      ),
+                      new ListTile(
+                        title: new Text(
+                          '$views views',
+                          style: new TextStyle(
+                            color: Colors.grey.withOpacity(1.0),
+                          ),
+                        ),
+                        trailing: new FlatButton(
+                          child: new Text(
+                            'Watch',
+                            style: new TextStyle(
+                              color: Colors.red.withOpacity(1.0),
                             ),
                           ),
-                        ],
+                          onPressed: playYoutubeVideo,
+                        ),
                       ),
-                    ),
-                      ],
-                    ),
-        );}
-      ;
-    }
-    ;
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      };
+    };
     //Loading Screen for Today Page
     if (video == false) {
       if (_connectionStatus == 'ConnectivityResult.wifi' ||
@@ -681,30 +683,32 @@ class HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              new Text('\n\n'),
-              new Card(
-                elevation: 3.0,
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0)),
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text('No Network Connection'),
-                      subtitle: new Text(
-                        'You\'re not connected to the Internet. Check your connection and try again.',
-                        style: new TextStyle(
-                            color: Colors.grey.withOpacity(0.9),
-                            fontSize: 12.0),
+              new Padding(
+                padding: new EdgeInsets.all(8.0),
+                child: new Material(
+                  elevation: 58.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
+                        title: new Text('No Network Connection'),
+                        subtitle: new Text(
+                          'You\'re not connected to the Internet. Check your connection and try again.',
+                          style: new TextStyle(
+                              color: Colors.grey.withOpacity(0.9),
+                              fontSize: 12.0),
+                        ),
                       ),
-                    ),
-                    new Image.asset(
-                      'ni.jpg',
-                      height: 276.0,
-                      width: 197.0,
-                    ),
-                    new Text('\n')
-                  ],
+                      new Image.asset(
+                        'ni.jpg',
+                        height: 276.0,
+                        width: 197.0,
+                      ),
+                      new Text('\n')
+                    ],
+                  ),
                 ),
               ),
             ],

@@ -126,197 +126,207 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             new Column(
               children: <Widget>[
-                new Card(
-                  child: new Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new ListTile(
-                        title: new Text('Your Profile'),
-                        subtitle: new Text(
-                          'This is where you edit your name',
-                          style: new TextStyle(
-                              color: Colors.grey.withOpacity(0.9),
-                              fontSize: 12.0),
-                        ),
-                      ),
-                      new ListTile(
-                        title: new TextField(
-                          decoration: new InputDecoration(
-                            hintText: "Change your name here..",
+                new Padding(
+                  padding: new EdgeInsets.all(8.0),
+                  child: new Material(
+                    elevation: 5.0,
+                    borderRadius:
+                    new BorderRadius.all(new Radius.circular(10.0)),
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new ListTile(
+                          title: new Text('Your Profile'),
+                          subtitle: new Text(
+                            'This is where you edit your name',
+                            style: new TextStyle(
+                                color: Colors.grey.withOpacity(0.9),
+                                fontSize: 12.0),
                           ),
-                          controller: _controller,
-                          onChanged: (String value) {
-                            _onChanged(value);
+                        ),
+                        new ListTile(
+                          title: new TextField(
+                            decoration: new InputDecoration(
+                              hintText: "Change your name here..",
+                            ),
+                            controller: _controller,
+                            onChanged: (String value) {
+                              _onChanged(value);
+                            },
+
+                          ),
+                        ),
+                        new Text(''),
+                        new RaisedButton(
+                          child: new Text(
+                            'Save',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Colors.blue,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: saveName,
+                        ),
+                        new Text("\n"),
+                      ],
+                    ),
+                  ),
+                ),
+                new Padding(
+                  padding: new EdgeInsets.all(8.0),
+                  child: new Material(
+                    elevation: 5.0,
+                    borderRadius:
+                    new BorderRadius.all(new Radius.circular(10.0)),
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new ListTile(
+                          title: new Text('Your Classes'),
+                          subtitle: new Text(
+                            'Select the periods you have classes in.',
+                            style: new TextStyle(
+                                color: Colors.grey.withOpacity(0.9),
+                                fontSize: 12.0),
+                          ),
+                        ),
+
+                        new SwitchListTile(
+                          title: const Text('0 Period'),
+                          value: zeroPeriod,
+                          onChanged: (bool value) {
+                            setState(() {
+                              zeroPeriod = value;
+                            });
                           },
+                          //secondary: const Icon(Icons.lightbulb_outline),
+                        ),
+                        new SwitchListTile(
+                          title: const Text('1st Period'),
+                          value: firstPeriod,
+                          onChanged: (bool value) {
+                            setState(() {
+                              firstPeriod = value;
+                            });
+                          },
+                          //secondary: const Icon(Icons.lightbulb_outline),
+                        ),
+                        new SwitchListTile(
+                          title: const Text('2nd Period'),
+                          value: secondPeriod,
+                          onChanged: (bool value) {
+                            setState(() {
+                              secondPeriod = value;
+                            });
+                          },
+                          //secondary: const Icon(Icons.lightbulb_outline),
+                        ),
+                        new SwitchListTile(
+                          title: const Text('3rd Period'),
+                          value: thirdPeriod,
+                          onChanged: (bool value) {
+                            setState(() {
+                              thirdPeriod = value;
+                            });
+                          },
+                          //secondary: const Icon(Icons.lightbulb_outline),
+                        ),
+                        new SwitchListTile(
+                          title: const Text('4th Period'),
+                          value: forthPeriod,
+                          onChanged: (bool value) {
+                            setState(() {
+                              forthPeriod = value;
+                            });
+                          },
+                          //secondary: const Icon(Icons.lightbulb_outline),
+                        ),
+                        new SwitchListTile(
+                          title: const Text('5th Period'),
+                          value: fifthPeriod,
+                          onChanged: (bool value) {
+                            setState(() {
+                              fifthPeriod = value;
+                            });
+                          },
+                          //secondary: const Icon(Icons.lightbulb_outline),
+                        ),
+                        new SwitchListTile(
+                          title: const Text('6th Period'),
+                          value: sixthPeriod,
+                          onChanged: (bool value) {
+                            setState(() {
+                              sixthPeriod = value;
+                            });
+                          },
+                          //secondary: const Icon(Icons.lightbulb_outline),
+                        ),
+                        new SwitchListTile(
+                          title: const Text('7th Period'),
+                          value: seventhPeriod,
+                          onChanged: (bool value) {
+                            setState(() {
+                              seventhPeriod = value;
+                            });
+                          },
+                          //secondary: const Icon(Icons.lightbulb_outline),
+                        ),
 
+                        new RaisedButton(
+                          child: new Text(
+                            'Save',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Colors.blue,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: saveData,
                         ),
-                      ),
-                      new Text(''),
-                      new RaisedButton(
-                        child: new Text(
-                          'Save',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
-                        ),
-                        color: Colors.blue,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: saveName,
-                      ),
-                      new Text("\n"),
-                    ],
+                        new Text("\n"),
+                      ],
+                    ),
                   ),
                 ),
-                new Card(
-                  child: new Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new ListTile(
-                        title: new Text('Your Classes'),
-                        subtitle: new Text(
-                          'Select the periods you have classes in.',
-                          style: new TextStyle(
-                              color: Colors.grey.withOpacity(0.9),
-                              fontSize: 12.0),
+                new Padding(
+                  padding: new EdgeInsets.all(8.0),
+                  child: new Material(
+                    elevation: 5.0,
+                    borderRadius:
+                    new BorderRadius.all(new Radius.circular(10.0)),
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new ListTile(
+                          title: new Text('Feedback'),
+                          subtitle: new Text(
+                            'Feedback help us better develop the app',
+                            style: new TextStyle(
+                                color: Colors.grey.withOpacity(0.9),
+                                fontSize: 12.0),
+                          ),
                         ),
-                      ),
-
-                      new SwitchListTile(
-                        title: const Text('0 Period'),
-                        value: zeroPeriod,
-                        onChanged: (bool value) {
-                          setState(() {
-                            zeroPeriod = value;
-                          });
-                        },
-                        //secondary: const Icon(Icons.lightbulb_outline),
-                      ),
-                      new SwitchListTile(
-                        title: const Text('1st Period'),
-                        value: firstPeriod,
-                        onChanged: (bool value) {
-                          setState(() {
-                            firstPeriod = value;
-                          });
-                        },
-                        //secondary: const Icon(Icons.lightbulb_outline),
-                      ),
-                      new SwitchListTile(
-                        title: const Text('2nd Period'),
-                        value: secondPeriod,
-                        onChanged: (bool value) {
-                          setState(() {
-                            secondPeriod = value;
-                          });
-                        },
-                        //secondary: const Icon(Icons.lightbulb_outline),
-                      ),
-                      new SwitchListTile(
-                        title: const Text('3rd Period'),
-                        value: thirdPeriod,
-                        onChanged: (bool value) {
-                          setState(() {
-                            thirdPeriod = value;
-                          });
-                        },
-                        //secondary: const Icon(Icons.lightbulb_outline),
-                      ),
-                      new SwitchListTile(
-                        title: const Text('4th Period'),
-                        value: forthPeriod,
-                        onChanged: (bool value) {
-                          setState(() {
-                            forthPeriod = value;
-                          });
-                        },
-                        //secondary: const Icon(Icons.lightbulb_outline),
-                      ),
-                      new SwitchListTile(
-                        title: const Text('5th Period'),
-                        value: fifthPeriod,
-                        onChanged: (bool value) {
-                          setState(() {
-                            fifthPeriod = value;
-                          });
-                        },
-                        //secondary: const Icon(Icons.lightbulb_outline),
-                      ),
-                      new SwitchListTile(
-                        title: const Text('6th Period'),
-                        value: sixthPeriod,
-                        onChanged: (bool value) {
-                          setState(() {
-                            sixthPeriod = value;
-                          });
-                        },
-                        //secondary: const Icon(Icons.lightbulb_outline),
-                      ),
-                      new SwitchListTile(
-                        title: const Text('7th Period'),
-                        value: seventhPeriod,
-                        onChanged: (bool value) {
-                          setState(() {
-                            seventhPeriod = value;
-                          });
-                        },
-                        //secondary: const Icon(Icons.lightbulb_outline),
-                      ),
-
-                      // new Text('0 $zeroPeriod'),
-                      // new Text('1 $firstPeriod'),
-                      // new Text('2 $secondPeriod'),
-                      // new Text('3 $thirdPeriod'),
-                      // new Text('4 $forthPeriod'),
-                      // new Text('5 $fifthPeriod'),
-                      // new Text('6 $sixthPeriod'),
-                      // new Text('7 $seventhPeriod'),
-                      new RaisedButton(
-                        child: new Text(
-                          'Save',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                        new RaisedButton(
+                          child: new Text(
+                            'Send Feedback',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Colors.red,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: FBURL,
                         ),
-                        color: Colors.blue,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: saveData,
-                      ),
-                      new Text("\n"),
-                    ],
-                  ),
-                ),
-                new Card(
-                  child: new Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new ListTile(
-                        title: new Text('Feedback'),
-                        subtitle: new Text(
-                          'Feedback help us better develop the app',
-                          style: new TextStyle(
-                              color: Colors.grey.withOpacity(0.9),
-                              fontSize: 12.0),
-                        ),
-                      ),
-                      new RaisedButton(
-                        child: new Text(
-                          'Send Feedback',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
-                        ),
-                        color: Colors.red,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: FBURL,
-                      ),
-                      new Text('\n')
-                    ],
+                        new Text('\n')
+                      ],
+                    ),
                   ),
                 ),
               ],

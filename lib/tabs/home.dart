@@ -104,208 +104,218 @@ class HomePageState extends State<HomePage> {
           new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Card(
-                elevation: 3.0,
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0)),
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text('Normal School Week'),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'Monday (All Periods)',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
-                        ),
-                        color: Theme.of(context).accentColor,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: _openMonday,
+              new Padding(
+                padding: new EdgeInsets.all(8.0),
+                child: new Material(
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
+                        title: new Text('Normal School Week'),
                       ),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'Tuesday (All Periods)',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'Monday (All Periods)',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: _openMonday,
                         ),
-                        color: Theme.of(context).accentColor,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: _openTuesday,
                       ),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'Wednesday (Block Schedule)',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'Tuesday (All Periods)',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: _openTuesday,
                         ),
-                        color: Theme.of(context).accentColor,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        elevation: 4.0,
-                        splashColor: Colors.grey,
-                        onPressed: _openWednesday,
                       ),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'Thursday (Block Schedule)',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'Wednesday (Block Schedule)',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          elevation: 4.0,
+                          splashColor: Colors.grey,
+                          onPressed: _openWednesday,
                         ),
-                        color: Theme.of(context).accentColor,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: _openThursday,
                       ),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'Friday (All Periods)',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'Thursday (Block Schedule)',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: _openThursday,
                         ),
-                        color: Theme.of(context).accentColor,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: _openFriday,
                       ),
-                    ),
-                    new Text('\n'),
-                  ],
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'Friday (All Periods)',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: _openFriday,
+                        ),
+                      ),
+                      new Text('\n'),
+                    ],
+                  ),
                 ),
               ),
-              new Card(
-                elevation: 3.0,
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0)),
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text('Special Days'),
-                      subtitle: new Text(
-                        '',
-                        style: new TextStyle(
-                            color: Colors.grey.withOpacity(0.9),
-                            fontSize: 12.0),
-                      ),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'First Week of School',
+              new Text(''),
+              new Padding(
+                padding: new EdgeInsets.all(8.0),
+                child: new Material(
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
+                        title: new Text('Special Days'),
+                        subtitle: new Text(
+                          '',
                           style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                              color: Colors.grey.withOpacity(0.9),
+                              fontSize: 12.0),
                         ),
-                        color: Theme.of(context).accentColor,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: _openFirstWeek,
                       ),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'RALLY Thursday',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'First Week of School',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: _openFirstWeek,
                         ),
-                        color: Theme.of(context).accentColor,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: _openRALLYThursday,
                       ),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'ASSEMBLY Thursday',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'RALLY Thursday',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: _openRALLYThursday,
                         ),
-                        color: Theme.of(context).accentColor,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: _openASSEMBLYThursday,
                       ),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'Minimum Day (Wednesday or Friday) *',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'ASSEMBLY Thursday',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: _openASSEMBLYThursday,
                         ),
-                        color: Theme.of(context).accentColor,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: _openMinimumDay,
                       ),
-                    ),
-                    new ListTile(
-                      title: new RaisedButton(
-                        child: new Text(
-                          'Thursday following a Minimum Wed. or before a Minimum Friday*',
-                          style: new TextStyle(
-                              color: Colors.white.withOpacity(0.9)),
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'Minimum Day (Wednesday or Friday) *',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: _openMinimumDay,
                         ),
-                        color: Theme.of(context).accentColor,
-                        elevation: 4.0,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
-                        splashColor: Colors.grey,
-                        onPressed: _openFllowingAMin,
                       ),
-                    ),
-                    new Text('\n'),
-                  ],
+                      new ListTile(
+                        title: new RaisedButton(
+                          child: new Text(
+                            'Thursday following a Minimum Wed. or before a Minimum Friday*',
+                            style: new TextStyle(
+                                color: Colors.white.withOpacity(0.9)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          elevation: 4.0,
+                          shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0)),
+                          splashColor: Colors.grey,
+                          onPressed: _openFllowingAMin,
+                        ),
+                      ),
+                      new Text('\n'),
+                    ],
+                  ),
                 ),
               ),
               new Text('\n'),
-              new Card(
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0)),
-                elevation: 3.0,
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text(
-                          'For weeks with three or fewer student days, there will be no block periods (only 7-period days).'),
-                    ),
-                    new ListTile(
-                      title: new Text(
-                          '* Week with a Minimum Wednesday or Minimum Friday day has an altered Wednesday and Thursday or Friday and Thursday schedule as listed.'),
-                    ),
-                    new Text(''),
-                  ],
+              new Padding(
+                padding: new EdgeInsets.all(8.0),
+                child: new Material(
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
+                        title: new Text(
+                            'For weeks with three or fewer student days, there will be no block periods (only 7-period days).'),
+                      ),
+                      new ListTile(
+                        title: new Text(
+                            '* Week with a Minimum Wednesday or Minimum Friday day has an altered Wednesday and Thursday or Friday and Thursday schedule as listed.'),
+                      ),
+                      new Text(''),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -330,7 +340,7 @@ class showMondayState extends State<showMonday> {
         ),
         body: Column(
           children: <Widget>[
-            new Text(""),
+            new Text(''),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
                 relativeOffset: 0.3,
@@ -338,11 +348,14 @@ class showMondayState extends State<showMonday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -366,11 +379,14 @@ class showMondayState extends State<showMonday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -392,11 +408,14 @@ class showMondayState extends State<showMonday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -419,11 +438,14 @@ class showMondayState extends State<showMonday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -440,16 +462,19 @@ class showMondayState extends State<showMonday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -493,11 +518,14 @@ class showTuesdayState extends State<showTuesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -521,11 +549,14 @@ class showTuesdayState extends State<showTuesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -547,11 +578,14 @@ class showTuesdayState extends State<showTuesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -574,11 +608,14 @@ class showTuesdayState extends State<showTuesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -595,16 +632,19 @@ class showTuesdayState extends State<showTuesday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -643,16 +683,19 @@ class showWednesdayState extends State<showWednesday> {
             new Text(""),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -670,16 +713,19 @@ class showWednesdayState extends State<showWednesday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -696,16 +742,19 @@ class showWednesdayState extends State<showWednesday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -722,16 +771,19 @@ class showWednesdayState extends State<showWednesday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -748,16 +800,19 @@ class showWednesdayState extends State<showWednesday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -795,16 +850,19 @@ class showThursdayState extends State<showThursday> {
             new Text(""),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -822,16 +880,19 @@ class showThursdayState extends State<showThursday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.redAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -849,16 +910,19 @@ class showThursdayState extends State<showThursday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -875,16 +939,19 @@ class showThursdayState extends State<showThursday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -901,16 +968,19 @@ class showThursdayState extends State<showThursday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -927,16 +997,19 @@ class showThursdayState extends State<showThursday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -978,11 +1051,14 @@ class showFridayState extends State<showFriday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1006,11 +1082,14 @@ class showFridayState extends State<showFriday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1032,11 +1111,14 @@ class showFridayState extends State<showFriday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1059,11 +1141,14 @@ class showFridayState extends State<showFriday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.lightBlueAccent,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1080,16 +1165,19 @@ class showFridayState extends State<showFriday> {
             ),
             Villain(
               villainAnimation: VillainAnimation.fromBottom(
-                relativeOffset: 0.2,
+                relativeOffset: 0.3,
                 from: Duration(milliseconds: 0),
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child: new ListTile(
-                title: new Card(
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(10.0)),
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
                   color: Colors.blue,
+                  elevation: 5.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
