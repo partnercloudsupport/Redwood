@@ -596,60 +596,63 @@ class HomePageState extends State<HomePage> {
           _connectionStatus == 'Unknown' ||
           _connectionStatus == 'ConnectivityResult.mobile') {
         return new Scaffold(
-            body: new ListView.builder(
-                itemCount: 1,
-                itemBuilder: (BuildContext context, int index) {
-                  return new Card(
-                    elevation: 3.0,
-                    shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0)),
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
+            body:
+                    new Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        ListTile(
-                            leading: const Icon(Icons.tv),
-                            title: new Text(Title),
-                            trailing: new IconButton(
-                              icon: new Icon(Icons.share),
-                              tooltip: 'Share URL',
-                              onPressed: share,
-                            )
-                        ),
-                        new Container(
-                          width: 370.0,
-                          height: 200.0,
-                          child: Stack(
-                            children: <Widget>[
-                              Center(child: CircularProgressIndicator()),
-                              Center(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: IMGURL,
-                                ),
-                              ),
-                            ],
+                    new Material(
+                    elevation: 8.0,
+                      borderRadius:
+                      new BorderRadius.all(new Radius.circular(8.0)),
+                      child: new Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          ListTile(
+                              leading: const Icon(Icons.tv),
+                              title: new Text(Title),
+                              trailing: new IconButton(
+                                icon: new Icon(Icons.share),
+                                tooltip: 'Share URL',
+                                onPressed: share,
+                              )
                           ),
-                        ),
-                        new ListTile(
-                          title: new Text(
-                            '$views views',
-                            style: new TextStyle(
-                              color: Colors.grey.withOpacity(1.0),
+                          new Container(
+                            width: 370.0,
+                            height: 200.0,
+                            child: Stack(
+                              children: <Widget>[
+                                Center(child: CircularProgressIndicator()),
+                                Center(
+                                  child: FadeInImage.memoryNetwork(
+                                    placeholder: kTransparentImage,
+                                    image: IMGURL,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          trailing: new FlatButton(
-                            child: new Text('Watch',
+                          new ListTile(
+                            title: new Text(
+                              '$views views',
                               style: new TextStyle(
-                                color: Colors.red.withOpacity(1.0),
-                              ),),
-                            onPressed: playYoutubeVideo,
+                                color: Colors.grey.withOpacity(1.0),
+                              ),
+                            ),
+                            trailing: new FlatButton(
+                              child: new Text('Watch',
+                                style: new TextStyle(
+                                  color: Colors.red.withOpacity(1.0),
+                                ),),
+                              onPressed: playYoutubeVideo,
+                            ),
                           ),
-                        ),
+                        ],
+                      ),
+                    ),
                       ],
                     ),
-                  );
-                }));
-      }
+        );}
       ;
     }
     ;
@@ -675,7 +678,8 @@ class HomePageState extends State<HomePage> {
       return new ListView(
         children: <Widget>[
           new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               new Text('\n\n'),
               new Card(
