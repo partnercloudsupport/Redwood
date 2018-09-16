@@ -575,14 +575,15 @@ class HomePageState extends State<HomePage> {
     );
 
     //Waiting for flutter_youtube to add end call for ios
-    views = views +1;
+    views = views + 1;
 
     Map<String, int> data = <String, int>{
       "views": views,
     };
-    documentReference.updateData(data).whenComplete(() {
-
-    }).catchError((e) => print(e));
+    documentReference
+        .updateData(data)
+        .whenComplete(() {})
+        .catchError((e) => print(e));
   }
 
   void share() {
@@ -596,63 +597,67 @@ class HomePageState extends State<HomePage> {
           _connectionStatus == 'Unknown' ||
           _connectionStatus == 'ConnectivityResult.mobile') {
         return new Scaffold(
-            body: new ListView.builder(
-                itemCount: 1,
-                itemBuilder: (BuildContext context, int index) {
-                  return new Card(
-                    elevation: 3.0,
-                    shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0)),
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        ListTile(
+          body: new Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              new Padding(
+                padding: new EdgeInsets.all(8.0),
+                child: new Material(
+                  elevation: 5.0,
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ListTile(
                           leading: const Icon(Icons.tv),
                           title: new Text(Title),
                           trailing: new IconButton(
-                            icon: new Icon(Icons.more_vert),
+                            icon: new Icon(Icons.share),
                             tooltip: 'Share URL',
                             onPressed: share,
-                          )
-                        ),
-                        new Container(
-                          width: 370.0,
-                          height: 200.0,
-                          child: Stack(
-                            children: <Widget>[
-                              Center(child: CircularProgressIndicator()),
-                              Center(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: IMGURL,
-                                ),
+                          )),
+                      new Container(
+                        width: 370.0,
+                        height: 200.0,
+                        child: Stack(
+                          children: <Widget>[
+                            Center(child: CircularProgressIndicator()),
+                            Center(
+                              child: FadeInImage.memoryNetwork(
+                                placeholder: kTransparentImage,
+                                image: IMGURL,
                               ),
-                            ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      new ListTile(
+                        title: new Text(
+                          '$views views',
+                          style: new TextStyle(
+                            color: Colors.grey.withOpacity(1.0),
                           ),
                         ),
-                        new ListTile(
-                          title: new Text(
-                            '$views views',
+                        trailing: new FlatButton(
+                          child: new Text(
+                            'Watch',
                             style: new TextStyle(
-                              color: Colors.grey.withOpacity(1.0),
+                              color: Colors.red.withOpacity(1.0),
                             ),
                           ),
-                          trailing: new FlatButton(
-                            child: new Text('Watch',
-                              style: new TextStyle(
-                                color: Colors.red.withOpacity(1.0),
-                              ),),
-                            onPressed: playYoutubeVideo,
-                          ),
+                          onPressed: playYoutubeVideo,
                         ),
-                      ],
-                    ),
-                  );
-                }));
-      }
-      ;
-    }
-    ;
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      };
+    };
     //Loading Screen for Today Page
     if (video == false) {
       if (_connectionStatus == 'ConnectivityResult.wifi' ||
@@ -675,32 +680,35 @@ class HomePageState extends State<HomePage> {
       return new ListView(
         children: <Widget>[
           new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              new Text('\n\n'),
-              new Card(
-                elevation: 3.0,
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(10.0)),
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text('No Network Connection'),
-                      subtitle: new Text(
-                        'You\'re not connected to the Internet. Check your connection and try again.',
-                        style: new TextStyle(
-                            color: Colors.grey.withOpacity(0.9),
-                            fontSize: 12.0),
+              new Padding(
+                padding: new EdgeInsets.all(8.0),
+                child: new Material(
+                  elevation: 58.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
+                        title: new Text('No Network Connection'),
+                        subtitle: new Text(
+                          'You\'re not connected to the Internet. Check your connection and try again.',
+                          style: new TextStyle(
+                              color: Colors.grey.withOpacity(0.9),
+                              fontSize: 12.0),
+                        ),
                       ),
-                    ),
-                    new Image.asset(
-                      'ni.jpg',
-                      height: 276.0,
-                      width: 197.0,
-                    ),
-                    new Text('\n')
-                  ],
+                      new Image.asset(
+                        'ni.jpg',
+                        height: 276.0,
+                        width: 197.0,
+                      ),
+                      new Text('\n')
+                    ],
+                  ),
                 ),
               ),
             ],
