@@ -31,63 +31,75 @@ class ContactViewPage extends StatelessWidget {
                 ),
                 animateExit: false,
                 secondaryVillainAnimation: VillainAnimation.fade(),
-                child: new Card(
-                  child: new Column(
-                    children: <Widget>[
-                      new ListTile(
-                        leading: new Icon(
-                          Icons.class_,
-                          color: Colors.redAccent,
-                          size: 26.0,
+                child: new Padding(
+                  padding: new EdgeInsets.only(
+                    left: 8.0,
+                    right: 8.0,
+                    top: 7.0,
+                    bottom: 7.0,
+                  ),
+                  child: new Material(
+                    elevation: 5.0,
+                    borderRadius:
+                        new BorderRadius.all(new Radius.circular(10.0)),
+                    child: new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new ListTile(
+                          leading: new Icon(
+                            Icons.class_,
+                            color: Colors.redAccent,
+                            size: 26.0,
+                          ),
+                          title: new Text(
+                            contact.department,
+                            style: new TextStyle(fontWeight: FontWeight.w400),
+                          ),
                         ),
-                        title: new Text(
-                          contact.department,
-                          style: new TextStyle(fontWeight: FontWeight.w400),
+                        //-- This is going to added back as soon as we get permission from the principal
+
+                        // new ListTile(
+                        //   leading: new Icon(
+                        //     Icons.room,
+                        //     color: Colors.redAccent,
+                        //     size: 26.0,
+                        //   ),
+                        //   title: new Text(
+                        //     contact.room,
+                        //     style: new TextStyle(fontWeight: FontWeight.w400),
+                        //   ),
+                        // ),
+                        new ListTile(
+                          onTap: () {
+                            launch('mailto:' + contact.email);
+                          },
+                          onLongPress: share,
+                          leading: new Icon(
+                            Icons.email,
+                            color: Colors.redAccent,
+                            size: 26.0,
+                          ),
+                          title: new Text(
+                            contact.email,
+                            style: new TextStyle(fontWeight: FontWeight.w400),
+                          ),
                         ),
-                      ),
-                      //-- This is going to added back as soon as we get permission from the principal
-                      
-                      // new ListTile(
-                      //   leading: new Icon(
-                      //     Icons.room,
-                      //     color: Colors.redAccent,
-                      //     size: 26.0,
-                      //   ),
-                      //   title: new Text(
-                      //     contact.room,
-                      //     style: new TextStyle(fontWeight: FontWeight.w400),
-                      //   ),
-                      // ),
-                      new ListTile(
-                        onTap: () {
-                          launch('mailto:' + contact.email);
-                        },
-                        onLongPress: share,
-                        leading: new Icon(
-                          Icons.email,
-                          color: Colors.redAccent,
-                          size: 26.0,
-                        ),
-                        title: new Text(
-                          contact.email,
-                          style: new TextStyle(fontWeight: FontWeight.w400),
-                        ),
-                      ),
-                      new ListTile(
-                        onTap: () {
-                          launch(contact.website);
-                        },
-                        leading: new Icon(
-                          Icons.web,
-                          color: Colors.redAccent,
-                          size: 26.0,
-                        ),
-                        title: new Text(
-                          contact.website,
-                          style: new TextStyle(fontWeight: FontWeight.w400),
-                        ),
-                      )
-                    ],
+                        new ListTile(
+                          onTap: () {
+                            launch(contact.website);
+                          },
+                          leading: new Icon(
+                            Icons.web,
+                            color: Colors.redAccent,
+                            size: 26.0,
+                          ),
+                          title: new Text(
+                            contact.website,
+                            style: new TextStyle(fontWeight: FontWeight.w400),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

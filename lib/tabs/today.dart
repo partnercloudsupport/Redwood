@@ -8,6 +8,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:holding_gesture/holding_gesture.dart';
 
 class Today extends StatelessWidget {
   @override
@@ -25,6 +27,9 @@ class HomePageState extends State<HomePage> {
   SharedPreferences prefs;
 
   int time = 0;
+  int ST = 0;
+  String annBody = 'No announcements today! 😃';
+  String annLink = 'null';
 
   //--This is for the info cards for users--
   String WeekDay = 'Monday';
@@ -35,6 +40,7 @@ class HomePageState extends State<HomePage> {
   String CurrentClass = 'First Period';
   String CurrentClassStart = '8:00 AM';
   String CurrentClassEnd = '8:48 AM';
+  String Date;
 
   //--
 
@@ -61,6 +67,25 @@ class HomePageState extends State<HomePage> {
 
   //--
 
+  _STinson() {
+    ST = ST + 1;
+    if (ST >= 26){
+      ST = 0;
+      final snackBar = new SnackBar(
+        content: new Text("sUper STinson sLimey Bois"),
+        duration: new Duration(seconds: 3),
+        backgroundColor: Colors.black,
+        action: new SnackBarAction(label: 'YEET', onPressed: (){
+        }),
+      );
+      Scaffold.of(context).showSnackBar(snackBar);
+    }
+
+    setState(() {
+      ST;
+    });
+  }
+
   void _Setup() {
     Navigator.of(context)
         .push(
@@ -78,6 +103,22 @@ class HomePageState extends State<HomePage> {
             }));
   }
 
+  StreamSubscription<DocumentSnapshot> subscription;
+
+  final DocumentReference documentReference =
+      Firestore.instance.document("a/post1");
+
+  void _fetch() {
+    documentReference.get().then((datasnapshot) {
+      if (datasnapshot.exists) {
+        setState(() {
+          annBody = datasnapshot.data['body'];
+          annLink = datasnapshot.data['link'];
+        });
+      }
+    });
+  }
+
   @override
   void initState() {
     //-- Lets cached info load in before it overrides the page defaults
@@ -86,7 +127,7 @@ class HomePageState extends State<HomePage> {
       checkinfo();
     });
     //--
-
+    this._fetch();
     super.initState();
     init();
   }
@@ -96,7 +137,9 @@ class HomePageState extends State<HomePage> {
 
     var now = new DateTime.now();
     var formatter = new DateFormat.E();
+    var formatterDate = new DateFormat('MM.dd.yyyy');
     String formatted = formatter.format(now);
+    String formattedDate = formatterDate.format(now);
 
     //-- Gets the cached info from SharedPreferences
     zeroPeriod = prefs.getBool('zeroPeriod');
@@ -111,6 +154,7 @@ class HomePageState extends State<HomePage> {
     //--
 
     WeekDay = formatted;
+    Date = formattedDate;
 
     //-- overrides the default info and replaces it with the cached info
     this.setState(() {
@@ -124,6 +168,7 @@ class HomePageState extends State<HomePage> {
       seventhPeriod;
       Name;
       WeekDay;
+      Date;
     });
   }
 
@@ -163,16 +208,14 @@ class HomePageState extends State<HomePage> {
         seventhPeriod == true) {
       classes_setup = true;
 
-
-
       WeekDay = formattedDayWeek;
       //-- Sets the Strings
       if (WeekDay == 'Mon') {
         //Current Class Card
         // Zero Period **
-        if (formatted24Hour == '07'){
-          if (min >= 05){
-            if (min <= 55){
+        if (formatted24Hour == '07') {
+          if (min >= 05) {
+            if (min <= 55) {
               CurrentClass = 'Zero Period';
               CurrentClassStart = '7:05 AM';
               CurrentClassEnd = '7:55 AM';
@@ -180,9 +223,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** First Period **
-        if (formatted24Hour == '08'){
-          if (min >= 00){
-            if (min <= 48){
+        if (formatted24Hour == '08') {
+          if (min >= 00) {
+            if (min <= 48) {
               CurrentClass = 'First Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '8:48 AM';
@@ -190,18 +233,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         //** Second Period **
-        if (formatted24Hour == '08'){
-          if (min >= 55){
-            if (min <= 59){
+        if (formatted24Hour == '08') {
+          if (min >= 55) {
+            if (min <= 59) {
               CurrentClass = 'Second Period';
               CurrentClassStart = '8:55 AM';
               CurrentClassEnd = '9:43 AM';
             }
           }
         }
-        if (formatted24Hour == '09'){
-          if (min >= 00){
-            if (min <= 42){
+        if (formatted24Hour == '09') {
+          if (min >= 00) {
+            if (min <= 42) {
               CurrentClass = 'Second Period';
               CurrentClassStart = '8:55 AM';
               CurrentClassEnd = '9:43 AM';
@@ -209,9 +252,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Break **
-        if (formatted24Hour == '09'){
-          if (min >= 43){
-            if (min <= 53){
+        if (formatted24Hour == '09') {
+          if (min >= 43) {
+            if (min <= 53) {
               CurrentClass = 'Break';
               CurrentClassStart = '9:43 AM';
               CurrentClassEnd = '9:53 AM';
@@ -219,9 +262,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Third Period
-        if (formatted24Hour == '10'){
-          if (min >= 00){
-            if (min <= 48){
+        if (formatted24Hour == '10') {
+          if (min >= 00) {
+            if (min <= 48) {
               CurrentClass = 'Third Period';
               CurrentClassStart = '10:00 AM';
               CurrentClassEnd = '10:48 AM';
@@ -229,18 +272,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Fourth Period
-        if (formatted24Hour == '10'){
-          if (min >= 55){
-            if (min <= 59){
+        if (formatted24Hour == '10') {
+          if (min >= 55) {
+            if (min <= 59) {
               CurrentClass = 'Fourth Period';
               CurrentClassStart = '10:55 AM';
               CurrentClassEnd = '11:43 AM';
             }
           }
         }
-        if (formatted24Hour == '10'){
-          if (min >= 00){
-            if (min <= 43){
+        if (formatted24Hour == '10') {
+          if (min >= 00) {
+            if (min <= 43) {
               CurrentClass = 'Fourth Period';
               CurrentClassStart = '10:55 AM';
               CurrentClassEnd = '11:43 AM';
@@ -248,18 +291,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Lunch **
-        if (formatted24Hour == '11'){
-          if (min >= 43){
-            if (min <= 59){
+        if (formatted24Hour == '11') {
+          if (min >= 43) {
+            if (min <= 59) {
               CurrentClass = 'Lunch';
               CurrentClassStart = '11:43 AM';
               CurrentClassEnd = '12:18 PM';
             }
           }
         }
-        if (formatted24Hour == '12'){
-          if (min >= 00){
-            if (min <= 18){
+        if (formatted24Hour == '12') {
+          if (min >= 00) {
+            if (min <= 18) {
               CurrentClass = 'Fourth Period';
               CurrentClassStart = '11:43 AM';
               CurrentClassEnd = '12:18 PM';
@@ -267,18 +310,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Fifth Period **
-        if (formatted24Hour == '12'){
-          if (min >= 25){
-            if (min <= 59){
+        if (formatted24Hour == '12') {
+          if (min >= 25) {
+            if (min <= 59) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '12:25 PM';
               CurrentClassEnd = '1:13 PM';
             }
           }
         }
-        if (formatted24Hour == '13'){
-          if (min >= 00){
-            if (min <= 13){
+        if (formatted24Hour == '13') {
+          if (min >= 00) {
+            if (min <= 13) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '12:25 PM';
               CurrentClassEnd = '1:13 PM';
@@ -286,18 +329,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Sixth Period **
-        if (formatted24Hour == '13'){
-          if (min >= 20){
-            if (min <= 59){
+        if (formatted24Hour == '13') {
+          if (min >= 20) {
+            if (min <= 59) {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '1:20 PM';
               CurrentClassEnd = '2:08 PM';
             }
           }
         }
-        if (formatted24Hour == '14'){
-          if (min >= 00){
-            if (min <= 08){
+        if (formatted24Hour == '14') {
+          if (min >= 00) {
+            if (min <= 08) {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '1:20 PM';
               CurrentClassEnd = '2:08 PM';
@@ -305,18 +348,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Seventh Period **
-        if (formatted24Hour == '14'){
-          if (min >= 15){
-            if (min <= 59){
+        if (formatted24Hour == '14') {
+          if (min >= 15) {
+            if (min <= 59) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '2:15 PM';
               CurrentClassEnd = '3:03 PM';
             }
           }
         }
-        if (formatted24Hour == '15'){
-          if (min >= 00){
-            if (min <= 03){
+        if (formatted24Hour == '15') {
+          if (min >= 00) {
+            if (min <= 03) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '2:15 PM';
               CurrentClassEnd = '3:03 PM';
@@ -360,9 +403,9 @@ class HomePageState extends State<HomePage> {
       if (WeekDay == 'Tue') {
         //Current Class Card
         // Zero Period **
-        if (formatted24Hour == '07'){
-          if (min >= 05){
-            if (min <= 55){
+        if (formatted24Hour == '07') {
+          if (min >= 05) {
+            if (min <= 55) {
               CurrentClass = 'Zero Period';
               CurrentClassStart = '7:05 AM';
               CurrentClassEnd = '7:55 AM';
@@ -370,9 +413,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** First Period **
-        if (formatted24Hour == '08'){
-          if (min >= 00){
-            if (min <= 48){
+        if (formatted24Hour == '08') {
+          if (min >= 00) {
+            if (min <= 48) {
               CurrentClass = 'First Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '8:48 AM';
@@ -380,18 +423,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         //** Second Period **
-        if (formatted24Hour == '08'){
-          if (min >= 55){
-            if (min <= 59){
+        if (formatted24Hour == '08') {
+          if (min >= 55) {
+            if (min <= 59) {
               CurrentClass = 'Second Period';
               CurrentClassStart = '8:55 AM';
               CurrentClassEnd = '9:43 AM';
             }
           }
         }
-        if (formatted24Hour == '09'){
-          if (min >= 00){
-            if (min <= 42){
+        if (formatted24Hour == '09') {
+          if (min >= 00) {
+            if (min <= 42) {
               CurrentClass = 'Second Period';
               CurrentClassStart = '8:55 AM';
               CurrentClassEnd = '9:43 AM';
@@ -399,9 +442,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Break **
-        if (formatted24Hour == '09'){
-          if (min >= 43){
-            if (min <= 53){
+        if (formatted24Hour == '09') {
+          if (min >= 43) {
+            if (min <= 53) {
               CurrentClass = 'Break';
               CurrentClassStart = '9:43 AM';
               CurrentClassEnd = '9:53 AM';
@@ -409,9 +452,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Third Period
-        if (formatted24Hour == '10'){
-          if (min >= 00){
-            if (min <= 48){
+        if (formatted24Hour == '10') {
+          if (min >= 00) {
+            if (min <= 48) {
               CurrentClass = 'Third Period';
               CurrentClassStart = '10:00 AM';
               CurrentClassEnd = '10:48 AM';
@@ -419,18 +462,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Fourth Period
-        if (formatted24Hour == '10'){
-          if (min >= 55){
-            if (min <= 59){
+        if (formatted24Hour == '10') {
+          if (min >= 55) {
+            if (min <= 59) {
               CurrentClass = 'Fourth Period';
               CurrentClassStart = '10:55 AM';
               CurrentClassEnd = '11:43 AM';
             }
           }
         }
-        if (formatted24Hour == '10'){
-          if (min >= 00){
-            if (min <= 43){
+        if (formatted24Hour == '10') {
+          if (min >= 00) {
+            if (min <= 43) {
               CurrentClass = 'Fourth Period';
               CurrentClassStart = '10:55 AM';
               CurrentClassEnd = '11:43 AM';
@@ -438,18 +481,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Lunch **
-        if (formatted24Hour == '11'){
-          if (min >= 43){
-            if (min <= 59){
+        if (formatted24Hour == '11') {
+          if (min >= 43) {
+            if (min <= 59) {
               CurrentClass = 'Lunch';
               CurrentClassStart = '11:43 AM';
               CurrentClassEnd = '12:18 PM';
             }
           }
         }
-        if (formatted24Hour == '12'){
-          if (min >= 00){
-            if (min <= 18){
+        if (formatted24Hour == '12') {
+          if (min >= 00) {
+            if (min <= 18) {
               CurrentClass = 'Fourth Period';
               CurrentClassStart = '11:43 AM';
               CurrentClassEnd = '12:18 PM';
@@ -457,18 +500,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Fifth Period **
-        if (formatted24Hour == '12'){
-          if (min >= 25){
-            if (min <= 59){
+        if (formatted24Hour == '12') {
+          if (min >= 25) {
+            if (min <= 59) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '12:25 PM';
               CurrentClassEnd = '1:13 PM';
             }
           }
         }
-        if (formatted24Hour == '13'){
-          if (min >= 00){
-            if (min <= 13){
+        if (formatted24Hour == '13') {
+          if (min >= 00) {
+            if (min <= 13) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '12:25 PM';
               CurrentClassEnd = '1:13 PM';
@@ -476,18 +519,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Sixth Period **
-        if (formatted24Hour == '13'){
-          if (min >= 20){
-            if (min <= 59){
+        if (formatted24Hour == '13') {
+          if (min >= 20) {
+            if (min <= 59) {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '1:20 PM';
               CurrentClassEnd = '2:08 PM';
             }
           }
         }
-        if (formatted24Hour == '14'){
-          if (min >= 00){
-            if (min <= 08){
+        if (formatted24Hour == '14') {
+          if (min >= 00) {
+            if (min <= 08) {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '1:20 PM';
               CurrentClassEnd = '2:08 PM';
@@ -495,18 +538,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Seventh Period **
-        if (formatted24Hour == '14'){
-          if (min >= 15){
-            if (min <= 59){
+        if (formatted24Hour == '14') {
+          if (min >= 15) {
+            if (min <= 59) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '2:15 PM';
               CurrentClassEnd = '3:03 PM';
             }
           }
         }
-        if (formatted24Hour == '15'){
-          if (min >= 00){
-            if (min <= 03){
+        if (formatted24Hour == '15') {
+          if (min >= 00) {
+            if (min <= 03) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '2:15 PM';
               CurrentClassEnd = '3:03 PM';
@@ -550,9 +593,9 @@ class HomePageState extends State<HomePage> {
       if (WeekDay == 'Wed') {
         //Current Class Card
         //Zero Period **
-        if (formatted24Hour == '07'){
-          if (min >= 05){
-            if (min <= 53){
+        if (formatted24Hour == '07') {
+          if (min >= 05) {
+            if (min <= 53) {
               CurrentClass = 'Zero Period';
               CurrentClassStart = '7:05 AM';
               CurrentClassEnd = '7:53 AM';
@@ -560,18 +603,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         //** Forth Period **
-        if (formatted24Hour == '8'){
-          if (min >= 00){
-            if (min <= 59){
+        if (formatted24Hour == '8') {
+          if (min >= 00) {
+            if (min <= 59) {
               CurrentClass = 'Forth Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '9:30 AM';
             }
           }
         }
-        if (formatted24Hour == '9'){
-          if (min >= 00){
-            if (min <= 29){
+        if (formatted24Hour == '9') {
+          if (min >= 00) {
+            if (min <= 29) {
               CurrentClass = 'Forth Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '9:30 AM';
@@ -579,9 +622,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Break **
-        if (formatted24Hour == '9'){
-          if (min >= 30){
-            if (min <= 40){
+        if (formatted24Hour == '9') {
+          if (min >= 30) {
+            if (min <= 40) {
               CurrentClass = 'Break';
               CurrentClassStart = '9:40 AM';
               CurrentClassEnd = '9:40 AM';
@@ -589,27 +632,27 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Fifth Period **
-        if (formatted24Hour == '9'){
-          if (min >= 47){
-            if (min <= 59){
+        if (formatted24Hour == '9') {
+          if (min >= 47) {
+            if (min <= 59) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '9:47 AM';
               CurrentClassEnd = '11:17 AM';
             }
           }
         }
-        if (formatted24Hour == '10'){
-          if (min >= 00){
-            if (min <= 59){
+        if (formatted24Hour == '10') {
+          if (min >= 00) {
+            if (min <= 59) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '9:47 AM';
               CurrentClassEnd = '11:17 AM';
             }
           }
         }
-        if (formatted24Hour == '11'){
-          if (min >= 00){
-            if (min <= 16){
+        if (formatted24Hour == '11') {
+          if (min >= 00) {
+            if (min <= 16) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '9:47 AM';
               CurrentClassEnd = '11:17 AM';
@@ -617,9 +660,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Lunch **
-        if (formatted24Hour == '11'){
-          if (min >= 17){
-            if (min <= 53){
+        if (formatted24Hour == '11') {
+          if (min >= 17) {
+            if (min <= 53) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '11:17 AM';
               CurrentClassEnd = '11:53 AM';
@@ -627,18 +670,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Sixth Period **
-        if (formatted24Hour == '12'){
-          if (min >= 00){
-            if (min <= 59){
+        if (formatted24Hour == '12') {
+          if (min >= 00) {
+            if (min <= 59) {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '12:00 PM';
               CurrentClassEnd = '1:30 PM';
             }
           }
         }
-        if (formatted24Hour == '13'){
-          if (min >= 00){
-            if (min <= 30){
+        if (formatted24Hour == '13') {
+          if (min >= 00) {
+            if (min <= 30) {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '12:00 PM';
               CurrentClassEnd = '1:30 PM';
@@ -646,27 +689,27 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Seventh Period **
-        if (formatted24Hour == '13'){
-          if (min >= 37){
-            if (min <= 59){
+        if (formatted24Hour == '13') {
+          if (min >= 37) {
+            if (min <= 59) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '1:37 PM';
               CurrentClassEnd = '3:07 PM';
             }
           }
         }
-        if (formatted24Hour == '14'){
-          if (min >= 00){
-            if (min <= 59){
+        if (formatted24Hour == '14') {
+          if (min >= 00) {
+            if (min <= 59) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '1:37 PM';
               CurrentClassEnd = '3:07 PM';
             }
           }
         }
-        if (formatted24Hour == '15'){
-          if (min >= 00){
-            if (min <= 07){
+        if (formatted24Hour == '15') {
+          if (min >= 00) {
+            if (min <= 07) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '1:37 PM';
               CurrentClassEnd = '3:07 PM';
@@ -708,9 +751,9 @@ class HomePageState extends State<HomePage> {
       if (WeekDay == 'Thu') {
         //Current Class Card
         //Zero Period
-        if (formatted24Hour == '07'){
-          if (min >= 05){
-            if (min <= 53){
+        if (formatted24Hour == '07') {
+          if (min >= 05) {
+            if (min <= 53) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '7:05 AM';
               CurrentClassEnd = '7:53 AM';
@@ -718,18 +761,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** First Period **
-        if (formatted24Hour == '08'){
-          if (min >= 00){
-            if (min <= 59){
+        if (formatted24Hour == '08') {
+          if (min >= 00) {
+            if (min <= 59) {
               CurrentClass = 'First Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '9:30 AM';
             }
           }
         }
-        if (formatted24Hour == '09'){
-          if (min >= 00){
-            if (min <= 30){
+        if (formatted24Hour == '09') {
+          if (min >= 00) {
+            if (min <= 30) {
               CurrentClass = 'First Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '9:30 AM';
@@ -737,9 +780,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Homeroom **
-        if (formatted24Hour == '09'){
-          if (min >= 37){
-            if (min <= 46){
+        if (formatted24Hour == '09') {
+          if (min >= 37) {
+            if (min <= 46) {
               CurrentClass = 'Homeroom';
               CurrentClassStart = '9:37 AM';
               CurrentClassEnd = '9:47 AM';
@@ -747,18 +790,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** SMART **
-        if (formatted24Hour == '09'){
-          if (min >= 47){
-            if (min <= 59){
+        if (formatted24Hour == '09') {
+          if (min >= 47) {
+            if (min <= 59) {
               CurrentClass = 'SMART';
               CurrentClassStart = '9:47 AM';
               CurrentClassEnd = '10:30 AM';
             }
           }
         }
-        if (formatted24Hour == '10'){
-          if (min >= 00){
-            if (min <= 29){
+        if (formatted24Hour == '10') {
+          if (min >= 00) {
+            if (min <= 29) {
               CurrentClass = 'SMART';
               CurrentClassStart = '9:47 AM';
               CurrentClassEnd = '10:30 AM';
@@ -766,9 +809,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Break **
-        if (formatted24Hour == '10'){
-          if (min >= 30){
-            if (min <= 40){
+        if (formatted24Hour == '10') {
+          if (min >= 30) {
+            if (min <= 40) {
               CurrentClass = 'Break';
               CurrentClassStart = '10:30 AM';
               CurrentClassEnd = '10:40 AM';
@@ -776,27 +819,27 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Second Period **
-        if (formatted24Hour == '10'){
-          if (min >= 47){
-            if (min <= 40){
+        if (formatted24Hour == '10') {
+          if (min >= 47) {
+            if (min <= 40) {
               CurrentClass = 'Second Period';
               CurrentClassStart = '10:47 AM';
               CurrentClassEnd = '12:17 PM';
             }
           }
         }
-        if (formatted24Hour == '11'){
-          if (min >= 00){
-            if (min <= 59){
+        if (formatted24Hour == '11') {
+          if (min >= 00) {
+            if (min <= 59) {
               CurrentClass = 'Second Period';
               CurrentClassStart = '10:47 AM';
               CurrentClassEnd = '12:17 PM';
             }
           }
         }
-        if (formatted24Hour == '12'){
-          if (min >= 00){
-            if (min <= 16){
+        if (formatted24Hour == '12') {
+          if (min >= 00) {
+            if (min <= 16) {
               CurrentClass = 'Second Period';
               CurrentClassStart = '10:47 AM';
               CurrentClassEnd = '12:17 PM';
@@ -804,9 +847,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Lunch **
-        if (formatted24Hour == '12'){
-          if (min >= 17){
-            if (min <= 55){
+        if (formatted24Hour == '12') {
+          if (min >= 17) {
+            if (min <= 55) {
               CurrentClass = 'Lunch';
               CurrentClassStart = '12:17 PM';
               CurrentClassEnd = '12:55 PM';
@@ -814,18 +857,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Third Period **
-        if (formatted24Hour == '13'){
-          if (min >= 02){
-            if (min <= 59){
+        if (formatted24Hour == '13') {
+          if (min >= 02) {
+            if (min <= 59) {
               CurrentClass = 'Third Period';
               CurrentClassStart = '1:02 PM';
               CurrentClassEnd = '2:32 PM';
             }
           }
         }
-        if (formatted24Hour == '14'){
-          if (min >= 00){
-            if (min <= 32){
+        if (formatted24Hour == '14') {
+          if (min >= 00) {
+            if (min <= 32) {
               CurrentClass = 'Third Period';
               CurrentClassStart = '1:02 PM';
               CurrentClassEnd = '2:32 PM';
@@ -864,9 +907,9 @@ class HomePageState extends State<HomePage> {
       if (WeekDay == 'Fri') {
         //Current Class Card
         // Zero Period **
-        if (formatted24Hour == '07'){
-          if (min >= 05){
-            if (min <= 55){
+        if (formatted24Hour == '07') {
+          if (min >= 05) {
+            if (min <= 55) {
               CurrentClass = 'Zero Period';
               CurrentClassStart = '7:05 AM';
               CurrentClassEnd = '7:55 AM';
@@ -874,9 +917,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** First Period **
-        if (formatted24Hour == '08'){
-          if (min >= 00){
-            if (min <= 48){
+        if (formatted24Hour == '08') {
+          if (min >= 00) {
+            if (min <= 48) {
               CurrentClass = 'First Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '8:48 AM';
@@ -884,18 +927,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         //** Second Period **
-        if (formatted24Hour == '08'){
-          if (min >= 55){
-            if (min <= 59){
+        if (formatted24Hour == '08') {
+          if (min >= 55) {
+            if (min <= 59) {
               CurrentClass = 'Second Period';
               CurrentClassStart = '8:55 AM';
               CurrentClassEnd = '9:43 AM';
             }
           }
         }
-        if (formatted24Hour == '09'){
-          if (min >= 00){
-            if (min <= 42){
+        if (formatted24Hour == '09') {
+          if (min >= 00) {
+            if (min <= 42) {
               CurrentClass = 'Second Period';
               CurrentClassStart = '8:55 AM';
               CurrentClassEnd = '9:43 AM';
@@ -903,9 +946,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Break **
-        if (formatted24Hour == '09'){
-          if (min >= 43){
-            if (min <= 53){
+        if (formatted24Hour == '09') {
+          if (min >= 43) {
+            if (min <= 53) {
               CurrentClass = 'Break';
               CurrentClassStart = '9:43 AM';
               CurrentClassEnd = '9:53 AM';
@@ -913,9 +956,9 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Third Period
-        if (formatted24Hour == '10'){
-          if (min >= 00){
-            if (min <= 48){
+        if (formatted24Hour == '10') {
+          if (min >= 00) {
+            if (min <= 48) {
               CurrentClass = 'Third Period';
               CurrentClassStart = '10:00 AM';
               CurrentClassEnd = '10:48 AM';
@@ -923,18 +966,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Fourth Period
-        if (formatted24Hour == '10'){
-          if (min >= 55){
-            if (min <= 59){
+        if (formatted24Hour == '10') {
+          if (min >= 55) {
+            if (min <= 59) {
               CurrentClass = 'Fourth Period';
               CurrentClassStart = '10:55 AM';
               CurrentClassEnd = '11:43 AM';
             }
           }
         }
-        if (formatted24Hour == '10'){
-          if (min >= 00){
-            if (min <= 43){
+        if (formatted24Hour == '10') {
+          if (min >= 00) {
+            if (min <= 43) {
               CurrentClass = 'Fourth Period';
               CurrentClassStart = '10:55 AM';
               CurrentClassEnd = '11:43 AM';
@@ -942,18 +985,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Lunch **
-        if (formatted24Hour == '11'){
-          if (min >= 43){
-            if (min <= 59){
+        if (formatted24Hour == '11') {
+          if (min >= 43) {
+            if (min <= 59) {
               CurrentClass = 'Lunch';
               CurrentClassStart = '11:43 AM';
               CurrentClassEnd = '12:18 PM';
             }
           }
         }
-        if (formatted24Hour == '12'){
-          if (min >= 00){
-            if (min <= 18){
+        if (formatted24Hour == '12') {
+          if (min >= 00) {
+            if (min <= 18) {
               CurrentClass = 'Fourth Period';
               CurrentClassStart = '11:43 AM';
               CurrentClassEnd = '12:18 PM';
@@ -961,18 +1004,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Fifth Period **
-        if (formatted24Hour == '12'){
-          if (min >= 25){
-            if (min <= 59){
+        if (formatted24Hour == '12') {
+          if (min >= 25) {
+            if (min <= 59) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '12:25 PM';
               CurrentClassEnd = '1:13 PM';
             }
           }
         }
-        if (formatted24Hour == '13'){
-          if (min >= 00){
-            if (min <= 13){
+        if (formatted24Hour == '13') {
+          if (min >= 00) {
+            if (min <= 13) {
               CurrentClass = 'Fifth Period';
               CurrentClassStart = '12:25 PM';
               CurrentClassEnd = '1:13 PM';
@@ -980,18 +1023,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Sixth Period **
-        if (formatted24Hour == '13'){
-          if (min >= 20){
-            if (min <= 59){
+        if (formatted24Hour == '13') {
+          if (min >= 20) {
+            if (min <= 59) {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '1:20 PM';
               CurrentClassEnd = '2:08 PM';
             }
           }
         }
-        if (formatted24Hour == '14'){
-          if (min >= 00){
-            if (min <= 08){
+        if (formatted24Hour == '14') {
+          if (min >= 00) {
+            if (min <= 08) {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '1:20 PM';
               CurrentClassEnd = '2:08 PM';
@@ -999,18 +1042,18 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Seventh Period **
-        if (formatted24Hour == '14'){
-          if (min >= 15){
-            if (min <= 59){
+        if (formatted24Hour == '14') {
+          if (min >= 15) {
+            if (min <= 59) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '2:15 PM';
               CurrentClassEnd = '3:03 PM';
             }
           }
         }
-        if (formatted24Hour == '15'){
-          if (min >= 00){
-            if (min <= 03){
+        if (formatted24Hour == '15') {
+          if (min >= 00) {
+            if (min <= 03) {
               CurrentClass = 'Seventh Period';
               CurrentClassStart = '2:15 PM';
               CurrentClassEnd = '3:03 PM';
@@ -1075,7 +1118,14 @@ class HomePageState extends State<HomePage> {
     //-- If a user set up there classes it displays the today page
     if (page == true && classes_setup == true) {
       //If its the weekend it shows this
-      if (WeekDay == 'Sun' || WeekDay == 'Sat') {
+      if (WeekDay == 'Sun' ||
+          WeekDay == 'Sat' ||
+          Date == '09.19.2018' ||
+          Date == '11.19.2018' ||
+          Date == '11.20.2018' ||
+          Date == '11.21.2018' ||
+          Date == '11.22.2018' ||
+          Date == '11.23.2018') {
         return new Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1092,10 +1142,48 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             new Text(""),
             new ListTile(
-              title: new Text(
-                'Hello, ' + Name,
-                style: new TextStyle(
-                    color: Colors.black.withOpacity(0.8), fontSize: 20.0),
+              title:
+              HoldDetector(
+                onHold: _STinson,
+                holdTimeout: Duration(milliseconds: 500),
+                enableHapticFeedback: false,
+                child: new Text(
+                  'Hello, ' + Name,
+                  style: new TextStyle(
+                      color: Colors.black.withOpacity(0.8), fontSize: 20.0),
+                ),
+              ),
+            ),
+            new Divider(
+              height: 10.0,
+              color: Colors.grey,
+            ),
+            new GestureDetector(
+              onTap: () {
+                launch(annLink);
+              },
+              child:
+              new Padding(
+                padding: new EdgeInsets.only(
+                  left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
+                child: new Material(
+                  elevation: 3.0,
+                  borderRadius:
+                  new BorderRadius.all(new Radius.circular(10.0)),
+                  child: new Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      new ListTile(
+                        title: new Text('Announcements 💬'),
+                        subtitle: new Text(
+                          '$annBody',
+                          style:
+                          new TextStyle(color: Colors.black.withOpacity(1.0)),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
             new Divider(
@@ -1105,48 +1193,66 @@ class HomePageState extends State<HomePage> {
             new ListTile(
               title: new Text('Info about your day.'),
             ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new ListTile(
-                    title: new Text('Lunch will be at ' +
-                        '$WeekDayTime' +
-                        ' and will end at ' +
-                        '$WeekDayTimeEnd'),
-                  ),
-                ],
+            new Padding(
+              padding: new EdgeInsets.only(left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
+              child: new Material(
+                elevation: 3.0,
+                borderRadius:
+                new BorderRadius.all(new Radius.circular(10.0)),
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
+                      title: new Text('Lunch will be at ' +
+                          '$WeekDayTime' +
+                          ' and will end at ' +
+                          '$WeekDayTimeEnd'),
+                    ),
+                  ],
+                ),
               ),
             ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new ListTile(
-                    title: new Text('School will start for you at ' +
-                        '$SchoolStart' +
-                        ' and will end at ' +
-                        '$SchoolEnd'),
-                  ),
-                ],
+            new Padding(
+              padding: new EdgeInsets.only(left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
+              child: new Material(
+                elevation: 3.0,
+                borderRadius:
+                new BorderRadius.all(new Radius.circular(10.0)),
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
+                      title: new Text('School will start for you at ' +
+                          '$SchoolStart' +
+                          ' and will end at ' +
+                          '$SchoolEnd'),
+                    ),
+                  ],
+                ),
               ),
             ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new ListTile(
-                    title: new Text('It is currently ' +
-                        '$CurrentClass' +
-                        ' and started at ' +
-                        '$CurrentClassStart' +
-                        ' and it will end at ' +
-                        '$CurrentClassEnd' + ''),
-                  ),
-                ],
+            new Padding(
+              padding: new EdgeInsets.only(left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
+              child: new Material(
+                elevation: 3.0,
+                borderRadius:
+                new BorderRadius.all(new Radius.circular(10.0)),
+                child: new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
+                      title: new Text('It is currently ' +
+                          '$CurrentClass' +
+                          ' and started at ' +
+                          '$CurrentClassStart' +
+                          ' and it will end at ' +
+                          '$CurrentClassEnd' +
+                          ''),
+                    ),
+                  ],
+                ),
               ),
             ),
-
           ],
         );
       }

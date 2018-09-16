@@ -199,49 +199,44 @@ class About extends StatelessWidget {
                       },
                     ),
                     new Text('\n'),
-                    new Card(
-                      child: new Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          new ListTile(
-                            title: new Text('Feedback'),
-                            subtitle: new Text(
-                              'Feedback helps us improve the app',
-                              style: new TextStyle(
-                                  color: Colors.grey.withOpacity(0.9),
-                                  fontSize: 12.0),
+
+                    new Padding(
+                      padding: new EdgeInsets.all(8.0),
+                      child: new Material(
+                        elevation: 5.0,
+                        borderRadius:
+                        new BorderRadius.all(new Radius.circular(10.0)),
+                        child: new Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            new ListTile(
+                              title: new Text('Feedback'),
+                              subtitle: new Text(
+                                'Feedback help us better develop the app',
+                                style: new TextStyle(
+                                    color: Colors.grey.withOpacity(0.9),
+                                    fontSize: 12.0),
+                              ),
                             ),
-                          ),
-                          new RaisedButton(
-                            child: new Text(
-                              'Send Feedback',
-                              style: new TextStyle(
-                                  color: Colors.white.withOpacity(0.9)),
+                            new RaisedButton(
+                              child: new Text(
+                                'Send Feedback',
+                                style: new TextStyle(
+                                    color: Colors.white.withOpacity(0.9)),
+                              ),
+                              color: Colors.red,
+                              elevation: 4.0,
+                              shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(30.0)),
+                              splashColor: Colors.grey,
+                              onPressed: FBURL,
                             ),
-                            color: Colors.red,
-                            elevation: 4.0,
-                            shape: new RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(30.0)),
-                            splashColor: Colors.grey,
-                            onPressed: FBURL,
-                          ),
-                          new Text('\n')
-                        ],
+                            new Text('\n')
+                          ],
+                        ),
                       ),
                     ),
                     new Text('\n'),
-//                  new NativeButton(
-//                      child: new Text(
-//                        'Dev Page',
-//                        style:
-//                            new TextStyle(color: Colors.white.withOpacity(0.9)),
-//                      ),
-//                      buttonColor: Colors.blue,
-//                      onPressed: () {
-//                        Navigator.pop(context);
-//                        Navigator.of(context).pushNamed('/dev');
-//                      }),
-//                  new Text('\n'),
                   ],
                 )
               ),
