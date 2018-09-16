@@ -44,28 +44,38 @@ class ContactItem extends StatelessWidget {
   final Contact contact;
 
   Widget _buildTiles(BuildContext context, Contact contact) {
-    return  Card(
-      elevation: 3.0,
-      shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(10.0)),
-      child: ListTile(
-        title: Text(contact.fullName),
-        subtitle: Text(contact.department + ' | Tap for more'),
-        leading: CircleAvatar(
-          child: Text(contact.fullName[0]),
+    return
+      Padding(
+        padding: new EdgeInsets.only(left: 7.0, right: 7.0, top: 4.0, bottom: 4.0,),
+        child: new Material(
+          elevation: 3.0,
+          borderRadius:
+          new BorderRadius.all(new Radius.circular(10.0)),
+          child: new Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                title: Text(contact.fullName),
+                subtitle: Text(contact.department + ' | Tap for more'),
+                leading: CircleAvatar(
+                  child: Text(contact.fullName[0]),
+                ),
+                trailing: Icon(FontAwesomeIcons.infoCircle),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ContactViewPage(contact: contact);
+                      },
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
-        trailing: Icon(FontAwesomeIcons.infoCircle),
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return ContactViewPage(contact: contact);
-              },
-            ),
-          );
-        },
-      ),
-    );
+      );
+
   }
 
   @override

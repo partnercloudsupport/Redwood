@@ -9,6 +9,7 @@ import 'package:flutter_villains/villain.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:holding_gesture/holding_gesture.dart';
 
 class Today extends StatelessWidget {
   @override
@@ -26,6 +27,7 @@ class HomePageState extends State<HomePage> {
   SharedPreferences prefs;
 
   int time = 0;
+  int ST = 0;
   String annBody = 'No announcements today! 😃';
   String annLink = 'null';
 
@@ -64,6 +66,25 @@ class HomePageState extends State<HomePage> {
   bool classes_setup = false;
 
   //--
+
+  _STinson() {
+    ST = ST + 1;
+    if (ST >= 25){
+      ST = 0;
+      final snackBar = new SnackBar(
+        content: new Text("sUper STinson sLimey Bois"),
+        duration: new Duration(seconds: 3),
+        backgroundColor: Colors.black,
+        action: new SnackBarAction(label: 'YEET', onPressed: (){
+        }),
+      );
+      Scaffold.of(context).showSnackBar(snackBar);
+    }
+
+    setState(() {
+      ST;
+    });
+  }
 
   void _Setup() {
     Navigator.of(context)
@@ -1121,10 +1142,16 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             new Text(""),
             new ListTile(
-              title: new Text(
-                'Hello, ' + Name,
-                style: new TextStyle(
-                    color: Colors.black.withOpacity(0.8), fontSize: 20.0),
+              title:
+              HoldDetector(
+                onHold: _STinson,
+                holdTimeout: Duration(milliseconds: 500),
+                enableHapticFeedback: false,
+                child: new Text(
+                  'Hello, ' + Name,
+                  style: new TextStyle(
+                      color: Colors.black.withOpacity(0.8), fontSize: 20.0),
+                ),
               ),
             ),
             new Divider(
@@ -1138,9 +1165,9 @@ class HomePageState extends State<HomePage> {
               child:
               new Padding(
                 padding: new EdgeInsets.only(
-                  left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+                  left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
                 child: new Material(
-                  elevation: 5.0,
+                  elevation: 3.0,
                   borderRadius:
                   new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
@@ -1167,9 +1194,9 @@ class HomePageState extends State<HomePage> {
               title: new Text('Info about your day.'),
             ),
             new Padding(
-              padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              padding: new EdgeInsets.only(left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
               child: new Material(
-                elevation: 5.0,
+                elevation: 3.0,
                 borderRadius:
                 new BorderRadius.all(new Radius.circular(10.0)),
                 child: new Column(
@@ -1186,9 +1213,9 @@ class HomePageState extends State<HomePage> {
               ),
             ),
             new Padding(
-              padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              padding: new EdgeInsets.only(left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
               child: new Material(
-                elevation: 5.0,
+                elevation: 3.0,
                 borderRadius:
                 new BorderRadius.all(new Radius.circular(10.0)),
                 child: new Column(
@@ -1205,9 +1232,9 @@ class HomePageState extends State<HomePage> {
               ),
             ),
             new Padding(
-              padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              padding: new EdgeInsets.only(left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
               child: new Material(
-                elevation: 5.0,
+                elevation: 3.0,
                 borderRadius:
                 new BorderRadius.all(new Radius.circular(10.0)),
                 child: new Column(
