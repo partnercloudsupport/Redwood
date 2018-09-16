@@ -30,38 +30,18 @@ class Tools extends StatelessWidget {
                         children: <Widget>[
                           new Container(
                             // Add box decoration
-                            decoration: new BoxDecoration(
-                              gradient: new LinearGradient(
-                                // new
-                                // Where the linear gradient begins and ends
-                                begin: Alignment.topRight, // new
-                                end: Alignment.bottomLeft, // new
-                                // Add one stop for each color.
-                                // Stops should increase
-                                // from 0 to 1
-                                stops: [0.1, 0.5, 0.7, 0.9],
-                                colors: [
-                                  // Colors are easy thanks to Flutter's
-                                  // Colors class.
-                                  Colors.blue[800],
-                                  Colors.indigo[700],
-                                  Colors.indigo[600],
-                                  Colors.deepPurple[400],
-                                ],
-                              ),
-                            ),
                             child: new Column(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 new Text(
                                   '\nTools powered by',
                                   style: new TextStyle(
-                                      color: Colors.white.withOpacity(1.0)),
+                                      color: Colors.black.withOpacity(1.0)),
                                 ),
                                 new Text(
                                   'isontic',
                                   style: new TextStyle(
-                                      color: Colors.white.withOpacity(1.0),
+                                      color: Colors.black.withOpacity(1.0),
                                       fontSize: 50.0,
                                       fontFamily: 'Pacifico'),
                                 ),
@@ -104,7 +84,7 @@ class Tools extends StatelessWidget {
                                 new Text(
                                   '\nMore Coming soon',
                                   style: new TextStyle(
-                                      color: Colors.white.withOpacity(1.0)),
+                                      color: Colors.black.withOpacity(1.0)),
                                 ),
                                 new Text('\n'),
                               ],
