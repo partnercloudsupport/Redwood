@@ -22,6 +22,7 @@ dependencies:
   flutter_local_notifications: "^0.3.7"
   meta: "^1.1.5"
   share: ^0.5.3
+  holding_gesture: ^0.0.2
   native_ui: "^0.0.4"
   flutter_villains: "^1.0.0"
   flutter_localizations:
