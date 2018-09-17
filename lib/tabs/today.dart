@@ -224,6 +224,16 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '07') {
+          if (min >= 56) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '7:55 AM';
+              CurrentClassEnd = '8:00 AM';
+            }
+          }
+        }
         // ** First Period **
         if (formatted24Hour == '08') {
           if (min >= 00) {
@@ -231,6 +241,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'First Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '8:48 AM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '08') {
+          if (min >= 49) {
+            if (min <= 54) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '8:48 AM';
+              CurrentClassEnd = '8:55 AM';
             }
           }
         }
@@ -260,6 +280,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'Break';
               CurrentClassStart = '9:43 AM';
               CurrentClassEnd = '9:53 AM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '09') {
+          if (min >= 54) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '9:53 AM';
+              CurrentClassEnd = '10:00 AM';
             }
           }
         }
@@ -305,9 +335,19 @@ class HomePageState extends State<HomePage> {
         if (formatted24Hour == '12') {
           if (min >= 00) {
             if (min <= 18) {
-              CurrentClass = 'Fourth Period';
+              CurrentClass = 'Lunch';
               CurrentClassStart = '11:43 AM';
               CurrentClassEnd = '12:18 PM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '12') {
+          if (min >= 19) {
+            if (min <= 24) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '12:18 PM';
+              CurrentClassEnd = '12:25 PM';
             }
           }
         }
@@ -330,6 +370,16 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '13') {
+          if (min >= 14) {
+            if (min <= 19) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '1:13 PM';
+              CurrentClassEnd = '1:20 PM';
+            }
+          }
+        }
         // ** Sixth Period **
         if (formatted24Hour == '13') {
           if (min >= 20) {
@@ -346,6 +396,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '1:20 PM';
               CurrentClassEnd = '2:08 PM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '14') {
+          if (min >= 09) {
+            if (min <= 14) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '2:08 PM';
+              CurrentClassEnd = '2:15 PM';
             }
           }
         }
@@ -414,6 +474,16 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '07') {
+          if (min >= 56) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '7:55 AM';
+              CurrentClassEnd = '8:00 AM';
+            }
+          }
+        }
         // ** First Period **
         if (formatted24Hour == '08') {
           if (min >= 00) {
@@ -421,6 +491,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'First Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '8:48 AM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '08') {
+          if (min >= 49) {
+            if (min <= 54) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '8:48 AM';
+              CurrentClassEnd = '8:55 AM';
             }
           }
         }
@@ -450,6 +530,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'Break';
               CurrentClassStart = '9:43 AM';
               CurrentClassEnd = '9:53 AM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '09') {
+          if (min >= 54) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '9:53 AM';
+              CurrentClassEnd = '10:00 AM';
             }
           }
         }
@@ -495,9 +585,19 @@ class HomePageState extends State<HomePage> {
         if (formatted24Hour == '12') {
           if (min >= 00) {
             if (min <= 18) {
-              CurrentClass = 'Fourth Period';
+              CurrentClass = 'Lunch';
               CurrentClassStart = '11:43 AM';
               CurrentClassEnd = '12:18 PM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '12') {
+          if (min >= 19) {
+            if (min <= 24) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '12:18 PM';
+              CurrentClassEnd = '12:25 PM';
             }
           }
         }
@@ -520,6 +620,16 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '13') {
+          if (min >= 14) {
+            if (min <= 19) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '1:13 PM';
+              CurrentClassEnd = '1:20 PM';
+            }
+          }
+        }
         // ** Sixth Period **
         if (formatted24Hour == '13') {
           if (min >= 20) {
@@ -536,6 +646,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '1:20 PM';
               CurrentClassEnd = '2:08 PM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '14') {
+          if (min >= 09) {
+            if (min <= 14) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '2:08 PM';
+              CurrentClassEnd = '2:15 PM';
             }
           }
         }
@@ -604,8 +724,18 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '07') {
+          if (min >= 54) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '7:53 AM';
+              CurrentClassEnd = '8:00 AM';
+            }
+          }
+        }
         //** Forth Period **
-        if (formatted24Hour == '8') {
+        if (formatted24Hour == '08') {
           if (min >= 00) {
             if (min <= 59) {
               CurrentClass = 'Forth Period';
@@ -614,7 +744,7 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
-        if (formatted24Hour == '9') {
+        if (formatted24Hour == '09') {
           if (min >= 00) {
             if (min <= 29) {
               CurrentClass = 'Forth Period';
@@ -624,17 +754,27 @@ class HomePageState extends State<HomePage> {
           }
         }
         // ** Break **
-        if (formatted24Hour == '9') {
+        if (formatted24Hour == '09') {
           if (min >= 30) {
             if (min <= 40) {
               CurrentClass = 'Break';
-              CurrentClassStart = '9:40 AM';
+              CurrentClassStart = '9:30 AM';
               CurrentClassEnd = '9:40 AM';
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '09') {
+          if (min >= 41) {
+            if (min <= 46) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '9:40 AM';
+              CurrentClassEnd = '9:47 AM';
+            }
+          }
+        }
         // ** Fifth Period **
-        if (formatted24Hour == '9') {
+        if (formatted24Hour == '09') {
           if (min >= 47) {
             if (min <= 59) {
               CurrentClass = 'Fifth Period';
@@ -671,6 +811,16 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '11') {
+          if (min >= 54) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '11:53 AM';
+              CurrentClassEnd = '12:00 PM';
+            }
+          }
+        }
         // ** Sixth Period **
         if (formatted24Hour == '12') {
           if (min >= 00) {
@@ -687,6 +837,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '12:00 PM';
               CurrentClassEnd = '1:30 PM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '13') {
+          if (min >= 31) {
+            if (min <= 36) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '1:30 PM';
+              CurrentClassEnd = '1:37 AM';
             }
           }
         }
@@ -762,6 +922,16 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '07') {
+          if (min >= 54) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '7:53 AM';
+              CurrentClassEnd = '8:00 AM';
+            }
+          }
+        }
         // ** First Period **
         if (formatted24Hour == '08') {
           if (min >= 00) {
@@ -778,6 +948,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'First Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '9:30 AM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '09') {
+          if (min >= 31) {
+            if (min <= 36) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '9:30 AM';
+              CurrentClassEnd = '9:37 AM';
             }
           }
         }
@@ -820,6 +1000,16 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '10') {
+          if (min >= 41) {
+            if (min <= 46) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '10:40 AM';
+              CurrentClassEnd = '10:47 AM';
+            }
+          }
+        }
         // ** Second Period **
         if (formatted24Hour == '10') {
           if (min >= 47) {
@@ -855,6 +1045,25 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'Lunch';
               CurrentClassStart = '12:17 PM';
               CurrentClassEnd = '12:55 PM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '12') {
+          if (min >= 56) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '12:55 PM';
+              CurrentClassEnd = '1:02 PM';
+            }
+          }
+        }
+        if (formatted24Hour == '13') {
+          if (min >= 00) {
+            if (min <= 01) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '12:55 PM';
+              CurrentClassEnd = '1:02 PM';
             }
           }
         }
@@ -918,6 +1127,16 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '07') {
+          if (min >= 56) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '7:55 AM';
+              CurrentClassEnd = '8:00 AM';
+            }
+          }
+        }
         // ** First Period **
         if (formatted24Hour == '08') {
           if (min >= 00) {
@@ -925,6 +1144,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'First Period';
               CurrentClassStart = '8:00 AM';
               CurrentClassEnd = '8:48 AM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '08') {
+          if (min >= 49) {
+            if (min <= 54) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '8:48 AM';
+              CurrentClassEnd = '8:55 AM';
             }
           }
         }
@@ -954,6 +1183,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'Break';
               CurrentClassStart = '9:43 AM';
               CurrentClassEnd = '9:53 AM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '09') {
+          if (min >= 54) {
+            if (min <= 59) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '9:53 AM';
+              CurrentClassEnd = '10:00 AM';
             }
           }
         }
@@ -999,9 +1238,19 @@ class HomePageState extends State<HomePage> {
         if (formatted24Hour == '12') {
           if (min >= 00) {
             if (min <= 18) {
-              CurrentClass = 'Fourth Period';
+              CurrentClass = 'Lunch';
               CurrentClassStart = '11:43 AM';
               CurrentClassEnd = '12:18 PM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '12') {
+          if (min >= 19) {
+            if (min <= 24) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '12:18 PM';
+              CurrentClassEnd = '12:25 PM';
             }
           }
         }
@@ -1024,6 +1273,16 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
+        //** Passing Period **
+        if (formatted24Hour == '13') {
+          if (min >= 14) {
+            if (min <= 19) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '1:13 PM';
+              CurrentClassEnd = '1:20 PM';
+            }
+          }
+        }
         // ** Sixth Period **
         if (formatted24Hour == '13') {
           if (min >= 20) {
@@ -1040,6 +1299,16 @@ class HomePageState extends State<HomePage> {
               CurrentClass = 'Sixth Period';
               CurrentClassStart = '1:20 PM';
               CurrentClassEnd = '2:08 PM';
+            }
+          }
+        }
+        //** Passing Period **
+        if (formatted24Hour == '14') {
+          if (min >= 09) {
+            if (min <= 14) {
+              CurrentClass = 'Passing period';
+              CurrentClassStart = '2:08 PM';
+              CurrentClassEnd = '2:15 PM';
             }
           }
         }
