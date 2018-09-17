@@ -28,6 +28,8 @@ class HomePageState extends State<HomePage> {
 
   int time = 0;
   int ST = 0;
+  int testmin;
+  String testhour;
   String annBody = 'No announcements today! 😃';
   String annLink = 'null';
 
@@ -176,10 +178,10 @@ class HomePageState extends State<HomePage> {
     var now = new DateTime.now();
     var formatterDayWeek = new DateFormat.E();
     var formatter24Hour = new DateFormat.H();
-    var formatter24Min = new DateFormat.Hm();
+    var formatter24Min = new DateFormat.m();
     String formattedDayWeek = formatterDayWeek.format(now);
     String formatted24Hour = formatter24Hour.format(now);
-    String formatted24Min = formatter24Hour.format(now);
+    String formatted24Min = formatter24Min.format(now);
     int min = int.tryParse(formatted24Min) ?? 00;
 
     if ((zeroPeriod == false &&
@@ -281,7 +283,7 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
-        if (formatted24Hour == '10') {
+        if (formatted24Hour == '11') {
           if (min >= 00) {
             if (min <= 43) {
               CurrentClass = 'Fourth Period';
@@ -471,7 +473,7 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
-        if (formatted24Hour == '10') {
+        if (formatted24Hour == '11') {
           if (min >= 00) {
             if (min <= 43) {
               CurrentClass = 'Fourth Period';
@@ -975,7 +977,7 @@ class HomePageState extends State<HomePage> {
             }
           }
         }
-        if (formatted24Hour == '10') {
+        if (formatted24Hour == '11') {
           if (min >= 00) {
             if (min <= 43) {
               CurrentClass = 'Fourth Period';
