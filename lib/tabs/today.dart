@@ -1514,7 +1514,7 @@ class HomePageState extends State<HomePage> {
                     new ListTile(
                       title: new Text('It is currently ' +
                           '$CurrentClass' +
-                          ' and started at ' +
+                          ' and it started at ' +
                           '$CurrentClassStart' +
                           ' and it will end at ' +
                           '$CurrentClassEnd' +
