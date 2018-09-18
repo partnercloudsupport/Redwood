@@ -217,19 +217,19 @@ class HomePageState extends State<HomePage> {
         // Zero Period **
         if (formatted24Hour == '07') {
           if (min >= 05) {
-            if (min <= 55) {
+            if (min <= 53) {
               CurrentClass = 'Zero Period';
               CurrentClassStart = '7:05 AM';
-              CurrentClassEnd = '7:55 AM';
+              CurrentClassEnd = '7:53 AM';
             }
           }
         }
         //** Passing Period **
         if (formatted24Hour == '07') {
-          if (min >= 56) {
+          if (min >= 54) {
             if (min <= 59) {
               CurrentClass = 'Passing period';
-              CurrentClassStart = '7:55 AM';
+              CurrentClassStart = '7:53 AM';
               CurrentClassEnd = '8:00 AM';
             }
           }
@@ -467,19 +467,19 @@ class HomePageState extends State<HomePage> {
         // Zero Period **
         if (formatted24Hour == '07') {
           if (min >= 05) {
-            if (min <= 55) {
+            if (min <= 53) {
               CurrentClass = 'Zero Period';
               CurrentClassStart = '7:05 AM';
-              CurrentClassEnd = '7:55 AM';
+              CurrentClassEnd = '7:53 AM';
             }
           }
         }
         //** Passing Period **
         if (formatted24Hour == '07') {
-          if (min >= 56) {
+          if (min >= 54) {
             if (min <= 59) {
               CurrentClass = 'Passing period';
-              CurrentClassStart = '7:55 AM';
+              CurrentClassStart = '7:53 AM';
               CurrentClassEnd = '8:00 AM';
             }
           }
@@ -1120,19 +1120,19 @@ class HomePageState extends State<HomePage> {
         // Zero Period **
         if (formatted24Hour == '07') {
           if (min >= 05) {
-            if (min <= 55) {
+            if (min <= 53) {
               CurrentClass = 'Zero Period';
               CurrentClassStart = '7:05 AM';
-              CurrentClassEnd = '7:55 AM';
+              CurrentClassEnd = '7:53 AM';
             }
           }
         }
         //** Passing Period **
         if (formatted24Hour == '07') {
-          if (min >= 56) {
+          if (min >= 54) {
             if (min <= 59) {
               CurrentClass = 'Passing period';
-              CurrentClassStart = '7:55 AM';
+              CurrentClassStart = '7:53 AM';
               CurrentClassEnd = '8:00 AM';
             }
           }
