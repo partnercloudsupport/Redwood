@@ -575,7 +575,7 @@ class HomePageState extends State<HomePage> {
     if (_connectionStatus == 'ConnectivityResult.none'){
       bool canVibrate = await Vibrate.canVibrate;
       if (canVibrate == true) {
-        Vibrate.feedback(FeedbackType.error);
+        Vibrate.feedback(FeedbackType.warning);
       }
     }
 
@@ -607,7 +607,12 @@ class HomePageState extends State<HomePage> {
         .catchError((e) => print(e));
   }
 
-  void share() {
+  void share() async {
+    bool canVibrate = await Vibrate.canVibrate;
+    if (canVibrate == true) {
+      Vibrate.feedback(FeedbackType.light);
+    }
+
     Share.share('Redwood TV ' + '$Title: ' + '$VURL');
   }
 
@@ -698,16 +703,15 @@ class HomePageState extends State<HomePage> {
 
     //-- If there is no Connection is displays this page
     if (_connectionStatus == 'ConnectivityResult.none') {
-      return new ListView(
-        children: <Widget>[
-          new Column(
+      return new Scaffold(
+        body: new Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               new Padding(
                 padding: new EdgeInsets.all(8.0),
                 child: new Material(
-                  elevation: 58.0,
+                  elevation: 8.0,
                   borderRadius:
                   new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
@@ -734,7 +738,6 @@ class HomePageState extends State<HomePage> {
               ),
             ],
           )
-        ],
       );
     }
     ;

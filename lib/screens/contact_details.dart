@@ -4,13 +4,19 @@ import 'contact_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:share/share.dart';
+import 'package:vibrate/vibrate.dart';
 
 class ContactViewPage extends StatelessWidget {
   final Contact contact;
 
   ContactViewPage({Key key, this.contact}) : super(key: key);
 
-  void share() {
+  void share() async {
+    bool canVibrate = await Vibrate.canVibrate;
+    if (canVibrate == true) {
+      Vibrate.feedback(FeedbackType.light);
+    }
+
     Share.share(contact.email);
   }
 
