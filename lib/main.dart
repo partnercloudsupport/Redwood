@@ -324,6 +324,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
           ios: (_) => CupertinoTabBar(
             currentIndex: _tab,
             onTap: onTap,
+            activeColor: Colors.redAccent,
             items: TabItems.map((TabItem) {
               return new BottomNavigationBarItem(
                 title: new Text(TabItem.title),

@@ -120,15 +120,15 @@ class HomePageState extends State<HomePage> {
                         title: new PlatformWidget(
                           ios: (_) => CupertinoButton(
                               child: new Text(
-                                'Monday (All Periods)',
+                                'Monday',
                                 style: new TextStyle(
                                     color: Colors.white.withOpacity(0.9)),
                               ),
-                              color: Colors.redAccent,
+                              color: Colors.red,
                               onPressed: _openMonday,),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Monday (All Periods)',
+                              'Monday',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -145,15 +145,16 @@ class HomePageState extends State<HomePage> {
                         title: new PlatformWidget(
                           ios: (_) => CupertinoButton(
                             child: new Text(
-                              'Tuesday (All Periods)',
+                              'Tuesday)',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
-                            color: Colors.redAccent,
-                            onPressed: _openTuesday,),
+                            color: Colors.red,
+                            onPressed: _openTuesday,
+                          ),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Tuesday (All Periods)',
+                              'Tuesday',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -170,15 +171,15 @@ class HomePageState extends State<HomePage> {
                         title: new PlatformWidget(
                           ios: (_) => CupertinoButton(
                             child: new Text(
-                              'Wednesday (Block Schedule))',
+                              'Wednesday',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
-                            color: Colors.redAccent,
+                            color: Colors.red,
                             onPressed: _openWednesday,),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Wednesday (Block Schedule)',
+                              'Wednesday',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -195,15 +196,15 @@ class HomePageState extends State<HomePage> {
                         title: new PlatformWidget(
                           ios: (_) => CupertinoButton(
                             child: new Text(
-                              'Thursday (Block Schedule)',
+                              'Thursday',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
-                            color: Colors.redAccent,
+                            color: Colors.red,
                             onPressed: _openThursday,),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Thursday (Block Schedule)',
+                              'Thursday',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -220,15 +221,15 @@ class HomePageState extends State<HomePage> {
                         title: new PlatformWidget(
                           ios: (_) => CupertinoButton(
                             child: new Text(
-                              'Friday (All Periods)',
+                              'Friday',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
-                            color: Colors.redAccent,
+                            color: Colors.red,
                             onPressed: _openFriday,),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Friday (All Periods)',
+                              'Friday',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
