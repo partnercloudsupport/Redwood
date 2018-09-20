@@ -34,7 +34,8 @@ import 'package:flutter_villains/villain.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:share/share.dart';
-import 'package:vibrate/vibrate.dart';
+//import 'package:vibrate/vibrate.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 void main() => runApp(new MaterialApp(
       //-- This is the name of the app
@@ -301,8 +302,10 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) => new Scaffold(
         //App Bar
-        appBar: new AppBar(
+        appBar:
+        new AppBar(
           title: new Text(_title_app),
+          elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs
@@ -317,16 +320,29 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
         ),
 
         //Tabs
-        bottomNavigationBar: new BottomNavigationBar(
-          currentIndex: _tab,
-          onTap: onTap,
-          items: TabItems.map((TabItem) {
-            return new BottomNavigationBarItem(
-              title: new Text(TabItem.title),
-              icon: new Icon(TabItem.icon),
-            );
-          }).toList(),
+        bottomNavigationBar: new PlatformWidget(
+          ios: (_) => CupertinoTabBar(
+            currentIndex: _tab,
+            onTap: onTap,
+            items: TabItems.map((TabItem) {
+              return new BottomNavigationBarItem(
+                title: new Text(TabItem.title),
+                icon: new Icon(TabItem.icon),
+              );
+            }).toList(),
+          ),
+          android: (_) => new BottomNavigationBar(
+            currentIndex: _tab,
+            onTap: onTap,
+            items: TabItems.map((TabItem) {
+              return new BottomNavigationBarItem(
+                title: new Text(TabItem.title),
+                icon: new Icon(TabItem.icon),
+              );
+            }).toList(),
+          ),
         ),
+
 
         //Drawer
         drawer: new Drawer(
@@ -572,12 +588,12 @@ class HomePageState extends State<HomePage> {
       return;
     }
 
-    if (_connectionStatus == 'ConnectivityResult.none'){
-      bool canVibrate = await Vibrate.canVibrate;
-      if (canVibrate == true) {
-        Vibrate.feedback(FeedbackType.warning);
-      }
-    }
+//    if (_connectionStatus == 'ConnectivityResult.none'){
+//      bool canVibrate = await Vibrate.canVibrate;
+//      if (canVibrate == true) {
+//        Vibrate.feedback(FeedbackType.warning);
+//      }
+//    }
 
     setState(() {
       _connectionStatus = connectionStatus;
@@ -590,10 +606,10 @@ class HomePageState extends State<HomePage> {
       videoUrl: VURL,
     );
 
-    bool canVibrate = await Vibrate.canVibrate;
-    if (canVibrate == true) {
-      Vibrate.feedback(FeedbackType.light);
-    }
+//    bool canVibrate = await Vibrate.canVibrate;
+//    if (canVibrate == true) {
+//      Vibrate.feedback(FeedbackType.light);
+//    }
 
     //Waiting for flutter_youtube to add end call for ios
     views = views + 1;
@@ -608,10 +624,10 @@ class HomePageState extends State<HomePage> {
   }
 
   void share() async {
-    bool canVibrate = await Vibrate.canVibrate;
-    if (canVibrate == true) {
-      Vibrate.feedback(FeedbackType.light);
-    }
+//    bool canVibrate = await Vibrate.canVibrate;
+//    if (canVibrate == true) {
+//      Vibrate.feedback(FeedbackType.light);
+//    }
 
     Share.share('Redwood TV ' + '$Title: ' + '$VURL');
   }

@@ -4,7 +4,7 @@ import 'contact_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:share/share.dart';
-import 'package:vibrate/vibrate.dart';
+//import 'package:vibrate/vibrate.dart';
 
 class ContactViewPage extends StatelessWidget {
   final Contact contact;
@@ -12,10 +12,10 @@ class ContactViewPage extends StatelessWidget {
   ContactViewPage({Key key, this.contact}) : super(key: key);
 
   void share() async {
-    bool canVibrate = await Vibrate.canVibrate;
-    if (canVibrate == true) {
-      Vibrate.feedback(FeedbackType.light);
-    }
+//    bool canVibrate = await Vibrate.canVibrate;
+//    if (canVibrate == true) {
+//      Vibrate.feedback(FeedbackType.light);
+//    }
 
     Share.share(contact.email);
   }

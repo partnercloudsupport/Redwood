@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flushbar/flushbar.dart';
-import 'package:vibrate/vibrate.dart';
+//import 'package:vibrate/vibrate.dart';
 
 class Settings extends StatelessWidget {
   @override
@@ -100,10 +100,10 @@ class HomePageState extends State<HomePage> {
       duration: Duration(seconds: 4),
     );
 
-    bool canVibrate = await Vibrate.canVibrate;
-    if (canVibrate == true) {
-      Vibrate.feedback(FeedbackType.success);
-    }
+//    bool canVibrate = await Vibrate.canVibrate;
+//    if (canVibrate == true) {
+//      Vibrate.feedback(FeedbackType.success);
+//    }
   }
 
   void _onChanged(String val) {
@@ -126,10 +126,10 @@ class HomePageState extends State<HomePage> {
       duration: Duration(seconds: 4),
     );
 
-    bool canVibrate = await Vibrate.canVibrate;
-    if (canVibrate == true) {
-      Vibrate.feedback(FeedbackType.success);
-    }
+//    bool canVibrate = await Vibrate.canVibrate;
+//    if (canVibrate == true) {
+//      Vibrate.feedback(FeedbackType.success);
+//    }
 
   }
 

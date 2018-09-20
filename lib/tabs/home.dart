@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_villains/villain.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -15,7 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-
   void _openMonday() {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
         builder: (BuildContext context) {
@@ -108,8 +109,7 @@ class HomePageState extends State<HomePage> {
                 padding: new EdgeInsets.all(8.0),
                 child: new Material(
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -117,78 +117,128 @@ class HomePageState extends State<HomePage> {
                         title: new Text('Normal School Week'),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'Monday (All Periods)',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                              child: new Text(
+                                'Monday (All Periods)',
+                                style: new TextStyle(
+                                    color: Colors.white.withOpacity(0.9)),
+                              ),
+                              color: Colors.redAccent,
+                              onPressed: _openMonday,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'Monday (All Periods)',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openMonday,
                           ),
-                          color: Theme.of(context).accentColor,
-                          elevation: 4.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          splashColor: Colors.grey,
-                          onPressed: _openMonday,
                         ),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'Tuesday (All Periods)',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                            child: new Text(
+                              'Tuesday (All Periods)',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Colors.redAccent,
+                            onPressed: _openTuesday,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'Tuesday (All Periods)',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openTuesday,
                           ),
-                          color: Theme.of(context).accentColor,
-                          elevation: 4.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          splashColor: Colors.grey,
-                          onPressed: _openTuesday,
                         ),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'Wednesday (Block Schedule)',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                            child: new Text(
+                              'Wednesday (Block Schedule))',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Colors.redAccent,
+                            onPressed: _openWednesday,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'Wednesday (Block Schedule)',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openWednesday,
                           ),
-                          color: Theme.of(context).accentColor,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          elevation: 4.0,
-                          splashColor: Colors.grey,
-                          onPressed: _openWednesday,
                         ),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'Thursday (Block Schedule)',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                            child: new Text(
+                              'Thursday (Block Schedule)',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Colors.redAccent,
+                            onPressed: _openThursday,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'Thursday (Block Schedule)',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openThursday,
                           ),
-                          color: Theme.of(context).accentColor,
-                          elevation: 4.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          splashColor: Colors.grey,
-                          onPressed: _openThursday,
                         ),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'Friday (All Periods)',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                            child: new Text(
+                              'Friday (All Periods)',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Colors.redAccent,
+                            onPressed: _openFriday,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'Friday (All Periods)',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openFriday,
                           ),
-                          color: Theme.of(context).accentColor,
-                          elevation: 4.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          splashColor: Colors.grey,
-                          onPressed: _openFriday,
                         ),
                       ),
                       new Text('\n'),
@@ -201,8 +251,7 @@ class HomePageState extends State<HomePage> {
                 padding: new EdgeInsets.all(8.0),
                 child: new Material(
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -294,8 +343,7 @@ class HomePageState extends State<HomePage> {
                 padding: new EdgeInsets.all(8.0),
                 child: new Material(
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -342,14 +390,17 @@ class showMondayState extends State<showMonday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -373,14 +424,17 @@ class showMondayState extends State<showMonday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -402,14 +456,17 @@ class showMondayState extends State<showMonday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -432,14 +489,17 @@ class showMondayState extends State<showMonday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -461,14 +521,17 @@ class showMondayState extends State<showMonday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -512,14 +575,17 @@ class showTuesdayState extends State<showTuesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -543,14 +609,17 @@ class showTuesdayState extends State<showTuesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -572,14 +641,17 @@ class showTuesdayState extends State<showTuesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -602,14 +674,17 @@ class showTuesdayState extends State<showTuesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -631,14 +706,17 @@ class showTuesdayState extends State<showTuesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -682,14 +760,17 @@ class showWednesdayState extends State<showWednesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -712,14 +793,17 @@ class showWednesdayState extends State<showWednesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -741,14 +825,17 @@ class showWednesdayState extends State<showWednesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -770,14 +857,17 @@ class showWednesdayState extends State<showWednesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -799,14 +889,17 @@ class showWednesdayState extends State<showWednesday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -849,14 +942,17 @@ class showThursdayState extends State<showThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -879,14 +975,17 @@ class showThursdayState extends State<showThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.redAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -909,14 +1008,17 @@ class showThursdayState extends State<showThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -938,14 +1040,17 @@ class showThursdayState extends State<showThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -967,14 +1072,17 @@ class showThursdayState extends State<showThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -996,14 +1104,17 @@ class showThursdayState extends State<showThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1045,14 +1156,17 @@ class showFridayState extends State<showFriday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1076,14 +1190,17 @@ class showFridayState extends State<showFriday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1105,14 +1222,17 @@ class showFridayState extends State<showFriday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1135,14 +1255,17 @@ class showFridayState extends State<showFriday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1164,14 +1287,17 @@ class showFridayState extends State<showFriday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1217,14 +1343,17 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1247,14 +1376,17 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1276,14 +1408,17 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1305,14 +1440,17 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.redAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1334,14 +1472,17 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1363,14 +1504,17 @@ class showRALLYThursdayState extends State<showRALLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1412,14 +1556,17 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1442,14 +1589,17 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1471,14 +1621,17 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1500,14 +1653,17 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.redAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1529,14 +1685,17 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1558,14 +1717,17 @@ class showASSEMBLYThursdayState extends State<showASSEMBLYThursday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1607,14 +1769,17 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1637,14 +1802,17 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.redAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1666,14 +1834,17 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1695,14 +1866,17 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1724,14 +1898,17 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1753,14 +1930,17 @@ class showMinimumDayState extends State<showMinimumDay> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1803,14 +1983,17 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1833,14 +2016,17 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1862,14 +2048,17 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1891,14 +2080,17 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1920,14 +2112,17 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1949,14 +2144,17 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.lightBlueAccent,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1978,14 +2176,17 @@ class showFollowingaMinimumdayState extends State<showFollowingaMinimumday> {
                 to: Duration(milliseconds: 175),
               ),
               animateExit: true,
-              child:
-              new Padding(
-                padding: new EdgeInsets.only(left: 15.0, right: 15.0, top: 7.0, bottom: 7.0,),
+              child: new Padding(
+                padding: new EdgeInsets.only(
+                  left: 15.0,
+                  right: 15.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   color: Colors.blue,
                   elevation: 5.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[

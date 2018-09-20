@@ -24,7 +24,8 @@ dependencies:
   share: ^0.5.3
   holding_gesture: ^0.0.2
   flushbar: ^0.9.0
-  vibrate: ^0.0.4
+  flutter_platform_widgets: ^0.3.1
+  #vibrate: ^0.0.4
   native_ui: "^0.0.4"
   flutter_villains: "^1.0.0"
   flutter_localizations:
