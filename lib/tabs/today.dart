@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:holding_gesture/holding_gesture.dart';
+import 'package:vibrate/vibrate.dart';
 
 class Today extends StatelessWidget {
   @override
@@ -1596,6 +1597,11 @@ class setUpState extends State<setUp> {
     prefs.setString('Name', Name);
 
     Navigator.of(context).pop();
+
+    bool canVibrate = await Vibrate.canVibrate;
+    if (canVibrate == true) {
+      Vibrate.feedback(FeedbackType.success);
+    }
   }
 
   @override

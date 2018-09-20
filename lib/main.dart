@@ -34,6 +34,7 @@ import 'package:flutter_villains/villain.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:share/share.dart';
+import 'package:vibrate/vibrate.dart';
 
 void main() => runApp(new MaterialApp(
       //-- This is the name of the app
@@ -197,6 +198,7 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
 
     _tabController = new PageController();
     this._title_app = "Redwood - " + TabItems[0].title + " 🔔";
+
     firebaseMessaging.configure(onLaunch: (Map<String, dynamic> msg) {
       print(" onLaunch called");
     }, onResume: (Map<String, dynamic> msg) {
@@ -379,6 +381,13 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
                   Navigator.pop(context);
                   Navigator.of(context).pushNamed('/map');
                 }),
+//            new ListTile(
+//                leading: new Icon(Icons.book),
+//                title: new Text('Resources'),
+//                onTap: () {
+//                  Navigator.pop(context);
+//                  Navigator.of(context).pushNamed('/map');
+//                }),
 
 //            new ListTile(
 //              leading: new Icon(FontAwesomeIcons.gamepad),
@@ -563,16 +572,28 @@ class HomePageState extends State<HomePage> {
       return;
     }
 
+    if (_connectionStatus == 'ConnectivityResult.none'){
+      bool canVibrate = await Vibrate.canVibrate;
+      if (canVibrate == true) {
+        Vibrate.feedback(FeedbackType.error);
+      }
+    }
+
     setState(() {
       _connectionStatus = connectionStatus;
     });
   }
 
-  void playYoutubeVideo() {
+  void playYoutubeVideo() async {
     FlutterYoutube.playYoutubeVideoByUrl(
       apiKey: "AIzaSyCFTOVFljhMMoamV_X1PktBGGcz2nRt_UM",
       videoUrl: VURL,
     );
+
+    bool canVibrate = await Vibrate.canVibrate;
+    if (canVibrate == true) {
+      Vibrate.feedback(FeedbackType.light);
+    }
 
     //Waiting for flutter_youtube to add end call for ios
     views = views + 1;

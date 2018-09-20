@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flushbar/flushbar.dart';
+import 'package:vibrate/vibrate.dart';
 
 class Settings extends StatelessWidget {
   @override
@@ -89,12 +90,20 @@ class HomePageState extends State<HomePage> {
     prefs.setBool('sixthPeriod', sixthPeriod);
     prefs.setBool('seventhPeriod', seventhPeriod);
 
-    Flushbar()
-      ..message = "Saved Classes"
-      ..backgroundColor = Colors.black
-      ..shadowColor = Colors.black
-      ..duration = Duration(seconds: 3)
-      ..show(context);
+    Flushbar(
+      message: "Saved Classes",
+      flushbarPosition: FlushbarPosition.BOTTOM, //Immutable
+      reverseAnimationCurve: Curves.decelerate, //Immutable
+      forwardAnimationCurve: Curves.elasticOut, //Immutable
+      backgroundColor: Colors.black,
+      isDismissible: false,
+      duration: Duration(seconds: 4),
+    );
+
+    bool canVibrate = await Vibrate.canVibrate;
+    if (canVibrate == true) {
+      Vibrate.feedback(FeedbackType.success);
+    }
   }
 
   void _onChanged(String val) {
@@ -105,15 +114,23 @@ class HomePageState extends State<HomePage> {
 
   void saveName() async {
     final prefs = await SharedPreferences.getInstance();
-
     prefs.setString('Name', Name);
 
-    Flushbar()
-      ..message = "Saved Name"
-      ..backgroundColor = Colors.black
-      ..shadowColor = Colors.black
-      ..duration = Duration(seconds: 3)
-      ..show(context);
+    Flushbar(
+      message: "Saved Name",
+      flushbarPosition: FlushbarPosition.BOTTOM, //Immutable
+      reverseAnimationCurve: Curves.decelerate, //Immutable
+      forwardAnimationCurve: Curves.elasticOut, //Immutable
+      backgroundColor: Colors.black,
+      isDismissible: false,
+      duration: Duration(seconds: 4),
+    );
+
+    bool canVibrate = await Vibrate.canVibrate;
+    if (canVibrate == true) {
+      Vibrate.feedback(FeedbackType.success);
+    }
+
   }
 
   bool classes_setup = false;
