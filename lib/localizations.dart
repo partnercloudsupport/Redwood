@@ -122,6 +122,46 @@ class AppLocalizations {
         name: 'todayAnnouncements', desc: 'The card name for the Announcements card right befor the emoji');
   }
 
+  String get todayInfo {
+    return Intl.message('Info about your day.',
+        name: 'todayInfo', desc: 'The card name for the Announcements card right befor the emoji');
+  }
+
+  String get todayLunchCard1 {
+    return Intl.message('Lunch will be at',
+        name: 'todayLunchCard1', desc: 'The first part of the lunch card');
+  }
+
+  String get todayLunchCard2 {
+    return Intl.message('and will end at',
+        name: 'todayLunchCard2', desc: 'The second part of the lunch card');
+  }
+
+  String get todaySchoolCard1 {
+    return Intl.message('School will start for you at',
+        name: 'todaySchoolCard1', desc: 'The first part of the school card');
+  }
+
+  String get todaySchoolCard2 {
+    return Intl.message('and will end at',
+        name: 'todaySchoolCard2', desc: 'The second part of the school card');
+  }
+
+  String get todayClassCard1 {
+    return Intl.message('It is currently',
+        name: 'todayClassCard1', desc: 'The first part of the Class card');
+  }
+
+  String get todayClassCard2 {
+    return Intl.message('and it started at',
+        name: 'todayClassCard2', desc: 'The second part of the class card');
+  }
+
+  String get todayClassCard3 {
+    return Intl.message('and it will end at',
+        name: 'todayClassCard3', desc: 'The third part of the class card');
+  }
+
   //TV page
   String get tvWatch {
     return Intl.message('Watch',
@@ -158,6 +198,176 @@ class AppLocalizations {
     return Intl.message('About',
         name: 'drawerAbout', desc: 'The About button and title of the About Page');
   }
+
+  //Settings
+
+  String get settingsSaveButton {
+    return Intl.message('Save',
+        name: 'settingsSaveButton', desc: 'The save button on any settings page');
+  }
+
+  String get feedbackCardTitle {
+    return Intl.message('Feedback',
+        name: 'feedbackCardTitle', desc: 'The title of the Feedback card on any of the apps pages');
+  }
+
+  String get feedbackCardSubTitle {
+    return Intl.message('Feedback helps us better develop the app.',
+        name: 'feedbackCardSubTitle', desc: 'The title of the Feedback card on any of the apps pages');
+  }
+
+  String get feedbackCardButton {
+    return Intl.message('Send Feedback',
+        name: 'feedbackCardButton', desc: 'The button of the Feedback card on any of the apps pages');
+  }
+
+  String get settingsProfileTitle {
+    return Intl.message('Your Profile',
+        name: 'settingsProfileTitle', desc: 'The title of the profile card of the Settings Page');
+  }
+
+  String get settingsProfileSubTitle {
+    return Intl.message('This is where you edit your name.',
+        name: 'settingsProfileSubTitle', desc: 'The sub title of the profile card of the Settings Page');
+  }
+
+  String get settingsProfileTextBox {
+    return Intl.message('This is where you edit your name.',
+        name: 'settingsProfileTextBox', desc: 'This is whats in the textbox where you edit your name of the profile card of the Settings Page');
+  }
+
+  String get settingsClassesTitle {
+    return Intl.message('Your Classes',
+        name: 'settingsClassesTitle', desc: 'The title of the classes card of the Settings Page');
+  }
+
+  String get settingsClassesSubTitle {
+    return Intl.message('This is where you edit your classes.',
+        name: 'settingsClassesSubTitle', desc: 'The sub title of the classes card of the Settings Page');
+  }
+
+  //Tools
+
+  String get toolsPoweredby {
+    return Intl.message('Tools powered by',
+        name: 'toolsPoweredby', desc: 'Powered by text on cards on the Tools page');
+  }
+
+  String get toolsMore {
+    return Intl.message('More coming soon!',
+        name: 'toolsMore', desc: 'More coming soon! text on cards on the Tools page');
+  }
+
+  String get toolsFDSubTitle {
+    return Intl.message('View Info about your Teachers',
+        name: 'toolsFDSubTitle', desc: 'The sub title of the Faculty Directory button on the Tools page');
+  }
+
+  String get toolsRHSCSubTitle {
+    return Intl.message('Chat with the classmates or the school',
+        name: 'toolsRHSCSubTitle', desc: 'The sub title of the RHS Chat button on the Tools page');
+  }
+
+  String get toolsCCSubTitle {
+    return Intl.message('View who you share your classes with',
+        name: 'toolsCCSubTitle', desc: 'The sub title of the Common Class button on the Tools page');
+  }
+
+  //Faculty Directory
+
+  String get fdTapformore {
+    return Intl.message('Tap for more',
+        name: 'fdTapformore', desc: 'The tap for more text on the card of the teachers on the Faculty Directory page');
+  }
+
+  //About
+
+  String get aboutACb {
+    return Intl.message('App Created by:',
+        name: 'aboutACb', desc: 'The App Created by text on the About page');
+  }
+
+  String get abouticb {
+    return Intl.message('App Icon Created by:',
+        name: 'abouticb', desc: 'The App Icon Created by text on the About page');
+  }
+
+  String get aboutstb {
+    return Intl.message('Spanish translations by:',
+        name: 'aboutstb', desc: 'The Spanish translations by text on the About page');
+  }
+
+  String get aboutASBio1 {
+    return Intl.message('Alison Schwartz is a senior at Redwood High School,',
+        name: 'aboutASBio1', desc: 'The the first part of Alison Schwartz bio on the About page');
+  }
+
+  String get aboutASBio2 {
+    return Intl.message('and professional stressed person™',
+        name: 'aboutASBio2', desc: 'The the second part of Alison Schwartz bio on the About page');
+  }
+
+  String get aboutSF {
+    return Intl.message('Support from',
+        name: 'aboutSF', desc: 'The the Support from text on the About page');
+  }
+
+  String get aboutAB1 {
+    return Intl.message('The Redwood High School app is not an official',
+        name: 'aboutAB1', desc: 'The first line about the app text on the About page');
+  }
+
+  String get aboutAB2 {
+    return Intl.message('school app but was created and is maintained by',
+        name: 'aboutAB2', desc: 'The second line about the app text on the About page');
+  }
+
+  String get aboutAB3 {
+    return Intl.message('Redwood students. The app is also open source!',
+        name: 'aboutAB3', desc: 'The third line about the app text on the About page');
+  }
+
+  String get aboutAB4 {
+    return Intl.message('If you are interested in seeing the code of the',
+        name: 'aboutAB4', desc: 'The forth line about the app text on the About page');
+  }
+
+  String get aboutAB5 {
+    return Intl.message('app or helping with the project you can do so here:',
+        name: 'aboutAB5', desc: 'The Fifth line about the app text on the About page');
+  }
+
+  String get aboutOGPButton {
+    return Intl.message('Open Github Project',
+        name: 'aboutOGPButton', desc: 'The Open Github Project button on the About page');
+  }
+
+  String get aboutOSCButton {
+    return Intl.message('Open Source Licenses',
+        name: 'aboutOSCButton', desc: 'The Open Source Licenses button on the About page');
+  }
+
+  //Discord
+  String get discordJoinButton {
+    return Intl.message('Join!',
+        name: 'discordJoinButton', desc: 'the join button text on cards on the Discord page');
+  }
+
+  String get discordJointhe {
+    return Intl.message('Join the',
+        name: 'discordJointhe', desc: 'the "Join the" text in front of the name of the discord on cards on the Discord page');
+  }
+
+  String get discordisonticSubTitle {
+    return Intl.message('Talk to the team or get support!',
+        name: 'discordisonticSubTitle', desc: 'the sub title of the isontic card on the Discord page');
+  }
+
+  String get discordTeamRHSSubTitle {
+    return Intl.message('Talk to other students at Redwood!',
+        name: 'discordTeamRHSSubTitle', desc: 'the sub title of the isontic card on the Discord page');
+  }
+
 
 }
 
