@@ -72,14 +72,13 @@ class HomePageState extends State<HomePage> {
 
   _STinson() {
     ST = ST + 1;
-    if (ST >= 26){
+    if (ST >= 24) {
       ST = 0;
       final snackBar = new SnackBar(
         content: new Text("sUper STinson sLimey Bois"),
         duration: new Duration(seconds: 3),
         backgroundColor: Colors.black,
-        action: new SnackBarAction(label: 'YEET', onPressed: (){
-        }),
+        action: new SnackBarAction(label: 'YEET', onPressed: () {}),
       );
       Scaffold.of(context).showSnackBar(snackBar);
     }
@@ -111,13 +110,35 @@ class HomePageState extends State<HomePage> {
   final DocumentReference documentReference =
       Firestore.instance.document("a/post1");
 
-  void _fetch() {
+  void _fetch() async {
+    String Body = 'No announcements today! 😃';
+    String Link = 'null';
+    String newBody = 'No announcements today! 😃';
+    String newLink = 'null';
+
+    Timer _timer;
+    _timer = new Timer(const Duration(milliseconds: 100), () {
+      if (prefs.getBool('annBody') == null ||
+          prefs.getBool('annLink') == null) {
+        prefs.setString('annBody', Body);
+        prefs.setString('annLink', Link);
+      }
+    });
+
     documentReference.get().then((datasnapshot) {
       if (datasnapshot.exists) {
-        setState(() {
-          annBody = datasnapshot.data['body'];
-          annLink = datasnapshot.data['link'];
-        });
+        newBody = datasnapshot.data['body'];
+        newLink = datasnapshot.data['link'];
+        if (newBody == Body && newLink == Link) {
+        } else {
+          setState(() {
+            annBody = datasnapshot.data['body'];
+            annLink = datasnapshot.data['link'];
+          });
+
+          prefs.setString('annBody', newBody);
+          prefs.setString('annLink', newLink);
+        }
       }
     });
   }
@@ -126,11 +147,11 @@ class HomePageState extends State<HomePage> {
   void initState() {
     //-- Lets cached info load in before it overrides the page defaults
     Timer _timer;
-    _timer = new Timer(const Duration(milliseconds: 100), () {
+    _timer = new Timer(const Duration(milliseconds: 120), () {
       checkinfo();
+      _fetch();
     });
     //--
-    this._fetch();
     super.initState();
     init();
   }
@@ -154,6 +175,8 @@ class HomePageState extends State<HomePage> {
     sixthPeriod = prefs.getBool('sixthPeriod');
     seventhPeriod = prefs.getBool('seventhPeriod');
     Name = prefs.getString('Name');
+    annBody = prefs.getString('annBody');
+    annLink = prefs.getString('annLink');
     //--
 
     WeekDay = formatted;
@@ -1414,8 +1437,7 @@ class HomePageState extends State<HomePage> {
           children: <Widget>[
             new Text(""),
             new ListTile(
-              title:
-              HoldDetector(
+              title: HoldDetector(
                 onHold: _STinson,
                 holdTimeout: Duration(milliseconds: 500),
                 enableHapticFeedback: false,
@@ -1434,14 +1456,16 @@ class HomePageState extends State<HomePage> {
               onTap: () {
                 launch(annLink);
               },
-              child:
-              new Padding(
+              child: new Padding(
                 padding: new EdgeInsets.only(
-                  left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
+                  left: 8.0,
+                  right: 8.0,
+                  top: 7.0,
+                  bottom: 7.0,
+                ),
                 child: new Material(
                   elevation: 3.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
+                  borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                   child: new Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -1449,8 +1473,8 @@ class HomePageState extends State<HomePage> {
                         title: new Text('Announcements 💬'),
                         subtitle: new Text(
                           '$annBody',
-                          style:
-                          new TextStyle(color: Colors.black.withOpacity(1.0)),
+                          style: new TextStyle(
+                              color: Colors.black.withOpacity(1.0)),
                         ),
                       ),
                     ],
@@ -1466,11 +1490,15 @@ class HomePageState extends State<HomePage> {
               title: new Text('Info about your day.'),
             ),
             new Padding(
-              padding: new EdgeInsets.only(left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
+              padding: new EdgeInsets.only(
+                left: 8.0,
+                right: 8.0,
+                top: 7.0,
+                bottom: 7.0,
+              ),
               child: new Material(
                 elevation: 3.0,
-                borderRadius:
-                new BorderRadius.all(new Radius.circular(10.0)),
+                borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
@@ -1485,11 +1513,15 @@ class HomePageState extends State<HomePage> {
               ),
             ),
             new Padding(
-              padding: new EdgeInsets.only(left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
+              padding: new EdgeInsets.only(
+                left: 8.0,
+                right: 8.0,
+                top: 7.0,
+                bottom: 7.0,
+              ),
               child: new Material(
                 elevation: 3.0,
-                borderRadius:
-                new BorderRadius.all(new Radius.circular(10.0)),
+                borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
@@ -1504,11 +1536,15 @@ class HomePageState extends State<HomePage> {
               ),
             ),
             new Padding(
-              padding: new EdgeInsets.only(left: 8.0, right: 8.0, top: 7.0, bottom: 7.0,),
+              padding: new EdgeInsets.only(
+                left: 8.0,
+                right: 8.0,
+                top: 7.0,
+                bottom: 7.0,
+              ),
               child: new Material(
                 elevation: 3.0,
-                borderRadius:
-                new BorderRadius.all(new Radius.circular(10.0)),
+                borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[

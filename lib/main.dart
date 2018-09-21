@@ -667,7 +667,12 @@ class HomePageState extends State<HomePage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       ListTile(
-                          leading: const Icon(Icons.tv),
+                          leading:
+                          PlatformWidget(
+                            ios: (_) => new Icon(IconData(0xF466, fontFamily: iconFont, fontPackage: iconFontPackage),
+                            ),
+                            android: (_) => new Icon(Icons.tv),
+                          ),
                           title: new Text(Title),
                           trailing:
                           PlatformWidget(
