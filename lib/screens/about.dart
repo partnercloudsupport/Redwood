@@ -126,6 +126,36 @@ class About extends StatelessWidget {
                         ),
                       ],
                     ),
+                    new Text('\nSpanish translations by:',
+                        style: new TextStyle(
+                            color: Colors.white.withOpacity(0.9),
+                            fontSize: 25.0)),
+                    new Text(
+                      'Alison Schwartz',
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: new TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white.withOpacity(0.9),
+                          fontSize: 22.0),
+                    ),
+                    new Text(''),
+                    new Text(
+                      'Alison Schwartz is a senior at Redwood High School,',
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: new TextStyle(
+                          color: Colors.white.withOpacity(0.9),
+                          fontSize: 14.0),
+                    ),
+                    new Text(
+                      'and professional stressed person™',
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: new TextStyle(
+                          color: Colors.white.withOpacity(0.9),
+                          fontSize: 14.0),
+                    ),
                     new Text(
                       '\n\nSupport from',
                       style: new TextStyle(

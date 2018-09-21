@@ -123,12 +123,40 @@ class AppLocalizations {
   }
 
   //TV page
+  String get tvWatch {
+    return Intl.message('Watch',
+        name: 'tvWatch', desc: 'The Watch button on the TV Tab');
+  }
 
+  String get tvViews {
+    return Intl.message('views',
+        name: 'tvViews', desc: 'The views counter on the TV Tab');
+  }
 
   //Drawer
   String get drawerFacultydirectory {
     return Intl.message('Faculty Director',
-        name: 'drawerFacultydirectory', desc: 'The card name for the Announcements card right befor the emoji');
+        name: 'drawerFacultydirectory', desc: 'The Faculty Director button and title of the Faculty Director Page');
+  }
+
+  String get drawerSchoolMap {
+    return Intl.message('School Map',
+        name: 'drawerSchoolMap', desc: 'The School Map button and title of the School Map Page');
+  }
+
+  String get drawerSettings {
+    return Intl.message('Settings',
+        name: 'drawerSettings', desc: 'The Settings button and title of the Settings Page');
+  }
+
+  String get drawerTools {
+    return Intl.message('Tools',
+        name: 'drawerTools', desc: 'The Tools button and title of the Tools Page');
+  }
+
+  String get drawerAbout {
+    return Intl.message('About',
+        name: 'drawerAbout', desc: 'The About button and title of the About Page');
   }
 
 }
