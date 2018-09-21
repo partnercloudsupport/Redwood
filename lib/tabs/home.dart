@@ -128,7 +128,7 @@ class HomePageState extends State<HomePage> {
                               onPressed: _openMonday,),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Monday',
+                              'Monday (All Periods)',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -145,7 +145,7 @@ class HomePageState extends State<HomePage> {
                         title: new PlatformWidget(
                           ios: (_) => CupertinoButton(
                             child: new Text(
-                              'Tuesday)',
+                              'Tuesday',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -154,7 +154,7 @@ class HomePageState extends State<HomePage> {
                           ),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Tuesday',
+                              'Tuesday (All Periods)',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -179,7 +179,7 @@ class HomePageState extends State<HomePage> {
                             onPressed: _openWednesday,),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Wednesday',
+                              'Wednesday (Block Schedule)',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -204,7 +204,7 @@ class HomePageState extends State<HomePage> {
                             onPressed: _openThursday,),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Thursday',
+                              'Thursday (Block Schedule)',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -229,7 +229,7 @@ class HomePageState extends State<HomePage> {
                             onPressed: _openFriday,),
                           android: (_) => new RaisedButton(
                             child: new Text(
-                              'Friday',
+                              'Friday (All Periods)',
                               style: new TextStyle(
                                   color: Colors.white.withOpacity(0.9)),
                             ),
@@ -260,78 +260,128 @@ class HomePageState extends State<HomePage> {
                         title: new Text('Special Days'),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'First Week of School',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                            child: new Text(
+                              'First Week of School',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Colors.red,
+                            onPressed: _openFirstWeek,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'First Week of School',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openFirstWeek,
                           ),
-                          color: Theme.of(context).accentColor,
-                          elevation: 4.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          splashColor: Colors.grey,
-                          onPressed: _openFirstWeek,
                         ),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'RALLY Thursday',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                            child: new Text(
+                              'RALLY Thursday',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Colors.red,
+                            onPressed: _openRALLYThursday,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'RALLY Thursday',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openRALLYThursday,
                           ),
-                          color: Theme.of(context).accentColor,
-                          elevation: 4.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          splashColor: Colors.grey,
-                          onPressed: _openRALLYThursday,
                         ),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'ASSEMBLY Thursday',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                            child: new Text(
+                              'ASSEMBLY Thursday',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Colors.red,
+                            onPressed: _openASSEMBLYThursday,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'ASSEMBLY Thursday',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openASSEMBLYThursday,
                           ),
-                          color: Theme.of(context).accentColor,
-                          elevation: 4.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          splashColor: Colors.grey,
-                          onPressed: _openASSEMBLYThursday,
                         ),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'Minimum Day (Wednesday or Friday) *',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                            child: new Text(
+                              'Minimum Day (Wednesday or Friday) *',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Colors.red,
+                            onPressed: _openMinimumDay,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'Minimum Day (Wednesday or Friday) *',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openMinimumDay,
                           ),
-                          color: Theme.of(context).accentColor,
-                          elevation: 4.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          splashColor: Colors.grey,
-                          onPressed: _openMinimumDay,
                         ),
                       ),
                       new ListTile(
-                        title: new RaisedButton(
-                          child: new Text(
-                            'Thursday following a Minimum Wed. or before a Minimum Friday*',
-                            style: new TextStyle(
-                                color: Colors.white.withOpacity(0.9)),
+                        title: new PlatformWidget(
+                          ios: (_) => CupertinoButton(
+                            child: new Text(
+                              'Thursday following a Minimum Wed. or before a Minimum Friday*',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Colors.red,
+                            onPressed: _openFllowingAMin,),
+                          android: (_) => new RaisedButton(
+                            child: new Text(
+                              'Thursday following a Minimum Wed. or before a Minimum Friday*',
+                              style: new TextStyle(
+                                  color: Colors.white.withOpacity(0.9)),
+                            ),
+                            color: Theme.of(context).accentColor,
+                            elevation: 4.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            splashColor: Colors.grey,
+                            onPressed: _openFllowingAMin,
                           ),
-                          color: Theme.of(context).accentColor,
-                          elevation: 4.0,
-                          shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0)),
-                          splashColor: Colors.grey,
-                          onPressed: _openFllowingAMin,
                         ),
                       ),
                       new Text('\n'),

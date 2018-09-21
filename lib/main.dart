@@ -299,6 +299,9 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
     _tabController.dispose();
   }
 
+  static const String iconFont = 'CupertinoIcons';
+  static const String iconFontPackage = 'cupertino_icons';
+
   @override
   Widget build(BuildContext context) => new Scaffold(
         //App Bar
@@ -325,12 +328,20 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
             currentIndex: _tab,
             onTap: onTap,
             activeColor: Colors.redAccent,
-            items: TabItems.map((TabItem) {
-              return new BottomNavigationBarItem(
-                title: new Text(TabItem.title),
-                icon: new Icon(TabItem.icon),
-              );
-            }).toList(),
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(IconData(0xF39B, fontFamily: iconFont, fontPackage: iconFontPackage)),
+                  title: Text('Bells'),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(IconData(0xF3E6, fontFamily: iconFont, fontPackage: iconFontPackage)),
+                  title: Text('Today'),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(IconData(0xF466, fontFamily: iconFont, fontPackage: iconFontPackage)),
+                  title: Text('TV'),
+                ),
+              ],
           ),
           android: (_) => new BottomNavigationBar(
             currentIndex: _tab,
@@ -633,6 +644,9 @@ class HomePageState extends State<HomePage> {
     Share.share('Redwood TV ' + '$Title: ' + '$VURL');
   }
 
+  static const String iconFont = 'CupertinoIcons';
+  static const String iconFontPackage = 'cupertino_icons';
+
   @override
   Widget build(BuildContext context) {
     if (video == true) {
@@ -655,11 +669,20 @@ class HomePageState extends State<HomePage> {
                       ListTile(
                           leading: const Icon(Icons.tv),
                           title: new Text(Title),
-                          trailing: new IconButton(
-                            icon: new Icon(Icons.share),
-                            tooltip: 'Share URL',
-                            onPressed: share,
-                          )),
+                          trailing:
+                          PlatformWidget(
+                            ios: (_) => new IconButton(
+                              icon: new Icon(IconData(0xF4CA, fontFamily: iconFont, fontPackage: iconFontPackage)),
+                              tooltip: 'Share URL',
+                              onPressed: share,
+                            ),
+                            android: (_) => new IconButton(
+                              icon: new Icon(Icons.share),
+                              tooltip: 'Share URL',
+                              onPressed: share,
+                            ),
+                          ),
+                          ),
                       new Container(
                         width: 370.0,
                         height: 200.0,
@@ -682,14 +705,26 @@ class HomePageState extends State<HomePage> {
                             color: Colors.grey.withOpacity(1.0),
                           ),
                         ),
-                        trailing: new FlatButton(
-                          child: new Text(
-                            'Watch',
-                            style: new TextStyle(
-                              color: Colors.red.withOpacity(1.0),
+                        trailing:
+                        PlatformWidget(
+                          ios: (_) => new FlatButton(
+                            child: new Text(
+                              'Watch',
+                              style: new TextStyle(
+                                color: Colors.red.withOpacity(1.0),
+                              ),
                             ),
+                            onPressed: playYoutubeVideo,
                           ),
-                          onPressed: playYoutubeVideo,
+                          android: (_) => new FlatButton(
+                            child: new Text(
+                              'Watch',
+                              style: new TextStyle(
+                                color: Colors.red.withOpacity(1.0),
+                              ),
+                            ),
+                            onPressed: playYoutubeVideo,
+                          ),
                         ),
                       ),
                     ],
