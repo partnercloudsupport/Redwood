@@ -36,6 +36,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:share/share.dart';
 //import 'package:vibrate/vibrate.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'localizations.dart';
 
 void main() => runApp(new MaterialApp(
       //-- This is the name of the app
@@ -111,10 +112,7 @@ void main() => runApp(new MaterialApp(
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      supportedLocales: [
-        const Locale('en', 'US'), // English
-        // ... other locales the app supports
-      ],
+      supportedLocales: [Locale("en", ""), Locale("es", "")],
       // routes: <String, WidgetBuilder> {
       //   '/about': (BuildContext context) => new _aboutPage.About(),
       // }
