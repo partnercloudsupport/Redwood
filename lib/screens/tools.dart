@@ -8,6 +8,7 @@ class Tools extends StatelessWidget {
         //App Bar
         appBar: new AppBar(
           title: new Text('Tools'),
+          elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs

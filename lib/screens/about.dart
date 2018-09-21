@@ -11,6 +11,7 @@ class About extends StatelessWidget {
           title: new Text(
             'About'
           ),
+          elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs

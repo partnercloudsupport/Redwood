@@ -12,6 +12,7 @@ class Directory extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Faculty Directory"),
+          elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
         body: Container(
           child: ContactList(kContacts),
