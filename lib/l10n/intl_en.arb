@@ -1,13 +1,398 @@
 {
-  "@@last_modified": "2018-09-20T21:50:26.613767",
-  "title": "Hello world App",
-  "@title": {
-    "description": "The application title",
+  "@@last_modified": "2018-09-21T12:25:30.958368",
+  "bottomNavbarbellsbutton": "Bells",
+  "@bottomNavbarbellsbutton": {
+    "description": "The button of Bells tab on the Bottom Nav bar buttons",
     "type": "text",
     "placeholders": {}
   },
-  "hello": "Hello",
-  "@hello": {
+  "bottomNavbarTodaybutton": "Today",
+  "@bottomNavbarTodaybutton": {
+    "description": "The button of Today tab on the Bottom Nav bar buttons",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bottomNavbarTVbutton": "TV",
+  "@bottomNavbarTVbutton": {
+    "description": "The button of TV tab on the Bottom Nav bar buttons",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsTitle1": "Normal School Week",
+  "@bellsTitle1": {
+    "description": "The title of the first card on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsTitle2": "Special Days",
+  "@bellsTitle2": {
+    "description": "The title of the second card on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsMondayButton": "Monday",
+  "@bellsMondayButton": {
+    "description": "The button of Monday on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsTuesdayButton": "Tuesday",
+  "@bellsTuesdayButton": {
+    "description": "The button of Tuesday on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsWednesdayButton": "Wednesday",
+  "@bellsWednesdayButton": {
+    "description": "The button of Wednesday on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsThursdayButton": "Thursday",
+  "@bellsThursdayButton": {
+    "description": "The button of Thursday on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsFridayButton": "Friday",
+  "@bellsFridayButton": {
+    "description": "The button of Friday on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsFirstWeekofSchoolButton": "First Week of School",
+  "@bellsFirstWeekofSchoolButton": {
+    "description": "The button of FirstWeekofSchool on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsRALLYThursdayButton": "RALLY Thursday",
+  "@bellsRALLYThursdayButton": {
+    "description": "The button of RALLYThursday on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsASSEMBLYThursdayButton": "ASSEMBLY Thursday",
+  "@bellsASSEMBLYThursdayButton": {
+    "description": "The button of ASSEMBLYThursday on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsMinimumDayButton": "Minimum Day (Wednesday or Friday) *",
+  "@bellsMinimumDayButton": {
+    "description": "The button of MinimumDay on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsfollowingorbeforeMinimumDayButton": "Thursday following a Minimum Wed. or before a Minimum Friday *",
+  "@bellsfollowingorbeforeMinimumDayButton": {
+    "description": "The button of following or before MinimumDay on the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsbottomCard1": "For weeks with three or fewer student days, there will be no block periods (only 7-period days).",
+  "@bellsbottomCard1": {
+    "description": "The first part of the card on the bottom of the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "bellsbottomCard2": "* Week with a Minimum Wednesday or Minimum Friday day has an altered Wednesday and Thursday or Friday and Thursday schedule as listed.",
+  "@bellsbottomCard2": {
+    "description": "The second part of the card on the bottom of the Bells Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todayHello": "Hello",
+  "@todayHello": {
+    "description": "The Hello part right before their name.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todayAnnouncements": "Announcements",
+  "@todayAnnouncements": {
+    "description": "The card name for the Announcements card right befor the emoji",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todayInfo": "Info about your day.",
+  "@todayInfo": {
+    "description": "The card name for the Announcements card right befor the emoji",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todayLunchCard1": "Lunch will be at",
+  "@todayLunchCard1": {
+    "description": "The first part of the lunch card",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todayLunchCard2": "and will end at",
+  "@todayLunchCard2": {
+    "description": "The second part of the lunch card",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todaySchoolCard1": "School will start for you at",
+  "@todaySchoolCard1": {
+    "description": "The first part of the school card",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todaySchoolCard2": "and will end at",
+  "@todaySchoolCard2": {
+    "description": "The second part of the school card",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todayClassCard1": "It is currently",
+  "@todayClassCard1": {
+    "description": "The first part of the Class card",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todayClassCard2": "and it started at",
+  "@todayClassCard2": {
+    "description": "The second part of the class card",
+    "type": "text",
+    "placeholders": {}
+  },
+  "todayClassCard3": "and it will end at",
+  "@todayClassCard3": {
+    "description": "The third part of the class card",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tvWatch": "Watch",
+  "@tvWatch": {
+    "description": "The Watch button on the TV Tab",
+    "type": "text",
+    "placeholders": {}
+  },
+  "tvViews": "views",
+  "@tvViews": {
+    "description": "The views counter on the TV Tab",
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerFacultydirectory": "Faculty Director",
+  "@drawerFacultydirectory": {
+    "description": "The Faculty Director button and title of the Faculty Director Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerSchoolMap": "School Map",
+  "@drawerSchoolMap": {
+    "description": "The School Map button and title of the School Map Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerSettings": "Settings",
+  "@drawerSettings": {
+    "description": "The Settings button and title of the Settings Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerTools": "Tools",
+  "@drawerTools": {
+    "description": "The Tools button and title of the Tools Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "drawerAbout": "About",
+  "@drawerAbout": {
+    "description": "The About button and title of the About Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingsSaveButton": "Save",
+  "@settingsSaveButton": {
+    "description": "The save button on any settings page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackCardTitle": "Feedback",
+  "@feedbackCardTitle": {
+    "description": "The title of the Feedback card on any of the apps pages",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackCardSubTitle": "Feedback helps us better develop the app.",
+  "@feedbackCardSubTitle": {
+    "description": "The title of the Feedback card on any of the apps pages",
+    "type": "text",
+    "placeholders": {}
+  },
+  "feedbackCardButton": "Send Feedback",
+  "@feedbackCardButton": {
+    "description": "The button of the Feedback card on any of the apps pages",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingsProfileTitle": "Your Profile",
+  "@settingsProfileTitle": {
+    "description": "The title of the profile card of the Settings Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingsProfileSubTitle": "This is where you edit your name.",
+  "@settingsProfileSubTitle": {
+    "description": "The sub title of the profile card of the Settings Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingsProfileTextBox": "This is where you edit your name.",
+  "@settingsProfileTextBox": {
+    "description": "This is whats in the textbox where you edit your name of the profile card of the Settings Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingsClassesTitle": "Your Classes",
+  "@settingsClassesTitle": {
+    "description": "The title of the classes card of the Settings Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "settingsClassesSubTitle": "This is where you edit your classes.",
+  "@settingsClassesSubTitle": {
+    "description": "The sub title of the classes card of the Settings Page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "toolsPoweredby": "Tools powered by",
+  "@toolsPoweredby": {
+    "description": "Powered by text on cards on the Tools page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "toolsMore": "More coming soon!",
+  "@toolsMore": {
+    "description": "More coming soon! text on cards on the Tools page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "toolsFDSubTitle": "View Info about your Teachers",
+  "@toolsFDSubTitle": {
+    "description": "The sub title of the Faculty Directory button on the Tools page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "toolsRHSCSubTitle": "Chat with the classmates or the school",
+  "@toolsRHSCSubTitle": {
+    "description": "The sub title of the RHS Chat button on the Tools page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "toolsCCSubTitle": "View who you share your classes with",
+  "@toolsCCSubTitle": {
+    "description": "The sub title of the Common Class button on the Tools page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "fdTapformore": "Tap for more",
+  "@fdTapformore": {
+    "description": "The tap for more text on the card of the teachers on the Faculty Directory page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutACb": "App Created by:",
+  "@aboutACb": {
+    "description": "The App Created by text on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "abouticb": "App Icon Created by:",
+  "@abouticb": {
+    "description": "The App Icon Created by text on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutstb": "Spanish translations by:",
+  "@aboutstb": {
+    "description": "The Spanish translations by text on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutASBio1": "Alison Schwartz is a senior at Redwood High School,",
+  "@aboutASBio1": {
+    "description": "The the first part of Alison Schwartz bio on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutASBio2": "and professional stressed person™",
+  "@aboutASBio2": {
+    "description": "The the second part of Alison Schwartz bio on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutSF": "Support from",
+  "@aboutSF": {
+    "description": "The the Support from text on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutAB1": "The Redwood High School app is not an official",
+  "@aboutAB1": {
+    "description": "The first line about the app text on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutAB2": "school app but was created and is maintained by",
+  "@aboutAB2": {
+    "description": "The second line about the app text on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutAB3": "Redwood students. The app is also open source!",
+  "@aboutAB3": {
+    "description": "The third line about the app text on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutAB4": "If you are interested in seeing the code of the",
+  "@aboutAB4": {
+    "description": "The forth line about the app text on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutAB5": "app or helping with the project you can do so here:",
+  "@aboutAB5": {
+    "description": "The Fifth line about the app text on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutOGPButton": "Open Github Project",
+  "@aboutOGPButton": {
+    "description": "The Open Github Project button on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "aboutOSCButton": "Open Source Licenses",
+  "@aboutOSCButton": {
+    "description": "The Open Source Licenses button on the About page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "discordJoinButton": "Join!",
+  "@discordJoinButton": {
+    "description": "the join button text on cards on the Discord page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "discordJointhe": "Join the",
+  "@discordJointhe": {
+    "description": "the \"Join the\" text in front of the name of the discord on cards on the Discord page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "discordisonticSubTitle": "Talk to the team or get support!",
+  "@discordisonticSubTitle": {
+    "description": "the sub title of the isontic card on the Discord page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "discordTeamRHSSubTitle": "Talk to other students at Redwood!",
+  "@discordTeamRHSSubTitle": {
+    "description": "the sub title of the isontic card on the Discord page",
     "type": "text",
     "placeholders": {}
   }

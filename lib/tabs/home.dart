@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_villains/villain.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:redwood/localizations.dart';
 
 class Home extends StatelessWidget {
   @override

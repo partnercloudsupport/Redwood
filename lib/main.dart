@@ -34,6 +34,7 @@ import 'package:flutter_villains/villain.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:share/share.dart';
+
 //import 'package:vibrate/vibrate.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'localizations.dart';
@@ -108,9 +109,9 @@ void main() => runApp(new MaterialApp(
       },
 
       localizationsDelegates: [
-        // ... app-specific localization delegate[s] here
+        AppLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
       ],
       supportedLocales: [Locale("en", ""), Locale("es", "")],
       // routes: <String, WidgetBuilder> {
@@ -303,10 +304,10 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) => new Scaffold(
         //App Bar
-        appBar:
-        new AppBar(
+        appBar: new AppBar(
           title: new Text(_title_app),
-          elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
+          elevation:
+              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         ),
 
         //Content of tabs
@@ -323,36 +324,38 @@ class TabsState extends State<Tabs> with TickerProviderStateMixin {
         //Tabs
         bottomNavigationBar: new PlatformWidget(
           ios: (_) => CupertinoTabBar(
-            currentIndex: _tab,
-            onTap: onTap,
-            activeColor: Colors.redAccent,
-              items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(IconData(0xF39B, fontFamily: iconFont, fontPackage: iconFontPackage)),
-                  title: Text('Bells'),
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(IconData(0xF3E6, fontFamily: iconFont, fontPackage: iconFontPackage)),
-                  title: Text('Today'),
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(IconData(0xF466, fontFamily: iconFont, fontPackage: iconFontPackage)),
-                  title: Text('TV'),
-                ),
-              ],
-          ),
+                currentIndex: _tab,
+                onTap: onTap,
+                activeColor: Colors.redAccent,
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(IconData(0xF39B,
+                        fontFamily: iconFont, fontPackage: iconFontPackage)),
+                    title: Text('Bells'),
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(IconData(0xF3E6,
+                        fontFamily: iconFont, fontPackage: iconFontPackage)),
+                    title: Text('Today'),
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(IconData(0xF466,
+                        fontFamily: iconFont, fontPackage: iconFontPackage)),
+                    title: Text('TV'),
+                  ),
+                ],
+              ),
           android: (_) => new BottomNavigationBar(
-            currentIndex: _tab,
-            onTap: onTap,
-            items: TabItems.map((TabItem) {
-              return new BottomNavigationBarItem(
-                title: new Text(TabItem.title),
-                icon: new Icon(TabItem.icon),
-              );
-            }).toList(),
-          ),
+                currentIndex: _tab,
+                onTap: onTap,
+                items: TabItems.map((TabItem) {
+                  return new BottomNavigationBarItem(
+                    title: new Text(TabItem.title),
+                    icon: new Icon(TabItem.icon),
+                  );
+                }).toList(),
+              ),
         ),
-
 
         //Drawer
         drawer: new Drawer(
@@ -665,27 +668,30 @@ class HomePageState extends State<HomePage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       ListTile(
-                          leading:
-                          PlatformWidget(
-                            ios: (_) => new Icon(IconData(0xF466, fontFamily: iconFont, fontPackage: iconFontPackage),
-                            ),
-                            android: (_) => new Icon(Icons.tv),
-                          ),
-                          title: new Text(Title),
-                          trailing:
-                          PlatformWidget(
-                            ios: (_) => new IconButton(
-                              icon: new Icon(IconData(0xF4CA, fontFamily: iconFont, fontPackage: iconFontPackage)),
-                              tooltip: 'Share URL',
-                              onPressed: share,
-                            ),
-                            android: (_) => new IconButton(
-                              icon: new Icon(Icons.share),
-                              tooltip: 'Share URL',
-                              onPressed: share,
-                            ),
-                          ),
-                          ),
+                        leading: PlatformWidget(
+                          ios: (_) => new Icon(
+                                IconData(0xF466,
+                                    fontFamily: iconFont,
+                                    fontPackage: iconFontPackage),
+                              ),
+                          android: (_) => new Icon(Icons.tv),
+                        ),
+                        title: new Text(Title),
+                        trailing: PlatformWidget(
+                          ios: (_) => new IconButton(
+                                icon: new Icon(IconData(0xF4CA,
+                                    fontFamily: iconFont,
+                                    fontPackage: iconFontPackage)),
+                                tooltip: 'Share URL',
+                                onPressed: share,
+                              ),
+                          android: (_) => new IconButton(
+                                icon: new Icon(Icons.share),
+                                tooltip: 'Share URL',
+                                onPressed: share,
+                              ),
+                        ),
+                      ),
                       new Container(
                         width: 370.0,
                         height: 200.0,
@@ -708,26 +714,25 @@ class HomePageState extends State<HomePage> {
                             color: Colors.grey.withOpacity(1.0),
                           ),
                         ),
-                        trailing:
-                        PlatformWidget(
+                        trailing: PlatformWidget(
                           ios: (_) => new FlatButton(
-                            child: new Text(
-                              'Watch',
-                              style: new TextStyle(
-                                color: Colors.red.withOpacity(1.0),
+                                child: new Text(
+                                  'Watch',
+                                  style: new TextStyle(
+                                    color: Colors.red.withOpacity(1.0),
+                                  ),
+                                ),
+                                onPressed: playYoutubeVideo,
                               ),
-                            ),
-                            onPressed: playYoutubeVideo,
-                          ),
                           android: (_) => new FlatButton(
-                            child: new Text(
-                              'Watch',
-                              style: new TextStyle(
-                                color: Colors.red.withOpacity(1.0),
+                                child: new Text(
+                                  'Watch',
+                                  style: new TextStyle(
+                                    color: Colors.red.withOpacity(1.0),
+                                  ),
+                                ),
+                                onPressed: playYoutubeVideo,
                               ),
-                            ),
-                            onPressed: playYoutubeVideo,
-                          ),
                         ),
                       ),
                     ],
@@ -737,8 +742,10 @@ class HomePageState extends State<HomePage> {
             ],
           ),
         );
-      };
-    };
+      }
+      ;
+    }
+    ;
     //Loading Screen for Today Page
     if (video == false) {
       if (_connectionStatus == 'ConnectivityResult.wifi' ||
@@ -759,41 +766,38 @@ class HomePageState extends State<HomePage> {
     //-- If there is no Connection is displays this page
     if (_connectionStatus == 'ConnectivityResult.none') {
       return new Scaffold(
-        body: new Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              new Padding(
-                padding: new EdgeInsets.all(8.0),
-                child: new Material(
-                  elevation: 8.0,
-                  borderRadius:
-                  new BorderRadius.all(new Radius.circular(10.0)),
-                  child: new Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      new ListTile(
-                        title: new Text('No Network Connection'),
-                        subtitle: new Text(
-                          'You\'re not connected to the Internet. Check your connection and try again.',
-                          style: new TextStyle(
-                              color: Colors.grey.withOpacity(0.9),
-                              fontSize: 12.0),
-                        ),
-                      ),
-                      new Image.asset(
-                        'ni.jpg',
-                        height: 276.0,
-                        width: 197.0,
-                      ),
-                      new Text('\n')
-                    ],
+          body: new Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          new Padding(
+            padding: new EdgeInsets.all(8.0),
+            child: new Material(
+              elevation: 8.0,
+              borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    title: new Text('No Network Connection'),
+                    subtitle: new Text(
+                      'You\'re not connected to the Internet. Check your connection and try again.',
+                      style: new TextStyle(
+                          color: Colors.grey.withOpacity(0.9), fontSize: 12.0),
+                    ),
                   ),
-                ),
+                  new Image.asset(
+                    'ni.jpg',
+                    height: 276.0,
+                    width: 197.0,
+                  ),
+                  new Text('\n')
+                ],
               ),
-            ],
-          )
-      );
+            ),
+          ),
+        ],
+      ));
     }
     ;
   }
